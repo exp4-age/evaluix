@@ -1,12 +1,5 @@
-# Include all .ui files
-recursive-include src *.ui
-
-# Include all image files (e.g., .png, .jpg, .svg)
-recursive-include src *.png
-
-# Include all yaml files
-recursive-include src *.yaml
-
-# Include other necessary files
 include README.md
 include LICENSE
+recursive-include src/evaluix/ui *.ui
+recursive-include src/evaluix/Icons *.png *.jpg *.svg
+recursive-include src/evaluix *.yaml

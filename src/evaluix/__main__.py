@@ -2592,6 +2592,7 @@ class MainWindow(QMainWindow):
                 
                 # save the unit if there is any
                 unit = _data.unit if hasattr(_data, 'unit') else None
+                print(f"unit: {unit}")
 
                 # extract the keyword arguments and their values from the yaml file as input for the function
                 kwargs_yaml = copy.deepcopy(ProfileConfig['function_info'][func.__name__])
