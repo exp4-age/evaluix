@@ -1,0 +1,3429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>840</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>25</red>
+        <green>35</green>
+        <blue>45</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="font">
+   <font>
+    <family>Segoe UI</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Evaluix2 - Alpha</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="Obelix">
+    <normaloff>.</normaloff>.</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(25, 35, 45);
+color: rgb(255, 255, 255);
+border-color: rgb(200, 200, 200);
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_26">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tab_main">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="128">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="128">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>25</red>
+            <green>35</green>
+            <blue>45</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="128">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabBar {
+border-color: rgb(200, 200, 200);
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+background-color: rgb(45, 55, 65);
+}
+
+QToolTip {
+    color: white;
+    border: 1px solid black;
+}
+
+QTabWidget::pane {
+border: 0;
+}</string>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Triangular</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideLeft</enum>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="tab_hys">
+       <attribute name="title">
+        <string>Hysteresis</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item row="0" column="0" colspan="2">
+         <widget class="QTabWidget" name="tab_hys_sep">
+          <property name="styleSheet">
+           <string notr="true">QTabBar {
+border-color: rgb(200, 200, 200);
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+background-color: rgb(45, 55, 65);
+}
+
+QToolTip {
+    color: white;
+    border: 1px solid black;
+}
+
+QTabWidget::pane {
+border: 0;
+}</string>
+          </property>
+          <property name="tabPosition">
+           <enum>QTabWidget::North</enum>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Triangular</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="elideMode">
+           <enum>Qt::ElideLeft</enum>
+          </property>
+          <property name="tabsClosable">
+           <bool>false</bool>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="tab_hys_single">
+           <attribute name="title">
+            <string>Single Hysteresis</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="1" column="2">
+             <widget class="QGroupBox" name="hys_results_panel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>4</horstretch>
+                <verstretch>2</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Evaluation Results</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_15">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="1" column="0" colspan="3">
+                <widget class="QTabWidget" name="hys_results_tab">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>8</horstretch>
+                   <verstretch>8</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QTabBar {
+border-color: rgb(200, 200, 200);
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+background-color: rgb(45, 55, 65);
+}
+
+QToolTip {
+    color: white;
+    border: 1px solid black;
+}
+
+QTabWidget::pane {
+border: 0;
+}</string>
+                 </property>
+                 <property name="tabShape">
+                  <enum>QTabWidget::Triangular</enum>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <property name="elideMode">
+                  <enum>Qt::ElideLeft</enum>
+                 </property>
+                 <property name="movable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="hys_results_report_tab">
+                  <attribute name="title">
+                   <string>Results</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_27">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QScrollArea" name="hys_results_report_scroll">
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="ResultsTable" name="hys_results_report">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>413</width>
+                        <height>308</height>
+                       </rect>
+                      </property>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="hys_fit_data_points">
+                  <attribute name="title">
+                   <string>Fit data points</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_32">
+                   <property name="leftMargin">
+                    <number>4</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>4</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>4</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>4</number>
+                   </property>
+                   <item row="1" column="1">
+                    <spacer name="verticalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="0" column="0" rowspan="2">
+                    <widget class="FitPointsTable" name="hys_fit_points_table">
+                     <property name="styleSheet">
+                      <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QCheckBox" name="hys_fit_points_display">
+                     <property name="text">
+                      <string>Display?</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="hys_fit_report_tab">
+                  <attribute name="title">
+                   <string>Fit report</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_10">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QScrollArea" name="hys_fit_report_scroll">
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="FitReportTable" name="hys_fit_report">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>413</width>
+                        <height>308</height>
+                       </rect>
+                      </property>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QComboBox" name="hys_choose_evalmodel">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>17</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="hys_results_label">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>1</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Choose a data package and an eval model</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <spacer name="horizontalSpacer_11">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Preferred</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>10</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QGroupBox" name="hys_metadata_panel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>4</horstretch>
+                <verstretch>6</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Loaded data</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="hys_btn_load_data">
+                 <property name="toolTip">
+                  <string>Load in new data with the dataformat given by the dropdown menu</string>
+                 </property>
+                 <property name="text">
+                  <string>Load data</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="6">
+                <widget class="DragDropTableWidget" name="hys_table_metadata">
+                 <property name="acceptDrops">
+                  <bool>true</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QPushButton" name="hys_btn_update_all">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Updates all tables, the status bar and the figure canvas</string>
+                 </property>
+                 <property name="text">
+                  <string>Update</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="hys_del_dataset">
+                 <property name="toolTip">
+                  <string>Delete the choosen dataset </string>
+                 </property>
+                 <property name="text">
+                  <string>del selected</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="hys_del_all_dataset">
+                 <property name="text">
+                  <string>del all</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QComboBox" name="hys_load_dataformat">
+                 <property name="toolTip">
+                  <string>Dropdown menu to choose dataformat for file dropdown and load button to the left</string>
+                 </property>
+                 <property name="currentText">
+                  <string>MOKE</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>MOKE</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>VSM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kerr</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>AFM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>SRIM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>MUMAX3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kerr_imgs</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" rowspan="2">
+             <widget class="QGroupBox" name="hys_data_panel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>5</horstretch>
+                <verstretch>4</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Data display</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="5" column="0" colspan="4">
+                <widget class="ExportTableWidget" name="hys_table_data">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>5</horstretch>
+                   <verstretch>5</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectColumns</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QPushButton" name="hys_preserve_current_datapgk">
+                 <property name="text">
+                  <string>Preserve current datapkg</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="hys_label_xdata">
+                 <property name="text">
+                  <string>Choose active xdata</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QComboBox" name="hys_data_xdata">
+                 <property name="toolTip">
+                  <string>Choose the active data (for plotting as well as data manipulation)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="4">
+                <widget class="QTabWidget" name="hys_tab_plotandaontent">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>5</horstretch>
+                   <verstretch>8</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QTabBar {
+border-color: rgb(200, 200, 200);
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+background-color: rgb(45, 55, 65);
+}
+
+QToolTip {
+    color: white;
+    border: 1px solid black;
+}
+
+QTabWidget::pane {
+border: 0;
+}</string>
+                 </property>
+                 <property name="tabShape">
+                  <enum>QTabWidget::Triangular</enum>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <property name="elideMode">
+                  <enum>Qt::ElideLeft</enum>
+                 </property>
+                 <property name="movable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="hys_tab_plot">
+                  <attribute name="title">
+                   <string>Plot</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_17">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QWidget" name="hys_canvas_placeholder" native="true">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>5</horstretch>
+                       <verstretch>8</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="hys_tab_plotcontent">
+                  <attribute name="title">
+                   <string>Data content in plot</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_18">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="hys_del_preserved_content">
+                     <property name="text">
+                      <string>Del data from
+preservation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <spacer name="verticalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="0" column="0" rowspan="2">
+                    <widget class="ExportTableWidget" name="hys_table_plot_content">
+                     <property name="styleSheet">
+                      <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                     </property>
+                     <property name="selectionBehavior">
+                      <enum>QAbstractItemView::SelectRows</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1" rowspan="2">
+             <widget class="QGroupBox" name="hys_control_panel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>4</horstretch>
+                <verstretch>6</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Control Panel</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="5" column="5">
+                <widget class="QPushButton" name="pushButton_3">
+                 <property name="text">
+                  <string>apply Macro
+to all*</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="4">
+                <widget class="QPushButton" name="pushButton">
+                 <property name="text">
+                  <string>transfer log
+to Macro*</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="5">
+                <widget class="QCheckBox" name="checkBox">
+                 <property name="text">
+                  <string>apply Macro
+ upon loading</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="4">
+                <widget class="QPushButton" name="pushButton_2">
+                 <property name="text">
+                  <string>apply Macro*</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" colspan="5">
+                <widget class="QWidget" name="hys_button_grid" native="true">
+                 <layout class="QGridLayout" name="gridLayout_33">
+                  <item row="0" column="0">
+                   <widget class="InfoSettingsButton" name="btn_hys_del_outliers">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>54</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Automatized deletion of outliers (del_outliers, not yet)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_del_outliers.png</normaloff>../DrawingsAndIcons/icon_hys_del_outliers.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="InfoSettingsButton" name="btn_hys_smooth">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Smoothing of data with a Savitzky-Golay filter (smoothing1d)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_noise_reduction.png</normaloff>../DrawingsAndIcons/icon_hys_noise_reduction.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="InfoSettingsButton" name="btn_hys_faraday">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Polynomially straightened saturation (poly_bkg_subtr)</string>
+                    </property>
+                    <property name="text">
+                     <string>Faraday 
+correction*</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="InfoSettingsButton" name="btn_hys_norm">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Hysteresis normalization (hys_norm)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_norm_white.png</normaloff>../DrawingsAndIcons/icon_hys_norm_white.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="InfoSettingsButton" name="btn_hys_rmv_opening">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Removal of opening (rmv_opening)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_rmv_opening.png</normaloff>../DrawingsAndIcons/icon_hys_rmv_opening.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="InfoSettingsButton" name="btn_hys_slope">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Slope correction (slope_correction)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_slope_corr.png</normaloff>../DrawingsAndIcons/icon_hys_slope_corr.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="InfoSettingsButton" name="btn_hys_integrate">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Numerical integration of area in the Hysteresis (num_integrate)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_num_integral.png</normaloff>../DrawingsAndIcons/icon_hys_num_integral.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="InfoSettingsButton" name="btn_hys_arctan_fit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Fit of hysteresis with an arctan (arctan_fit)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_ArctanEval.png</normaloff>../DrawingsAndIcons/icon_hys_ArctanEval.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="InfoSettingsButton" name="btn_hys_darctan_fit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Fit of hysteresis with two arctan (darctan_fit)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_DoubleArctanEval.png</normaloff>../DrawingsAndIcons/icon_hys_DoubleArctanEval.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="InfoSettingsButton" name="btn_hys_num_deriv">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Numerical derivative of choosen data (num_derivative)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_num_derivative.png</normaloff>../DrawingsAndIcons/icon_hys_num_derivative.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="InfoSettingsButton" name="btn_hys_center_signal">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Center the signal as compensation of the VSM manipulation (hys_center). Otherwise normalization with preserving the Magnetization.</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_center.png</normaloff>../DrawingsAndIcons/icon_hys_center.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="InfoSettingsButton" name="btn_hys_lin_fit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>60</horstretch>
+                      <verstretch>60</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Linear interpolation of important quantities (lin_fit)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../DrawingsAndIcons/icon_hys_LinEval.png</normaloff>../DrawingsAndIcons/icon_hys_LinEval.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>60</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5" rowspan="2">
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="2" column="0" colspan="6">
+                   <widget class="Line" name="line">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="lineWidth">
+                     <number>1</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="5">
+                   <spacer name="horizontalSpacer_8">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="11" column="1" colspan="3">
+                <widget class="QLabel" name="hys_label_loglist">
+                 <property name="text">
+                  <string>Log of currently selected data</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1" rowspan="2" colspan="3">
+                <widget class="MacroStackedWidgetContainer" name="hys_macro_widget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>1</horstretch>
+                   <verstretch>8</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1" colspan="5">
+                <widget class="Line" name="line_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1" colspan="5">
+                <widget class="Line" name="line_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="1" colspan="5">
+                <widget class="QListWidget" name="hys_loglist">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>10</horstretch>
+                   <verstretch>10</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectColumns</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="1" colspan="5">
+                <widget class="QGroupBox" name="hys_data_packages">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>4</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="title">
+                  <string>Data Packages</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_9">
+                  <property name="leftMargin">
+                   <number>4</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>4</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>4</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>4</number>
+                  </property>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="hys_new_data_flag">
+                    <property name="font">
+                     <font>
+                      <pointsize>8</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Let every function create its own, new data package</string>
+                    </property>
+                    <property name="text">
+                     <string>New pkg after 
+each function?</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="5">
+                   <widget class="ExportTableWidget" name="hys_table_datapkg">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>5</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                    </property>
+                    <property name="selectionBehavior">
+                     <enum>QAbstractItemView::SelectColumns</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QPushButton" name="hys_copy_datacol">
+                    <property name="toolTip">
+                     <string>copies the selected column(s) within the selected data package</string>
+                    </property>
+                    <property name="text">
+                     <string>copy datacol</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QPushButton" name="hys_del_mod_data">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>1</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="toolTip">
+                     <string>Delete the choosen data package including log and results. Not possible for raw data</string>
+                    </property>
+                    <property name="text">
+                     <string>del mod_data</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QPushButton" name="hys_copy_datapkg">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>70</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Takes the selected datapackage and creates an identical copy</string>
+                    </property>
+                    <property name="text">
+                     <string>copy datapkg</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_hys_series">
+           <attribute name="title">
+            <string>Series of Hystereses</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_30">
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="hys_metadata_panel_s">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>4</horstretch>
+                <verstretch>6</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Loaded data</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_28">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="hys_btn_load_data_s">
+                 <property name="toolTip">
+                  <string>Load in new data with the dataformat given by the dropdown menu</string>
+                 </property>
+                 <property name="text">
+                  <string>Load data</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="6">
+                <widget class="DragDropTableWidget" name="hys_table_metadata_s">
+                 <property name="acceptDrops">
+                  <bool>true</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QPushButton" name="hys_btn_update_all_s">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Updates all tables, the status bar and the figure canvas</string>
+                 </property>
+                 <property name="text">
+                  <string>Update</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="hys_del_dataset_s">
+                 <property name="toolTip">
+                  <string>Delete the choosen dataset </string>
+                 </property>
+                 <property name="text">
+                  <string>del selected</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="hys_del_all_dataset_s">
+                 <property name="text">
+                  <string>del all</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QComboBox" name="hys_load_dataformat_s">
+                 <property name="toolTip">
+                  <string>Dropdown menu to choose dataformat for file dropdown and load button to the left</string>
+                 </property>
+                 <property name="currentText">
+                  <string>MOKE</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>MOKE</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>VSM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kerr</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>AFM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>SRIM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>MUMAX3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kerr_imgs</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QGroupBox" name="hys_data_packages_s">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>4</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Data Packages</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_29">
+               <property name="leftMargin">
+                <number>4</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>4</number>
+               </property>
+               <property name="bottomMargin">
+                <number>4</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="hys_new_data_flag_s">
+                 <property name="font">
+                  <font>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Let every function create its own, new data package</string>
+                 </property>
+                 <property name="text">
+                  <string>New pkg after 
+each function?</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QPushButton" name="hys_copy_datapkg_s">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>70</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Takes the selected datapackage and creates an identical copy</string>
+                 </property>
+                 <property name="text">
+                  <string>copy datapkg</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QPushButton" name="hys_copy_datacol_s">
+                 <property name="toolTip">
+                  <string>copies the selected column(s) within the selected data package</string>
+                 </property>
+                 <property name="text">
+                  <string>copy datacol</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="hys_del_mod_data_s">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Delete the choosen data package including log and results. Not possible for raw data</string>
+                 </property>
+                 <property name="text">
+                  <string>del mod_data</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="4">
+                <widget class="ExportTableWidget" name="hys_table_datapkg_s">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>5</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectColumns</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" rowspan="2">
+             <widget class="QGroupBox" name="hys_data_panel_s">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>10</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Data display</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_31">
+               <property name="leftMargin">
+                <number>2</number>
+               </property>
+               <property name="topMargin">
+                <number>2</number>
+               </property>
+               <property name="rightMargin">
+                <number>2</number>
+               </property>
+               <property name="bottomMargin">
+                <number>2</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QMdiArea" name="hys_mdi_data"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_kerr">
+       <attribute name="title">
+        <string>Kerr Microscope</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_11">
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QGroupBox" name="kerr_data_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>5</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Data Display</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="4" column="1">
+            <widget class="QLabel" name="kerr_field_label">
+             <property name="text">
+              <string>Field: 0 mT</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="kerr_img_nr_label">
+             <property name="text">
+              <string>Image Nr: 0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QWidget" name="kerr_canvas_placeholder" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>5</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="2">
+            <widget class="QWidget" name="widget_2" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>5</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0" rowspan="5">
+            <widget class="JumpSlider" name="kerr_data_slider">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="kerr_metadata_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Loaded Data</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_16">
+           <item row="1" column="2">
+            <widget class="QComboBox" name="kerr_load_dataformat">
+             <property name="toolTip">
+              <string>Dropdown menu to choose dataformat for file dropdown and load button to the left</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Kerr_imgs</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kerr</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>VSM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>MOKE</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AFM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>SRIM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>MUMAX3</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="kerr_btn_load_data">
+             <property name="toolTip">
+              <string>Load in new data with the dataformat given by the dropdown menu</string>
+             </property>
+             <property name="text">
+              <string>Load data*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="6">
+            <widget class="DragDropTableWidget" name="kerr_table_metadata">
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="kerr_del_dataset">
+             <property name="toolTip">
+              <string>Delete the choosen dataset </string>
+             </property>
+             <property name="text">
+              <string>Delete data*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="5">
+            <widget class="QPushButton" name="kerr_btn_update_all">
+             <property name="toolTip">
+              <string>Updates all tables, the status bar and the figure canvas</string>
+             </property>
+             <property name="text">
+              <string>Update*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="kerr_control_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Control Panel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QGroupBox" name="kerr_data_packages">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Data Packages</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_25">
+           <item row="2" column="2">
+            <widget class="QPushButton" name="kerr_copy_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Takes the selected datapackage and creates an identical copy</string>
+             </property>
+             <property name="text">
+              <string>copy datapkg*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="kerr_del_mod_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>1</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Delete the choosen data package including log and results. Not possible for raw data</string>
+             </property>
+             <property name="text">
+              <string>del mod_data*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="kerr_new_data_flag">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Let every function create its own, new data package</string>
+             </property>
+             <property name="text">
+              <string>New pkg after 
+each function?</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="ExportTableWidget" name="kerr_table_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>4</horstretch>
+               <verstretch>2</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectColumns</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="kerr_copy_datacol">
+             <property name="toolTip">
+              <string>copies the selected column(s) within the selected data package</string>
+             </property>
+             <property name="text">
+              <string>copy datacol*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="4">
+            <widget class="ExportTableWidget" name="kerr_table_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>5</horstretch>
+               <verstretch>7</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_afm">
+       <attribute name="title">
+        <string>AFM</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="afm_metadata_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Loaded Data</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="0" column="4">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="afm_del_dataset">
+             <property name="acceptDrops">
+              <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>Delete the choosen dataset </string>
+             </property>
+             <property name="text">
+              <string>Delete data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="afm_btn_load_data">
+             <property name="toolTip">
+              <string>Load in new data with the dataformat given by the dropdown menu</string>
+             </property>
+             <property name="text">
+              <string>Load data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="afm_load_dataformat">
+             <property name="toolTip">
+              <string>Dropdown menu to choose dataformat for file dropdown and load button to the left</string>
+             </property>
+             <property name="currentText">
+              <string>AFM</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>AFM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>MOKE</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>VSM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kerr</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>SRIM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>MUMAX3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kerr_imgs</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QPushButton" name="afm_btn_update_all">
+             <property name="toolTip">
+              <string>Updates all tables, the status bar and the figure canvas</string>
+             </property>
+             <property name="text">
+              <string>Update</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="6">
+            <widget class="DragDropTableWidget" name="afm_table_metadata">
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="afm_data_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>5</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Data Panel</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton_5">
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QWidget" name="afm_canvas_placeholder" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>8</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QScrollArea" name="afm_scroll_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>3</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>510</width>
+                <height>189</height>
+               </rect>
+              </property>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="afm_control_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Control Panel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="afm_data_packages">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Data Packages</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_23">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="afm_del_mod_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>1</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Delete the choosen data package including log and results. Not possible for raw data</string>
+             </property>
+             <property name="text">
+              <string>del mod_data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="ExportTableWidget" name="afm_table_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>5</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectColumns</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="afm_new_data_flag">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Let every function create its own, new data package</string>
+             </property>
+             <property name="text">
+              <string>New pkg after 
+each function?</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="afm_copy_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Takes the selected datapackage and creates an identical copy</string>
+             </property>
+             <property name="text">
+              <string>copy datapkg</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="afm_copy_datacol">
+             <property name="toolTip">
+              <string>copies the selected column(s) within the selected data package</string>
+             </property>
+             <property name="text">
+              <string>copy datacol</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="afm_results_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_24">
+           <item row="0" column="0">
+            <widget class="ExportTableWidget" name="afm_results_table">
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2" rowspan="2">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_console">
+       <attribute name="title">
+        <string>Console</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="console_text_editor">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Text Editor</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QTextEdit" name="console_text_placeholder">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>4</horstretch>
+               <verstretch>2</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="EvaluixConsole" name="console_widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>3</horstretch>
+            <verstretch>40</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="console_control_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>3</horstretch>
+            <verstretch>40</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Control Panel</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_21">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="pushButton_11">
+             <property name="text">
+              <string>apply
+data eval*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="pushButton_10">
+             <property name="text">
+              <string>Save Script*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton_9">
+             <property name="text">
+              <string>def
+data eval*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton_6">
+             <property name="text">
+              <string>Execute Script*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_7">
+             <property name="text">
+              <string>def
+data manip*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="pushButton_8">
+             <property name="text">
+              <string>apply
+data manip*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="pushButton_12">
+             <property name="text">
+              <string>Load Script*</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="3">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_dm">
+       <attribute name="title">
+        <string>Datamanager</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_22">
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
+        <property name="topMargin">
+         <number>3</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="dm_metadata_panel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>6</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Loaded data</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_19">
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="dm_del_dataset">
+             <property name="toolTip">
+              <string>Delete the choosen dataset </string>
+             </property>
+             <property name="text">
+              <string>Delete data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6">
+            <widget class="QPushButton" name="dm_btn_update_all">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Updates all tables, the status bar and the figure canvas</string>
+             </property>
+             <property name="text">
+              <string>Update</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="7">
+            <widget class="DragDropTableWidget" name="dm_table_metadata">
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="dm_load_dataformat">
+             <property name="toolTip">
+              <string>Dropdown menu to choose dataformat for file dropdown and load button to the left</string>
+             </property>
+             <property name="currentText">
+              <string>MOKE</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>MOKE</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>VSM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kerr</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AFM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>SRIM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>MUMAX3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kerr_imgs</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="dm_btn_load_data">
+             <property name="toolTip">
+              <string>Load in new data with the dataformat given by the dropdown menu</string>
+             </property>
+             <property name="text">
+              <string>Load data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="dm_add_data_manually">
+             <property name="text">
+              <string>Add data manually</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="dm_data_packages">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Data Packages</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="dm_del_mod_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Delete the choosen data package including log and results. Not possible for raw data</string>
+             </property>
+             <property name="text">
+              <string>del mod_data*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="ExportTableWidget" name="dm_table_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>5</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectColumns</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="dm_copy_datapkg">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Takes the selected datapackage and creates an identical copy</string>
+             </property>
+             <property name="text">
+              <string>copy datapkg*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="dm_copy_datacol">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>copies the selected column(s) within the selected data package</string>
+             </property>
+             <property name="text">
+              <string>copy datacol*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+background-color: rgb(25, 35, 45); 
+}
+QMenuBar::item:selected, QMenuBar::item:hover {
+background-color: rgb(45, 55, 65);
+}</string>
+   </property>
+   <widget class="QMenu" name="menuLoad_data">
+    <property name="title">
+     <string>Load &amp;Data</string>
+    </property>
+    <widget class="QMenu" name="menu_kerr_data">
+     <property name="title">
+      <string>Kerr data</string>
+     </property>
+     <addaction name="load_kerr_imgs"/>
+     <addaction name="load_kerr_hys"/>
+    </widget>
+    <addaction name="load_afm_data"/>
+    <addaction name="load_lmoke_data"/>
+    <addaction name="load_vmoke_data"/>
+    <addaction name="load_vsm_data"/>
+    <addaction name="menu_kerr_data"/>
+   </widget>
+   <widget class="QMenu" name="menuSave_Progress">
+    <property name="title">
+     <string>&amp;Save Progress</string>
+    </property>
+    <addaction name="Save_progress_as_hdf5"/>
+    <addaction name="Toggle_Autosave_Progress"/>
+   </widget>
+   <widget class="QMenu" name="menuLoad_Progress">
+    <property name="title">
+     <string>&amp;Load Progress</string>
+    </property>
+    <addaction name="load_progress_with_preview"/>
+    <addaction name="load_progress_directly"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionThis_button_does_nothing_please_ask_ArVe"/>
+    <addaction name="actionActualHelp"/>
+   </widget>
+   <widget class="ClickableMenu" name="menuFunctions">
+    <property name="title">
+     <string>&amp;Functions</string>
+    </property>
+   </widget>
+   <addaction name="menuLoad_data"/>
+   <addaction name="menuSave_Progress"/>
+   <addaction name="menuLoad_Progress"/>
+   <addaction name="menuFunctions"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="load_afm_data">
+   <property name="text">
+    <string>AFM data</string>
+   </property>
+  </action>
+  <action name="load_lmoke_data">
+   <property name="text">
+    <string>L-MOKE data</string>
+   </property>
+  </action>
+  <action name="Save_As_Folder">
+   <property name="text">
+    <string>As Folder</string>
+   </property>
+  </action>
+  <action name="Save_progress_as_hdf5">
+   <property name="text">
+    <string>As hdf5 file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="Toggle_Autosave_Progress">
+   <property name="text">
+    <string>Toggle Autosave</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="load_progress_with_preview">
+   <property name="text">
+    <string>Load with preview</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="load_progress_directly">
+   <property name="text">
+    <string>Load directly</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+L</string>
+   </property>
+  </action>
+  <action name="actionThis_button_does_nothing_please_ask_ArVe">
+   <property name="text">
+    <string>This button does nothing, please ask ArVe</string>
+   </property>
+  </action>
+  <action name="load_vsm_data">
+   <property name="text">
+    <string>VSM data</string>
+   </property>
+  </action>
+  <action name="load_vmoke_data">
+   <property name="text">
+    <string>V-MOKE data</string>
+   </property>
+  </action>
+  <action name="load_kerr_imgs">
+   <property name="text">
+    <string>Images</string>
+   </property>
+  </action>
+  <action name="load_kerr_hys">
+   <property name="text">
+    <string>Hysteresis Loop</string>
+   </property>
+  </action>
+  <action name="actionActualHelp">
+   <property name="text">
+    <string>Miracles?</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InfoSettingsButton</class>
+   <extends>QPushButton</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>DragDropTableWidget</class>
+   <extends>QTableWidget</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>EvaluixConsole</class>
+   <extends>QWidget</extends>
+   <header>CustomWidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ExportTableWidget</class>
+   <extends>QTableWidget</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>JumpSlider</class>
+   <extends>QSlider</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ClickableMenu</class>
+   <extends>QMenu</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ResultsTable</class>
+   <extends>QWidget</extends>
+   <header>CustomWidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FitReportTable</class>
+   <extends>QWidget</extends>
+   <header>CustomWidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MacroStackedWidgetContainer</class>
+   <extends>QWidget</extends>
+   <header>CustomWidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FitPointsTable</class>
+   <extends>QTableWidget</extends>
+   <header>CustomWidgets</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

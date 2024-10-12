@@ -1,0 +1,487 @@
+Autosave_status: false
+Macros:
+  Hysteresis:
+    MOKE single loop:
+      1:
+        Active: true
+        Category: Data Manipulation
+        Function: del_outliers
+        Parameters:
+          neighbours: 5
+          threshold: 2
+          ydata: '-'
+      2:
+        Active: true
+        Category: Data Manipulation
+        Function: rmv_opening
+        Parameters:
+          sat_region: 0.05
+          ydata: '-'
+      3:
+        Active: true
+        Category: Data Manipulation
+        Function: slope_correction
+        Parameters:
+          branch_difference: 0.3
+          noise_threshold: 3
+          sat_region: 0.1
+          xdata: '-'
+          ydata: '-'
+      4:
+        Active: true
+        Category: Data Manipulation
+        Function: hys_norm
+        Parameters:
+          sat_region: 0.1
+          xdata: '-'
+          ydata: '-'
+      5:
+        Active: true
+        Category: Data Evaluation
+        Function: tan_hyseval
+        Parameters:
+          sat_cond: 0.95
+          xdata: '-'
+          ydata: '-'
+    VSM single loop:
+      1:
+        Active: true
+        Category: Data Manipulation
+        Function: del_outliers
+        Parameters:
+          neighbours: 5
+          threshold: 2
+          ydata: '-'
+      2:
+        Active: true
+        Category: Data Manipulation
+        Function: rmv_opening
+        Parameters:
+          sat_region: 0.05
+          ydata: '-'
+      3:
+        Active: true
+        Category: Data Manipulation
+        Function: slope_correction
+        Parameters:
+          branch_difference: 0.3
+          noise_threshold: 3
+          sat_region: 0.1
+          xdata: '-'
+          ydata: '-'
+      4:
+        Active: true
+        Category: Data Manipulation
+        Function: hys_center
+        Parameters:
+          normalize: false
+          sat_region: 0.1
+          xdata: '-'
+          ydata: '-'
+      5:
+        Active: true
+        Category: Data Evaluation
+        Function: tan_hyseval
+        Parameters:
+          sat_cond: 0.95
+          xdata: '-'
+          ydata: '-'
+function_info:
+  arctan:
+    Category: unknown
+    a:
+      default: '-'
+      type: float
+      value: '-'
+    b:
+      default: '-'
+      type: float
+      value: '-'
+    c:
+      default: '-'
+      type: float
+      value: '-'
+    d:
+      default: '-'
+      type: float
+      value: '-'
+    e:
+      default: '-'
+      type: float
+      value: '-'
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  chisquared_lmfit:
+    Category: unknown
+    model:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+    weights:
+      default: None
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: None
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  create_uncertainty_polygon:
+    Category: unknown
+    xdata:
+      default: '-'
+      type: pd.DataFrame
+      value: '-'
+    xdata_err:
+      default: '-'
+      type: pd.DataFrame
+      value: '-'
+    ydata:
+      default: '-'
+      type: pd.DataFrame
+      value: '-'
+    ydata_err:
+      default: '-'
+      type: pd.DataFrame
+      value: '-'
+  del_outliers:
+    Category: Data Manipulation
+    neighbours:
+      default: '5'
+      type: int
+      value: '5'
+    threshold:
+      default: '2'
+      type: float
+      value: '2'
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  double_arctan:
+    Category: unknown
+    a:
+      default: '-'
+      type: float
+      value: '-'
+    b:
+      default: '-'
+      type: float
+      value: '-'
+    c:
+      default: '-'
+      type: float
+      value: '-'
+    d:
+      default: '-'
+      type: float
+      value: '-'
+    e:
+      default: '-'
+      type: float
+      value: '-'
+    f:
+      default: '-'
+      type: float
+      value: '-'
+    g:
+      default: '-'
+      type: float
+      value: '-'
+    h:
+      default: '-'
+      type: float
+      value: '-'
+    i:
+      default: '-'
+      type: float
+      value: '-'
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  double_tan_hys:
+    Category: unknown
+    a:
+      default: '-'
+      type: float
+      value: '-'
+    b:
+      default: '-'
+      type: float
+      value: '-'
+    c:
+      default: '-'
+      type: float
+      value: '-'
+    d:
+      default: '-'
+      type: float
+      value: '-'
+    e:
+      default: '-'
+      type: float
+      value: '-'
+    f:
+      default: '-'
+      type: float
+      value: '-'
+    g:
+      default: '-'
+      type: float
+      value: '-'
+    h:
+      default: '-'
+      type: float
+      value: '-'
+    i:
+      default: '-'
+      type: float
+      value: '-'
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  double_tan_hyseval:
+    Category: Data Evaluation
+    sat_cond:
+      default: '0.95'
+      type: float
+      value: '0.95'
+    xdata:
+      default: '-'
+      type: '-'
+      value: '-'
+    ydata:
+      default: '-'
+      type: '-'
+      value: '-'
+  hys_center:
+    Category: Data Manipulation
+    normalize:
+      default: 'False'
+      type: bool
+      value: 'False'
+    sat_region:
+      default: '0.1'
+      type: float
+      value: '0.1'
+    xdata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  hys_norm:
+    Category: Data Manipulation
+    sat_region:
+      default: '0.1'
+      type: float
+      value: '0.1'
+    xdata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  lin_hyseval:
+    Category: Data Evaluation
+    offset:
+      default: '0.0'
+      type: float
+      value: '0.0'
+    steepness_for_fit:
+      default: 'False'
+      type: bool
+      value: 'False'
+    xdata:
+      default: '-'
+      type: '-'
+      value: '-'
+    ydata:
+      default: '-'
+      type: '-'
+      value: '-'
+  linear:
+    Category: unknown
+    a:
+      default: '-'
+      type: float
+      value: '-'
+    b:
+      default: '-'
+      type: float
+      value: '-'
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  num_derivative:
+    Category: Data Manipulation
+    xdata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+    ydata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+  num_integral:
+    Category: Data Manipulation
+    xdata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+    ydata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+  polynomial:
+    Category: unknown
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  rmv_opening:
+    Category: Data Manipulation
+    sat_region:
+      default: '0.05'
+      type: float
+      value: '0.05'
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  safe_stderr:
+    Category: unknown
+    stderr:
+      default: '-'
+      type: '-'
+      value: '-'
+  slope_correction:
+    Category: Data Manipulation
+    branch_difference:
+      default: '0.3'
+      type: float
+      value: '0.3'
+    noise_threshold:
+      default: '3'
+      type: float
+      value: '3'
+    sat_region:
+      default: '0.1'
+      type: float
+      value: '0.1'
+    xdata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+    ydata:
+      default: '-'
+      type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  smoothing1d:
+    Category: Data Manipulation
+    sigma_or_polyorder:
+      default: '2'
+      type: int
+      value: '2'
+    smoothing_fct:
+      default: savgol
+      type: str
+      value: savgol
+    window_length:
+      default: '5'
+      type: int
+      value: '5'
+    ydata:
+      default: '-'
+      type: pd.DataFrame
+      value: '-'
+  tan_hys:
+    Category: unknown
+    a:
+      default: '-'
+      type: float
+      value: '-'
+    b:
+      default: '-'
+      type: float
+      value: '-'
+    c:
+      default: '-'
+      type: float
+      value: '-'
+    d:
+      default: '-'
+      type: float
+      value: '-'
+    e:
+      default: '-'
+      type: float
+      value: '-'
+    xdata:
+      default: '-'
+      type: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray]
+      value: '-'
+  tan_hyseval:
+    Category: Data Evaluation
+    sat_cond:
+      default: '0.95'
+      type: float
+      value: '0.95'
+    xdata:
+      default: '-'
+      type: '-'
+      value: '-'
+    ydata:
+      default: '-'
+      type: '-'
+      value: '-'
+  unit_converter:
+    Category: unknown
+    conversion_factors:
+      default: '-'
+      type: dict
+      value: '-'
+    series:
+      default: '-'
+      type: pd.Series
+      value: '-'
+    target_unit:
+      default: '-'
+      type: str
+      value: '-'
+  x_sect:
+    Category: Data Evaluation
+    steepness_for_fit:
+      default: 'False'
+      type: bool
+      value: 'False'
+    xdata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+    ydata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+  y_sect:
+    Category: Data Evaluation
+    HEB:
+      default: '0'
+      type: float
+      value: '0'
+    xdata:
+      default: '-'
+      type: pd.Series
+      value: '-'
+    ydata:
+      default: '-'
+      type: pd.Series
+      value: '-'

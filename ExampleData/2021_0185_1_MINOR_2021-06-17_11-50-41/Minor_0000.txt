@@ -1,0 +1,29 @@
+# User			Meike Reginka
+# Sample		2021_0185_1
+# State			as made
+# Profile		mere_beads.txt
+# Comment
+# ML 
+# 
+# Meas. type 		Minor loops
+# angle (deg)		 0.000
+# Hmin (kA/m)		-70.000
+# Hmax (kA/m)		70.000
+# pts./branch		70
+# time/pt. (s)		 0.020
+# dt (s)		 0.020
+# nCycles		1
+# Hstop (kA/m)		 0.000
+# wait (s)		60.000
+# nSched		5
+# nMinorLoops		5
+# nX			2
+# nY			2
+# dx (mm)		 0.250
+# dy (mm)		 0.250
+# avg. raster		no average raster
+# Loop			1/5
+# -----------------------------------------------
+# H (kA/m) 	 I (arb.u.)
+9.392875065104165644e-02 1.816011882949353673e+00
+-1.782553790201823141e+00 1.815590034495919936e+00

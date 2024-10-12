@@ -1,0 +1,86 @@
+Hysteresis:
+  MOKE single loop:
+    1:
+      Active: true
+      Category: Data Manipulation
+      Function: del_outliers
+      Parameters:
+        ydata: '-'
+        neighbours: 5
+        threshold: 2
+    2:
+      Active: true
+      Category: Data Manipulation
+      Function: rmv_opening
+      Parameters:
+        ydata: '-'
+        sat_region: 0.05
+    3:
+      Active: true
+      Category: Data Manipulation
+      Function: slope_correction
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_region: 0.1
+        noise_threshold: 3
+        branch_difference: 0.3
+    4:
+      Active: true
+      Category: Data Manipulation
+      Function: hys_norm
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_region: 0.1
+    5:
+      Active: true
+      Category: Data Evaluation
+      Function: tan_hyseval
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_cond: 0.95
+  VSM single loop:
+    1:
+      Active: true
+      Category: Data Manipulation
+      Function: del_outliers
+      Parameters:
+        ydata: '-'
+        neighbours: 5
+        threshold: 2
+    2:
+      Active: true
+      Category: Data Manipulation
+      Function: rmv_opening
+      Parameters:
+        ydata: '-'
+        sat_region: 0.05
+    3:
+      Active: true
+      Category: Data Manipulation
+      Function: slope_correction
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_region: 0.1
+        noise_threshold: 3
+        branch_difference: 0.3
+    4:
+      Active: true
+      Category: Data Manipulation
+      Function: hys_center
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_region: 0.1
+        normalize: False
+    5:
+      Active: true
+      Category: Data Evaluation
+      Function: tan_hyseval
+      Parameters:
+        xdata: '-'
+        ydata: '-'
+        sat_cond: 0.95

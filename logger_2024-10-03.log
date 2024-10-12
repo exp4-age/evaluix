@@ -1,0 +1,560 @@
+2024-10-03 16:04:30,691 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:04:30,691 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:04:30,691 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:04:30,691 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:04:30,707 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:04:30,723 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:04:30,723 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:04:30,723 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:04:30,723 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:18:21,187 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:18:21,187 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:18:21,187 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:18:21,187 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:18:21,193 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:18:21,203 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:18:21,203 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:18:21,203 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:18:21,203 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:19:24,818 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:19:24,823 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:25:31,177 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:25:31,177 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:25:31,177 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:25:31,177 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:25:31,178 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:25:31,178 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:25:31,178 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:25:31,180 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:25:31,181 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:25:31,181 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:25:31,181 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:25:31,182 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:25:31,182 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:25:31,182 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:25:31,182 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:27:29,803 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:27:29,809 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:52:54,243 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:54:14,015 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:54:14,015 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:54:14,015 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:54:14,015 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:54:14,016 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:54:14,016 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:54:14,016 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:54:14,018 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:54:14,019 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:54:14,020 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:54:14,022 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:54:14,022 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:54:14,022 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:55:19,207 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:55:19,207 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:55:19,207 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:55:19,207 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:55:19,208 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:55:19,208 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:55:19,208 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:55:19,210 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:55:19,211 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:55:19,211 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:55:19,211 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:55:19,211 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:55:19,213 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:55:19,213 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:55:19,213 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:56:04,287 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:56:04,293 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:56:04,293 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:56:04,293 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:57:12,163 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:58:19,963 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:58:19,973 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:58:19,973 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:58:19,973 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:58:19,973 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 16:59:12,686 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 16:59:12,686 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 16:59:12,686 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 16:59:12,686 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:59:12,687 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 16:59:12,687 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 16:59:12,687 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 16:59:12,690 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 16:59:12,692 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 16:59:12,692 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 16:59:12,692 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 16:59:12,692 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:00:12,263 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:00:12,263 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:00:12,263 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:00:12,263 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:00:12,268 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:00:12,272 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:00:12,273 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:00:12,273 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:00:12,273 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:01:04,825 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:01:04,833 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:01:56,774 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:01:56,774 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:01:56,774 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:01:56,774 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:01:56,775 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:01:56,775 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:01:56,775 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:01:56,777 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:01:56,778 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:01:56,778 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:01:56,778 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:01:56,779 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:01:56,780 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:01:56,780 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:01:56,780 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:02:49,313 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:02:49,313 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:02:49,313 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:02:49,313 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:02:49,313 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:02:49,318 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:02:49,320 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:03:07,823 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:03:07,833 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:03:07,833 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:03:07,833 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:03:07,833 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:03:55,037 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:03:55,043 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:04:56,888 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:04:56,893 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:04:56,895 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:04:56,895 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:04:56,895 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:04:56,896 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:05:43,206 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:05:43,209 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:05:43,210 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:05:43,211 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:05:43,211 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:05:43,211 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:06:04,733 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:06:04,742 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:06:04,742 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:06:04,742 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:06:41,593 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:06:41,598 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:08:50,573 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:08:50,578 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:08:50,579 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:08:50,581 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:08:50,581 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:08:50,581 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:09:09,903 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:09:09,908 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:09:09,908 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:09:09,908 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:09:09,908 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:10:22,231 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:10:22,233 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:24:38,733 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:24:38,736 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:24:38,736 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:24:38,736 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:24:38,736 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:24:38,736 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:24:38,737 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:24:38,738 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:25:45,773 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:25:45,776 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:25:45,777 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:25:45,778 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:25:45,778 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:25:45,778 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Metadata for c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Getting data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-03 17:26:14,903 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-03 17:26:14,914 - FileLoader.FileLogger - DEBUG - log_message - Data in c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-03 17:26:14,915 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-03 17:26:14,915 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-03 17:26:14,915 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from c:\Users\arnev\Desktop\Evaluix2\ExampleData\2023_0424_10µm\hys.txt

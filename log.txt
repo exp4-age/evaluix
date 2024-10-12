@@ -1,0 +1,2148 @@
+'NoneType' object has no attribute 'predefined_macros'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3261, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 314, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 739, in initialize_hys_tab
+    self.hys_macro_widget.predefined_macros()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'predefined_macros'
+name 'MacroTabWidget' is not defined'MacroStackedWidget' object has no attribute 'setTabBar'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3261, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 185, in __init__
+    self.setTabBar(EditableTabBar(self.tabWidget))
+    ^^^^^^^^^^^^^^
+AttributeError: 'MacroStackedWidget' object has no attribute 'setTabBar'
+name 'MacroTabWidget' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3261, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 314, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 738, in initialize_hys_tab
+    self.hys_macro_widget = self.findChild(MacroTabWidget, 'hys_macro_widget')
+                                           ^^^^^^^^^^^^^^
+NameError: name 'MacroTabWidget' is not defined. Did you mean: 'MacroStackedWidget'?
+name 'MacroStackWidget' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3261, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 314, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 738, in initialize_hys_tab
+    self.hys_macro_widget = self.findChild(MacroStackWidget, 'hys_macro_widget')
+                                           ^^^^^^^^^^^^^^^^
+NameError: name 'MacroStackWidget' is not defined. Did you mean: 'MacroStackedWidget'?
+name 'macroStackedWidget' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3270, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 314, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 740, in initialize_hys_tab
+    self.setCentralWidget(macroStackedWidget.containerWidget)
+                          ^^^^^^^^^^^^^^^^^^
+NameError: name 'macroStackedWidget' is not defined. Did you mean: 'MacroStackedWidget'?
+'MacroStackedWidgetContainer' object has no attribute 'pageComboBox'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 237, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 186, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 203, in addNewPage
+    self.updatePageComboBox()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 217, in updatePageComboBox
+    comboBox = self.parent().pageComboBox
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MacroStackedWidgetContainer' object has no attribute 'pageComboBox'
+name 'currentIndex' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 264, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 186, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 198, in addNewPage
+    layout.addWidget(QLabel(f"This is page {self.widget(currentIndex)}"))
+                                                        ^^^^^^^^^^^^
+NameError: name 'currentIndex' is not defined. Did you mean: 'self.currentIndex'?
+widget(self, a0: int): argument 1 has unexpected type 'builtin_function_or_method'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 264, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 186, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 198, in addNewPage
+    layout.addWidget(QLabel(f"This is page {self.widget(self.currentIndex)}"))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: widget(self, a0: int): argument 1 has unexpected type 'builtin_function_or_method'
+name 'QSpacerItem' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 276, in __init__
+    spacer = QSpacerItem(20, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+             ^^^^^^^^^^^
+NameError: name 'QSpacerItem' is not defined
+ExportTableWidget.__init__() takes from 1 to 2 positional arguments but 4 were givenTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 423, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 314, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 326, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 277, in __init__
+    super(MacroTableWidget, self).__init__(0, 4, parent)  # 0 rows, 4 columns initially
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ExportTableWidget.__init__() takes from 1 to 2 positional arguments but 4 were given
+name 'Path' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 470, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 360, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 372, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 291, in __init__
+    self.functions_by_type = self.load_functions_from_yaml(Path(__file__).parent / 'EvaluixConfig.yaml')
+                                                           ^^^^
+NameError: name 'Path' is not defined
+'bool' object is not subscriptableTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3268, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 147, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 464, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 354, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 366, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 294, in __init__
+    func_type = func_info['Category']
+                ~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'bool' object is not subscriptable
+'bool' object is not subscriptableTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3270, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 149, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 464, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 354, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 366, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 294, in __init__
+    func_type = func_info['Category']
+                ~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'bool' object is not subscriptable
+'bool' object is not subscriptableTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3282, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 161, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 464, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 354, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 366, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 294, in __init__
+    func_type = func_info['Category']
+                ~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'bool' object is not subscriptable
+'Category'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3270, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 149, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 465, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 355, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 367, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 295, in __init__
+    func_type = func_info['Category']
+                ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'Category'
+'a'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3270, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 149, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 488, in __init__
+    self.stackedWidget = MacroStackedWidget(self)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 378, in __init__
+    self.addNewPage("Page 1")
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 390, in addNewPage
+    tableWidget = MacroTableWidget()
+                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 306, in __init__
+    parameters = [f"{param}, {info[param]['default']}" for param, info in func_info.items() if param not in ['Category', 'ydata']]
+                              ~~~~^^^^^^^
+KeyError: 'a'
+'MOKE single loop'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 508, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 398, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 415, in addNewPage
+    nr_functions = len([macro for macro in self.macros[name].values() if macro['Active']])
+                                           ~~~~~~~~~~~^^^^^^
+KeyError: 'MOKE single loop'
+'MOKE single loop'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 514, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 398, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 415, in addNewPage
+    macro_dict = self.macros[name]
+                 ~~~~~~~~~~~^^^^^^
+KeyError: 'MOKE single loop'
+NoneTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 401, in __init__
+    for key in macros['Data Manipulation']:
+               ~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Data Manipulation'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 520, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 404, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 421, in addNewPage
+    macro_dict = self.macros[name]
+                 ~~~~~~~~~~~^^^^^^
+KeyError: None
+NoneTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 401, in __init__
+    for key in macros['Data Manipulation']:
+               ~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Data Manipulation'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 521, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 404, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 421, in addNewPage
+    macro_dict = self.macros[name]
+                 ~~~~~~~~~~~^^^^^^
+KeyError: None
+NoneTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 402, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 421, in addNewPage
+    macro_dict = self.macros[name]
+                 ~~~~~~~~~~~^^^^^^
+KeyError: 'MOKE single loop'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 521, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 404, in __init__
+    self.addNewPage()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 421, in addNewPage
+    macro_dict = self.macros[name]
+                 ~~~~~~~~~~~^^^^^^
+KeyError: None
+cannot access local variable 'nr_unknown' where it is not associated with a valueTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 524, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 402, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 436, in addNewPage
+    f"- Unknown functions: {nr_unknown}\n",
+                            ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'nr_unknown' where it is not associated with a value
+cannot access local variable 'nr_unknown' where it is not associated with a valueTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 529, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 402, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 441, in addNewPage
+    f"- Unknown functions: {nr_unknown}\n",
+                            ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'nr_unknown' where it is not associated with a value
+arguments did not match any overloaded call:
+  QLabel(parent: Optional[QWidget] = None, flags: Qt.WindowType = Qt.WindowFlags()): argument 1 has unexpected type 'str'
+  QLabel(text: Optional[str], parent: Optional[QWidget] = None, flags: Qt.WindowType = Qt.WindowFlags()): argument 2 has unexpected type 'str'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3273, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 152, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 525, in __init__
+    self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 402, in __init__
+    self.addNewPage(name=key)
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 436, in addNewPage
+    label = QLabel(f"Number of functions: {nr_functions}\n",
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: arguments did not match any overloaded call:
+  QLabel(parent: Optional[QWidget] = None, flags: Qt.WindowType = Qt.WindowFlags()): argument 1 has unexpected type 'str'
+  QLabel(text: Optional[str], parent: Optional[QWidget] = None, flags: Qt.WindowType = Qt.WindowFlags()): argument 2 has unexpected type 'str'
+FitPointsTable.__init__() got an unexpected keyword argument 'parent'Traceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3210, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 120, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\objcreator.py", line 119, in createQtObject
+    return self._cpolicy.instantiate(ctor, object_name, ctor_args,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 145, in instantiate
+    return ctor(*ctor_args, **ctor_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FitPointsTable.__init__() got an unexpected keyword argument 'parent'
+name 'FitPointsTable' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3210, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 287, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 780, in initialize_hys_tab
+    self.update_results_tab(self.hys_results_tab)
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 1531, in update_results_tab
+    fit_points = results_tab.findChild(FitPointsTable, _name + 'fit_data_points')
+                                       ^^^^^^^^^^^^^^
+NameError: name 'FitPointsTable' is not defined
+'#' does not look like a color argTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3240, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 288, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 490, in initialize_hys_tab
+    self.hys_data_panel.canvas = MyMplCanvas(self.hys_canvas_placeholder, Purpose="Hysteresis")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 1158, in __init__
+    self.purpose_specific()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 1219, in purpose_specific
+    self.axes.set_prop_cycle(cycler('color', flat_color_list))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\matplotlib\rcsetup.py", line 739, in cycler
+    vals = validator(vals)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\matplotlib\rcsetup.py", line 107, in f
+    val = [scalar_validator(v) for v in s
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\matplotlib\rcsetup.py", line 283, in validate_color_for_prop_cycle
+    return validate_color(s)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\arnev\.conda\envs\Evaluix2\Lib\site-packages\matplotlib\rcsetup.py", line 329, in validate_color
+    raise ValueError(f'{s!r} does not look like a color arg')
+ValueError: '#' does not look like a color arg
+'tuple' object is not callableTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3249, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 288, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 490, in initialize_hys_tab
+    self.hys_data_panel.canvas = MyMplCanvas(self.hys_canvas_placeholder, Purpose="Hysteresis")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 1158, in __init__
+    self.purpose_specific()
+  File "c:\Users\arnev\Desktop\Evaluix2\CustomWidgets.py", line 1214, in purpose_specific
+    ("#66FF66", "#33CC33")   # Light lime, Darker lime
+TypeError: 'tuple' object is not callable
+name 'MacroStackedWidgetContainer' is not definedTraceback (most recent call last):
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 3424, in <module>
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 298, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\arnev\Desktop\Evaluix2\Evaluix2_Main.py", line 737, in initialize_hys_tab
+    self.hys_macro_widget = self.findChild(MacroStackedWidgetContainer, 'hys_macro_widget')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'MacroStackedWidgetContainer' is not defined

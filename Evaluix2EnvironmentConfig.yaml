@@ -1,0 +1,23 @@
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python >= 3.9.0
+  - numpy >= 1.24.2
+  - matplotlib
+  - pandas
+  - scipy
+  - pyyaml
+  - h5py
+  - scikit-learn
+  - scikit-image
+#  - qtconsole #console
+  - ipython_genutils
+#  - opencv
+  - ipykernel >= 6.0.3
+  - pip
+  - pip:
+    - NSFopen == 2.2.1
+    - pyqt6 >= 6.4.2
+    - lmfit
+#    - ipykernel==5.5.5 #console
