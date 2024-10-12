@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include src/evaluix/ui *.ui
+recursive-include src/evaluix/Icons *.png *.jpg *.svg
+recursive-include src/evaluix *.yaml

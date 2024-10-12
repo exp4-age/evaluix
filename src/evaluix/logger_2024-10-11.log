@@ -1,0 +1,92 @@
+2024-10-11 12:23:38,851 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:23:38,851 - FileLoader.FileLogger - INFO - log_message - Reading file or directory c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-11 12:23:38,851 - FileLoader.FileLogger - DEBUG - log_message - c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-11 12:23:38,851 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 12:24:03,063 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:24:23,329 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:26:02,030 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:29:55,400 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:30:40,062 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 12:31:59,847 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 13:37:35,087 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 13:37:56,221 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-11 13:37:56,253 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 13:37:56,253 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-11 13:37:56,253 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-11 13:38:08,388 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format MOKE
+2024-10-11 13:38:08,388 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-11 13:38:08,388 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format MOKE.
+2024-10-11 13:38:08,420 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-11 13:38:08,420 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format MOKE.
+2024-10-11 13:38:08,420 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-11 13:38:23,806 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-11 13:38:23,806 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-11 13:38:23,806 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Data in Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-11 13:38:23,822 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-11 13:38:27,439 - FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-11 13:39:09,673 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 13:39:22,173 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-11 13:39:22,173 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-11 13:39:22,173 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-11 13:39:22,188 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-11 13:39:22,188 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-11 13:39:22,188 - FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-11 13:39:22,206 - FileLoader.FileLogger - DEBUG - log_message - Data in Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-11 13:39:22,206 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 13:39:22,206 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-11 13:39:22,206 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2023_0424_10µm\hys.txt
+2024-10-11 13:39:27,604 - FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-11 13:43:08,919 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 14:49:23,627 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 14:50:08,902 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-11 14:50:08,902 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-11 14:50:08,902 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-11 14:50:08,908 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-11 14:50:29,067 - FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-11 14:50:45,884 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-11 14:50:45,900 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-11 14:50:45,900 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:50:45,900 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-11 14:50:45,900 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:50:45,900 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-11 14:50:45,915 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 14:50:45,915 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-11 14:50:45,915 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-11 14:51:30,655 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 14:51:48,051 - FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-11 14:51:48,051 - FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-11 14:51:48,051 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:51:48,073 - FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-11 14:51:48,073 - FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-11 14:51:48,073 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-11 14:51:48,082 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 14:51:48,082 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-11 14:51:48,082 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\Evaluix2\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-11 14:51:52,285 - FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-11 16:22:54,126 - FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-11 16:22:57,786 - FileLoader.FileLogger - INFO - log_message - Reading file or directory M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt with data format MOKE
+2024-10-11 16:22:57,786 - FileLoader.FileLogger - DEBUG - log_message - M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt seems to be a file. Reading the file.
+2024-10-11 16:22:57,786 - FileLoader.FileLogger - DEBUG - log_message - Getting metadata for M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt with data format MOKE.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - DEBUG - log_message - Metadata for M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt successfully read.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - DEBUG - log_message - Getting data from M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt with data format MOKE.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-11 16:22:57,802 - FileLoader.FileLogger - DEBUG - log_message - Data successfully read from M:\00_Hysteresen\2024_0252\2024_0252_1_LMOKE_2024-09-05_11-58-45.txt
+2024-10-11 16:26:17,761 - FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.

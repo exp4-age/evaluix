@@ -1,0 +1,86 @@
+name 'MacroStackedWidgetContainer' is not definedTraceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 3402, in <module>
+    window = MainWindow()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 276, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 715, in initialize_hys_tab
+    self.hys_macro_widget = self.findChild(MacroStackedWidgetContainer, 'hys_macro_widget')
+NameError: name 'MacroStackedWidgetContainer' is not defined
+'MacroStackedWidgetContainer' object has no attribute 'editButtonClicked'Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 3402, in <module>
+    window = MainWindow()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 276, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 716, in initialize_hys_tab
+    self.hys_macro_widget.editButtonClicked.connect(ProfileMacrosDialog(self, macros).exec_)
+AttributeError: 'MacroStackedWidgetContainer' object has no attribute 'editButtonClicked'
+'NoneType' object has no attribute 'clicked'Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 3403, in <module>
+    window = MainWindow()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 276, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 717, in initialize_hys_tab
+    self.hys_macro_btn.clicked.connect(ProfileMacrosDialog(self, macros).exec_)
+AttributeError: 'NoneType' object has no attribute 'clicked'
+module 'CustomWidgets' has no attribute 'EvaluixConsole'Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 3402, in <module>
+    window = MainWindow()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 109, in __init__
+    uic.loadUi(ui_path, self)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 1014, in parse
+    self._handle_widget(ui_file.widget)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 842, in _handle_widget
+    self.traverseWidgetTree(el)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 280, in createWidget
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 512, in createLayout
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 555, in handleItem
+    self.traverseWidgetTree(elem)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 818, in traverseWidgetTree
+    handler(self, child)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 271, in createWidget
+    self.stack.push(self._setupObject(widget_class, parent, elem))
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\uiparser.py", line 233, in _setupObject
+    obj = self.factory.createQtObject(class_name, object_name,
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\objcreator.py", line 101, in createQtObject
+    ctor = self.findQObjectType(ctor_name)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\objcreator.py", line 127, in findQObjectType
+    w = module.search(classname)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\PhD\lib\site-packages\PyQt6\uic\Loader\qobjectcreator.py", line 120, in search
+    return getattr(module, cls)
+AttributeError: module 'CustomWidgets' has no attribute 'EvaluixConsole'
+__init__() takes 1 positional argument but 3 were givenTraceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 3402, in <module>
+    window = MainWindow()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 276, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\evaluix\src\evaluix\Evaluix2_Main.py", line 716, in initialize_hys_tab
+    self.hys_macro_widget.editButton.clicked.connect(ProfileMacrosDialog(self, macros).exec_)
+TypeError: __init__() takes 1 positional argument but 3 were given

@@ -1,0 +1,32 @@
+Version: '"0.9.0"'
+EvaluixConfig: EvaluixConfig.yaml
+ProfileConfig: DefaultProfile.yaml
+conversion_factors:
+  length:
+    cm: 0.01
+    m: 1
+    mm: 0.001
+    nm: 1.0e-09
+    pm: 1.0e-12
+    um: 1.0e-06
+  magnetic_field:
+    A/cm: 0.125664
+    A/m: 0.00125664
+    G: 0.1
+    Oe: 0.1
+    T: 1000
+    kA/cm: 125.664
+    kA/m: 1.25664
+    kG: 100
+    kOe: 100
+    mG: 0.0001
+    mOe: 0.0001
+    mT: 1
+    uT: 0.001
+  magnetic_moment:
+    Am2: 1000
+    J/T: 1000
+    J/mT: 1
+    emu: 1
+    erg/G: 1
+    memu: 1000
