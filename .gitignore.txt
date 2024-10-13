@@ -1,1 +1,8 @@
+# Ignore everything before first commit
 VersionBeforeGithub/
+
+# Ignore test files
+src/evaluix/TestProfileTanHyseval.yaml
+
+# Ignore log files
+*.log

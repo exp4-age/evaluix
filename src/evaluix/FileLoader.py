@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import re
 from NSFopen import read as nid_read  # for reading in .nid files
 import pathlib
+import copy
 
 # read in data
 # optical MOKE hysteresis (data points and images); always apply normalization
@@ -841,5 +842,38 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
         })
         
         return df
+
+def deepcopy_with_unit(series_or_dataframe):
+
+    def deepcopy_dataframe_with_unit(dataframe):
+        # Create a deep copy of the dataframe
+        new_dataframe = dataframe.copy(deep=True)
+        
+        # For every series in the dataframe, check if it has a unit attribute
+        for column in new_dataframe:
+            if hasattr(new_dataframe[column], 'unit'):
+                # If the series has a unit attribute, create a deep copy of the series with the unit attribute
+                new_dataframe[column] = deepcopy_series_with_unit(new_dataframe[column])
+        
+        return new_dataframe
+    
+    def deepcopy_series_with_unit(series):
+        # Create a deep copy of the series
+        new_series = series.copy(deep=True)
+        
+        # Copy custom attributes
+        if hasattr(series, 'unit'):
+            new_series.unit = copy.deepcopy(series.unit)
+        
+        return new_series
+
+        # Check if the input is a DataFrame
+    if isinstance(series_or_dataframe, pd.DataFrame):
+        return deepcopy_dataframe_with_unit(series_or_dataframe)
+    
+    # Check if the input is a Series
+    if isinstance(series_or_dataframe, pd.Series):
+        return deepcopy_series_with_unit(series_or_dataframe)
+
 
 # %%

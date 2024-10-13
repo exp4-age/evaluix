@@ -112,7 +112,7 @@ class InfoSettingsButton(QPushButton):
     # Draw the info icon in the info region
     def paintIcon(self):
         painter = QPainter(self)
-        pixmap = QPixmap(str(own_path / "DrawingsAndIcons/icon_infosettings_cropped.png"))  # Load the image
+        pixmap = QPixmap(str(own_path / "Icons/icon_infosettings_cropped.png"))  # Load the image
         painter.drawPixmap(self.info_rect, pixmap)  # Draw the image in the info region
 
     # Handle the mouse press event region dependently
@@ -134,9 +134,10 @@ class InfoSettingsDialog(QDialog):
         self.setWindowTitle("Info and Settings")
         
 class ProfileMacrosDialog(QDialog):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None, macros=None):
+        super().__init__(parent)
         uic.loadUi(profilemacros_path, self)
+        self.macros = macros
         self.setWindowTitle("Profile and Macros")
         
 class EditableTabBar(QTabBar):
@@ -573,13 +574,15 @@ class MacroStackedWidgetContainer(QWidget):
             self.stackedWidget = MacroStackedWidget(self, macros=self.macros)
             self.mainLayout.addWidget(self.stackedWidget, 1, 0, 1, 3)
             
-            # Create an "edit" button to edit the macros
+            # Create an "edit" button to edit the macros, the functionality is added in the main window
             self.editButton = QPushButton("Edit\nMacros")
-            self.editButton.clicked.connect(self.editMacros)
             self.mainLayout.addWidget(self.editButton, 1, 3, 1, 1)
 
             # Connect the combo box to the QStackedWidget, which is only possible after both are created
             self.pageComboBox.currentIndexChanged.connect(self.changePage)
+            
+            # Set the main layout
+            self.changePage(0)
 
         else: # Detailed table mode in the macro editor dialog
             # Create the QStackedWidget
@@ -592,7 +595,6 @@ class MacroStackedWidgetContainer(QWidget):
         self.setLayout(self.mainLayout)
         
     def changePage(self, index):
-        print(f"Changing to page {index + 1}")
         self.stackedWidget.setCurrentIndex(index)
 
     def prevPage(self):
@@ -608,11 +610,6 @@ class MacroStackedWidgetContainer(QWidget):
             self.stackedWidget.setCurrentIndex(currentIndex + 1)
         elif currentIndex == self.stackedWidget.count() - 1:
             self.stackedWidget.setCurrentIndex(0)
-
-    def editMacros(self):
-        # Open the macro editor dialog
-        dialog = MacroEditorDialog(self.macros)
-        dialog.exec()        
 
 # Custom QTableWidgetItem that sorts numeric values correctly
 class NumericTableWidgetItem(QTableWidgetItem):
@@ -1254,17 +1251,30 @@ class MyMplCanvas(FigureCanvas):
             # Choose a color list for the hysteresis loops. Every item in this list should be a 2-tuple with the color for the positive and negative loop
             # The colors should be quite similar to each other with the second branch always being a bit darker than the first one
             self.color_list = [
-                ("#99CCFF", "#6699CC"),  # Light blue, Darker blue
-                ("#99FF99", "#66CC66"),  # Light green, Darker green
-                ("#CC99FF", "#9966CC"),  # Light purple, Darker purple
-                ("#FF9966", "#CC6633"),  # Light coral, Darker coral
-                ("#66FF66", "#33CC33"),  # Light lime, Darker lime
-                ("#FF9999", "#CC6666"),  # Light red, Darker red
-                ("#FFCC99", "#CC9966"),  # Light orange, Darker orange
-                ("#FF99FF", "#CC66CC"),  # Light pink, Darker pink
-                ("#FFFF99", "#CCCC66"),  # Light yellow, Darker yellow
-                ("#99FFFF", "#66CCCC"),  # Light cyan, Darker cyan
+                ('#FD8546', '#D55D1E'),  # Light orange, Darker orange
+                ('#61B5FF', '#398DE1'),  # Light blue, Darker blue
+                ('#57F86F', '#2FD047'),  # Light green, Darker green
+                ('#E055FF', '#B82DD7'),  # Light purple, Darker purple
+                ('#FDF44D', '#D5CC25'),  # Light yellow, Darker yellow
+                ('#FF935A', '#DE6B32'),  # Light coral, Darker coral
+                ('#66FF66', '#3ED73E'),  # Light lime, Darker lime
+                ('#FF6868', '#D74040'),  # Light red, Darker red
+                ('#76FFFF', '#4ED7D7'),  # Light cyan, Darker cyan
+                ('#FF93FF', '#D76BD7'),   # Light pink, Darker pink
             ]
+            
+            # average_colors, for conversion, add/subtract 20 for every value = [
+                # orange: rgb: 233, 113, 50; hex: #E97132 -> rgb: 253, 133, 70; hex: #FD8546; rgb: 213, 93, 30; hex: #D55D1E
+                # blue: rgb: 77, 161, 245; hex: #4DA1F5 -> rgb: 97, 181, 255; hex: #61B5FF; rgb: 57, 141, 225; hex: #398DE1
+                # green: rgb: 67, 228, 91; hex: #43e45b -> rgb: 87, 248, 111; hex: #57F86F; rgb: 47, 208, 71; hex: #2FD047
+                # purple: rgb: 204, 65, 235; hex: #CC41EB -> rgb: 224, 85, 255; hex: #E055FF; rgb: 184, 45, 215; hex: #B82DD7
+                # yellow: rgb: 233, 224, 57; hex: #E9E039 -> rgb: 253, 244, 77; hex: #FDF44D; rgb: 213, 204, 37; hex: #D5CC25
+                # coral: rgb: 242, 127, 70; hex: #F27F46 -> rgb: 255, 147, 90; hex: #FF935A; rgb: 222, 107, 50; hex: #DE6B32
+                # lime: rgb: 82, 235, 82; hex: #52EB52 -> rgb: 102, 255, 102; hex: #66FF66; rgb: 62, 215, 62; hex: #3ED73E
+                # red: rgb: 235, 84, 84; hex: #EB5454 -> rgb: 255, 104, 104; hex: #FF6868; rgb: 215, 64, 64; hex: #D74040
+                # cyan: rgb: 98, 235, 235; hex: #62EBEB -> rgb: 118, 255, 255; hex: #76FFFF; rgb: 78, 215, 215; hex: #4ED7D7
+                # pink: rgb: 235, 127, 235; hex: #EB7FEB -> rgb: 255, 147, 255; hex: #FF93FF; rgb: 215, 107, 215; hex: #D76BD7
+            # ]
             
             # Flatten the color list and set it as the default color cycle
             flat_color_list = [color[0] for color in self.color_list]
@@ -1849,7 +1859,6 @@ class ManualDataDialog(QDialog):
             
             # Split the text by the separator
             values = re.split(re.escape(separator), text)
-            print(values, len(values), separator)
             try:
                 # get the selected QTableWidget
                 table = self.focusWidget()

@@ -85,7 +85,7 @@ from CustomWidgets import (
     FitPointsTable,
     FunctionViewer,
 )
-from FileLoader import read_file, Dataset, Data
+from FileLoader import read_file, Dataset, Data, deepcopy_with_unit
 data = Data()
 from EvaluationFunctions import *
 
@@ -715,7 +715,7 @@ class MainWindow(QMainWindow):
             )
         
         self.hys_macro_widget = self.findChild(MacroStackedWidgetContainer, 'hys_macro_widget')
-        #self.hys_macro_widget.editButton.clicked.connect(ProfileMacrosDialog(self, macros).exec_)
+        self.hys_macro_widget.editButton.clicked.connect(self.profile_macros)
         #self.hys_macro_widget.predefined_macros()
         
         # QListWidget which contains the loglist of the selected data package
@@ -2005,7 +2005,8 @@ class MainWindow(QMainWindow):
                 # copy the data abd extend the dataset
                 global data
                 _metadata = copy.deepcopy(data.dataset[_id].metadata)
-                _raw_data = copy.deepcopy(data.dataset[_id].raw_data)
+                _raw_data = deepcopy_with_unit(data.dataset[_id].raw_data)
+                # _raw_data = copy.deepcopy(data.dataset[_id].raw_data)
                 data.add_dataset(
                     Dataset(
                         _metadata,
@@ -2023,7 +2024,8 @@ class MainWindow(QMainWindow):
                     if hasattr(data.dataset[_id], f'mod_data_{key}'):
                         # get the data
                         loglist = copy.deepcopy(getattr(data.dataset[_id], f'loglist_{key}'))
-                        mod_data = copy.deepcopy(getattr(data.dataset[_id], f'mod_data_{key}'))
+                        mod_data = deepcopy_with_unit(getattr(data.dataset[_id], f'mod_data_{key}'))
+                        # mod_data = copy.deepcopy(getattr(data.dataset[_id], f'mod_data_{key}'))
                         results = copy.deepcopy(getattr(data.dataset[_id], f'results_{key}'))
 
                         # add that the data are copied to the loglist
@@ -2103,13 +2105,15 @@ class MainWindow(QMainWindow):
                 # extract the current mod_data_nr
                 key = _pkg.split("_")[-1]
                 loglist = copy.deepcopy(getattr(data.dataset[_id], "loglist_" + key))
-                mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
+                # mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
+                mod_data = deepcopy_with_unit(getattr(data.dataset[_id], _pkg))
                 results = copy.deepcopy(getattr(data.dataset[_id], "results_" + key))
 
             else:
                 key = 0
                 loglist = []
-                mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
+                # mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
+                mod_data = deepcopy_with_unit(getattr(data.dataset[_id], _pkg))
                 results = {}
 
             # add that the data are copied to the loglist
@@ -2227,7 +2231,8 @@ class MainWindow(QMainWindow):
             _data = getattr(data.dataset[_id], _pkg)
             if isinstance(_data, pd.DataFrame):
                 # get the selected column
-                col = copy.deepcopy(_data[_cols[0]])
+                # col = copy.deepcopy(_data[_cols[0]])
+                col = deepcopy_with_unit(_data[_cols[0]])
 
                 _data[_cols[0] + "_copy"] = col.copy()
                 self.update_status_bar(f"Copied column {_cols[0]} to column {_cols[0] + '_copy'} of data package {_pkg} of dataset {_id}")
@@ -2236,7 +2241,6 @@ class MainWindow(QMainWindow):
                 self.update_table_data(table_data)
                 header = table_data.horizontalHeader()
                 for i in range(header.count()):
-                    print(table_data.horizontalHeaderItem(i).text())
                     if table_data.horizontalHeaderItem(i).text() == _cols[0] + "_copy":
                         table_data.selectColumn(i)
                         selected_index = table_data.selectedIndexes()[0]
@@ -2410,18 +2414,18 @@ class MainWindow(QMainWindow):
                                     _data1, _data2 = np.array_split(_data, 2)
                                     
                                     # Plot the first branch
-                                    qgroupbox.canvas.axes.plot(xdata1, _data1, label=col, zorder=1, marker='o', markersize=3, lw=0.5, color=current_color)
+                                    qgroupbox.canvas.axes.plot(xdata1, _data1, label=col, zorder=1, marker='o', markersize=4, lw=0.6, color=current_color)
                                     # Plot the second branch
-                                    qgroupbox.canvas.axes.plot(xdata2, _data2, zorder=1, marker='o', markersize=3, lw=0.5, color=darker_color)
+                                    qgroupbox.canvas.axes.plot(xdata2, _data2, zorder=1, marker='o', markersize=4, lw=0.6, color=darker_color)
                                 
                             except Exception as e:
                                 print(f"An error occurred while plotting the hysteresis data: {e}")
                                 # Just plot the whole hysteresis loop in one color
-                                qgroupbox.canvas.axes.plot(xdata, _data, label=col, zorder=1, marker='o', markersize=3, lw=0.5)
+                                qgroupbox.canvas.axes.plot(xdata, _data, label=col, zorder=1, marker='o', markersize=4, lw=0.6)
                                     
                         else:
                             # Plot the data
-                            qgroupbox.canvas.axes.plot(xdata, _data, label=col, zorder=1, marker='o', markersize=3, lw=0.5)
+                            qgroupbox.canvas.axes.plot(xdata, _data, label=col, zorder=1, marker='o', markersize=4, lw=0.6)
                         # Set the labels
                         try:
                             #first argument is the x-axis label, second argument is the y-axis label
@@ -2660,7 +2664,6 @@ class MainWindow(QMainWindow):
                     unitx = xdata.unit if hasattr(xdata, 'unit') else None
                     
                     # Manipulate the data
-                    print(kwargs)
                     new_data = func(xdata, _data, **kwargs)
                 else:
                     new_data = func(_data, **kwargs)
@@ -2914,10 +2917,13 @@ class MainWindow(QMainWindow):
             self.dialog.show()
             
         else:
+            # func is a string, extract the function object from the function name using getattr
+            func_obj = getattr(sys.modules[__name__], func)
+            
             # No new dialog or Labels needed, just filling the docstring and the settings table
             # Find the QTextEdit in the Info tab and fill it with the docstring
             self.info_text = self.dialog.findChild(QTextEdit, 'info_text')
-            docstring = inspect.getdoc(func)
+            docstring = inspect.getdoc(func_obj)
             self.info_text.setPlainText(docstring)
             
             # Find the QTableWidget in the Settings tab and fill it with the ProfileConfig params
@@ -2931,6 +2937,10 @@ class MainWindow(QMainWindow):
             self.funcsettings_table.setColumnCount(4)
             # Set the headers of the table
             self.funcsettings_table.setHorizontalHeaderLabels(['Name', 'Type', 'Value', 'Default'])
+            
+            #Block signals during initial population of the table
+            self.funcsettings_table.blockSignals(True)
+            
             # Populate the table with the parameters
             for i, (name, param) in enumerate(parameters.items()):
                 # Create QTableWidgetItem objects for the name, type, and value
@@ -2958,8 +2968,17 @@ class MainWindow(QMainWindow):
             # Resize the columns to fit their contents
             self.funcsettings_table.resizeColumnsToContents()
             
+            # Unblock signals after initial population of the table
+            self.funcsettings_table.blockSignals(False)
+            
+            # Disconnect any existing connections to the itemChanged signal
+            try:
+                self.funcsettings_table.itemChanged.disconnect()
+            except TypeError:
+                pass  # No existing connections to disconnect
+
             # connect the funcsettings_table to the update_yaml function
-            self.funcsettings_table.itemChanged.connect(lambda item: self.safe_execute(lambda: self.update_yaml(item, func=func)))
+            self.funcsettings_table.itemChanged.connect(lambda item: self.safe_execute(lambda: self.update_yaml(item, func=func_obj, table=self.funcsettings_table)))
             
         
     def profile_macros(self):
@@ -2982,7 +3001,7 @@ class MainWindow(QMainWindow):
         self.general_settings_table = self.dialog.findChild(QTableWidget, 'general_settings_table')
         
         # Extract the general settings from ProfileConfig
-        general_settings = {key: value for key, value in ProfileConfig.items() if key not in ['function_info', 'Macro']}
+        general_settings = {key: value for key, value in ProfileConfig.items() if key not in ['function_info', 'Macros']}
         # Set the number of rows in the table to the number of general settings
         self.general_settings_table.setRowCount(len(general_settings))
         # Set the number of columns in the table to 2 (for key and value)
@@ -2999,29 +3018,38 @@ class MainWindow(QMainWindow):
             # Add the items to the table
             self.general_settings_table.setItem(i, 0, key_item)
             self.general_settings_table.setItem(i, 1, value_item)
-        
+
         # Resize the columns to fit their contents
         self.general_settings_table.resizeColumnsToContents()
-        
-        # connect the general_settings_table to the update_yaml function
-        self.general_settings_table.itemChanged.connect(lambda item: self.safe_execute(lambda: self.update_yaml(item, yaml_file=EvaluixConfig['ProfileConfig'])))
-        
+
         ############ Function info ############
         # This is basically a copy of the tabs of the InfoSettingsDialog but instead of a single function, the function can be chosen from a dropdown menu
         # Find the QComboBox in the Function info tab
-        self.function_info_combobox = self.dialog.findChild(QComboBox, 'function_combobox')
+        self.functions_comboBox = self.dialog.findChild(QComboBox, 'functions_comboBox')
+
+        # Connect a selection change to the info_settings function
+        self.functions_comboBox.currentTextChanged.connect(lambda: self.safe_execute(lambda: self.info_settings(self.functions_comboBox.currentText(), profile=True)))
+
+        if self.functions_comboBox is None:
+            raise ValueError("functions_comboBox not found in the dialog")
+
         # Populate the combobox with the function names in ProfileConfig['function_info']
-        self.function_info_combobox.addItems(ProfileConfig['function_info'].keys())
-        # connect a selection change to the info_settings function
-        self.function_info_combobox.currentTextChanged.connect(self.safe_execute(lambda: self.info_settings(ProfileConfig['function_info'][self.function_info_combobox.currentText()])))
+        self.functions_comboBox.addItems(ProfileConfig['function_info'].keys())
+
         # Select the function "tan_hyseval" by default, or the first function if it is not available
         if 'tan_hyseval' in ProfileConfig['function_info']:
-            self.function_info_combobox.setCurrentText('tan_hyseval')
+            self.functions_comboBox.setCurrentText('tan_hyseval')
         else:
-            self.function_info_combobox.setCurrentText(list(ProfileConfig['function_info'].keys())[0])
-            
+            self.functions_comboBox.setCurrentText(list(ProfileConfig['function_info'].keys())[0])
+
         ############ Macros ############
         # TODO: Implement the Macros tab
+        
+        
+        # Connect the general_settings_table to the update_yaml function
+        self.general_settings_table.itemChanged.connect(lambda item: self.safe_execute(lambda: self.update_yaml(item, yaml_file=EvaluixConfig['ProfileConfig'], table=self.general_settings_table)))
+        
+        self.dialog.show()
         
     def load_profile(self):
         # Load the profile from the file dialog
@@ -3035,8 +3063,8 @@ class MainWindow(QMainWindow):
                 
             # Load the new profile file
             ProfileConfig = load_config(filename)
-            
-            print(f"Loaded profile from {filename}.")
+            self.update_status_bar(f"Profile {filename} loaded.")
+            self.current_profile_label.setText('Current profile: ' + filename)
             
     def convert_value(self, value, expected_type):
         try:
@@ -3044,7 +3072,7 @@ class MainWindow(QMainWindow):
         except ValueError:
             return None
 
-    def update_yaml(self, item, func=None, key=None, yaml_file=EvaluixConfig['ProfileConfig']):
+    def update_yaml(self, item, func=None, key=None, yaml_file=EvaluixConfig['ProfileConfig'], table=None):
         if func:
             # Get the row and column of the changed item
             row = item.row()
@@ -3053,8 +3081,11 @@ class MainWindow(QMainWindow):
             # Only update the YAML file if the 'Value' column was changed
             if column == 2:
                 # Get the parameter name and new value
-                name_item = self.settings_table.item(row, 0)
-                value_item = self.settings_table.item(row, 2)
+                if not table:
+                    table = self.settings_table
+                
+                name_item = table.item(row, 0)
+                value_item = table.item(row, 2)
                 name = name_item.text()
                 value = value_item.text()
 
@@ -3062,8 +3093,6 @@ class MainWindow(QMainWindow):
                     self.update_status_bar(f"The parameter {name_item.text()} is not allowed to be changed in the YAML file.")
 
                     return
-
-
 
                 # check if input is valid compared to the type of the parameter
                 type_mapping = {
@@ -3102,14 +3131,14 @@ class MainWindow(QMainWindow):
                     converted_value = _value
 
                 # update the value in the table without emitting the signal (otherwise it would call this function again and be trapped in a loop)
-                self.settings_table.blockSignals(True) # Block signals
+                table.blockSignals(True) # Block signals
                 if converted_value is None:
-                    self.settings_table.item(row, 2).setText(ProfileConfig['function_info'][func.__name__][name]['value']) # Reset the item
-                    self.settings_table.blockSignals(False) # Unblock signals
+                    table.item(row, 2).setText(ProfileConfig['function_info'][func.__name__][name]['value']) # Reset the item
+                    table.blockSignals(False) # Unblock signals
                     return
                 else:
-                    self.settings_table.item(row, 2).setText(str(converted_value)) # Update the item
-                    self.settings_table.blockSignals(False) # Unblock signals
+                    table.item(row, 2).setText(str(converted_value)) # Update the item
+                    table.blockSignals(False) # Unblock signals
 
                 # Update the value in the ProfileConfig dictionary
                 ProfileConfig['function_info'][func.__name__][name]['value'] = str(value)
