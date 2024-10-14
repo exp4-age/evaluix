@@ -1,5 +1,48 @@
+[tool.poetry]
+name = "evaluix"
+version = "0.9.1.1"
+description = "Data Evaluation Software of the (Magnetism) research group of Prof. Ehresmann at University of Kassel"
+license = "MIT"
+authors = ["Arne Jan Vereijken <arne.vereijken@physik.uni-kassel.de>"]
+repository = "https://github.com/exp4-age/evaluix"
+homepage = "https://github.com/exp4-age/evaluix"
+# REAMDE file(s) are used as the package description
+readme = ["README.srt", "LICENSE"]
+# Keywords (tranlsated to tags on the package index)
+keywords = ["evaluix", "hysteresis"]
+
+[tool.poetry.dependencies]
+# Compatible Python versions 
+python = ">=3.9"
+exp4-agepy = ">= 0.2"
+numpy = ">= 1.24.2"
+matplotlib = "*"
+pandas = "*"
+scipy = "*"
+pyyaml = "*"
+h5py = "*"
+scikit-learn = "*"
+ipython_genutils = "*"
+ipykernel = ">= 6.0.3"
+NSFopen = ">= 2.0.0"
+pyqt6 = ">= 6.4.2"
+lmfit = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+
 [build-system]
-requires = [
-    "setuptools"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.include]
+# Include additional files and directories
+include = [
+    "README.md",
+    "LICENSE",
+    "src/evaluix/ui/*.ui",
+    "src/evaluix/Icons/*.png",
+    "src/evaluix/Icons/*.jpg",
+    "src/evaluix/Icons/*.svg",
+    "src/evaluix *.yaml",
 ]
-build-backend = "setuptools.build_meta"

@@ -699,8 +699,11 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
         df.rename(
             columns={
                 "Applied FieldRawPlot [Oe]": "H (Oe)",
-                "MomentMxRaw [memu]": "Mx (memu)",
-                "MomentMyRaw [memu]": "My (memu)",
+                "MomentMxRaw [memu]": "MxRaw (memu)",
+                "MomentMyRaw [memu]": "MyRaw (memu)",
+                "MomentMx [emu]": "Mx (emu)",
+                "MomentMy [emu]": "My (emu)",
+
             },
             inplace=True,
         )
@@ -716,10 +719,10 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
                 ).reset_index(drop=True) # reset the index of the dataframe
 
         # check if y data is present and return the data accordingly
-        if np.sum(np.abs(df["My (memu)"])) > 0:
-            return df[["H (Oe)", "Mx (memu)", "My (memu)"]]
+        if np.sum(np.abs(df["MyRaw (memu)"])) > 0:
+            return df[["H (Oe)", "MxRaw (memu)", "MyRaw (memu)", "Mx (emu)", "My (emu)"]]
         else:
-            return df[["H (Oe)", "Mx (memu)"]]
+            return df[["H (Oe)", "MxRaw (memu)", "Mx (emu)"]]
         
     if dataformat == "MOKE":
         log_message('debug', f"Reading MOKE data from {file}.")
