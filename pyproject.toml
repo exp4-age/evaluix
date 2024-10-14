@@ -38,11 +38,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.include]
 # Include additional files and directories
 include = [
-    { path = "README.md" },
-    { path = "LICENSE" },
-    { path = "src/evaluix/ui/*.ui" },
-    { path = "src/evaluix/Icons/*.png" },
-    { path = "src/evaluix/Icons/*.jpg" },
-    { path = "src/evaluix/Icons/*.svg" },
-    { path = "src/evaluix/*.yaml" }
+    "README.md",
+    "LICENSE",
+    "src/evaluix/ui/*.ui",
+    "src/evaluix/Icons/*.png",
+    "src/evaluix/Icons/*.jpg",
+    "src/evaluix/Icons/*.svg",
+    "src/evaluix *.yaml"
 ]
