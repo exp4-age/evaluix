@@ -10,7 +10,6 @@ homepage = "https://github.com/exp4-age/evaluix"
 readme = "README.srt"
 # Keywords (translated to tags on the package index)
 keywords = ["evaluix", "hysteresis"]
-long_description_content_type = "text/x-rst"
 
 [tool.poetry.dependencies]
 # Compatible Python versions 
