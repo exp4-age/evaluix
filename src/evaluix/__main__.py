@@ -3428,15 +3428,17 @@ class MainWindow(QMainWindow):
         QDesktopServices.openUrl(QUrl("https://www.youtube.com/watch?v=8GyVx28R9-s&t=112"))
         QApplication.instance().restoreOverrideCursor()
     
-if __name__ == '__main__':
+def main():
     try:
         app = QApplication([])
         window = MainWindow()
         window.show()
         app.exec()
-
     except Exception as e:
         with open(own_path / 'log.txt', 'a') as f:
             f.write(str(e))
             f.write(traceback.format_exc())
         raise e
+
+if __name__ == "__main__":
+    main()
