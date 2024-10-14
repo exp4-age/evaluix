@@ -7,7 +7,7 @@ authors = ["Arne Jan Vereijken <arne.vereijken@physik.uni-kassel.de>"]
 repository = "https://github.com/exp4-age/evaluix"
 homepage = "https://github.com/exp4-age/evaluix"
 # README file(s) are used as the package description
-readme = "README.srt"
+readme = "./README.srt"
 # Keywords (translated to tags on the package index)
 keywords = ["evaluix", "hysteresis"]
 

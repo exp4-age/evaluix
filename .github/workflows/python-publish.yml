@@ -33,6 +33,11 @@ jobs:
     - name: Update version in pyproject.toml
       run: python src/evaluix/update_version.py
 
+    - name: Verify files in repository
+      run: |
+        pwd
+        ls -R
+
     - name: Build package
       run: poetry build
 
