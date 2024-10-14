@@ -24,9 +24,9 @@ jobs:
     
     - name: Install Poetry
       run: |
-        curl -sSL https://install.python-poetry.org | python3 -
+        curl -sSL https://install.python-poetry.org | python3 - && \
         export PATH="$HOME/.local/bin:$PATH"
-
+    
     - name: Install dependencies
       run: poetry install
 
@@ -35,7 +35,7 @@ jobs:
 
     - name: Build package
       run: poetry build
-      
+
     - name: Store the distribution packages
       uses: actions/upload-artifact@v4
       with:
@@ -43,8 +43,7 @@ jobs:
         path: dist/
 
   publish-to-pypi:
-    name: >-
-      Publish Python 🐍 distribution 📦 to PyPI
+    name: Publish Python 🐍 distribution 📦 to PyPI
     if: startsWith(github.ref, 'refs/tags/') # Only publish when a new tag is pushed
     needs:
     - build
@@ -62,7 +61,7 @@ jobs:
         name: python-package-distributions
         path: dist/
     - name: Publish distribution 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      uses: pypa/gh-action-pypi-publish@v1
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
