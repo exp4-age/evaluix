@@ -66,7 +66,7 @@ with open(own_path / 'Macros.yaml', 'r') as file:
     macros = yaml.safe_load(file)
 
 # Selfmade modules. Some of these may need the config dictionary so it has to updated before importing/calling them
-from CustomWidgets import (
+from .CustomWidgets import (
     InfoSettingsButton,
     DragDropTableWidget,
     ConsoleWidget,
@@ -85,9 +85,9 @@ from CustomWidgets import (
     FitPointsTable,
     FunctionViewer,
 )
-from FileLoader import read_file, Dataset, Data, deepcopy_with_unit
+from .FileLoader import read_file, Dataset, Data, deepcopy_with_unit
 data = Data()
-from EvaluationFunctions import *
+from .EvaluationFunctions import *
 
 #TODO: Create just one update function for everything (table_metadata, table_datapkg, table_data, tabl
 # e_loglist, canvas) and call it in the respective functions

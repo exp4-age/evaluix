@@ -2,7 +2,7 @@
 import inspect
 import ast
 import yaml
-import EvaluationFunctions
+from . import EvaluationFunctions
 import pathlib
 
 own_path = pathlib.Path(__file__).parent.absolute()

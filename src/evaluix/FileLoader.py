@@ -19,8 +19,6 @@ import copy
 # optical MOKE hysteresis (data points and images); always apply normalization
 # VSM hysteresis (only apply hysteresis if onw wishes to)
 
-from PyQt6 import QtWidgets
-
 # %%
 """
 following functions are capable of reading in:
