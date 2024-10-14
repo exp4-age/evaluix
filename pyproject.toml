@@ -40,9 +40,9 @@ build-backend = "poetry.core.masonry.api"
 include = [
     "README.md",
     "LICENSE",
-    "src/evaluix/ui/*.ui",
+    "src/evaluix/GUIs/*.ui",
     "src/evaluix/Icons/*.png",
     "src/evaluix/Icons/*.jpg",
     "src/evaluix/Icons/*.svg",
-    "src/evaluix *.yaml"
+    "src/evaluix/*.yaml"
 ]
