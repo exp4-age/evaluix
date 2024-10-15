@@ -20,12 +20,16 @@ If you want to help develop and contribute to the package, first clone
 the repository to your PC and install in editable mode (detailed 
 tutorial is about to come)::
 
+    git clone https://github.com/exp4-age/evaluix.git
+    cd evaluix
+    pip install -e .
+
 Recommendation for Students and Beginners
-----------------------------------------
+-----------------------------------------
 
 Install Anaconda and create a new environment with Python 3.9 or higher. Activate it in an anaconda prompt
 and install evaluix as follows ::
-    
+
     conda create -n myevaluix python=3.9
 
     conda activate myevaluix
@@ -34,7 +38,9 @@ and install evaluix as follows ::
 
     pip install evaluix
 
-Now you can start the software by typing `evaluix` in the anaconda prompt. ::
+Now you can start the software by typing `evaluix` in the anaconda prompt ::
+
+    conda activate myevaluix (if not already activated)
 
     evaluix
 

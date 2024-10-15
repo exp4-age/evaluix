@@ -72,11 +72,11 @@ import threading
 
 # Import converted .ui files for the custom widgets
 try:
-    from evaluix.GUIs.Btn_InfoSettings import Ui_infosett_dialog
-    from evaluix.GUIs.ProfileAndMacros import Ui_profilemacros_dialog
-    from evaluix.GUIs.HDF5Preview import Ui_hdf5preview_dialog
-    from evaluix.GUIs.ManualDataDialog import Ui_ManualDataInput_mdi
-    from evaluix.GUIs.FunctionViewer import Ui_functionviewer_dialog
+    from .GUIs.Btn_InfoSettings import Ui_infosett_dialog
+    from .GUIs.ProfileAndMacros import Ui_profilemacros_dialog
+    from .GUIs.HDF5Preview import Ui_hdf5preview_dialog
+    from .GUIs.ManualDataDialog import Ui_ManualDataInput_mdi
+    from .GUIs.FunctionViewer import Ui_functionviewer_dialog
 except ImportError:
     from GUIs.Btn_InfoSettings import Ui_infosett_dialog
     from GUIs.ProfileAndMacros import Ui_profilemacros_dialog
