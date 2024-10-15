@@ -2,7 +2,7 @@
 import re
 import pathlib
 
-root = pathlib.Path(__file__).resolve().parents[2]
+root = pathlib.Path(__file__).resolve().parents[1]
 version_file = root / 'src/evaluix' / '__version__.py'
 
 # Read the version from __version__.py
