@@ -39,6 +39,10 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 if __name__ == '__main__':
+    # The config file is also read in the CustomWidgets module so it has to be imported before that
+    from utils.CreateEvaluixConfig import create_evaluix_config
+    create_evaluix_config()
+
     # Selfmade modules. Some of these may need the config dictionary so it has to be updated before importing/calling them
     from GUIs.CustomWidgets import (
         ClickableMenu,
@@ -60,11 +64,14 @@ if __name__ == '__main__':
         ResultsTable,
     )
     from GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from utils.CreateEvaluixConfig import create_evaluix_config
     from utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
     data = Data()
     from utils.EvaluationFunctions import *
 else:
+    # The config file is also read in the CustomWidgets module so it has to be imported before that
+    from .utils.CreateEvaluixConfig import create_evaluix_config
+    create_evaluix_config()
+
     # Selfmade modules. Some of these may need the config dictionary so it has to be updated before importing/calling them
     from .GUIs.CustomWidgets import (
         ClickableMenu,
@@ -86,12 +93,10 @@ else:
         ResultsTable,
     )
     from .GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from .utils.CreateEvaluixConfig import create_evaluix_config
     from .utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
     data = Data()
     from .utils.EvaluationFunctions import *
 
-create_evaluix_config()
 #paths
 own_path = pathlib.Path(__file__).resolve().parents[1]
 
