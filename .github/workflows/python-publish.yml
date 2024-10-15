@@ -34,7 +34,8 @@ jobs:
       run: python scripts/update_version.py
 
     - name: Convert the .ui files to .py files using pyuic6
-      run: python scripts/convert_ui.py
+      run: |
+        poetry run python scripts/convert_ui.py
 
     - name: Verify files in repository
       run: |
