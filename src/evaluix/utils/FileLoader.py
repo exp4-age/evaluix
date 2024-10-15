@@ -34,7 +34,7 @@ in all functions, the file format is checked
 ###########################################
 # Define a logger for this module
 ###########################################
-own_path = pathlib.Path(__file__).parent.absolute()
+root = pathlib.Path(__file__).resolve.parents[1]
 logger_name = __name__
 
 # Create a logger for extensive file logging
@@ -49,7 +49,7 @@ console_logger.setLevel(logging.WARNING) #only log warnings and errors to the co
 date_str = datetime.date.today().strftime('%Y-%m-%d')
 
 # Create a file handler and set its level to DEBUG
-fh = logging.FileHandler(own_path / f'logger_{date_str}.log')
+fh = logging.FileHandler(root / 'logs' / f'logger_{date_str}.log')
 fh.setLevel(logging.DEBUG)
 
 # Create a console handler and set its level to INFO

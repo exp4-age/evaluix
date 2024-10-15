@@ -86,14 +86,14 @@ except ImportError:
 
 
 #paths
-root = pathlib.Path(__file__).resolve().parents[3]
+root = pathlib.Path(__file__).resolve().parents[1]
 
-QDir.addSearchPath('icons', str(root / 'src/evaluix/Icons'))
+QDir.addSearchPath('icons', str(root / 'Icons'))
 
-with open(root / 'src/evaluix/utils' / 'EvaluixConfig.yaml', 'r') as file:
+with open(root / 'utils' / 'EvaluixConfig.yaml', 'r') as file:
     config = yaml.safe_load(file)
     
-with open(root / 'src/evaluix/utils' / 'Macros.yaml', 'r') as file:
+with open(root / 'utils' / 'Macros.yaml', 'r') as file:
     macros = yaml.safe_load(file)
 
 class ClickableMenu(QMenu):
@@ -122,7 +122,7 @@ class InfoSettingsButton(QPushButton):
     # Draw the info icon in the info region
     def paintIcon(self):
         painter = QPainter(self)
-        pixmap = QPixmap(str(root / "src/evaluix/Icons" / "icon_infosettings_cropped.png"))  # Load the image
+        pixmap = QPixmap(str(root / "Icons" / "icon_infosettings_cropped.png"))  # Load the image
         painter.drawPixmap(self.info_rect, pixmap)  # Draw the image in the info region
 
     # Handle the mouse press event region dependently

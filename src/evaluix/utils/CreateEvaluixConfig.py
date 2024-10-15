@@ -5,8 +5,8 @@ def create_evaluix_config():
     import pathlib
 
     # Path to the __version__.py file
-    root = pathlib.Path(__file__).resolve().parents[3]
-    version_file = root / 'src/evaluix' / '__version__.py'
+    root = pathlib.Path(__file__).resolve().parents[1]
+    version_file = root / '__version__.py'
 
     # Import the EvaluationFunctions module
     try:
@@ -221,14 +221,14 @@ def create_evaluix_config():
     }
 
     # Export to EvaluixConfig.yaml
-    with open(root / 'src/evaluix/utils' / 'EvaluixConfig.yaml', 'w') as file:
+    with open(root / 'utils' / 'EvaluixConfig.yaml', 'w') as file:
         yaml.dump({'Version': AboutEvaluix['Version']}, file)
         yaml.dump({'EvaluixConfig': AboutEvaluix['EvaluixConfig']}, file)
         yaml.dump({'ProfileConfig': AboutEvaluix['ProfileConfig']}, file)
         yaml.dump(conversion_factors, file)
 
     # Export to DefaultProfile.yaml
-    with open(root / 'src/evaluix/utils' / 'DefaultProfile.yaml', 'w') as file:
+    with open(root / 'utils' / 'DefaultProfile.yaml', 'w') as file:
         yaml.dump({'Autosave_status': AboutEvaluix['Autosave_status']}, file)
         yaml.dump({'Macros': DefaultMacros}, file)
         yaml.dump({'function_info': function_info}, file)

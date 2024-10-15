@@ -2,6 +2,7 @@
 import re
 import pathlib
 
+# This is a different root than the one in the original script
 root = pathlib.Path(__file__).resolve().parents[1]
 version_file = root / 'src/evaluix' / '__version__.py'
 

@@ -98,17 +98,18 @@ else:
     from .utils.EvaluationFunctions import *
 
 #paths
-own_path = pathlib.Path(__file__).resolve().parents[1]
+root = pathlib.Path(__file__).resolve().parents[0]
+print(root)
 
-QDir.addSearchPath('icons', str(own_path / 'Icons'))
+QDir.addSearchPath('icons', str(root / 'Icons'))
 
 
 def load_config(path):
     with open(path, 'r') as file:
         return yaml.safe_load(file)
 
-EvaluixConfig = load_config(own_path / 'evaluix/utils' / 'EvaluixConfig.yaml')
-ProfileConfig = load_config(own_path / 'evaluix/utils' / 'DefaultProfile.yaml')
+EvaluixConfig = load_config(root / 'utils' / 'EvaluixConfig.yaml')
+ProfileConfig = load_config(root / 'utils' / 'DefaultProfile.yaml')
 
 
 #TODO: Create just one update function for everything (table_metadata, table_datapkg, table_data, tabl
@@ -3081,7 +3082,7 @@ class MainWindow(QMainWindow):
             # Update EvaluixConfig with the new profile file
             EvaluixConfig['ProfileConfig'] = filename
             # Save the updated EvaluixConfig to the config file
-            with open(own_path / 'EvaluixConfig.yaml', 'w') as file:
+            with open(root / 'utils'  / 'EvaluixConfig.yaml', 'w') as file:
                 yaml.dump(EvaluixConfig, file)
                 
             # Load the new profile file
@@ -3466,7 +3467,7 @@ def main():
         window.show()
         app.exec()
     except Exception as e:
-        with open(own_path / 'log.txt', 'a') as f:
+        with open(root / 'logs' / 'log.txt', 'a') as f:
             f.write(str(e))
             f.write(traceback.format_exc())
         raise e

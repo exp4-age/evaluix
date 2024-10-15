@@ -3,6 +3,7 @@ import pathlib
 from PyQt6 import uic
 
 # Define paths
+# This is a different root than the one in the original script
 root = pathlib.Path(__file__).resolve().parents[1]
 ui_dir = root / 'src/evaluix/GUIs'
 output_dir = ui_dir  # Output directory is the same as the input directory
