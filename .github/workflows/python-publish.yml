@@ -31,7 +31,7 @@ jobs:
       run: poetry install
 
     - name: Update version in pyproject.toml
-      run: python src/evaluix/update_version.py
+      run: python scripts/update_version.py
 
     - name: Verify files in repository
       run: |

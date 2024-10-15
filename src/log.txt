@@ -1,0 +1,99 @@
+C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\GUIs\Evaluix2_MainWindowLayout.ui: invalid Qt Designer file: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'Traceback (most recent call last):
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 35, in __init__
+    document = ElementTree.parse(ui_file)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 1204, in parse
+    tree.parse(source, parser)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 558, in parse
+    source = open(source, "rb")
+             ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 3460, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 129, in __init__
+    loadUi(ui_path, self, package='evaluix/GUIs')
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 995, in parse
+    ui_file = UIFile(filename)
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 37, in __init__
+    self._raise_exception("invalid Qt Designer file", detail=str(e))
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 92, in _raise_exception
+    raise UIFileException(self._ui_file, message, detail=detail)
+PyQt6.uic.exceptions.UIFileException: C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\GUIs\Evaluix2_MainWindowLayout.ui: invalid Qt Designer file: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'
+C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\GUIs\Evaluix2_MainWindowLayout.ui: invalid Qt Designer file: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'Traceback (most recent call last):
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 35, in __init__
+    document = ElementTree.parse(ui_file)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 1204, in parse
+    tree.parse(source, parser)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 558, in parse
+    source = open(source, "rb")
+             ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 3460, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 129, in __init__
+    loadUi(ui_path, self, package='evaluix/GUIs')
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 995, in parse
+    ui_file = UIFile(filename)
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 37, in __init__
+    self._raise_exception("invalid Qt Designer file", detail=str(e))
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 92, in _raise_exception
+    raise UIFileException(self._ui_file, message, detail=detail)
+PyQt6.uic.exceptions.UIFileException: C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\GUIs\Evaluix2_MainWindowLayout.ui: invalid Qt Designer file: [Errno 2] No such file or directory: 'C:\\Users\\exp4-ArVe-220\\Desktop\\Evaluix2\\src\\GUIs\\Evaluix2_MainWindowLayout.ui'
+C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\GUIs\Evaluix2_MainWindowLayout.py: invalid Qt Designer file: not well-formed (invalid token): line 1, column 1Traceback (most recent call last):
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 35, in __init__
+    document = ElementTree.parse(ui_file)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 1204, in parse
+    tree.parse(source, parser)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\xml\etree\ElementTree.py", line 569, in parse
+    self._root = parser._parse_whole(source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 3460, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 129, in __init__
+    loadUi(ui_path, self)
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\load_ui.py", line 86, in loadUi
+    return DynamicUILoader(package).loadUi(uifile, baseinstance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\Loader\loader.py", line 62, in loadUi
+    return self.parse(filename)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\uiparser.py", line 995, in parse
+    ui_file = UIFile(filename)
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 37, in __init__
+    self._raise_exception("invalid Qt Designer file", detail=str(e))
+  File "C:\Users\exp4-ArVe-220\anaconda3\envs\Evaluix2\Lib\site-packages\PyQt6\uic\ui_file.py", line 92, in _raise_exception
+    raise UIFileException(self._ui_file, message, detail=detail)
+PyQt6.uic.exceptions.UIFileException: C:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\GUIs\Evaluix2_MainWindowLayout.py: invalid Qt Designer file: not well-formed (invalid token): line 1, column 1

@@ -1,9 +1,9 @@
 # update_version.py
 import re
-from pathlib import Path
+import pathlib
 
-# Path to the __version__.py file
-version_file = Path("src/evaluix/__version__.py")
+root = pathlib.Path(__file__).resolve().parents[2]
+version_file = root / 'src/evaluix' / '__version__.py'
 
 # Read the version from __version__.py
 with version_file.open() as f:
@@ -14,7 +14,7 @@ with version_file.open() as f:
         raise RuntimeError("Unable to find version string.")
 
 # Path to the pyproject.toml file
-pyproject_file = Path("pyproject.toml")
+pyproject_file = root / 'pyproject.toml'
 
 # Read the pyproject.toml file
 pyproject_content = pyproject_file.read_text()

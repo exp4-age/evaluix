@@ -1,6 +1,19 @@
-from PyQt6 import uic, QtCore
+import copy
+import datetime
+import h5py
+import inspect  # to get the names and docstrings of the functions
+import numpy as np
+import pandas as pd
+import pathlib
+import sys
+import traceback
+import yaml
+from typing import Union, get_args
+
+from PyQt6 import QtCore
+from PyQt6.uic import loadUi
+from PyQt6.QtCore import Qt, QCoreApplication, QUrl, QItemSelection, QDir
 from PyQt6.QtGui import QStandardItemModel, QAction, QStandardItem, QDesktopServices
-# from PyQt6.QSci import QsciScintilla, QsciLexerPython #TODO: Check if this is going to be supported in PyQt6
 from PyQt6.QtWidgets import (
     QApplication,
     QCheckBox,
@@ -25,69 +38,73 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
+if __name__ == '__main__':
+    # Selfmade modules. Some of these may need the config dictionary so it has to be updated before importing/calling them
+    from GUIs.CustomWidgets import (
+        ClickableMenu,
+        ConsoleWidget,
+        DragDropTableWidget,
+        EvaluixConsole,
+        ExportTableWidget,
+        FitPointsTable,
+        FitReportTable,
+        FunctionViewer,
+        HDF5PreviewDialog,
+        InfoSettingsButton,
+        InfoSettingsDialog,
+        JumpSlider,
+        MacroStackedWidgetContainer,
+        ManualDataDialog,
+        MyMplCanvas,
+        ProfileMacrosDialog,
+        ResultsTable,
+    )
+    from GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
+    from utils.CreateEvaluixConfig import create_evaluix_config
+    from utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
+    data = Data()
+    from utils.EvaluationFunctions import *
+else:
+    # Selfmade modules. Some of these may need the config dictionary so it has to be updated before importing/calling them
+    from .GUIs.CustomWidgets import (
+        ClickableMenu,
+        ConsoleWidget,
+        DragDropTableWidget,
+        EvaluixConsole,
+        ExportTableWidget,
+        FitPointsTable,
+        FitReportTable,
+        FunctionViewer,
+        HDF5PreviewDialog,
+        InfoSettingsButton,
+        InfoSettingsDialog,
+        JumpSlider,
+        MacroStackedWidgetContainer,
+        ManualDataDialog,
+        MyMplCanvas,
+        ProfileMacrosDialog,
+        ResultsTable,
+    )
+    from .GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
+    from .utils.CreateEvaluixConfig import create_evaluix_config
+    from .utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
+    data = Data()
+    from .utils.EvaluationFunctions import *
 
-from PyQt6.QtCore import Qt, QCoreApplication, QUrl, QItemSelection, QDir
-import inspect # to get the names and docstrings of the functions
-import numpy as np
-import pandas as pd
-import copy
-import sys
-import datetime
-import yaml
-import traceback
-import h5py
-from typing import Union, get_args
-import pathlib
-
+create_evaluix_config()
 #paths
-own_path = pathlib.Path(__file__).parent.absolute()
-ui_path = own_path / "GUIs/Evaluix2_MainWindowLayout.ui"
-created_config_path = own_path / "CreateEvaluixConfig.py"
+own_path = pathlib.Path(__file__).resolve().parents[1]
 
 QDir.addSearchPath('icons', str(own_path / 'Icons'))
 
-with open(own_path / "CreateEvaluixConfig.py") as file:
-    exec(file.read())
+
 def load_config(path):
     with open(path, 'r') as file:
         return yaml.safe_load(file)
-EvaluixConfig = load_config(own_path / 'EvaluixConfig.yaml')
-ProfileConfig = load_config(own_path / 'DefaultProfile.yaml')
 
-def str_to_bool(s):
-    if s.lower() == 'true':
-        return True
-    elif s.lower() == 'false':
-        return False
-    else:
-        raise ValueError(f"Cannot convert {s} to bool.")
+EvaluixConfig = load_config(own_path / 'evaluix/utils' / 'EvaluixConfig.yaml')
+ProfileConfig = load_config(own_path / 'evaluix/utils' / 'DefaultProfile.yaml')
 
-with open(own_path / 'Macros.yaml', 'r') as file:
-    macros = yaml.safe_load(file)
-
-# Selfmade modules. Some of these may need the config dictionary so it has to updated before importing/calling them
-from .CustomWidgets import (
-    InfoSettingsButton,
-    DragDropTableWidget,
-    ConsoleWidget,
-    ClickableMenu,
-    EvaluixConsole,
-    ExportTableWidget,
-    InfoSettingsDialog,
-    ProfileMacrosDialog,
-    JumpSlider,
-    MyMplCanvas,
-    MacroStackedWidgetContainer,
-    ManualDataDialog,
-    HDF5PreviewDialog,
-    ResultsTable,
-    FitReportTable,
-    FitPointsTable,
-    FunctionViewer,
-)
-from .FileLoader import read_file, Dataset, Data, deepcopy_with_unit
-data = Data()
-from .EvaluationFunctions import *
 
 #TODO: Create just one update function for everything (table_metadata, table_datapkg, table_data, tabl
 # e_loglist, canvas) and call it in the respective functions
@@ -107,8 +124,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Load the .ui file
-        uic.loadUi(ui_path, self)
+        # Load the python converted .ui file
+        self.ui = Ui_MainWindow()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
 
         #######################################
         # General
@@ -3428,6 +3446,14 @@ class MainWindow(QMainWindow):
         QDesktopServices.openUrl(QUrl("https://www.youtube.com/watch?v=8GyVx28R9-s&t=112"))
         QApplication.instance().restoreOverrideCursor()
     
+def str_to_bool(s):
+    if s.lower() == 'true':
+        return True
+    elif s.lower() == 'false':
+        return False
+    else:
+        raise ValueError(f"Cannot convert {s} to bool.")
+
 def main():
     try:
         app = QApplication([])

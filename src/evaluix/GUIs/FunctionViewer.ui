@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>hdf5preview_dialog</class>
- <widget class="QDialog" name="hdf5preview_dialog">
+ <class>functionviewer_dialog</class>
+ <widget class="QDialog" name="functionviewer_dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -155,7 +155,7 @@ border-color: rgb(200, 200, 200);
   <connection>
    <sender>functionviewer_dialog_btnbox</sender>
    <signal>accepted()</signal>
-   <receiver>hdf5preview_dialog</receiver>
+   <receiver>functionviewer_dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -171,7 +171,7 @@ border-color: rgb(200, 200, 200);
   <connection>
    <sender>functionviewer_dialog_btnbox</sender>
    <signal>rejected()</signal>
-   <receiver>hdf5preview_dialog</receiver>
+   <receiver>functionviewer_dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

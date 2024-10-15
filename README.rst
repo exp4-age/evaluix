@@ -7,3 +7,43 @@ evaluix
    :target: https://github.com/exp4-age/evaluix/blob/main/LICENSE
 
 Data Evaluation Software of Arbeitsgruppe Ehresmann (Magnetism)
+
+
+Installation
+------------
+
+Install with ::
+
+    pip install evaluix
+
+If you want to help develop and contribute to the package, first clone
+the repository to your PC and install in editable mode (detailed 
+tutorial is about to come)::
+
+Recommendation for Students and Beginners
+----------------------------------------
+
+Install Anaconda and create a new environment with Python 3.9 or higher. Activate it in an anaconda prompt
+and install evaluix as follows ::
+    
+    conda create -n myevaluix python=3.9
+
+    conda activate myevaluix
+
+    conda install pip (if necessary)
+
+    pip install evaluix
+
+Now you can start the software by typing `evaluix` in the anaconda prompt. ::
+
+    evaluix
+
+Documentation
+-------------
+
+About to come.
+
+Contributing
+------------
+
+About to come

@@ -31,8 +31,8 @@ from PyQt6.QtWidgets import (
     QHBoxLayout,
     QWidget,
 )
-from PyQt6 import uic
-from PyQt6.QtCore import Qt, pyqtSignal, QRect, QPoint, QDir
+
+from PyQt6.QtCore import Qt, pyqtSignal, QRect, QPoint, QDir, QFile, QIODevice
 from PyQt6.QtGui import (
     QPainter, 
     QPixmap, 
@@ -70,20 +70,30 @@ import IPython
 #from IPython.lib.inputhook import inputhook_manager
 import threading
 
+# Import converted .ui files for the custom widgets
+try:
+    from evaluix.GUIs.Btn_InfoSettings import Ui_infosett_dialog
+    from evaluix.GUIs.ProfileAndMacros import Ui_profilemacros_dialog
+    from evaluix.GUIs.HDF5Preview import Ui_hdf5preview_dialog
+    from evaluix.GUIs.ManualDataDialog import Ui_ManualDataInput_mdi
+    from evaluix.GUIs.FunctionViewer import Ui_functionviewer_dialog
+except ImportError:
+    from GUIs.Btn_InfoSettings import Ui_infosett_dialog
+    from GUIs.ProfileAndMacros import Ui_profilemacros_dialog
+    from GUIs.HDF5Preview import Ui_hdf5preview_dialog
+    from GUIs.ManualDataDialog import Ui_ManualDataInput_mdi
+    from GUIs.FunctionViewer import Ui_functionviewer_dialog
+
+
 #paths
-own_path = pathlib.Path(__file__).parent.absolute()
-infosettings_path = own_path / "GUIs/Btn_InfoSettings.ui"
-profilemacros_path = own_path / "GUIs/ProfileAndMacros.ui"
-hdf5preview_path = own_path / "GUIs/HDF5Preview.ui"
-manualdatadialog_path = own_path / "GUIs/ManualDataDialog.ui"
-functionviewer_path = own_path / "GUIs/FunctionViewer.ui"
+root = pathlib.Path(__file__).resolve().parents[3]
 
-QDir.addSearchPath('icons', str(own_path / 'Icons'))
+QDir.addSearchPath('icons', str(root / 'src/evaluix/Icons'))
 
-with open(own_path / 'EvaluixConfig.yaml', 'r') as file:
+with open(root / 'src/evaluix/utils' / 'EvaluixConfig.yaml', 'r') as file:
     config = yaml.safe_load(file)
     
-with open(own_path / 'Macros.yaml', 'r') as file:
+with open(root / 'src/evaluix/utils' / 'Macros.yaml', 'r') as file:
     macros = yaml.safe_load(file)
 
 class ClickableMenu(QMenu):
@@ -112,7 +122,7 @@ class InfoSettingsButton(QPushButton):
     # Draw the info icon in the info region
     def paintIcon(self):
         painter = QPainter(self)
-        pixmap = QPixmap(str(own_path / "Icons/icon_infosettings_cropped.png"))  # Load the image
+        pixmap = QPixmap(str(root / "src/evaluix/Icons" / "icon_infosettings_cropped.png"))  # Load the image
         painter.drawPixmap(self.info_rect, pixmap)  # Draw the image in the info region
 
     # Handle the mouse press event region dependently
@@ -130,13 +140,17 @@ class InfoSettingsButton(QPushButton):
 class InfoSettingsDialog(QDialog):
     def __init__(self):
         super().__init__()
-        uic.loadUi(infosettings_path, self)
+        # Load the python converted .ui file
+        self.ui = Ui_infosett_dialog()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
         self.setWindowTitle("Info and Settings")
         
 class ProfileMacrosDialog(QDialog):
     def __init__(self, parent=None, macros=None):
         super().__init__(parent)
-        uic.loadUi(profilemacros_path, self)
+        # Load the python converted .ui file
+        self.ui = Ui_profilemacros_dialog()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
         self.macros = macros
         self.setWindowTitle("Profile and Macros")
         
@@ -1417,8 +1431,9 @@ class HDF5PreviewDialog(QDialog):
     
     def __init__(self, filename):
         super().__init__()
-        # Load the UI file
-        uic.loadUi(hdf5preview_path, self)
+                # Load the python converted .ui file
+        self.ui = Ui_hdf5preview_dialog()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
         # Set the dialog to be deleted when closed
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         if filename:
@@ -1569,7 +1584,9 @@ class FunctionViewer(QDialog):
     
     def __init__(self):
         super().__init__()
-        uic.loadUi(functionviewer_path, self)
+        # Load the python converted .ui file
+        self.ui = Ui_functionviewer_dialog()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
         # Set the dialog to be deleted when closed
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         
@@ -1776,8 +1793,9 @@ class ManualDataDialog(QDialog):
     def __init__(self, parent=None, _id=None):
         super(QDialog, self).__init__(parent)
 
-        # Load the UI from the .ui file
-        uic.loadUi(manualdatadialog_path, self)
+        # Load the python converted .ui file
+        self.ui = Ui_ManualDataInput_mdi()  # Instantiate the generated class
+        self.ui.setupUi(self)  # Set up the UI
         
         # Set the dialog to be deleted when closed
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
