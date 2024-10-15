@@ -34,7 +34,7 @@ in all functions, the file format is checked
 ###########################################
 # Define a logger for this module
 ###########################################
-root = pathlib.Path(__file__).resolve.parents[1]
+root = pathlib.Path(__file__).resolve().parents[1]
 logger_name = __name__
 
 # Create a logger for extensive file logging
