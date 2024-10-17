@@ -51,6 +51,6 @@ include = [
 # Exclude specific files and directories
 exclude = [
     "scripts/*",
-    "*.log"
+    "*.log",
     "*.tmp"
 ]
