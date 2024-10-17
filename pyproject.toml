@@ -42,9 +42,15 @@ build-backend = "poetry.core.masonry.api"
 include = [
     "README.srt",
     "LICENSE",
-    "src/evaluix/GUIs/*.ui",
-    "src/evaluix/Icons/*.png",
-    "src/evaluix/Icons/*.jpg",
-    "src/evaluix/Icons/*.svg",
+    "src/evaluix/GUIs/Icons/*.png",
+    "src/evaluix/GUIs/Icons/*.jpg",
+    "src/evaluix/GUIs/Icons/*.svg",
     "src/evaluix/*.yaml"
+]
+
+# Exclude specific files and directories
+exclude = [
+    "scripts/*",
+    "*.log"
+    "*.tmp"
 ]

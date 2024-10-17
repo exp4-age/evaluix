@@ -11,7 +11,6 @@ import yaml
 from typing import Union, get_args
 
 from PyQt6 import QtCore
-from PyQt6.uic import loadUi
 from PyQt6.QtCore import Qt, QCoreApplication, QUrl, QItemSelection, QDir
 from PyQt6.QtGui import QStandardItemModel, QAction, QStandardItem, QDesktopServices
 from PyQt6.QtWidgets import (
@@ -64,7 +63,7 @@ if __name__ == '__main__':
         ResultsTable,
     )
     from GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
+    from utils.FileLoader import read_file, Dataset, Data
     data = Data()
     from utils.EvaluationFunctions import *
 else:
@@ -93,15 +92,14 @@ else:
         ResultsTable,
     )
     from .GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from .utils.FileLoader import read_file, Dataset, Data, deepcopy_with_unit
+    from .utils.FileLoader import read_file, Dataset, Data
     data = Data()
     from .utils.EvaluationFunctions import *
 
 #paths
 root = pathlib.Path(__file__).resolve().parents[0]
-print(root)
 
-QDir.addSearchPath('icons', str(root / 'Icons'))
+QDir.addSearchPath('icons', str(root / 'GUIs/Icons'))
 
 
 def load_config(path):
@@ -1324,18 +1322,13 @@ class MainWindow(QMainWindow):
                 # Add the attribute "unit" to the first row
                 for j in range(_data.shape[1]):
                     header = horizontal_headers[j]
-                    # Attempt to get the unit attribute
-                    if hasattr(_data[header], 'unit'):
-                        unit = getattr(_data[header], 'unit', None)
-                        quantity_type = None
-                        for key in EvaluixConfig['conversion_factors']:
-                            if str(unit) in EvaluixConfig['conversion_factors'][key].keys():
-                                quantity_type = key
-                                break
-                        
-                    else:
-                        unit = 'unknown unit'  # or unit = ''
-                        quantity_type = None
+                    # Attempt to get the unit which is in df.attrs as a dictionary with the column names as keys
+                    unit = _data.attrs.get(header, "Unknown")
+                    quantity_type = None
+                    for key in EvaluixConfig['conversion_factors']:
+                        if unit in EvaluixConfig['conversion_factors'][key].keys():
+                            quantity_type = key
+                            break
                     
                     # Create a QComboBox for unit selection
                     unit_selector = QComboBox()
@@ -1394,15 +1387,8 @@ class MainWindow(QMainWindow):
         table_data.update()
         
     def update_unit(self, new_unit, data, header, table_data, data_xdata):
-        # Copy units from the original series
-        units = {key: (data[key].unit if key != header else new_unit) for key in data.keys()}
-        
         # Get the currently selected columns
-        data[header] = unit_converter(data[header], EvaluixConfig['conversion_factors'], new_unit)
-        
-        # Reassign the units to the series in data
-        for key, unit in units.items():
-            data[key].unit = unit
+        unit_converter(df = data, col = header, conversion_factors=EvaluixConfig['conversion_factors'], target_unit = new_unit)
         
         # Refresh the table data
         self.update_table_data(table_data)
@@ -1416,7 +1402,6 @@ class MainWindow(QMainWindow):
             for index in selected_indexes:
                 selection.select(index, index)
             selection_model.selectionChanged.emit(selection, selection)
-        
 
     def check_fit_selection(self, table_data, fit=False):
         # Temporarily disconnect the signals
@@ -1500,7 +1485,7 @@ class MainWindow(QMainWindow):
                 items = ["Point number"]
                 for header in horizontal_headers:
                     try:
-                        item = header + " [" + _data[header].unit + "]"
+                        item = header + " [" + _data.attrs[header] + "]"
                     except AttributeError:
                         item = header
                     items.append(item)
@@ -1655,19 +1640,14 @@ class MainWindow(QMainWindow):
                 # Add the attribute "unit" to the first row
                 for j in range(fitted_data.shape[1]):
                     header = horizontal_headers[j]
-                    # Attempt to get the unit attribute
-                    if hasattr(fitted_data[header], 'unit'):
-                        unit = getattr(fitted_data[header], 'unit', None)
-                        quantity_type = None
-                        for key in EvaluixConfig['conversion_factors']:
-                            if str(unit) in EvaluixConfig['conversion_factors'][key].keys():
-                                quantity_type = key
-                                break
-                        
-                    else:
-                        unit = 'unknown unit'  # or unit = ''
-                        quantity_type = None
-                    
+
+                    unit = fitted_data.attrs.get(header, "Unknown")
+                    quantity_type = None
+                    for key in EvaluixConfig['conversion_factors']:
+                        if unit in EvaluixConfig['conversion_factors'][key].keys():
+                            quantity_type = key
+                            break
+
                     # Create a QComboBox for unit selection
                     unit_selector = QComboBox()
                     if quantity_type is not None:
@@ -2029,7 +2009,7 @@ class MainWindow(QMainWindow):
                 # copy the data abd extend the dataset
                 global data
                 _metadata = copy.deepcopy(data.dataset[_id].metadata)
-                _raw_data = deepcopy_with_unit(data.dataset[_id].raw_data)
+                _raw_data = copy.deepcopy(data.dataset[_id].raw_data)
                 # _raw_data = copy.deepcopy(data.dataset[_id].raw_data)
                 data.add_dataset(
                     Dataset(
@@ -2048,7 +2028,7 @@ class MainWindow(QMainWindow):
                     if hasattr(data.dataset[_id], f'mod_data_{key}'):
                         # get the data
                         loglist = copy.deepcopy(getattr(data.dataset[_id], f'loglist_{key}'))
-                        mod_data = deepcopy_with_unit(getattr(data.dataset[_id], f'mod_data_{key}'))
+                        mod_data = copy.deepcopy(getattr(data.dataset[_id], f'mod_data_{key}'))
                         # mod_data = copy.deepcopy(getattr(data.dataset[_id], f'mod_data_{key}'))
                         results = copy.deepcopy(getattr(data.dataset[_id], f'results_{key}'))
 
@@ -2130,14 +2110,14 @@ class MainWindow(QMainWindow):
                 key = _pkg.split("_")[-1]
                 loglist = copy.deepcopy(getattr(data.dataset[_id], "loglist_" + key))
                 # mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
-                mod_data = deepcopy_with_unit(getattr(data.dataset[_id], _pkg))
+                mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
                 results = copy.deepcopy(getattr(data.dataset[_id], "results_" + key))
 
             else:
                 key = 0
                 loglist = []
                 # mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
-                mod_data = deepcopy_with_unit(getattr(data.dataset[_id], _pkg))
+                mod_data = copy.deepcopy(getattr(data.dataset[_id], _pkg))
                 results = {}
 
             # add that the data are copied to the loglist
@@ -2255,10 +2235,16 @@ class MainWindow(QMainWindow):
             _data = getattr(data.dataset[_id], _pkg)
             if isinstance(_data, pd.DataFrame):
                 # get the selected column
-                # col = copy.deepcopy(_data[_cols[0]])
-                col = deepcopy_with_unit(_data[_cols[0]])
-
+                col = copy.deepcopy(_data[_cols[0]])
                 _data[_cols[0] + "_copy"] = col.copy()
+
+                # get the unit from df.attrs[col_name] and apply it also to the new column if available. Otherwise set it to Unknown
+                try:
+                    unit = _data.attrs[_cols[0]]
+                    _data.attrs[_cols[0] + "_copy"] = unit
+                except KeyError:
+                    _data.attrs[_cols[0] + "_copy"] = "Unknown"
+
                 self.update_status_bar(f"Copied column {_cols[0]} to column {_cols[0] + '_copy'} of data package {_pkg} of dataset {_id}")
 
                 # select the new data column
@@ -2270,7 +2256,6 @@ class MainWindow(QMainWindow):
                         selected_index = table_data.selectedIndexes()[0]
                         table_data.scrollToItem(table_data.item(selected_index.row(), 0))
                         break
-
 
             else:
                 self.update_status_bar("No data selected. Please select a data package.")
@@ -2367,39 +2352,48 @@ class MainWindow(QMainWindow):
         qgroupbox.canvas.clear()
 
         if _id is not None and _pkg and _cols:
+            # This should not be necessary anymore because the data has the unit now as an attr in the DataFrame
+            # However, this is just to make sure it works
             try:
                 _x_unitless = _x.split("[")[0].strip()
             except AttributeError:
                 _x_unitless = _x
+
+            # Get the selected data
             plottable_data = [[_id, _pkg, _cols, _x_unitless]]
 
-            # get the content of the table in which the preserved datasets are saved
+            # TODO: Implement a function which sorts the plottable content including up to two different x and y axes and including the unit (convert or not)
+
+            # get the content of the table in which the preserved datasets are saved and add them to the plottable_data
             row_count = qgroupbox.table.rowCount()
             column_count = qgroupbox.table.columnCount()
             table_content = [[qgroupbox.table.item(i, j).text() for j in range(column_count)] for i in range(row_count)]
 
-            # check if there are datasets in the table which have fitting data
+            # Include preserved data in the plot if there is any
             if table_content:
                 for preserved_id, preserved_pkg in table_content:
                     preserved_id = int(preserved_id)
-                    if not _id == preserved_id:#TODO: delete: and not _pkg == preserved_pkg:
-                        if hasattr(data.dataset[preserved_id], preserved_pkg):
-                            print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} exists.")
-                            # first check if the preserved data has a column fulfilling the requirement of _x
-                            if not _x_unitless in getattr(data.dataset[preserved_id], preserved_pkg).columns and not _x_unitless == "Point number":
-                                print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} does not have a column {_x_unitless}.")
-                                # if not, take next preserved dataset
-                                continue
 
-                            for col in getattr(data.dataset[preserved_id], preserved_pkg).columns:
-                                print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} has column {col}.")
-                                if col in _cols:
-                                    # preserve the data a second time to plot it in the same plot
-                                    plottable_data.append([preserved_id, preserved_pkg, [col], _x_unitless])
-                                    print([preserved_id, preserved_pkg, [col], _x_unitless])
-                        else:
-                            self.update_status_bar(f"Preserved data package {preserved_pkg} of dataset {preserved_id} does not exist.")
+                    # check if the preserved dataset exists
+                    if hasattr(data.dataset[preserved_id], preserved_pkg):
+                        print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} exists.")
+                        # first check if the preserved data has a column fulfilling the requirement of _x
+                        if not _x_unitless in getattr(data.dataset[preserved_id], preserved_pkg).columns and not _x_unitless == "Point number":
+                            print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} does not have a column {_x_unitless}.")
+                            # if not, take next preserved dataset
+                            continue
 
+                        for col in getattr(data.dataset[preserved_id], preserved_pkg).columns:
+                            print(f"Preserved data package {preserved_pkg} of dataset {preserved_id} has column {col}.")
+                            # Check if the preserved data has the same ydata as the selected data
+                            if col in _cols:
+                                # As x and ydata are equal, the data is added to the plottable_data
+                                plottable_data.append([preserved_id, preserved_pkg, [col], _x_unitless])
+                                print([preserved_id, preserved_pkg, [col], _x_unitless])
+                    else:
+                        self.update_status_bar(f"Preserved data package {preserved_pkg} of dataset {preserved_id} does not exist.")
+
+            # Start with the actual plotting
             x_min = x_max = y_min = y_max = None
             for _id, _pkg, _cols, _x_unitless in plottable_data:
                 try:
@@ -2453,12 +2447,17 @@ class MainWindow(QMainWindow):
                         # Set the labels
                         try:
                             #first argument is the x-axis label, second argument is the y-axis label
-                            qgroupbox.canvas.set_labels(xdata.name + " [" + xdata.unit + "]", _data.name + " [" + _data.unit + "]")
+                            xlabel = xdata.name + " [" + getattr(data.dataset[_id], _pkg).attrs[_x_unitless] + "]"
+                            ylabel = _data.name + " [" + getattr(data.dataset[_id], _pkg).attrs[col] + "]"
                         except AttributeError:
                             try:
-                                qgroupbox.canvas.set_labels(_x, _data.name + " [" + _data.unit + "]")
+                                xlabel = _x
+                                ylabel = _data.name + " [" + getattr(data.dataset[_id], _pkg).attrs[col] + "]"
                             except AttributeError:
-                                qgroupbox.canvas.set_labels(_x, _data.name)
+                                xlabel = _x
+                                ylabel = _data.name
+                        
+                        qgroupbox.canvas.set_labels(xlabel, ylabel)
 
                         if y_min is None or np.min(_data) < y_min:
                             y_min = np.min(_data)
@@ -2595,37 +2594,33 @@ class MainWindow(QMainWindow):
 
         if _id is not None and _pkg and _cols:
 
-            # first check if new data has to be created due to
-            # 1. the data package is "raw_data"
-            # 2. the data package is not "raw_data" but the new_data_flag is checked
-            # 3. the function requires another data length than the original data (currently only num_derivative)
+            # first check if new data pkg has to be created due to
+                # 1. the data package is "raw_data"
+                # 2. the new_data_flag is checked
+                # 3. the function requires another data length than the original data (currently only num_derivative and num_integral)
+
+            
             tab_main = self.findChild(QTabWidget, 'tab_main')
-            # Get the currently open tab
-            index = tab_main.currentIndex()
-            tab_name = tab_main.widget(index).objectName()
-            #identify tabs function by slicing the tab_name
-            _name = tab_name.split("_")[-1] + "_" # the "_" is important due to current naming convention
-            new_data_flag = self.findChild(QCheckBox, _name + 'new_data_flag')
+            # Slice the currently open tab_name to identify the new data flag checkbox
+            _name = tab_main.widget(tab_main.currentIndex()).objectName().split("_")[-1] + "_" # the "_" is important due to current naming convention
+            new_data_flag = self.findChild(QCheckBox, _name + 'new_data_flag') #reason number 2
 
             # functions which require a new data package
-            funcs_with_new_data = [num_derivative, num_integral]
+            funcs_with_new_data = [num_derivative, num_integral] # reason number 3
 
-            if _pkg == "raw_data" or new_data_flag.isChecked() or func in funcs_with_new_data:
+            if _pkg == "raw_data" or new_data_flag.isChecked() or func in funcs_with_new_data: # check for reasons 1-3
+                # create a new data package and set the _pkg to the new data package so that the function is correctly applied
                 key = self.copy_mod_data()
                 _pkg = f"mod_data_{key}"
 
             for col in _cols:
-                # Get the data
+                # Get the (selected) column data
                 _data = getattr(data.dataset[_id], _pkg)[col]
-                
-                # save the unit if there is any
-                unit = _data.unit if hasattr(_data, 'unit') else None
-                print(f"unit: {unit}")
 
                 # extract the keyword arguments and their values from the yaml file as input for the function
                 kwargs_yaml = copy.deepcopy(ProfileConfig['function_info'][func.__name__])
 
-                # check if additional keyword arguments are given and
+                # check if additional keyword arguments are provided and store/overwrite them in the kwargs_yaml dictionary
                 if kwargs:
                     for key, value in kwargs.items():
                         kwargs_yaml[key]['value'] = value
@@ -2645,65 +2640,78 @@ class MainWindow(QMainWindow):
                     # Add more types here if necessary
                 }
 
-                kwargs = {} # new dictionary to store the keyword arguments and their values
+                # new dictionary to store the applied keyword arguments and their values. This is a subset of kwargs_yaml excluding the keys 'xdata', 'ydata' and 'Category'
+                applied_kwargs = {} 
                 for key in kwargs_yaml.keys():
+                    # Exclude the keys 'xdata', 'ydata' and 'Category' from the applied_kwargs dictionary
                     if key in ['xdata', 'ydata', 'Category']:
                         continue
 
+                    # For all other keys, identify the expected type and value from the kwargs_yaml dictionary
                     expected_type_str = ProfileConfig['function_info'][func.__name__][key]['type']
                     value = ProfileConfig['function_info'][func.__name__][key]['value']
-                    if 'Union' in expected_type_str:
+
+                    # Check if the input valus is valid for the expected type
+
+                    if 'Union' in expected_type_str: # If several types are allowed, i.e. a Union in the Typing module
                         expected_types = [type_mapping[type_str.strip()] for type_str in expected_type_str.replace('Union[', '').replace(']', '').split(',')]
                         for expected_type in expected_types:
                             try:
-                                kwargs[key] = expected_type(value)
+                                # Check if the value can be converted to one of the expected types
+                                applied_kwargs[key] = expected_type(value)
                                 break
                             except ValueError:
+                                # If not, try the next expected type
                                 continue
                         else:
+                            # If none of the expected types work, raise a ValueError
                             self.update_status_bar(f"The input {value} is not valid for the type {expected_type_str}.")
                             return
                     else:
+                        # If only one type is expected
                         expected_type = type_mapping[expected_type_str]
                         try:
-                            kwargs[key] = expected_type(value)
+                            # try to convert the value to the expected type
+                            applied_kwargs[key] = expected_type(value)
                         except ValueError:
+                            # If the conversion fails, raise a ValueError
                             self.update_status_bar(f"The input {value} is not valid for the type {expected_type_str}.")
                             return
 
-
-                # kwargs = {key: type_mapping[kwargs_yaml[key]['type']](kwargs_yaml[key]['default']) for key in kwargs_yaml.keys()}
-
+                # If the function requires xdata, get the xdata and apply the function to the xdata and the data
                 if add_xdata:
                     # Get the x-data
-                    if _x == "Point number":
+                    if _x == "Point number": #point number is not a column in the data package and has to be created
                         xdata = np.arange(len(_data))
                     else:
                         try:
+                            # Try to get the xdata from the data package
                             xdata = getattr(data.dataset[_id], _pkg)[_x]
                         except KeyError:
+                            # If the xdata is not in the data package, use the first column of the data package instead
                             xdata = getattr(data.dataset[_id], _pkg).iloc[:, 0]
                             self.update_status_bar("KeyError: The selected xdata is not in the data package. Using the first column instead.")
 
-                    unitx = xdata.unit if hasattr(xdata, 'unit') else None
+                    # Get the unit of the xdata
+                    unitx = getattr(data.dataset[_id], _pkg).attrs[_x] if _x in getattr(data.dataset[_id], _pkg).attrs.keys() else "Unknown"
                     
                     # Manipulate the data
-                    new_data = func(xdata, _data, **kwargs)
+                    new_data = func(xdata, _data, **applied_kwargs)
                 else:
-                    new_data = func(_data, **kwargs)
+                    new_data = func(_data, **applied_kwargs)
 
                 if func in funcs_with_new_data:
                     # Create a dictionary where the keys are the column names and the values are the columns of new_data
                     data_dict = {f"{col}_{i}": new_data[i] for i in range(len(new_data))}
                     # Overwrite the data
                     try:
+                        # Update the data in the data package
                         key = _pkg.split("_")[-1]
                         data.dataset[_id].update_mod_data(key = key, new_data = data_dict)
+                        # Set the unit of the new data to "Unknown" as this is for integral and derivative data
+                        # TODO: This is a temporary solution and should be changed in the future
                         for col_key in data_dict.keys():
-                            if col_endswith('_0'):
-                                getattr(data.dataset[_id], _pkg)[col_key].unit = unitx
-                            else:
-                                getattr(data.dataset[_id], _pkg)[col_key].unit = unit
+                            getattr(data.dataset[_id], _pkg).attrs[col_key] = "Unknown"
                         print('new data set')
                     except Exception as e:
                         print(f"An error occurred while setting the new data: {e}")
@@ -2714,15 +2722,18 @@ class MainWindow(QMainWindow):
                         if len(new_data) == 2 and add_xdata:
                             getattr(data.dataset[_id], _pkg)[col] = new_data[1]
                             getattr(data.dataset[_id], _pkg)[_x] = new_data[0] if not _x == "Point number" else np.arange(len(new_data[1]))
-                            if unit:
-                                if hasattr(getattr(data.dataset[_id], _pkg)[col], 'unit'):
-                                    getattr(data.dataset[_id], _pkg)[col].unit = unit
-                                if hasattr(getattr(data.dataset[_id], _pkg)[_x], 'unit'):
-                                    getattr(data.dataset[_id], _pkg)[_x].unit = unitx
+                            # So far the unit just gets copied from the original data which is mostly fine but not always
+                            if func == hys_norm or (func == hys_center and kwargs.get('normalize', False) == True):
+                                getattr(data.dataset[_id], _pkg).attrs[col] = "arb.u."
+                            # if unit:
+                            #     if hasattr(getattr(data.dataset[_id], _pkg)[col], 'unit'):
+                            #         getattr(data.dataset[_id], _pkg)[col].unit = unit
+                            #     if hasattr(getattr(data.dataset[_id], _pkg)[_x], 'unit'):
+                            #         getattr(data.dataset[_id], _pkg)[_x].unit = unitx
                         else:
                             getattr(data.dataset[_id], _pkg)[col] = new_data
-                            if unit and hasattr(getattr(data.dataset[_id], _pkg)[col], 'unit'):
-                                getattr(data.dataset[_id], _pkg)[col].unit = unit
+                            if func == hys_norm or (func == hys_center and kwargs.get('normalize', False) == True):
+                                getattr(data.dataset[_id], _pkg).attrs[col] = "arb.u."
 
                         print('new data set')
                     except Exception as e:
@@ -2733,8 +2744,8 @@ class MainWindow(QMainWindow):
                 # update the loglist with the function name and the arguments
                 log_func = f"data manipulation via {func.__name__} at {col}"
                 log_xdata = f" with xdata = {_x}" if add_xdata else ""
-                if kwargs:
-                    log_kwargs = ' with kwargs: ' + ', '.join(f"{k}={v}" for k, v in kwargs.items())
+                if applied_kwargs:
+                    log_kwargs = ' with kwargs: ' + ', '.join(f"{k}={v}" for k, v in applied_kwargs.items())
                 else:
                     log_kwargs = ""
 

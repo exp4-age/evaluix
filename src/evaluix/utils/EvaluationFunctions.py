@@ -2037,35 +2037,38 @@ def safe_stderr(stderr):
     """
     return 0 if stderr is None else stderr
 
-def unit_converter(series: pd.Series, conversion_factors: dict, target_unit: str) -> pd.Series:
+def unit_converter(df: pd.DataFrame, col: str, conversion_factors: dict, target_unit: str) -> pd.Series:
     """
-    Convert a pandas Series from one unit to another using provided conversion factors.
+    Convert a pandas DataFrame column from one unit to another using provided conversion factors.
 
-    This function converts the values in a pandas Series from the current unit to a target unit
-    based on the provided conversion factors. The Series must have a 'unit' attribute that specifies
-    the current unit of the values.
+    This function converts the values in a specified column of a pandas DataFrame from the current unit 
+    to a target unit based on the provided conversion factors. The DataFrame must have a 'unit' attribute 
+    for the specified column that specifies the current unit of the values.
 
     Parameters
     ----------
-    series : pd.Series
-        The pandas Series to be converted. Must have a 'unit' attribute.
+    df : pd.DataFrame
+        The pandas DataFrame containing the column to be converted. Must have a 'unit' attribute for the specified column.
+    col : str
+        The name of the column to be converted.
     conversion_factors : dict
         A dictionary containing conversion factors. The keys are quantity types (e.g., 'length', 'mass'),
         and the values are dictionaries mapping units to their conversion factors relative to a base unit.
         Example: {'length': {'m': 1, 'cm': 0.01, 'mm': 0.001}}.
     target_unit : str
-        The unit to which the Series values should be converted.
+        The unit to which the column values should be converted.
 
     Returns
     -------
     pd.Series
-        A new pandas Series with values converted to the target unit. The 'unit' attribute of the Series
-        is updated to the target unit.
+        The pandas DataFrame with the specified column values converted to the target unit. The 'unit' attribute 
+        of the column is updated to the target unit.
 
     Raises
     ------
-    AttributeError
-        If the input Series does not have a 'unit' attribute.
+    KeyError
+        If the DataFrame does not contain the specified column.
+        If the unit of the specified column is not specified in the DataFrame attributes.
     ValueError
         If the conversion_factors dictionary is empty.
         If the current unit or target unit is not supported by the conversion_factors dictionary.
@@ -2073,24 +2076,30 @@ def unit_converter(series: pd.Series, conversion_factors: dict, target_unit: str
     Examples
     --------
     >>> import pandas as pd
-    >>> data = pd.Series([100, 200, 300])
-    >>> data.unit = 'cm'
+    >>> data = pd.DataFrame({'length': [100, 200, 300]})
+    >>> data.attrs['length'] = 'cm'
     >>> conversion_factors = {'length': {'m': 1, 'cm': 0.01, 'mm': 0.001}}
-    >>> unit_converter(data, conversion_factors, 'm')
-    0    1.0
-    1    2.0
-    2    3.0
-    dtype: float64
+    >>> unit_converter(data, 'length', conversion_factors, 'm')
+       length
+    0     1.0
+    1     2.0
+    2     3.0
     """
-    # Ensure the series has a 'unit' attribute
-    if not hasattr(series, 'unit'):
-        raise AttributeError("The pd.Series object must have a 'unit' attribute.")
+    # Ensure that the DataFrame has the specified column
+    if col not in df.columns:
+        raise KeyError(f"The DataFrame does not contain a column named '{col}'.")
+
+    # Ensure that df.attrs contains col as key
+    if col not in df.attrs:
+        df.attrs[col] = 'Unknown'
+        raise KeyError(f"The unit of the column '{col}' was not specified in the DataFrame attributes. It has now been set to Unknown.")
     
     # Ensure the dictionary of conversion factors is not empty
     if not conversion_factors:
-        raise ValueError("The dictionary of conversion factors cannot be empty.")
+        raise ValueError("No conversion factors provided.")
 
-    current_unit = series.unit
+    # Get the current unit of the Series
+    current_unit = df.attrs[col]
     quantity_type = None
 
     for key in conversion_factors:
@@ -2104,12 +2113,11 @@ def unit_converter(series: pd.Series, conversion_factors: dict, target_unit: str
         raise ValueError(f"Unsupported unit. Supported units are: {all_units}")
 
     # Convert to base unit of quantity type
-    series_in_base_unit = series * conversion_factors[quantity_type][current_unit]
+    col_in_base_unit = df[col] * conversion_factors[quantity_type][current_unit]
 
     # Convert from base unit to target unit
-    converted_series = series_in_base_unit / conversion_factors[quantity_type][target_unit]
+    converted_col = col_in_base_unit / conversion_factors[quantity_type][target_unit]
 
     # Update the unit attribute
-    converted_series.unit = target_unit
-
-    return converted_series
+    df[col] = converted_col # update the column in the DataFrame
+    df.attrs[col] = target_unit # update the unit attribute in the DataFrame

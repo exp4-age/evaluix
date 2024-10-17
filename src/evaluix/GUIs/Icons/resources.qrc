@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icon_hys_ArctanEval.png</file>
+    <file>icon_hys_center.png</file>
+    <file>icon_hys_del_outliers.png</file>
+    <file>icon_hys_DoubleArctanEval.png</file>
+    <file>icon_hys_LinEval.png</file>
+    <file>icon_hys_noise_reduction.png</file>
+    <file>icon_hys_norm.png</file>
+    <file>icon_hys_num_derivative.png</file>
+    <file>icon_hys_num_integral.png</file>
+    <file>icon_hys_rmv_opening.png</file>
+    <file>icon_hys_slope_corr.png</file>
+    <file>icon_infosettings.png</file>
+    <file>icon_infosettings_cropped.png</file>
+  </qresource>
+</RCC>

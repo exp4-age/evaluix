@@ -445,13 +445,17 @@ function_info:
       value: '-'
   unit_converter:
     Category: unknown
+    col:
+      default: '-'
+      type: str
+      value: '-'
     conversion_factors:
       default: '-'
       type: dict
       value: '-'
-    series:
+    df:
       default: '-'
-      type: pd.Series
+      type: pd.DataFrame
       value: '-'
     target_unit:
       default: '-'

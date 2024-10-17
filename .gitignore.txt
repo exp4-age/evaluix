@@ -2,7 +2,11 @@
 VersionBeforeGithub/
 
 # Ignore test files
-src/evaluix/TestProfileTanHyseval.yaml
+test/TestProfileTanHyseval.yaml
 
 # Ignore log files
 *.log
+
+# ignore __pycache
+src/evaluix/__pycache__
+src/evaluix/GUIs/__pycache__

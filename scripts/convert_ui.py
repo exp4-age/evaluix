@@ -48,11 +48,28 @@ def modify_import_statements(py_file):
             for import_line in import_lines:
                 file.write(f'    {import_line.replace("from CustomWidgets import", "from .CustomWidgets import")}')
 
+# Function to modify icon paths
+def modify_icon_paths(py_file):
+    with open(py_file, 'r') as file:
+        lines = file.readlines()
+
+    with open(py_file, 'w') as file:
+        for line in lines:
+            if 'QtGui.QPixmap' in line and '.png' in line:
+                # extract everything in the QtGui.QPixmap() function
+                icon_path = line.split('QtGui.QPixmap(')[1].split(')')[0].strip('"').strip("'")
+                icon_name = icon_path.split('/')[-1]
+                # modify the icon path
+                new_icon_path = f'icons:{icon_name}'
+                line = line.replace(icon_path, new_icon_path)
+            file.write(line)
+
 # Traverse the ui_dir and convert .ui files to .py files
 for ui_file in ui_dir.glob('*.ui'):
     py_file = output_dir / f"{ui_file.stem}.py"
     print(f"Converting {ui_file} to {py_file}")
     convert_ui_to_py(ui_file, py_file)
     modify_import_statements(py_file)
+    modify_icon_paths(py_file)
 
 print("Conversion and modification completed.")

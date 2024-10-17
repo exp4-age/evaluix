@@ -253,7 +253,7 @@
   </property>
   <property name="windowIcon">
    <iconset theme="Obelix">
-    <normaloff>.</normaloff>.</iconset>
+    <normaloff>../../../evaluix/src/evaluix/GUIs</normaloff>../../../evaluix/src/evaluix/GUIs</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(25, 35, 45);
@@ -975,46 +975,14 @@ border: 0;
                <property name="bottomMargin">
                 <number>4</number>
                </property>
-               <item row="5" column="0" colspan="4">
-                <widget class="ExportTableWidget" name="hys_table_data">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                   <horstretch>5</horstretch>
-                   <verstretch>5</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QHeaderView::section {
-        background-color: rgb(45, 55, 65);
-}</string>
-                 </property>
-                 <property name="selectionBehavior">
-                  <enum>QAbstractItemView::SelectColumns</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
+               <item row="1" column="4">
                 <widget class="QPushButton" name="hys_preserve_current_datapgk">
                  <property name="text">
                   <string>Preserve current datapkg</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="hys_label_xdata">
-                 <property name="text">
-                  <string>Choose active xdata</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1" colspan="2">
-                <widget class="QComboBox" name="hys_data_xdata">
-                 <property name="toolTip">
-                  <string>Choose the active data (for plotting as well as data manipulation)</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="4">
+               <item row="0" column="0" colspan="5">
                 <widget class="QTabWidget" name="hys_tab_plotandaontent">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1138,6 +1106,51 @@ preservation</string>
                  </widget>
                 </widget>
                </item>
+               <item row="5" column="0" colspan="5">
+                <widget class="ExportTableWidget" name="hys_table_data">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>5</horstretch>
+                   <verstretch>5</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QHeaderView::section {
+        background-color: rgb(45, 55, 65);
+}</string>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectColumns</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QComboBox" name="hys_data_xdata">
+                 <property name="toolTip">
+                  <string>Choose the active data (for plotting as well as data manipulation)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="hys_label_xdata">
+                 <property name="text">
+                  <string>Choose active xdata</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <spacer name="horizontalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
             </item>
@@ -1203,14 +1216,14 @@ to Macro*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_del_outliers">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>54</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1220,45 +1233,13 @@ to Macro*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_del_outliers.png</normaloff>../Icons/icon_hys_del_outliers.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_del_outliers.png</normaloff>:/icons/icon_hys_del_outliers.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="InfoSettingsButton" name="btn_hys_smooth">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>60</width>
-                      <height>60</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Smoothing of data with a Savitzky-Golay filter (smoothing1d)</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_noise_reduction.png</normaloff>../Icons/icon_hys_noise_reduction.png</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>50</width>
-                      <height>50</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1267,14 +1248,14 @@ to Macro*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_faraday">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1296,14 +1277,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_norm">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1313,13 +1294,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_norm_white.png</normaloff>../Icons/icon_hys_norm_white.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_norm.png</normaloff>:/icons/icon_hys_norm.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1328,14 +1309,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_rmv_opening">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1345,13 +1326,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_slope_corr.png</normaloff>../Icons/icon_hys_slope_corr.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_rmv_opening.png</normaloff>:/icons/icon_hys_rmv_opening.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1360,14 +1341,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_slope">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1377,13 +1358,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_slope_corr.png</normaloff>../Icons/icon_hys_slope_corr.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_slope_corr.png</normaloff>:/icons/icon_hys_slope_corr.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1392,14 +1373,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_integrate">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1409,13 +1390,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_num_integral.png</normaloff>../Icons/icon_hys_num_integral.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_num_integral.png</normaloff>:/icons/icon_hys_num_integral.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1424,14 +1405,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_arctan_fit">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1441,13 +1422,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_ArctanEval.png</normaloff>../Icons/icon_hys_ArctanEval.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_ArctanEval.png</normaloff>:/icons/icon_hys_ArctanEval.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1456,14 +1437,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_darctan_fit">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1473,13 +1454,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_DoubleArctanEval.png</normaloff>../Icons/icon_hys_DoubleArctanEval.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_DoubleArctanEval.png</normaloff>:/icons/icon_hys_DoubleArctanEval.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1488,14 +1469,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_num_deriv">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1505,45 +1486,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_num_derivative.png</normaloff>../Icons/icon_hys_num_derivative.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_num_derivative.png</normaloff>:/icons/icon_hys_num_derivative.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="InfoSettingsButton" name="btn_hys_center_signal">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>60</width>
-                      <height>60</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Center the signal as compensation of the VSM manipulation (hys_center). Otherwise normalization with preserving the Magnetization.</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_center.png</normaloff>../Icons/icon_hys_center.png</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1552,14 +1501,14 @@ correction*</string>
                    <widget class="InfoSettingsButton" name="btn_hys_lin_fit">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>60</horstretch>
-                      <verstretch>60</verstretch>
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
                      </sizepolicy>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -1569,13 +1518,13 @@ correction*</string>
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset>
-                      <normaloff>../Icons/icon_hys_LinEval.png</normaloff>../Icons/icon_hys_LinEval.png</iconset>
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_LinEval.png</normaloff>:/icons/icon_hys_LinEval.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
-                      <width>60</width>
-                      <height>60</height>
+                      <width>64</width>
+                      <height>64</height>
                      </size>
                     </property>
                    </widget>
@@ -1618,6 +1567,70 @@ correction*</string>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="InfoSettingsButton" name="btn_hys_center_signal">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Center the signal as compensation of the VSM manipulation (hys_center). Otherwise normalization with preserving the Magnetization.</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_center.png</normaloff>:/icons/icon_hys_center.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="InfoSettingsButton" name="btn_hys_smooth">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Smoothing of data with a Savitzky-Golay filter (smoothing1d)</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="Icons/resources.qrc">
+                      <normaloff>:/icons/icon_hys_noise_reduction.png</normaloff>:/icons/icon_hys_noise_reduction.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -3424,6 +3437,8 @@ background-color: rgb(45, 55, 65);
    <header>CustomWidgets</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="Icons/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
