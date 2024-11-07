@@ -1,4 +1,4 @@
-Autosave_status: false
+Autosave_status: true
 Macros:
   Hysteresis:
     MOKE single loop:
@@ -288,20 +288,6 @@ function_info:
     ydata:
       default: '-'
       type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
-      value: '-'
-  invert_axis:
-    Category: Data Manipulation
-    axis:
-      default: x
-      type: str
-      value: x
-    xdata:
-      default: '-'
-      type: pd.DataFrame
-      value: '-'
-    ydata:
-      default: '-'
-      type: pd.DataFrame
       value: '-'
   lin_hyseval:
     Category: Data Evaluation

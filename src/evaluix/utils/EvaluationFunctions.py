@@ -266,9 +266,13 @@ def tan_hys(
             xdata = np.insert(xdata, center_index, xdata[center_index])
             ydata = np.insert(ydata, center_index, ydata[center_index])
 
-        Xdata = np.split(xdata, 2)
-        ydata1 = arctan(Xdata[0], a, b, c, d, e)
-        ydata2 = arctan(Xdata[1], a, b, c, d, -e)
+        # Split the array into two halves using slicing
+        mid_index = len(xdata) // 2
+        Xdata1 = xdata[:mid_index]
+        Xdata2 = xdata[mid_index:]
+
+        ydata1 = arctan(Xdata1, a, b, c, d, e)
+        ydata2 = arctan(Xdata2, a, b, c, d, -e)
         return np.append(ydata1, ydata2)
 
 def double_tan_hys(
@@ -393,6 +397,55 @@ def chisquared_lmfit(
 ###############################################################################        
 # 4. Data Manipulation
 ###############################################################################
+
+def invert_axis(xdata: pd.DataFrame, ydata: pd.DataFrame, axis: str = 'x'):
+    """
+    Category: Data Manipulation
+
+    Invert the x or y axis (or both) of the dataset by simply multiplying the data with -1.
+
+    Parameters
+    ----------
+    xdata : pandas.DataFrame
+        Input value(s) of the dataset (typically named x in functions).
+    ydata : pandas.DataFrame
+        Output value(s) of the dataset (typically named y in functions).
+    axis : str, optional
+        Axis to be inverted. The default is 'x'. Can be 'x', 'y', or 'both'.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Normal or inverted xdata, depending on the chosen axis.
+    
+    pandas.DataFrame
+        Normal or inverted ydata, depending on the chosen axis.
+        
+    Raises
+    ------
+    ValueError
+        If the axis is not recognized.
+
+    Examples
+    --------
+    >>> invert_axis(pd.DataFrame([1, 2, 3]), pd.DataFrame([4, 5, 6]), 'x')
+    0   -1
+    1   -2
+    2   -3
+    dtype: int64
+    0    4
+    1    5
+    2    6
+    dtype: int64
+    """
+    if axis == 'x':
+        return -xdata, ydata
+    elif axis == 'y':
+        return xdata, -ydata
+    elif axis == 'both':
+        return -xdata, -ydata
+    else:
+        raise ValueError(f'Axis not recognized. Please choose between x, y, or both, not {axis}')
 
 def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_length: int = 5, sigma_or_polyorder: int = 2):
     """
@@ -1250,9 +1303,16 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
         ydata = np.insert(ydata, center_index, ydata[center_index])
     
     # Obtain intersections as coercive fields with the x_sect function
+    # Split the array into two halves using slicing
+    mid_index = len(xdata) // 2
+    Xdata1 = xdata[:mid_index]
+    Xdata2 = xdata[mid_index:]
+
+    Ydata1 = ydata[:mid_index]
+    Ydata2 = ydata[mid_index:]
     # branch-dependently
-    HC1, dHC1, a1 = x_sect(np.split(xdata, 2)[0], np.split(ydata, 2)[0], steepness_for_fit=True) # first branch
-    HC2, dHC2, a2 = x_sect(np.split(xdata, 2)[1], np.split(ydata, 2)[1], steepness_for_fit=True) # second branch
+    HC1, dHC1, a1 = x_sect(Xdata1, Ydata1, steepness_for_fit=True) # first branch
+    HC2, dHC2, a2 = x_sect(Xdata2, Ydata2, steepness_for_fit=True) # second branch
     
     half_step_size = np.mean(np.abs(np.diff(xdata))) / 2
     
@@ -1264,15 +1324,15 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     dHC = (dHC1 + dHC2) / 2 + half_step_size # uncertainty via propagation of uncertainty
     
     # Remanence at zero field strength
-    MR1, dMR1 = y_sect(np.split(xdata, 2)[0], np.split(ydata, 2)[0], 0)
-    MR2, dMR2 = y_sect(np.split(xdata, 2)[1], np.split(ydata, 2)[1], 0)
+    MR1, dMR1 = y_sect(Xdata1, Ydata1, 0)
+    MR2, dMR2 = y_sect(Xdata2, Ydata2, 0)
     # Average of both branches
     MR = ((np.abs(MR1) + np.abs(MR2)) / 2, MR1, MR2)
     dMR = (dMR1 + dMR2) / 2 # uncertainty via propagation of uncertainty
 
     # Magnetization at the exchange bias field
-    MHEB1, dMHEB1 = y_sect(np.split(xdata, 2)[0], np.split(ydata, 2)[0], HEB)
-    MHEB2, dMHEB2 = y_sect(np.split(xdata, 2)[1], np.split(ydata, 2)[1], HEB)
+    MHEB1, dMHEB1 = y_sect(Xdata1, Ydata1, HEB)
+    MHEB2, dMHEB2 = y_sect(Xdata2, Ydata2, HEB)
     # Average of both branches
     MHEB = (np.abs(MHEB1) + np.abs(MHEB2)) / 2
     dMHEB = (dMHEB1 + dMHEB2) / 2 # uncertainty via propagation of uncertainty
@@ -1465,7 +1525,12 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     # create a copy of the averaged xdata (branch 1 and 2) with which the results are
     # displayed. Only important for plotting the area of the hysteresis loop. As long as
     # the xdata is symmetric, the average is symmetric as well.
-    xdata = np.mean([np.split(xdata, 2)[1][::-1], np.split(xdata, 2)[0]], axis=0)
+    # Split the array into two halves using slicing
+    mid_index = len(xdata) // 2
+    Xdata1 = xdata[:mid_index]
+    Xdata2 = xdata[mid_index:]
+
+    xdata = np.mean([Xdata2[::-1], Xdata1], axis=0) # average the xdata of both branches
     xdata = pd.Series([*xdata, *xdata[::-1]])
     if x_unit:
         xdata.unit = x_unit
@@ -1569,8 +1634,8 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'rectangularity': rectangularity,
         'drectangularity': drectangularity,
 
-        'x_unit': x_unit,
-        'y_unit': y_unit,
+        'x_unit': None,
+        'y_unit': None,
         }
     
     return fitted_data, params, result
@@ -1773,7 +1838,11 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     # create a copy of the averaged xdata (branch 1 and 2) with which the results are
     # displayed
-    xdata = np.mean([np.split(xdata, 2)[1][::-1], np.split(xdata, 2)[0]], axis=0)
+    # Split the array into two halves using slicing
+    mid_index = len(xdata) // 2
+    Xdata1 = xdata[:mid_index]
+    Xdata2 = xdata[mid_index:]
+    xdata = np.mean([Xdata2[::-1], Xdata1], axis=0)
     xdata = pd.Series([*xdata, *xdata[::-1]])
     if x_unit:
         xdata.unit = x_unit
@@ -1945,8 +2014,8 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'rectangularity2': rectangularity2,
         'drectangularity2': drectangularity2,
         
-        'x_unit': x_unit,
-        'y_unit': y_unit,
+        'x_unit': None,
+        'y_unit': None,
     }
     
     return fitted_data, params, result

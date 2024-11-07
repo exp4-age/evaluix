@@ -1187,7 +1187,10 @@ class FitReportTable(QWidget):
         
         # Add fit report
         self.vertical_layout.addWidget(QLabel('Fit Report'), 0)
-        fit_report_text = self.model_results.fit_report()
+        try:
+            fit_report_text = self.model_results.fit_report()
+        except Exception as e:
+            fit_report_text = f"Error generating fit report: {e}" #TODO: Change fit report and params to dicts/strings
         fit_report_widget = QTextEdit()
         fit_report_widget.setReadOnly(True)
         fit_report_widget.setText(fit_report_text)

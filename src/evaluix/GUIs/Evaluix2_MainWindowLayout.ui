@@ -1632,6 +1632,28 @@ correction*</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="1" column="4">
+                   <widget class="InfoSettingsButton" name="btn_hys_invert_axis">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>64</horstretch>
+                      <verstretch>64</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Inverting the x- and/or y-axis of the chosen dataset (invert_axis)</string>
+                    </property>
+                    <property name="text">
+                     <string>invert axis</string>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>

@@ -2,6 +2,8 @@ import copy
 import datetime
 import h5py
 import inspect  # to get the names and docstrings of the functions
+import json
+import lmfit
 import numpy as np
 import pandas as pd
 import pathlib
@@ -683,10 +685,21 @@ class MainWindow(QMainWindow):
                 lambda: self.info_settings(num_integral)
                 )
             )
-
-        # QPushButton which triggers the numerical integration of the selected data
-        self.btn_hys_num_integ = self.findChild(InfoSettingsButton, 'btn_hys_num_integ')
-
+        
+        #QPushButton which triggers the inversion of axes of the selected data
+        self.btn_hys_invert_axis = self.findChild(InfoSettingsButton, 'btn_hys_invert_axis')
+        self.btn_hys_invert_axis.buttonClicked.connect(
+            lambda: self.safe_execute(
+                lambda: (
+                    self.data_manipulation(invert_axis, add_xdata=True),
+                    self.hys_btn_update_all.click())
+                )
+            )
+        self.btn_hys_invert_axis.infoClicked.connect(
+            lambda: self.safe_execute(
+                lambda: self.info_settings(invert_axis)
+                )
+            )
 
         # QPushButton which triggers the linear fit of the selected data
         self.btn_hys_lin_fit = self.findChild(InfoSettingsButton, 'btn_hys_lin_fit')
@@ -3216,26 +3229,21 @@ class MainWindow(QMainWindow):
 
     def save_progress(self, save_path=None, ids=None):
         # Save the progress of the selected datasets to an HDF5 file
-        # First check if a valid save path is set. TODO: Implement a "Save As" dialog to change the save path
-        
-        # This first "if not" checks whether a save path is given as an argument. If not, it checks whether the autosave is enabled and a save path is set.
         if not save_path:
             save_path = self.get_save_path()
-            
-        # This second "if not" checks whether a save path is now set. If not, it returns and does not save the progress.
         if not save_path:
             self.update_status_bar(saved_message="No progress saved. Please select a valid file.")
             return
-        
-        self.save_path = save_path # Set the save path (for autosave) to the selected path
+
+        self.save_path = save_path  # Set the save path (for autosave) to the selected path
 
         with h5py.File(save_path, 'a') as file:
-            self.remove_deleted_datasets(file) # Remove datasets that are not in the global data object
-            ids = ids or data.dataset.keys() # Save all datasets if no ids are given
+            self.remove_deleted_datasets(file)  # Remove datasets that are not in the global data object
+            ids = ids or data.dataset.keys()  # Save all datasets if no ids are given
 
-            for i, dataset in enumerate(data): # Iterate over each dataset in the global data object
-                if i in list(ids): # Save only the selected datasets (set to all above if no ids are given)
-                    self.save_dataset(file, i, dataset) # Save the dataset to the HDF5 file
+            for i, dataset in enumerate(data):  # Iterate over each dataset in the global data object
+                if i in list(ids):  # Save only the selected datasets (set to all above if no ids are given)
+                    self.save_dataset(file, i, dataset)  # Save the dataset to the HDF5 file
 
         self.update_status_bar(saved_message=f"Progress saved to {save_path} at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
         self.update_autosave_path(save_path)
@@ -3249,7 +3257,6 @@ class MainWindow(QMainWindow):
 
     def remove_deleted_datasets(self, file):
         # Quickly compare if there are any datasets in the file which are not in the global data object and delete them
-        # TODO: Think about warning the user that some datasets are not in the global data object and will be deleted before proceeding
         for key in file.keys():
             if int(key.split('_')[-1]) not in data.dataset.keys():
                 del file[key]
@@ -3262,77 +3269,263 @@ class MainWindow(QMainWindow):
 
             # Create a new group for each dataset
             group = file.create_group(f'dataset_{i}')
-            # Every attribute of the dataset is saved as an attribute in the group
-            for key, value in dataset.items():
-                subgroup = self.get_or_create_subgroup(group, key) # Create subgroups for metadata, raw_data and mod_data_n. In the later subgroup, loglist_n and results_n are also saved within mod_data_n.
-                self.save_value(subgroup, key, value)
+            # Save the dataset using the recursive mapping function
+            self.save_datastructure(group, dataset)
         except Exception as e:
+            error = traceback.format_exc()
             self.update_status_bar(f"An error occurred while saving the dataset {i}: {e}")
+            print(error)
 
-    def get_or_create_subgroup(self, group, key):
-        # Check if the current attribute/key is part of the mod_data_n, loglist_n, or results_n data packages
-        # These are saved together in the mod_data_n group
-        if key.startswith(('mod_data', 'loglist', 'results')):
-            n = key.split('_')[-1]
-            # create a new mod_data_n group if it doesn't exist
-            if f'data_pkg_{n}' not in group:
-                return group.create_group(f'data_pkg_{n}')
-            # else, choose the existing mod_data_n group
-            return group[f'data_pkg_{n}']
-        # for metadata, raw_data, and possibly other attributes, create a new subgroup
-        return group.create_group(key)
+    def save_datastructure(self, group, dataset):
+        # Save the data structure of the dataset in the HDF5 file
+        for key, value in dataset.items():
+            if key == 'metadata':
+                subgroup = group.create_group(key)
+                self.save_mapping(subgroup, value)
+            elif key == 'raw_data':
+                subgroup = group.create_group(key)
+                self.save_mapping(subgroup, value)
+            elif key.startswith(('mod_data', 'loglist', 'results')):
+                _n = key.split('_')[-1]
+                if f'data_pkg_{_n}' not in group:
+                    subgroup = group.create_group(f'data_pkg_{_n}')
+                else:
+                    subgroup = group[f'data_pkg_{_n}']
+                subsubgroup = subgroup.create_group(key)
+                self.save_mapping(subsubgroup, value)
+                
+            else:
+                print(f"Key {key} not recognized.")
 
-    def save_value(self, subgroup, key, value):
-        # This function basically maps the correct hdf5 saving method to the type of the value
+    def save_mapping(self, group, value):
+        # Recursive function to save values based on their type
         if isinstance(value, pd.DataFrame):
-            self.save_dataframe(subgroup, key, value) # For raw_data and mod_data_n
+            self.save_dataframe(group, value)
         elif isinstance(value, dict):
-            self.save_dict(subgroup, key, value) # For metadata and results_n
+            self.save_dict(group, value)
         elif isinstance(value, list):
-            self.save_list(subgroup, key, value) # For loglist_n
+            self.save_list(group, value)
+        elif isinstance(value, lmfit.model.ModelResult):
+            self.save_lmfit_modelresult(group, value)
+        elif isinstance(value, lmfit.model.Model):
+            self.save_lmfit_model(group, value)
+        elif isinstance(value, lmfit.parameter.Parameter):
+            self.save_lmfit_parameter(group, value)
         else:
-            subgroup.attrs[key] = value # For all other attributes
+            self.save_attribute(group, value)
 
-    def save_dataframe(self, subgroup, key, value):
-        # Save pandas DataFrames as HDF5 datasets in the group. This currently only works for pd.DataFrame objects in which numerically typed columns are stored. TODO: Implement a way to save other types of DataFrames (Kerr images).
-        h5dataset = subgroup.create_dataset(key, data=value.to_numpy())
+    def save_dataframe(self, group, value):
+        # Save pandas DataFrames as HDF5 datasets in the group
+        h5dataset = group.create_dataset('data', data=value.to_numpy())
         h5dataset.attrs['columns'] = value.columns.tolist()
 
-    def save_dict(self, subgroup, key, value):
-        # There is no default implementation for saving dictionaries in HDF5 files.
-        # Therefore, we have to decide how to save the dictionary based on its content/intention.
-        if key == 'metadata':
-            self.save_metadata(subgroup, value)
-        elif 'results' in key: # results_n
-            self.save_results(subgroup, key, value)
-
-    def save_metadata(self, subgroup, value):
+    def save_dict(self, group, value):
         # Save dictionaries as groups with attributes in the group
-        for k, v in value.items():
-            try:
-                # If the value is a path and contains backslashes, replace them with forward slashes as backslashes are not allowed in HDF5 attributes
-                if isinstance(v, pathlib.Path):
-                    v = str(v).replace('\\', '/')
-                subgroup.attrs[k] = v
-            except TypeError:
-                print(f"Could not save {k} with value {v} as attribute in the group metadata.")
+        for key, val in value.items():
+            subgroup = group.create_group(key)
+            self.save_mapping(subgroup, val)
 
-    def save_results(self, subgroup, key, value):
-        # Save results_n dictionaries as groups with attributes in the group
-        # create a subgroup for the main key as every key (fit, analysis method) in the results_n dictionary is a subgroup
-        results_subgroup = subgroup.create_group(key)
-        for k, v in value.items():
-            results_subsubgroup = results_subgroup.create_group(k)
-            # Save the results as attributes in the subgroup
-            if isinstance(v, dict):
-                for kk, vv in v.items():
-                    results_subsubgroup.attrs[kk] = vv
-            else:
-                print(f"Value {v} is not a dictionary. Could not save it as dataset in the group {key}.")
-
-    def save_list(self, subgroup, key, value):
+    def save_list(self, group, value):
         # Save lists as HDF5 datasets in the group
-        subgroup.create_dataset(key, data=value)
+        group.create_dataset('data', data=value)
+
+    def save_attribute(self, group, value):
+        # Save attributes in the group
+        if isinstance(value, pathlib.Path):
+            value = str(value).replace('\\', '/')
+        if value is None:
+            value = 'None'
+        print(value, type(value))
+        group.attrs['value'] = value
+
+    def save_lmfit_modelresult(self, group, model):
+        # # Save the lmfit model result as a dictionary in the group
+        # model_dict = model.__dict__
+        # for key, value in model_dict.items():
+        #     if isinstance(value, (str, int, float, bool)):
+        #         group.attrs[key] = value
+        #     elif isinstance(value, (list, tuple)):
+        #         group.create_dataset(key, data=value)
+        #     elif isinstance(value, dict):
+        #         subgroup = group.create_group(key)
+        #         self.save_mapping(subgroup, value)
+        #     elif isinstance(value, lmfit.model.ModelResult):
+        #         # Save the ModelResult using lmfit's save_modelresult function
+        #         model_result_json = lmfit.model.save_modelresult(value, None)
+        #         subgroup = group.create_group(key)
+        #         subgroup.attrs['model_result'] = model_result_json
+        #     else:
+        #         # Convert other types to string and save as attribute
+        #         group.attrs[key] = str(value)
+        group.attrs['lmfit_modelresult'] = "Saving lmfit model results is not yet implemented."
+
+    def save_lmfit_model(self, group, model):
+        # Save the lmfit model as a dictionary in the group
+        model_dict = model.__dict__
+        for key, value in model_dict.items():
+            if isinstance(value, (str, int, float, bool)):
+                group.attrs[key] = value
+            elif isinstance(value, (list, tuple)):
+                group.create_dataset(key, data=value)
+            elif isinstance(value, dict):
+                subgroup = group.create_group(key)
+                self.save_mapping(subgroup, value)
+            elif isinstance(value, lmfit.model.ModelResult):
+                # Save the ModelResult using lmfit's save_modelresult function
+                model_result_json = lmfit.model.save_modelresult(value, None)
+                subgroup = group.create_group(key)
+                subgroup.attrs['model_result'] = model_result_json
+            else:
+                # Convert other types to string and save as attribute
+                group.attrs[key] = str(value)
+
+    def save_lmfit_parameter(self, group, parameter):
+        # Save lmfit parameter as a string representation
+        param_str = f"<Parameter '{parameter.name}', value={parameter.value}, bounds=[{parameter.min}:{parameter.max}]>"
+        group.attrs[parameter.name] = param_str
+
+    # def save_progress(self, save_path=None, ids=None):
+    #     # Save the progress of the selected datasets to an HDF5 file
+    #     # First check if a valid save path is set. TODO: Implement a "Save As" dialog to change the save path
+        
+    #     # This first "if not" checks whether a save path is given as an argument. If not, it checks whether the autosave is enabled and a save path is set.
+    #     if not save_path:
+    #         save_path = self.get_save_path()
+            
+    #     # This second "if not" checks whether a save path is now set. If not, it returns and does not save the progress.
+    #     if not save_path:
+    #         self.update_status_bar(saved_message="No progress saved. Please select a valid file.")
+    #         return
+        
+    #     self.save_path = save_path # Set the save path (for autosave) to the selected path
+
+    #     with h5py.File(save_path, 'a') as file:
+    #         self.remove_deleted_datasets(file) # Remove datasets that are not in the global data object
+    #         ids = ids or data.dataset.keys() # Save all datasets if no ids are given
+
+    #         for i, dataset in enumerate(data): # Iterate over each dataset in the global data object
+    #             if i in list(ids): # Save only the selected datasets (set to all above if no ids are given)
+    #                 self.save_dataset(file, i, dataset) # Save the dataset to the HDF5 file
+
+    #     self.update_status_bar(saved_message=f"Progress saved to {save_path} at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
+    #     self.update_autosave_path(save_path)
+
+    # def get_save_path(self):
+    #     # Check if autosave is enabled and a save path is set
+    #     if ProfileConfig['Autosave_status'] and self.save_path:
+    #         return self.save_path
+    #     # Otherwise, open a file dialog to select a save path
+    #     return self.open_file_dialog(intention='save', filter='HDF5 files (*.h5)')
+
+    # def remove_deleted_datasets(self, file):
+    #     # Quickly compare if there are any datasets in the file which are not in the global data object and delete them
+    #     # TODO: Think about warning the user that some datasets are not in the global data object and will be deleted before proceeding
+    #     for key in file.keys():
+    #         if int(key.split('_')[-1]) not in data.dataset.keys():
+    #             del file[key]
+
+    # def save_dataset(self, file, i, dataset):
+    #     try:
+    #         # Check if the group already exists and delete it
+    #         if f'dataset_{i}' in file:
+    #             del file[f'dataset_{i}']
+
+    #         # Create a new group for each dataset
+    #         group = file.create_group(f'dataset_{i}')
+    #         # Every attribute of the dataset is saved as an attribute in the group
+    #         for key, value in dataset.items():
+    #             subgroup = self.get_or_create_subgroup(group, key) # Create subgroups for metadata, raw_data and mod_data_n. In the later subgroup, loglist_n and results_n are also saved within mod_data_n.
+    #             self.save_value(subgroup, key, value)
+    #     except Exception as e:
+    #         # get the full traceback of the error
+    #         error = traceback.format_exc()
+    #         self.update_status_bar(f"An error occurred while saving the dataset {i}: {e}")
+    #         print(error)
+
+    # def get_or_create_subgroup(self, group, key):
+    #     # Check if the current attribute/key is part of the mod_data_n, loglist_n, or results_n data packages
+    #     # These are saved together in the mod_data_n group
+    #     if key.startswith(('mod_data', 'loglist', 'results')):
+    #         n = key.split('_')[-1]
+    #         # create a new mod_data_n group if it doesn't exist
+    #         if f'data_pkg_{n}' not in group:
+    #             return group.create_group(f'data_pkg_{n}')
+    #         # else, choose the existing mod_data_n group
+    #         return group[f'data_pkg_{n}']
+    #     # for metadata, raw_data, and possibly other attributes, create a new subgroup
+    #     return group.create_group(key)
+
+    # def save_value(self, subgroup, key, value):
+    #     # This function basically maps the correct hdf5 saving method to the type of the value
+    #     if isinstance(value, pd.DataFrame):
+    #         self.save_dataframe(subgroup, key, value) # For raw_data and mod_data_n
+    #     elif isinstance(value, dict):
+    #         self.save_dict(subgroup, key, value) # For metadata and results_n
+    #     elif isinstance(value, list):
+    #         self.save_list(subgroup, key, value) # For loglist_n
+    #     else:
+    #         subgroup.attrs[key] = value # For all other attributes
+
+    # def save_dataframe(self, subgroup, key, value):
+    #     # Save pandas DataFrames as HDF5 datasets in the group. This currently only works for pd.DataFrame objects in which numerically typed columns are stored. TODO: Implement a way to save other types of DataFrames (Kerr images).
+    #     h5dataset = subgroup.create_dataset(key, data=value.to_numpy())
+    #     h5dataset.attrs['columns'] = value.columns.tolist()
+
+    # def save_dict(self, subgroup, key, value):
+    #     # There is no default implementation for saving dictionaries in HDF5 files.
+    #     # Therefore, we have to decide how to save the dictionary based on its content/intention.
+    #     if key == 'metadata':
+    #         self.save_metadata(subgroup, value)
+    #     elif 'results' in key: # results_n
+    #         self.save_results(subgroup, key, value)
+
+    # def save_metadata(self, subgroup, value):
+    #     # Save dictionaries as groups with attributes in the group
+    #     for k, v in value.items():
+    #         try:
+    #             # If the value is a path and contains backslashes, replace them with forward slashes as backslashes are not allowed in HDF5 attributes
+    #             if isinstance(v, pathlib.Path):
+    #                 v = str(v).replace('\\', '/')
+    #             # Convert None to 'None' as None is not allowed in HDF5 attributes
+    #             if v is None:
+    #                 v = 'None'
+    #             subgroup.attrs[k] = v
+    #         except TypeError:
+    #             print(f"Could not save {k} with value {v} as attribute in the group metadata.")
+
+    # def save_results(self, subgroup, key, value):
+    #     # results contains a dictionary with: 
+
+    #     # Save results_n dictionaries as groups with attributes in the group
+    #     # create a subgroup for the main key as every key (fit, analysis method) in the results_n dictionary is a subgroup
+    #     results_subgroup = subgroup.create_group(key)
+    #     for k, v in value.items():
+    #         results_subsubgroup = results_subgroup.create_group(k)
+    #         # Save the results as attributes in the subgroup
+    #         if isinstance(v, dict):
+    #             for kk, vv in v.items():
+    #                 if kk == 'function':
+    #                     results_subsubgroup.attrs[kk] = vv
+    #                 elif kk == 'params':
+    #                     for kkk, vvv in vv.items():
+    #                         if isinstance(vvv, dict):
+    #                             for k4, v4 in vvv.items():
+    #                                 results_subsubsubgroup[kkk + ' ' + k4] = v4
+    #                         else:
+    #                             try:
+    #                                 results_subsubgroup.attrs[kkk] = vvv
+    #                             except Exception as e:
+    #                                 print(kkk, vvv)
+    #                                 print(e)
+    #                 elif isinstance(vv, (pd.DataFrame)):
+    #                     results_subsubsubgroup = results_subsubgroup.create_group(kk)
+    #                     self.save_dataframe(results_subsubsubgroup, kk, vv)
+    #         else:
+    #             print(f"Value {v} is not a dictionary. Could not save it as dataset in the group {key}.")
+
+    # def save_list(self, subgroup, key, value):
+    #     # Save lists as HDF5 datasets in the group
+    #     subgroup.create_dataset(key, data=value)
 
     def update_autosave_path(self, save_path):
         if ProfileConfig['Autosave_status'] and self.save_path != save_path:

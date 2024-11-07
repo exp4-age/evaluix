@@ -1,0 +1,34 @@
+2024-11-05 13:34:13,996 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-05 13:34:58,006 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-05 13:35:29,503 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-05 13:35:38,311 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE
+2024-11-05 13:35:38,311 - utils.FileLoader.FileLogger - DEBUG - log_message - M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt seems to be a file. Reading the file.
+2024-11-05 13:35:38,311 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE.
+2024-11-05 13:35:38,326 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt successfully read.
+2024-11-05 13:35:38,326 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE.
+2024-11-05 13:35:38,326 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt.
+2024-11-05 13:35:38,342 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-05 13:35:38,342 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-05 13:35:38,342 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt
+2024-11-05 13:35:55,169 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-05 13:36:23,360 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-05 13:36:30,110 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE
+2024-11-05 13:36:30,110 - utils.FileLoader.FileLogger - DEBUG - log_message - M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt seems to be a file. Reading the file.
+2024-11-05 13:36:30,110 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE.
+2024-11-05 13:36:30,126 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt successfully read.
+2024-11-05 13:36:30,126 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt with data format MOKE.
+2024-11-05 13:36:30,126 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt.
+2024-11-05 13:36:30,134 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-05 13:36:30,134 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-05 13:36:30,134 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from M:\00_Hysteresen\2023_0325\2023_0325_1_bFC_2D-ScanV1_V-MOKE_2024-11-01_09-45-29_2024-11-01_09-45-29\2023_0325_1_bFC_V-MOKE_2024-11-01_09-45-49_0.0_0.0.txt
+2024-11-05 13:36:45,220 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-05 13:37:09,268 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt with data format MOKE
+2024-11-05 13:37:09,269 - utils.FileLoader.FileLogger - DEBUG - log_message - M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt seems to be a file. Reading the file.
+2024-11-05 13:37:09,269 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt with data format MOKE.
+2024-11-05 13:37:09,287 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt successfully read.
+2024-11-05 13:37:09,287 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt with data format MOKE.
+2024-11-05 13:37:09,287 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt.
+2024-11-05 13:37:09,302 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-05 13:37:09,302 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-11-05 13:37:09,302 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from M:\00_Hysteresen\2024_0212\2024_0212_1_RASTER_2024-09-03_14-12-05\Raster_0001_0008.txt
+2024-11-05 13:37:15,437 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.

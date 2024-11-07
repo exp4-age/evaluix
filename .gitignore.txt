@@ -2,7 +2,8 @@
 VersionBeforeGithub/
 
 # Ignore test files
-test/TestProfileTanHyseval.yaml
+tests/
+
 
 # Ignore log files
 *.log

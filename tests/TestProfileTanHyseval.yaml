@@ -289,20 +289,6 @@ function_info:
       default: '-'
       type: Union[list, pd.DataFrame, pd.Series, np.ndarray]
       value: '-'
-  invert_axis:
-    Category: Data Manipulation
-    axis:
-      default: x
-      type: str
-      value: x
-    xdata:
-      default: '-'
-      type: pd.DataFrame
-      value: '-'
-    ydata:
-      default: '-'
-      type: pd.DataFrame
-      value: '-'
   lin_hyseval:
     Category: Data Evaluation
     offset:
@@ -448,7 +434,7 @@ function_info:
     sat_cond:
       default: '0.95'
       type: float
-      value: '0.95'
+      value: '0.9'
     xdata:
       default: '-'
       type: '-'
@@ -459,17 +445,13 @@ function_info:
       value: '-'
   unit_converter:
     Category: unknown
-    col:
-      default: '-'
-      type: str
-      value: '-'
     conversion_factors:
       default: '-'
       type: dict
       value: '-'
-    df:
+    series:
       default: '-'
-      type: pd.DataFrame
+      type: pd.Series
       value: '-'
     target_unit:
       default: '-'

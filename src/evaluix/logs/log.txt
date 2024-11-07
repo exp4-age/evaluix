@@ -1,0 +1,20 @@
+'NoneType' object has no attribute 'buttonClicked'Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 3670, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 302, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 691, in initialize_hys_tab
+    self.btn_hys_invert_axis.buttonClicked.connect(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'buttonClicked'
+'NoneType' object has no attribute 'buttonClicked'Traceback (most recent call last):
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 3670, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 302, in __init__
+    self.initialize_hys_tab()
+  File "c:\Users\exp4-ArVe-220\Desktop\Evaluix2\src\evaluix\__main__.py", line 691, in initialize_hys_tab
+    self.btn_hys_invert_axis.buttonClicked.connect(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'buttonClicked'

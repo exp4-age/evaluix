@@ -257,17 +257,31 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
             column_units = {}
 
             # Separate name and unit, rename the columns by the pure name and add the unit to the dictionary
-            for col in raw_data.keys():
-                if "[" in col:
-                    name, unit = col.split("[")
-                    raw_data.rename(columns={col: name.strip()}, inplace=True)
-                    raw_data[name.strip()] = raw_data[name.strip()].astype(float)
-                    column_units[name.strip()] = unit.strip()[:-1]
-                elif "(" in col:
-                    name, unit = col.split("(")
-                    raw_data.rename(columns={col: name.strip()}, inplace=True)
-                    raw_data[name.strip()] = raw_data[name.strip()].astype(float)
-                    column_units[name.strip()] = unit.strip()[:-1]
+            if dataformat not in ["Kerr_imgs", "AFM"]:
+                for col in raw_data.keys():
+                    if "[" in col:
+                        name, unit = col.split("[")
+                        raw_data.rename(columns={col: name.strip()}, inplace=True)
+                        raw_data[name.strip()] = raw_data[name.strip()].astype(float)
+                        column_units[name.strip()] = unit.strip()[:-1]
+                    elif "(" in col:
+                        name, unit = col.split("(")
+                        raw_data.rename(columns={col: name.strip()}, inplace=True)
+                        raw_data[name.strip()] = raw_data[name.strip()].astype(float)
+                        column_units[name.strip()] = unit.strip()[:-1]
+                    else:
+                        unit = "Unknown"
+                        raw_data[col] = raw_data[col].astype(float)
+                        column_units[col] = unit
+            elif dataformat == "Kerr_imgs":
+                col_names = raw_data.columns
+                units = ["arb.u", "arb.u", "px", "Unknown"]
+                for i, col in enumerate(col_names):
+                    column_units[col] = units[i]
+
+            elif dataformat == "AFM":
+                # AFM data is not yet supported
+                pass
 
             # Reapply units to columns. For unknown reason, applying the units in the previous loop does not work
             # for col, unit in column_units.items():
@@ -283,10 +297,17 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
             return f"The file format of {file_or_dir} does not fit the chosen data format {dataformat}. Please choose a different file or data format."
 
 def get_line(file, line_number):
-    with open(file, 'r', encoding='utf-8', errors='replace') as f:
-        for i, line in enumerate(f, start=1):
-            if i == line_number:
-                return line
+    try:
+        with open(file, 'r', encoding='utf-8', errors='replace') as f:
+            for i, line in enumerate(f, start=1):
+                if i == line_number:
+                    return line
+        # If the line number is out of range, log a message and return None
+        log_message('error', f"Line number {line_number} is out of range for file {file}.")
+        return None
+    except Exception as e:
+        log_message('error', f"An error occurred while reading line {line_number} from {file}: {e}")
+        return None
 
 def format_checker(file: str, dataformat: str):
     # possible file extensions for each data format
@@ -637,7 +658,11 @@ def datalocator(file: str, fileformat: str):
                     data_start = lines.index(line) + 2
                     data_end = 0
                     break
-                
+                elif re.search(r"^Magnetic field \[kA/m\]", line): #TODO: change VMOKE to resemble LMOKE
+                    data_start = lines.index(line) + 1
+                    data_end = 0
+                    break
+
         if fileformat == "Kerr": # for Hystereses with the commercial software
             for line in lines:
                 if re.search("^Field", line):
@@ -728,6 +753,7 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
         log_message('debug', f"Reading MOKE data from {file}.")
         # get the line numbers in which the data starts and ends
         data_start, data_end = datalocator(file, dataformat)
+        print(data_start, data_end)
         
         # extract the column names from the file (one above the data start)
         line = get_line(file, data_start)
@@ -736,6 +762,7 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
             line = line.split('#')[-1]
             
         col_names = [col_name.strip() for col_name in line.split("\t")] # split the line by tabs and assign the values to the column names
+        print(col_names)
         # print(data_start, data_end, line, col_names)
         with open(file, 'r', encoding='utf-8', errors='replace') as f:
             df = pd.read_csv(
@@ -827,7 +854,19 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
         for img_file in img_files:
             # Open image file and convert to grayscale
             img = plt.imread(img_file)
-            img = np.dot(img[...,:3], [0.2989, 0.5870, 0.1140]) # convert to grayscale, TODO: uzse skimage instead
+            print(f"Original shape of img file: {img.shape} is {img.shape[0]}x{img.shape[1]} px")
+
+            # Check if the image is a color image
+            if img.ndim == 3 and img.shape[2] == 3:
+                # Convert to grayscale
+                img = np.dot(img[...,:3], [0.2989, 0.5870, 0.1140])
+            elif img.ndim == 2:
+                pass
+            else:
+                print(f"Unexpected image shape: {img.shape} in image {img_file}")
+                continue
+            print(f"Shape of img file after conversion: {img.shape} is {img.shape[0]}x{img.shape[1]} px")
+            
             # Flatten image
             img_flattened = img.flatten(order='C')
             # Append flattened image data and mean value to lists

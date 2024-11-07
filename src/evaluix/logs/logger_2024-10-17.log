@@ -1,0 +1,474 @@
+2024-10-17 09:35:07,768 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:45:27,452 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:51:14,451 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:51:41,734 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:51:57,717 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:52:43,256 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:54:15,672 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 09:54:33,613 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:33:54,965 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:34:21,943 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:34:44,427 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:35:30,199 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:35:53,012 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:36:33,974 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 10:58:25,134 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 10:58:25,134 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 10:58:25,134 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 10:58:25,158 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 10:58:25,158 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 10:58:25,165 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 10:58:25,165 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 10:58:25,165 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 10:58:25,165 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 10:58:30,405 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 10:58:35,421 - utils.FileLoader.FileLogger - DEBUG - log_message - Deleting log_mod_results with key 1 from the data object.
+2024-10-17 10:58:37,417 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 10:58:41,349 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 2 to the data object.
+2024-10-17 10:58:45,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Deleting log_mod_results with key 2 from the data object.
+2024-10-17 10:58:46,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 2 to the data object.
+2024-10-17 11:00:08,068 - utils.FileLoader.FileLogger - INFO - log_message - Deleting dataset with id 0 from the data dictionary.
+2024-10-17 11:00:46,065 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:00:52,919 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:30:27,050 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:39:20,889 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:39:20,889 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:39:20,889 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:39:20,905 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:39:26,880 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:41:19,381 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:41:40,884 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:41:40,884 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:41:40,884 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:41:40,888 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:41:44,508 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:46:46,330 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:46:50,823 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:46:53,926 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:48:09,976 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:48:15,788 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:48:22,940 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:48:36,180 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:48:40,177 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:48:40,177 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:48:40,177 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:48:40,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:48:42,431 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:54:35,458 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:54:41,187 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:54:46,416 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:55:26,060 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:55:28,304 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:55:34,192 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 11:56:43,134 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 11:56:53,526 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 11:56:57,404 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:00:19,460 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:00:30,629 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:00:34,798 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:05:11,071 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:05:16,325 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:05:16,340 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:05:16,340 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:05:16,340 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:05:21,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:13:20,372 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:13:25,331 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:13:28,410 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:15:00,459 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:15:05,852 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:15:13,080 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:17:42,538 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:17:49,024 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:17:49,034 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:17:49,034 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:17:49,034 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:17:51,866 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:23:31,317 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:23:45,825 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:23:45,841 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:23:45,841 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:23:45,841 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:28:00,813 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:28:06,687 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:28:06,687 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:28:06,687 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:28:06,703 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:28:09,148 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:29:49,829 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:29:53,990 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:29:57,335 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:31:08,237 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:31:12,448 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:31:12,448 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:31:12,448 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:31:12,448 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:31:12,448 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:31:12,463 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:31:12,463 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:31:12,463 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:31:12,463 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:31:49,141 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:31:55,491 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:31:59,008 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:32:58,479 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:33:01,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:33:01,779 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:33:01,779 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:33:01,779 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:33:04,276 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 12:33:35,423 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 12:33:39,534 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 12:33:47,234 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 13:42:02,559 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:43:58,161 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 13:44:04,090 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 13:44:08,338 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 13:46:35,797 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 13:46:41,208 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 13:46:45,329 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 13:51:38,270 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:51:48,057 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 13:51:48,059 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 13:54:27,775 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:54:32,566 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 13:54:32,566 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 13:54:32,572 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 13:55:18,244 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 13:55:22,842 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 14:37:33,851 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 14:37:38,205 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 14:37:38,205 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 14:37:38,205 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 14:37:38,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 14:38:06,947 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 14:38:29,255 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 2 to the data object.
+2024-10-17 14:41:04,504 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 14:41:09,036 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:04:43,879 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:04:50,764 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:04:55,644 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 15:16:07,748 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:16:16,915 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:16:16,931 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:16:16,931 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:16:16,931 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:16:20,197 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 15:19:02,181 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:19:06,124 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:19:06,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:19:06,139 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:19:06,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:19:08,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 15:23:27,597 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:23:29,249 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:30:29,492 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:30:34,767 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:31:21,696 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:31:27,502 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:31:31,183 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 15:31:43,391 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data with data format VSM
+2024-10-17 15:31:43,391 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data seems to be a file. Reading the file.
+2024-10-17 15:31:43,391 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data with data format VSM.
+2024-10-17 15:31:43,407 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data successfully read.
+2024-10-17 15:31:43,407 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data with data format VSM.
+2024-10-17 15:31:43,407 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data.
+2024-10-17 15:31:43,417 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data.
+2024-10-17 15:31:43,417 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:31:43,417 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-10-17 15:31:43,417 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0433_14_AfterFC.VSM-Hys-Data
+2024-10-17 15:31:54,309 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 15:33:47,902 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt seems to be a file. Reading the file.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt successfully read.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt with data format MOKE.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 15:33:53,747 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2024_0177_1_LMOKE_2024-08-09_13-53-45.txt
+2024-10-17 15:34:04,627 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-10-17 16:51:57,356 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png seems to be a file. Reading the file.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png is a directory or an image file.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - Data format changed to Kerr_imgs for directory or image file.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png successfully read.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 16:52:07,141 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr image data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png.
+2024-10-17 16:55:20,802 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png seems to be a file. Reading the file.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png is a directory or an image file.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - Data format changed to Kerr_imgs for directory or image file.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png successfully read.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 16:55:32,657 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr image data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png.
+2024-10-17 17:04:31,171 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png seems to be a file. Reading the file.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png is a directory or an image file.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Data format changed to Kerr_imgs for directory or image file.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png successfully read.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png with data format Kerr_imgs.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr image data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 17:04:37,787 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0000.png
+2024-10-17 17:08:27,165 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png with data format Kerr_imgs
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png seems to be a file. Reading the file.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png is a directory or an image file.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Data format changed to Kerr_imgs for directory or image file.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png with data format Kerr_imgs.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png successfully read.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png with data format Kerr_imgs.
+2024-10-17 17:08:33,403 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr image data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png.
+2024-10-17 17:08:33,427 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 17:08:33,427 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 17:08:33,427 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0004.png
+2024-10-17 17:12:21,983 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 17:13:07,195 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png with data format Kerr_imgs
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png seems to be a file. Reading the file.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png is a directory or an image file.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - Data format changed to Kerr_imgs for directory or image file.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png with data format Kerr_imgs.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png successfully read.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png with data format Kerr_imgs.
+2024-10-17 17:13:17,504 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr image data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png.
+2024-10-17 17:13:17,540 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-17 17:13:17,540 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-17 17:13:17,540 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\image0012.png

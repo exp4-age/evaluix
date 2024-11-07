@@ -1,0 +1,12 @@
+2024-10-25 11:17:17,221 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-10-25 11:17:33,869 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt with data format Kerr
+2024-10-25 11:17:33,869 - utils.FileLoader.FileLogger - DEBUG - log_message - C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt seems to be a file. Reading the file.
+2024-10-25 11:17:33,869 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-25 11:17:33,890 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt successfully read.
+2024-10-25 11:17:33,890 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt with data format Kerr.
+2024-10-25 11:17:33,890 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading Kerr data from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt.
+2024-10-25 11:17:33,900 - utils.FileLoader.FileLogger - DEBUG - log_message - Data in C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt is not even. Adding a row to make it even.
+2024-10-25 11:17:33,900 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-10-25 11:17:33,900 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-10-25 11:17:33,900 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from C:\Users\exp4-ArVe-220\Desktop\Evaluix2\VersionBeforeGithub\ExampleData\2023_0424_10µm\hys.txt
+2024-10-25 11:19:55,612 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
