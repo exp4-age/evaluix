@@ -1,3 +1,17 @@
+# Ignore everything before first commit
+VersionBeforeGithub/
+
+# Ignore test files
+tests/
+
+
+# Ignore log files
+*.log
+
+# ignore __pycache
+src/evaluix/__pycache__
+src/evaluix/GUIs/__pycache__
+
 **/__pycache__
 dist/
 **/*.egg-info
