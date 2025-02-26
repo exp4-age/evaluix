@@ -67,7 +67,7 @@ if __name__ == '__main__':
     from GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
     from utils.FileLoader import read_file, Dataset, Data
     data = Data()
-    from utils.EvaluationFunctions import *
+    from utils.HysteresisFunctions import *
 else:
     # The config file is also read in the CustomWidgets module so it has to be imported before that
     from .utils.CreateEvaluixConfig import create_evaluix_config

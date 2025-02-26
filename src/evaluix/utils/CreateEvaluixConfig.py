@@ -8,11 +8,11 @@ def create_evaluix_config():
     root = pathlib.Path(__file__).resolve().parents[1]
     version_file = root / '__version__.py'
 
-    # Import the EvaluationFunctions module
+    # Import the HysteresisFunctions module
     try:
-        from . import EvaluationFunctions
+        from . import HysteresisFunctions
     except ImportError:
-        import EvaluationFunctions
+        import HysteresisFunctions
 
 
     # Extract the version number from "__version__.py"
@@ -176,10 +176,10 @@ def create_evaluix_config():
         return info
 
     # Get all functions in the module
-    all_functions = inspect.getmembers(EvaluationFunctions, inspect.isfunction)
+    all_functions = inspect.getmembers(HysteresisFunctions, inspect.isfunction)
 
     # Filter out imported functions
-    module_functions = [func for name, func in all_functions if func.__module__ == EvaluationFunctions.__name__]
+    module_functions = [func for name, func in all_functions if func.__module__ == HysteresisFunctions.__name__]
 
     function_info = {func.__name__: get_function_info(func) for func in module_functions}
 

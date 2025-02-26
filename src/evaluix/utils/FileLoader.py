@@ -2,10 +2,8 @@
 import dataclasses
 import os
 #import cv2
-import linecache
 import logging
 import sys
-from typing import Any, Callable
 import datetime
 import pandas as pd
 import numpy as np
@@ -13,7 +11,7 @@ import matplotlib.pyplot as plt
 import re
 from NSFopen import read as nid_read  # for reading in .nid files
 import pathlib
-import copy
+import h5py
 
 # read in data
 # optical MOKE hysteresis (data points and images); always apply normalization
@@ -94,79 +92,301 @@ def log_message(level, message):
 # global dictionary to store all data objects
 class Data:
     # initialize the data dictionary
-    def __init__(self):
-        log_message('info', "Initializing the data dictionary.")
-        self.dataset = {}
-        self.id = 0  # initialize the internal id of the data object
+    def __init__(self, hdf5_file="tmp_data.h5"):
+        log_message('info', "Initializing the hdf5 storage.")
+        self.hdf5_file = hdf5_file
+        # Check if the hdf5 file exists already
+        if not os.path.isfile(hdf5_file):
+            log_message('info', f"Creating new hdf5 file {hdf5_file}.")
+            with h5py.File(hdf5_file, 'w') as f:
+                f.create_group('datasets')
+                
+            self.id = 0  # initialize the internal id of the data object
+        else:
+            # if hdf5_file == tmp_data.h5, delete the file and create a new one
+            if hdf5_file == "tmp_data.h5":
+                log_message('info', f"Deleting existing temporary hdf5 file {hdf5_file}.")
+                os.remove(hdf5_file)
+                with h5py.File(hdf5_file, 'w') as f:
+                    f.create_group('datasets')
+                    
+                self.id = 0  # initialize the internal id of the data object
+            else:
+                # ask the user if the existing hdf5 file should be overwritten
+                log_message('info', f"The hdf5 file {hdf5_file} already exists. Do you want to overwrite it? (y/n)")
+                print("The hdf5 file already exists. Do you want to overwrite it? (y/n)")
+                answer = input()
+                # if the user wants to overwrite the file, delete it and create a new one
+                if answer == "y":
+                    log_message('info', f"Deleting existing hdf5 file {hdf5_file}.")
+                    os.remove(hdf5_file)
+                    with h5py.File(hdf5_file, 'w') as f:
+                        f.create_group('datasets')
+                        
+                    self.id = 0
+                # if the user does not want to overwrite the file, use the existing one
+                elif answer == "n":
+                    log_message('info', f"Using existing hdf5 file {hdf5_file}.")
+                    self.id = len(h5py.File(hdf5_file, 'r')['datasets']) - 1
+                    
+                # if the user does not enter a valid input, use the existing file (to not lose data)
+                else:
+                    log_message('info', f"Invalid input. Using existing hdf5 file {hdf5_file}.")
+                    # extract the internal id from the hdf5 file
+                    # Cycle through all datasets in the hdf5 file and assign the highest id + 1 to the internal id
+                    with h5py.File(hdf5_file, 'r') as f:
+                        ids = [int(key.split('_')[-1]) for key in f['datasets'].keys()]
+                        self.id = np.max(ids) + 1
 
-    # add a data object to the dictionary
-    def add_dataset(self, dataset):
-        log_message('info', f"Adding dataset with id {self.id} to the data dictionary.")
-        self.dataset[self.id] = dataset
-        self.id += 1
+    # add, delete and get dataset objects from the dictionary/hdf5 file
+    def add_dataset(self, dataset, id = None):
+        if id is not None:
+            self.id = id
+        # add the dataset to the dictionary
+        log_message('info', f"Adding dataset with id {self.id} to the HDF5 file.")
+        with h5py.File(self.hdf5_file, 'a') as f:
+            # Check if the group exists already
+            if f['datasets'].get('dataset_' + str(self.id)) is not None:
+                del f['datasets']['dataset_' + str(self.id)]
+            # create a new group for the dataset
+            grp = f['datasets'].create_group('dataset_' + str(self.id))
+            print(f"Adding dataset with id {self.id} to the HDF5 file.")
+            
+            # create the raw_data and metadata groups, which are omnipresent in the dataset
+            grp.create_group('raw_data')
+            grp.create_group('metadata')
+            
+            # fill the raw_data group with the raw data
+            self.df_to_hdf5(dataset.raw_data, grp['raw_data'])
+                
+            # fill the metadata group with the metadata
+            self.dict_to_hdf5(dataset.metadata, grp['metadata'])
+            
+            # Check if the data object has additional attributes, namely data_pkg_nr
+            for attr, value in dataset.__dict__.items():
+                if "data_pkg" in attr:
+                    # create a new group for the data_pkg
+                    data_pkg = getattr(dataset, attr)
+                    data_pkg_grp = grp.create_group(attr)
+                    # fill the data_pkg group with the data_pkg
+                    self.dict_to_hdf5(data_pkg, data_pkg_grp)
+            
+        # set the correct id for the next dataset
+        with h5py.File(self.hdf5_file, 'r') as f:
+            ids = [int(key.split('_')[-1]) for key in f['datasets'].keys()]
+            self.id = np.max(ids) + 1
 
     # delete a data object from the dictionary
     def del_dataset(self, id):
-        log_message('info', f"Deleting dataset with id {id} from the data dictionary.")
-        del self.dataset[id]
+        log_message('info', f"Deleting dataset with id {id} from the hdf5 file.")
+        with h5py.File(self.hdf5_file, 'a') as f:
+            # Check if the dataset exists
+            if f['datasets'].get('dataset_' + str(id)) is not None:
+                del f['datasets']['dataset_' + str(id)]
+                
+        # set the correct id for the next dataset
+        with h5py.File(self.hdf5_file, 'r') as f:
+            ids = [int(key.split('_')[-1]) for key in f['datasets'].keys()]
+            self.id = np.max(ids) + 1
+            
+    def get_dataset(self, id):
+        log_message('info', f"Getting dataset with id {id} from the hdf5 file.")
+        with h5py.File(self.hdf5_file, 'r') as f:
+            # Check if the dataset exists
+            if f['datasets'].get('dataset_' + str(id)) is not None:
+                grp = f['datasets']['dataset_' + str(id)]
+                
+                # get the raw data and the metadata
+                raw_data = self.hdf5_to_df(grp['raw_data'])
+                metadata = self.hdf5_to_dict(grp['metadata'])
+                
+                dataset = Dataset(metadata, raw_data)
+                
+                # Check if the dataset has additional attributes, namely data_pkg_nr
+                print(grp.keys())
+                for key in grp.keys():
+                    if "data_pkg" in key:
+                        data_pkg = self.hdf5_to_dict(grp[key])
+                        dataset.add_data_pkg(int(key.split('_')[-1]), data_pkg['loglist'], data_pkg['mod_data'], data_pkg['results'])
+                
+                return dataset
         
-    def write_specific_dataset(self, id, dataset):
-        log_message('info', f"Writing dataset with id {id} to the data dictionary.")
-        self.dataset[id] = dataset
-        # to not overwrite data afterwards, set the id above the highest id in the dictionary
-        ids = list(self.dataset.keys())
-        self.id = max(ids) + 1
+    # Function wrapper to work with the global data object
+    def function_wrapper(self,
+                        id,
+                        data_pkg,
+                        cols,
+                        func,
+                        *args,
+                        **kwargs):
+        """
+        Function wrapper to work with the global data object.
+        """
+        
+        # Get the dataset given by the id
+        dataset = self.get_dataset(id)
     
-    # def assign_id(self, id):
-    #     logger.info(f"Assigning id {id} to the data dictionary.")
-    #     self.id = id
+    # assistant functions to convert dataframes and dictionaries to hdf5 format and vice versa
+    def df_to_hdf5(self, df, group):
+        # Add the key value pairs of the dataframe to the group
+        for key, value in df.items():
+            group.create_dataset(key, data=value)
+            
+        # if the dataframe has attributes, add them to the group as metadata
+        if hasattr(df, 'attrs'):
+            for key, value in df.attrs.items():
+                group.attrs[key] = value
+    
+    def hdf5_to_df(self, group):
+        # iterate over the group and add the key value pairs to the dataframe
+        df = pd.DataFrame()
+        for key in group.keys():
+            df[key] = group[key][()]
+            
+        # if the group has metadata, add them to the dataframe as attributes
+        if hasattr(group, 'attrs'):
+            for key, value in group.attrs.items():
+                df.attrs[key] = value
+        
+        return df
+                
+    def dict_to_hdf5(self, dictionary, group):
+        # iterate over the dictionary and add the key value pairs to the group
+        # repeat itself if the value is a dictionary
+        try:
+            for key, value in dictionary.items():
+                if isinstance(value, dict):
+                    subgroup = group.create_group(key)
+                    self.dict_to_hdf5(value, subgroup)
+                elif isinstance(value, pathlib.Path):
+                    group.attrs[key] = str(value)
+                elif isinstance(value, pd.DataFrame):
+                    subgroup = group.create_group(key)
+                    self.df_to_hdf5(value, subgroup)
+                else:
+                    group.attrs[key] = value
+        except Exception as e:
+            log_message('error', f"An error occurred while writing the dictionary to the HDF5 file: {e} by trying to add {key} and {value}.")
+            
+    def hdf5_to_dict(self, group):
+        # iterate over the group and add the key value pairs to the dictionary
+        dictionary = {}
+        for key in group.attrs.keys():
+            dictionary[key] = group.attrs[key]
+            
+        # iterate over the group and add the key value pairs to the dictionary
+        for key in group.keys():
+            if isinstance(group[key], h5py.Group):
+                dictionary[key] = self.hdf5_to_dict(group[key])
+            else:
+                if key == 'path':
+                    dictionary[key] = pathlib.Path(group.attrs[key])
+                if 'mod_data' in key: # all mod_data is a dataframe
+                    dictionary[key] = self.hdf5_to_df(group[key])
+                else:
+                    dictionary[key] = group[key][()]
+        
+        return dictionary
     
     # Make the data object iterable
     def __iter__(self):
-        for id in self.dataset:
-            yield self.dataset[id]
+        with h5py.File(self.hdf5_file, 'r') as f:
+            for key in f['datasets']:
+                yield f['datasets'][key]
             
     # information about the data object
     def info(self):
-        # number of datasets in the dictionary
-        n_datasets = len(self.dataset)
-        # list of all dataset ids
-        dataset_ids = list(self.dataset.keys())
-        # list of all dataset metadata
-        dataset_metadata = [self.dataset[key].metadata for key in dataset_ids]
-        # total amount of bytes of all datasets
-        total_size_bytes = sum([sys.getsizeof(self.dataset[key]) for key in dataset_ids])
-        
-        # Units of measurement for data size
-        units = ["bytes", "kB", "MB", "GB", "TB", "PB"]
-        unit_index = 0
-        
-        # Convert total size to appropriate unit
-        while total_size_bytes >= 1024 and unit_index < len(units) - 1:
-            total_size_bytes /= 1024.0
-            unit_index += 1
-        
-        # Format total size with appropriate unit
-        total_size_formatted = f"{total_size_bytes:.2f} {units[unit_index]}"
-        
-        info = {
-            "n_datasets": n_datasets,
-            "total_size": total_size_formatted,
-            "dataset_ids": dataset_ids,
-            "dataset_metadata": dataset_metadata,
-        }
-        
+        with h5py.File(self.hdf5_file, 'r') as f:
+            # number of datasets in the hdf5 file
+            n_datasets = len(f['datasets'])
+            # list of all dataset ids
+            dataset_ids = [key.split('_')[-1] for key in f['datasets'].keys()]
+            # Size of the hdf5 file
+            file_size = os.path.getsize(self.hdf5_file)
+            human_readable_file_size = self.human_readable_size(file_size)
+            # Creation date of the hdf5 file
+            creation_date = datetime.datetime.fromtimestamp(
+                os.path.getctime(self.hdf5_file)
+            ).strftime("%Y-%m-%d %H:%M:%S")
+            # Last modification date of the hdf5 file
+            modification_date = datetime.datetime.fromtimestamp(
+                os.path.getmtime(self.hdf5_file)
+            ).strftime("%Y-%m-%d %H:%M:%S")
+            
+            info = {
+                'n_datasets': n_datasets,
+                'dataset_ids': dataset_ids,
+                'file_size': human_readable_file_size,
+                'creation_date': creation_date,
+                'modification_date': modification_date,
+            }
+
         return info
+    
+    # print the contents of the hdf5 file
+    def print_content(self, ids=[], max_elements=10):
+        """
+        Print the contents of the HDF5 file, including data inside datasets.
+
+        Parameters
+        ----------
+        ids : int, optional
+        max_elements : int, optional
+            Maximum number of elements to print for each dataset (default is 10).
+        """
+        def print_attrs(name, obj):
+            print(f"Name: {name}")
+            for key, val in obj.attrs.items():
+                print(f"    Attribute: {key} => {val}")
+            if isinstance(obj, h5py.Dataset):
+                print(f"    Dataset shape: {obj.shape}")
+                print(f"    Dataset dtype: {obj.dtype}")
+                # Print dataset data, limited to max_elements
+                data = obj[()]
+                if data.size > max_elements:
+                    print(f"    Data (first {max_elements} elements): {data.flat[:max_elements]}")
+                else:
+                    print(f"    Data: {data}")
+            elif isinstance(obj, h5py.Group):
+                print(f"    Group with {len(obj)} members")
+            
+            # Check if the name contains "results"
+            if "results" in name.lower():
+                print("    *** This name contains 'results' ***")
+                if isinstance(obj, h5py.Dataset):
+                    print(f"    Full data: {data}")
+                elif isinstance(obj, h5py.Group):
+                    print(f"    Group members: {list(obj.keys())}")
+
+        with h5py.File(self.hdf5_file, 'r') as f:
+            if ids:
+                # Convert ids to the correct format
+                ids = [f'dataset_{id}' if isinstance(id, int) else id for id in ids]
+                for id in ids:
+                    if id in f['datasets']:
+                        f['datasets'][id].visititems(print_attrs)
+                    else:
+                        print(f"Dataset {id} not found in the HDF5 file.")
+            else:
+                f.visititems(print_attrs)
+            
+    def human_readable_size(self, size, decimal_places=2):
+        for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+            if size < 1024.0:
+                return f"{size:.{decimal_places}f} {unit}"
+            size /= 1024.0
+        return f"{size:.{decimal_places}f} PB"
             
     # clear the data dictionary completely
     def clear(self):
-        log_message('info', "Clearing the data dictionary.")
-        self.dataset = {}
-        self.id = 0
+        log_message('info', "Clearing the hdf5 file dictionary.")
         
-        if not self.dataset:
-            log_message('info', "Data dictionary is empty.")
-
+        with h5py.File(self.hdf5_file, 'a') as f:
+            # delete all datasets
+            for key in f['datasets'].keys():
+                del f['datasets'][key]
+            
+        self.id = 0
 # initialize the global object data
 #data = Data()
 
@@ -189,33 +409,34 @@ class Dataset:
     def __str__(self):
         return str(self.metadata) + str(self.raw_data.info)
 
-    def add_log_mod_results(self, key: int, loglist: list, mod_data: pd.DataFrame, results: dict = {}):
-        log_message('debug', f"Adding log_mod_results with key {key} to the data object.")
-        setattr(self, f"loglist_{key}", loglist)
-        setattr(self, f"mod_data_{key}", mod_data)
-        setattr(self, f"results_{key}", results)
+    def add_data_pkg(self, key: int, loglist: list, mod_data: pd.DataFrame, results: dict = {}):
+        log_message('debug', f"Adding data_pkg with key {key} to the data object.")
+        data_pkg = {
+            'loglist': loglist,
+            'mod_data': mod_data,
+            'results': results,
+        }
+        setattr(self, f"data_pkg_{key}", data_pkg)
     
     # delete the data_mod attribute if desired
     def del_log_mod_results(self, key: int):
         try:
             log_message('debug', f"Deleting log_mod_results with key {key} from the data object.")
-            delattr(self, f"loglist_{key}")
-            delattr(self, f"mod_data_{key}")
-            delattr(self, f"results_{key}")
-        # if the attribute does not (yet) exist, pass
+            delattr(self, f"data_pkg_{key}")
         except AttributeError as e:
             log_message('warning', f"The attribute does not exist. Error: {str(e)}")
             pass
         
-    def update_mod_data(self, key: int, new_data):
-        # Check if new_data is a dictionary
-        if isinstance(new_data, dict):
-            # Convert dictionary to DataFrame
-            new_data = pd.DataFrame(new_data)
-
-        # Replace the existing DataFrame with the new one
-        log_message('debug', f"Updating mod_data with key {key} in the data object.")
-        setattr(self, f"mod_data_{key}", new_data)
+    def update_data_pkg(self, key: int, loglist: list = None, mod_data: pd.DataFrame = None, results: dict = None):
+        log_message('debug', f"Updating data_pkg with key {key} in the data object.")
+        data_pkg = getattr(self, f"data_pkg_{key}")
+        if loglist:
+            data_pkg['loglist'] = loglist
+        if mod_data:
+            data_pkg['mod_data'] = mod_data
+        if results:
+            data_pkg['results'] = results
+        setattr(self, f"data_pkg_{key}", data_pkg)
         
     def items(self):
         for attr in vars(self):
@@ -241,7 +462,7 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
         log_message('debug', f"{file_or_dir} seems to be a file. Reading the file.")
         # If it's not a directory, proceed as before
         if file_or_dir is None:
-            logger.warning("No file selected")
+            file_logger.warning("No file selected")
             return "No file selected"
 
         if not isinstance(data, Data):
@@ -753,7 +974,6 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
         log_message('debug', f"Reading MOKE data from {file}.")
         # get the line numbers in which the data starts and ends
         data_start, data_end = datalocator(file, dataformat)
-        print(data_start, data_end)
         
         # extract the column names from the file (one above the data start)
         line = get_line(file, data_start)
@@ -762,7 +982,6 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
             line = line.split('#')[-1]
             
         col_names = [col_name.strip() for col_name in line.split("\t")] # split the line by tabs and assign the values to the column names
-        print(col_names)
         # print(data_start, data_end, line, col_names)
         with open(file, 'r', encoding='utf-8', errors='replace') as f:
             df = pd.read_csv(

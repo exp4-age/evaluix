@@ -259,13 +259,6 @@ def tan_hys(
         #if xdata is given as a list (hysteresis), split it correspondingly into two branches
         xdata = np.asarray(xdata)
 
-        # Check if the length of xdata is odd, i.e.the center point contributes to both branches.
-        # Duplicate the center point in this case so that both branches are equally long.
-        if len(xdata) % 2 != 0:
-            center_index = len(xdata) // 2
-            xdata = np.insert(xdata, center_index, xdata[center_index])
-            ydata = np.insert(ydata, center_index, ydata[center_index])
-
         # Split the array into two halves using slicing
         mid_index = len(xdata) // 2
         Xdata1 = xdata[:mid_index]
@@ -352,46 +345,46 @@ def double_tan_hys(
 # 3. FOM (Figure of Merit) functions
 ###############################################################################
 
-def chisquared_lmfit(
-    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
-    model: Union[list, pd.DataFrame, pd.Series, np.ndarray],
-    weights: Union[list, pd.DataFrame, pd.Series, np.ndarray] = None):
-    """
-    Calculate the chi-squared value of a fit function to a dataset.
+# def chisquared_lmfit(
+#     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
+#     model: Union[list, pd.DataFrame, pd.Series, np.ndarray],
+#     weights: Union[list, pd.DataFrame, pd.Series, np.ndarray] = None):
+#     """
+#     Calculate the chi-squared value of a fit function to a dataset.
 
-    The chi-squared value is a measure of how well the observed outcomes are 
-    replicated by the model. It is the sum of the squared differences between 
-    the observed and predicted values, divided by the predicted values or weights.
+#     The chi-squared value is a measure of how well the observed outcomes are 
+#     replicated by the model. It is the sum of the squared differences between 
+#     the observed and predicted values, divided by the predicted values or weights.
 
-    Parameters
-    ----------
-    ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Observed output value(s) of the dataset (typically named y in functions).
-    model : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Model output.
-    weights : list, numpy.ndarray, pandas.DataFrame, or pandas.Series, optional
-        Weights for each data point. If not provided, the model values are used.
+#     Parameters
+#     ----------
+#     ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+#         Observed output value(s) of the dataset (typically named y in functions).
+#     model : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+#         Model output.
+#     weights : list, numpy.ndarray, pandas.DataFrame, or pandas.Series, optional
+#         Weights for each data point. If not provided, the model values are used.
 
-    Returns
-    -------
-    chi_squared : float
-        Chi-squared value.
+#     Returns
+#     -------
+#     chi_squared : float
+#         Chi-squared value.
 
-    Examples
-    --------
-    >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2])
-    0.02
-    >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2], [1, 1, 1])
-    0.02
-    """
-    if weights is not None:
-        # calculate the chi-squared value with weights
-        chi_squared = np.sum((ydata - model)**2 / weights)
-    else:
-        # calculate the chi-squared value
-        chi_squared = np.sum((ydata - model)**2 / model)
+#     Examples
+#     --------
+#     >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2])
+#     0.02
+#     >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2], [1, 1, 1])
+#     0.02
+#     """
+#     if weights is not None:
+#         # calculate the chi-squared value with weights
+#         chi_squared = np.sum((ydata - model)**2 / weights)
+#     else:
+#         # calculate the chi-squared value
+#         chi_squared = np.sum((ydata - model)**2 / model)
     
-    return chi_squared
+#     return chi_squared
 
 #%%
 ###############################################################################        
@@ -1354,7 +1347,14 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     
     return params
 
-def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
+def tan_hyseval(
+    xdata, 
+    ydata,
+    sat_cond: float = 0.95,
+    param_estimates: dict = None,
+    param_bounds: dict = None,
+    param_fixed: dict = None,
+    method: str = 'leastsq',):
     """
     Category: Data Evaluation
 
@@ -1367,8 +1367,7 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     It also provides the fitted ydata and its uncertainty as well as the lmfit result.
 
-    Note: For some uncertainties, the error propagation is not fully correct and rather
-    estimated. The function is not suitable for double hysteresis loops.
+    Note: The function is not suitable for double hysteresis loops.
     
     Parameters
     ----------
@@ -1378,6 +1377,17 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         List of magnetization values M.
     sat_cond : float, optional
         Saturation condition for the tanh function. Default is 0.95.
+    param_estimates : dict, optional
+        Initial guesses for the fit parameters. Default is None.
+        'a': global offset, 'b': amplitude (2 * MS / pi), 'c': steepness, 'd': global shift (HEB), 'e': branch offset (HC)
+    param_bounds : dict, optional
+        Bounds for the fit parameters, has to be a dictionary of lists of length 2.
+        The first element is the lower bound, the second element is the upper bound.
+        Default is None.
+    param_fixed : dict, optional
+        Whether a parameter is fixed to its estimate (True) or not (False). 
+        If param_estimates is not provided, the param is fixed to a numerical calculated estimate.
+        Default is None.
 
     Returns
     -------
@@ -1405,6 +1415,10 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
                 Coercive field strength.
             - dHC : float
                 Uncertainty of coercive field strength.
+            - MS : float
+                Saturation magnetization.
+            - dMS : float
+                Uncertainty of saturation magnetization.
             - MR : float
                 Remanence at zero field strength.
             - dMR : float
@@ -1505,8 +1519,19 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     params.add('d', value=HEB_tmp, min=np.min(xdata), max=np.max(xdata)) # exchange bias field
     params.add('e', value=HC_tmp, min=0, max=(np.max(xdata) - np.min(xdata)) / 2) # coercive field
 
+    # Vary the parameters depending on additional input (normally not necessary)
+    if param_estimates:
+        for key, value in param_estimates.items():
+            params[key].value = value
+    if param_bounds:
+        for key, value in param_bounds.items():
+            params[key].min, params[key].max = value
+    if param_fixed:
+        for key, value in param_fixed.items():
+            params[key].vary = not value 
+
     # Fit the model to the data
-    result = model.fit(ydata, params, calc_covar=True, method='leastsq', fit_kws={'reduce_fcn': chisquared_lmfit}, xdata=xdata,)
+    result = model.fit(ydata, params, calc_covar=True, method=method, xdata=xdata,)
 
     # Calculate fitted magnetization values
     ydata = result.best_fit
@@ -1548,6 +1573,7 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     # Extract wanted values from the fits optimized params
     HC, dHC = result.params['e'].value, safe_stderr(result.params['e'].stderr) + half_step_size
     HEB, dHEB = result.params['d'].value, safe_stderr(result.params['d'].stderr) + half_step_size
+    MS, dMS = result.params['b'].value * np.pi / 2, safe_stderr(result.params['b'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr)
     MR = tan_hys(float(0), *result.params.valuesdict().values())
     dMR = safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr)
     MHEB = tan_hys(float(HEB), *result.params.valuesdict().values())
@@ -1556,7 +1582,12 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     slope_atHC = result.params['b'].value * result.params['c'].value
     dslope_atHC = safe_stderr(result.params['b'].stderr) * result.params['c'].value + safe_stderr(result.params['c'].stderr) * result.params['b'].value
     slope_atHEB = (result.params['b'].value * result.params['c'].value) / (1 + (result.params['c'].value * result.params['e'].value)**2)
-    dslope_atHEB = dslope_atHC * 0.5 #TODO: This is not true, but I don't want to invest time in this right now
+    # partial differentiation for the error calculation
+    dslope_atHEB_db = (result.params['c'].value + (result.params['c'].value * result.params['e'].value)**2 ) * safe_stderr(result.params['b'].stderr)
+    dslope_atHEB_dc = result.params['b'].value * safe_stderr(result.params['c'].stderr)
+    dslope_atHEB_de = 2 * result.params['b'].value * result.params['c'].value**2 * result.params['e'].value * safe_stderr(result.params['e'].stderr)
+    
+    dslope_atHEB = (dslope_atHEB_db + dslope_atHEB_dc + dslope_atHEB_de) / (1 + (result.params['c'].value * result.params['e'].value)**2)**2
 
     # Calculate the rectangularity of the hysteresis loop by interpolating a parallelogram with the slopes at HC and HEB. The closer these angles are to 90°, the more rectangular the hysteresis loop is.
     # Normalize the slope to make it independent on the scaling for MS and Hext: divide 2 * HC by the amplitude of the hysteresis loop
@@ -1564,38 +1595,44 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     # angles of the slopes at HC and HEB
     angle_atHC = np.arctan(slope_atHC * slope_normalization)
-    dangle_atHC = np.arctan(dslope_atHC * slope_normalization) #TODO: Confirm if this is correct
+    dangle_atHC = slope_normalization / (1 + slope_atHC**2 * slope_normalization**2) * dslope_atHC
     angle_atHEB = np.arctan(slope_atHEB * slope_normalization)
-    dangle_atHEB = np.arctan(dslope_atHEB * slope_normalization)
+    dangle_atHEB = slope_normalization / (1 + slope_atHEB**2 * slope_normalization**2) * dslope_atHEB
     
     # angles at the intersection points. Alpha1 is the angle enclosed between the slopes at HC and HEB, i.e. the angle at the lower left corner of the parallelogram. Alpha2 is the angle at the upper right corner but their sum is always 180°, so it does not need to be calculated.
     alpha = angle_atHC - angle_atHEB
     dalpha = np.sqrt(dangle_atHC**2 + dangle_atHEB**2)
     rectangularity = np.sin(alpha) # from 0 to 1, 1 is a perfect rectangle at alpha1 = 90°
     drectangularity = np.abs(np.cos(alpha)) * dalpha
-    # rectangularity2 = 1 - (np.abs(alpha1 - np.pi/2) + np.abs(alpha1 + np.pi/2)) / np.pi # less sensitive therefore not used
 
     # calculate saturation field strength (at 0.95*max(arctan(x)))
-    # f(x) = a  + b * np.arctan(c * (x - d +- e))
+    # f(x) = a + b * np.arctan(c * (x - d +- e))
     # arctan approaches maximum value of pi/2 so max of def arctan 
     # is a + b * pi/2 
-    # so 0.95 * (a + b * pi/2) = a + b * arctan ( c * (x_sat - d +- e))
-    # 0.95 * pi/2 - 0.05 * a/b = arctan (c * (x_sat - d +- e))
-    # tan(0.95 * pi/2  - 0.05 * a/b) = c * (x_sat - d +- e)
-    # x_sat = tan(0.95 * pi/2 - 0.05 * a/b) / c + d -+ e
-    # x_sat_err = 1 / (c * cos(0.99 * pi/2)^2) * c_err + d_err + e_err ?
-
-    saturation_field1 = np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB - HC
-    saturation_field2 = saturation_field1 + 2 * HC # add 2 * HC to get the saturation field in the other direction
-    saturation_field3 = np.tan(-sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB - HC
-    saturation_field4 = saturation_field3 + 2 * HC # add 2 * HC to get the saturation field in the other direction
-    saturation_fields = (np.min([saturation_field1, saturation_field2, saturation_field3, saturation_field4]), 
-                         np.max([saturation_field1, saturation_field2, saturation_field3, saturation_field4]))
-    dsaturation_fields = (half_step_size, half_step_size) #TODO: This is only partly true, but I don't want to invest time in this right now
+    # so 0.95 * (a +- b * pi/2) = a + b * arctan ( c * (x_sat - d +- e))
+    # +- 0.95 * pi/2 - 0.05 * a/b = arctan (c * (x_sat - d +- e))
+    # tan(+- 0.95 * pi/2  - 0.05 * a/b) = c * (x_sat - d +- e)
+    # x_sat = tan(+-0.95 * pi/2 - 0.05 * a/b) / c + d -+ e # ++ is saturation field of ascending branch, -- is saturation field of descending branch (or ?!)
+    # x_sat_desc = tan(-0.95 * pi/2 - 0.05 * a/b) / c + d - e
+    # x_sat_asc = tan(0.95 * pi/2 - 0.05 * a/b) / c + d + e
+    # x_sat error is equal for both branches
+    # dx_sat_da = -0.05 / b * c  * (1 / (np.cos(0.95 * pi/2 - 0.05 * a/b)**2)) * c_err
+    # dx_sat_db = 0.05 * a / b**2 * c * (1 / (np.cos(0.95 * pi/2 - 0.05 * a/b)**2)) * c_err
+    # dx_sat_dc = -tan(0.95 * pi/2 - 0.05 * a/b) / c**2 * c_err
+    # dx_sat = dx_sat_da + dx_sat_db + dx_sat_dc + d_err + e_err + half_step_size
+    
+    saturation_field_desc = np.tan(-sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB - HC
+    saturation_field_asc = np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB + HC
+    saturation_fields = (saturation_field_desc, saturation_field_asc)
+    # error calculation
+    dsaturation_fields_da = (1-sat_cond) / result.params['b'].value * result.params['c'].value  * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value)**2)) * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields_db = (1-sat_cond) * result.params['a'].value / result.params['b'].value**2 * result.params['c'].value * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value)**2)) * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields_dc = -np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value**2 * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields = dsaturation_fields_da + dsaturation_fields_db + dsaturation_fields_dc + safe_stderr(result.params['d'].stderr) + safe_stderr(result.params['e'].stderr) + half_step_size
 
     integral_args = result.params.valuesdict()
     # change param a and e
-    integral_args['a'] -= np.min(ydata)
+    integral_args['a'] -= np.min(ydata) # change offset so that the integral starts at 0
     # Integral of the area in the loop = left branch integral - right branch integral
     integral_leftbranch, integral_leftbranch_err = quad(arctan, np.min(xdata), np.max(xdata), args=tuple(integral_args.values()))
     integral_args['e'] *= -1
@@ -1616,6 +1653,8 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'dHEB': dHEB,
         'HC': HC, 
         'dHC': dHC,
+        'MS': MS,
+        'dMS': dMS,
         'MR': MR,
         'dMR': dMR,
         'MHEB': MHEB,
@@ -1636,11 +1675,31 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
         'x_unit': None,
         'y_unit': None,
+
+        # fit parameters
+        'a': result.params['a'].value,
+        'da': safe_stderr(result.params['a'].stderr),
+        'b': result.params['b'].value,
+        'db': safe_stderr(result.params['b'].stderr),
+        'c': result.params['c'].value,
+        'dc': safe_stderr(result.params['c'].stderr),
+        'd': result.params['d'].value,
+        'dd': safe_stderr(result.params['d'].stderr),
+        'e': result.params['e'].value,
+        'de': safe_stderr(result.params['e'].stderr),
+
         }
     
     return fitted_data, params, result
 
-def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
+def double_tan_hyseval(
+    xdata,  
+    ydata, 
+    sat_cond: float = 0.95,
+    param_estimates: dict = None,
+    param_bounds: dict = None,
+    param_fixed: dict = None,
+    method: str = 'leastsq',):
     """
     Category: Data Evaluation
 
@@ -1652,8 +1711,10 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     It also provides the fitted ydata and its uncertainty as well as the lmfit result.
 
-    Note: For some uncertainties, the error propagation is not fully correct and rather
-    estimated. The function is suitable for double hysteresis loops but not for single
+    Note: For the uncertainties, the hysteresis loops are treated as two separate loops.
+    Therefore, the uncertainty of e.g. the saturation of one loop is not necessarily 
+    considered for the other loop.
+    This function is suitable for double hysteresis loops but not for single
     hysteretic loops due to overfitting.
 
     Parameters
@@ -1664,6 +1725,26 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         List of magnetization values M.
     sat_cond : float, optional
         Saturation condition for the tanh function. Default is 0.95.
+    param_estimates : dict, optional
+        Initial guesses for the fit parameters. Default is None.
+        'a': global offset, 
+        'b': amplitude (2 * MS1 / pi) of the first branch,
+        'c': steepness of the first branch,
+        'd': global shift (HEB1) of the first branch,
+        'e': branch offset (HC1) of the first branch,
+        'f': amplitude (2 * MS2 / pi) of the second branch,
+        'g': steepness of the second branch,
+        'h': global shift (HEB2) of the second branch,
+        'i': branch offset (HC2) of the second branch
+    param_bounds : dict, optional
+        Bounds for the fit parameters, has to be a dictionary of lists of length 2.
+        The first element is the lower bound, the second element is the upper bound.
+        Default is None.
+    param_fixed : dict, optional
+        Whether a parameter is fixed to its estimate (True) or not (False). 
+        If param_estimates is not provided, the param is fixed to a numerical calculated estimate.
+        Default is None.
+
 
     Returns
     -------
@@ -1699,6 +1780,14 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
                 Coercive field strength for the second branch.
             - dHC2 : float
                 Uncertainty of coercive field strength for the second branch.
+            - MS1 : float
+                Saturation magnetization for the first (left) branch.
+            - dMS1 : float
+                Uncertainty of saturation magnetization for the first (left) branch.
+            - MS2 : float
+                Saturation magnetization for the second (right) branch.
+            - dMS2 : float
+                Uncertainty of saturation magnetization for the second (right) branch.
             - MR : float
                 Remanence at zero field strength.
             - dMR : float
@@ -1820,7 +1909,7 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     params.add('i', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
 
     # Fit the model to the data
-    result = model.fit(ydata, params, calc_covar=True, method='leastsq', fit_kws={'reduce_fcn': chisquared_lmfit}, xdata=xdata,)
+    result = model.fit(ydata, params, calc_covar=True, method=method, xdata=xdata,)
 
     # Calculate fitted magnetization values
     ydata = result.best_fit
@@ -1860,6 +1949,9 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     HC2, dHC2 = result.params['i'].value, safe_stderr(result.params['i'].stderr) + half_step_size
     HEB2, dHEB2 = result.params['h'].value, safe_stderr(result.params['h'].stderr) + half_step_size
 
+    MS1, dMS1 = result.params['b'].value * np.pi / 2, safe_stderr(result.params['b'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['f'].stderr)* np.pi / 2
+    MS2, dMS2 = result.params['f'].value* np.pi / 2, safe_stderr(result.params['f'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr)* np.pi / 2
+
     MR = double_tan_hys(float(0), *result.params.valuesdict().values())
     dMR = safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr) + safe_stderr(result.params['f'].stderr)
     MHEB1 = double_tan_hys(float(HEB1), *result.params.valuesdict().values())
@@ -1870,11 +1962,18 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     slope_atHC1 = result.params['b'].value * result.params['c'].value
     dslope_atHC1 = safe_stderr(result.params['b'].stderr) * result.params['c'].value + safe_stderr(result.params['c'].stderr) * result.params['b'].value
     slope_atHEB1 = (result.params['b'].value * result.params['c'].value) / (1 + (result.params['c'].value * result.params['e'].value)**2)
-    dslope_atHEB1 = dslope_atHC1 * 0.5 #TODO: This is not true, but I don't want to invest time in this right now
+    dslope_atHEB1_db = (result.params['c'].value + (result.params['c'].value * result.params['e'].value)**2 ) * safe_stderr(result.params['b'].stderr)
+    dslope_atHEB1_dc = result.params['b'].value * safe_stderr(result.params['c'].stderr)
+    dslope_atHEB1_de = 2 * result.params['b'].value * result.params['c'].value**2 * result.params['e'].value * safe_stderr(result.params['e'].stderr)
+    dslope_atHEB1 = (dslope_atHEB1_db + dslope_atHEB1_dc + dslope_atHEB1_de) / (1 + (result.params['c'].value * result.params['e'].value)**2)**2
+    
     slope_atHC2 = result.params['f'].value * result.params['g'].value
     dslope_atHC2 = safe_stderr(result.params['f'].stderr) * result.params['g'].value + safe_stderr(result.params['g'].stderr) * result.params['f'].value
     slope_atHEB2 = (result.params['f'].value * result.params['g'].value) / (1 + (result.params['g'].value * result.params['i'].value)**2)
-    dslope_atHEB2 = dslope_atHC2 * 0.5 #TODO: This is not true, but I don't want to invest time in this right now
+    dslope_atHEB2_df = (result.params['g'].value + (result.params['g'].value * result.params['i'].value)**2 ) * safe_stderr(result.params['f'].stderr)
+    dslope_atHEB2_dg = result.params['f'].value * safe_stderr(result.params['g'].stderr)
+    dslope_atHEB2_di = 2 * result.params['f'].value * result.params['g'].value**2 * result.params['i'].value * safe_stderr(result.params['i'].stderr)
+    dslope_atHEB2 = (dslope_atHEB2_df + dslope_atHEB2_dg + dslope_atHEB2_di) / (1 + (result.params['g'].value * result.params['i'].value)**2)**2
 
     # Calculate the rectangularity of the hysteresis loop by interpolating a parallelogram with the slopes at HC and HEB. The closer these angles are to 90°, the more rectangular the hysteresis loop is.
     # Normalize the slope to make it independent on the scaling for MS and Hext: divide 2 * HC by the amplitude of the hysteresis loop
@@ -1883,13 +1982,13 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     # angles of the slopes at HC and HEB
     angle_atHC1 = np.arctan(slope_atHC1 * slope_normalization1)
-    dangle_atHC1 = np.arctan(dslope_atHC1 * slope_normalization1) #TODO: Confirm if this is correct
+    dangle_atHC1 = slope_normalization1 / (1 + slope_atHC1**2 * slope_normalization1**2) * dslope_atHC1
     angle_atHEB1 = np.arctan(slope_atHEB1 * slope_normalization1)
-    dangle_atHEB1 = np.arctan(dslope_atHEB1 * slope_normalization1) #TODO: Confirm if this is correct
+    dangle_atHEB1 = slope_normalization1 / (1 + slope_atHEB1**2 * slope_normalization1**2) * dslope_atHEB1
     angle_atHC2 = np.arctan(slope_atHC2 * slope_normalization2)
-    dangle_atHC2 = np.arctan(dslope_atHC2 * slope_normalization2) #TODO: Confirm if this is correct
+    dangle_atHC2 = slope_normalization2 / (1 + slope_atHC2**2 * slope_normalization2**2) * dslope_atHC2
     angle_atHEB2 = np.arctan(slope_atHEB2 * slope_normalization2)
-    dangle_atHEB2 = np.arctan(dslope_atHEB2 * slope_normalization2) #TODO: Confirm if this is correct
+    dangle_atHEB2 = slope_normalization2 / (1 + slope_atHEB2**2 * slope_normalization2**2) * dslope_atHEB2
     
     # angles at the intersection points. Alpha1 is the angle enclosed between the slopes at HC and HEB, i.e. the angle at the lower left corner of the parallelogram. Alpha2 is the angle at the upper right corner but their sum is always 180°, so it does not need to be calculated.
     alpha1 = angle_atHC1 - angle_atHEB1
@@ -1903,24 +2002,27 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
     # calculate saturation field strength (at sat_cond*max(arctan(x))), sat_cond = 0.95
     # see tan_hyseval for calculation
-    saturation_field1_1 = np.tan(sat_cond * np.pi / 2) / result.params['c'].value + HEB1 - HC1
-    saturation_field1_2 = np.tan(sat_cond * np.pi / 2) / result.params['c'].value + HEB1 + HC1
-    saturation_field1_3 = np.tan(-sat_cond * np.pi / 2) / result.params['c'].value + HEB1 - HC1
-    saturation_field1_4 = np.tan(-sat_cond * np.pi / 2) / result.params['c'].value + HEB1 + HC1
-    saturation_fields1 = (np.min([saturation_field1_1, saturation_field1_2, saturation_field1_3, saturation_field1_4]), 
-                          np.max([saturation_field1_1, saturation_field1_2, saturation_field1_3, saturation_field1_4]))
-    dsaturation_fields1 = (half_step_size, half_step_size) #TODO: This is only partly true, but I don't want to invest time in this right now
+    saturation_field1_desc = np.tan(-sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB1 - HC1
+    saturation_field1_asc = np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value + HEB1 + HC1
+    saturation_fields1 = (saturation_field1_desc, saturation_field1_asc)
+    # error calculation
+    dsaturation_fields1_da = (1-sat_cond) / result.params['b'].value * result.params['c'].value  * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value)**2)) * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields1_db = (1-sat_cond) * result.params['a'].value / result.params['b'].value**2 * result.params['c'].value * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value)**2)) * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields1_dc = -np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['b'].value) / result.params['c'].value**2 * safe_stderr(result.params['c'].stderr)
+    dsaturation_fields1 = dsaturation_fields1_da + dsaturation_fields1_db + dsaturation_fields1_dc + safe_stderr(result.params['d'].stderr) + safe_stderr(result.params['e'].stderr) + half_step_size
+    
+    saturation_field2_desc = np.tan(-sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['f'].value) / result.params['g'].value + HEB2 - HC2
+    saturation_field2_asc = np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['f'].value) / result.params['g'].value + HEB2 + HC2
+    saturation_fields2 = (saturation_field2_desc, saturation_field2_asc)
+    # error calculation
+    dsaturation_fields2_da = (1-sat_cond) / result.params['f'].value * result.params['g'].value  * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['f'].value)**2)) * safe_stderr(result.params['g'].stderr)
+    dsaturation_fields2_df = (1-sat_cond) * result.params['a'].value / result.params['f'].value**2 * result.params['g'].value * (1 / (np.cos(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['f'].value)**2)) * safe_stderr(result.params['g'].stderr)
+    dsaturation_fields2_dg = -np.tan(sat_cond * np.pi / 2 - (1-sat_cond) * result.params['a'].value / result.params['f'].value) / result.params['g'].value**2 * safe_stderr(result.params['g'].stderr)
+    dsaturation_fields2 = dsaturation_fields2_da + dsaturation_fields2_df + dsaturation_fields2_dg + safe_stderr(result.params['h'].stderr) + safe_stderr(result.params['i'].stderr) + half_step_size
 
-    saturation_field2_1 = np.tan(sat_cond * np.pi / 2) / result.params['g'].value + HEB2 - HC2
-    saturation_field2_2 = np.tan(sat_cond * np.pi / 2) / result.params['g'].value + HEB2 + HC2
-    saturation_field2_3 = np.tan(-sat_cond * np.pi / 2) / result.params['g'].value + HEB2 - HC2
-    saturation_field2_4 = np.tan(-sat_cond * np.pi / 2) / result.params['g'].value + HEB2 + HC2
-    saturation_fields2 = (np.min([saturation_field2_1, saturation_field2_2, saturation_field2_3, saturation_field2_4]),
-                          np.max([saturation_field2_1, saturation_field2_2, saturation_field2_3, saturation_field2_4]))
-    dsaturation_fields2 = (half_step_size, half_step_size) #TODO: This is only partly true, but I don't want to invest time in this right now
-
+    # integral of both hysteresis loops together (see tan_hys for calculation)
     integral_args = result.params.valuesdict()
-    integral_args['a'] -= np.min(ydata)
+    integral_args['a'] -= np.min(ydata) # change param a so that the integral starts at 0
     left_integral_args = {
         'a': integral_args['a'],
         'b': integral_args['b'],
@@ -1973,6 +2075,10 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'dHEB2': dHEB2,
         'HC2': HC2, 
         'dHC2': dHC2,
+        'MS1': MS1,
+        'dMS1': dMS1,
+        'MS2': MS2,
+        'dMS2': dMS2,
         'MR': MR,
         'dMR': dMR,
         'MHEB1': MHEB1,
@@ -2016,6 +2122,26 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         
         'x_unit': None,
         'y_unit': None,
+
+        # fit parameters
+        'a': result.params['a'].value,
+        'da': safe_stderr(result.params['a'].stderr),
+        'b': result.params['b'].value,
+        'db': safe_stderr(result.params['b'].stderr),
+        'c': result.params['c'].value,
+        'dc': safe_stderr(result.params['c'].stderr),
+        'd': result.params['d'].value,
+        'dd': safe_stderr(result.params['d'].stderr),
+        'e': result.params['e'].value,
+        'de': safe_stderr(result.params['e'].stderr),
+        'f': result.params['f'].value,
+        'df': safe_stderr(result.params['f'].stderr),
+        'g': result.params['g'].value,
+        'dg': safe_stderr(result.params['g'].stderr),
+        'h': result.params['h'].value,
+        'dh': safe_stderr(result.params['h'].stderr),
+        'i': result.params['i'].value,
+        'di': safe_stderr(result.params['i'].stderr),
     }
     
     return fitted_data, params, result
@@ -2105,88 +2231,3 @@ def safe_stderr(stderr):
     0.05
     """
     return 0 if stderr is None else stderr
-
-def unit_converter(df: pd.DataFrame, col: str, conversion_factors: dict, target_unit: str) -> pd.Series:
-    """
-    Convert a pandas DataFrame column from one unit to another using provided conversion factors.
-
-    This function converts the values in a specified column of a pandas DataFrame from the current unit 
-    to a target unit based on the provided conversion factors. The DataFrame must have a 'unit' attribute 
-    for the specified column that specifies the current unit of the values.
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        The pandas DataFrame containing the column to be converted. Must have a 'unit' attribute for the specified column.
-    col : str
-        The name of the column to be converted.
-    conversion_factors : dict
-        A dictionary containing conversion factors. The keys are quantity types (e.g., 'length', 'mass'),
-        and the values are dictionaries mapping units to their conversion factors relative to a base unit.
-        Example: {'length': {'m': 1, 'cm': 0.01, 'mm': 0.001}}.
-    target_unit : str
-        The unit to which the column values should be converted.
-
-    Returns
-    -------
-    pd.Series
-        The pandas DataFrame with the specified column values converted to the target unit. The 'unit' attribute 
-        of the column is updated to the target unit.
-
-    Raises
-    ------
-    KeyError
-        If the DataFrame does not contain the specified column.
-        If the unit of the specified column is not specified in the DataFrame attributes.
-    ValueError
-        If the conversion_factors dictionary is empty.
-        If the current unit or target unit is not supported by the conversion_factors dictionary.
-
-    Examples
-    --------
-    >>> import pandas as pd
-    >>> data = pd.DataFrame({'length': [100, 200, 300]})
-    >>> data.attrs['length'] = 'cm'
-    >>> conversion_factors = {'length': {'m': 1, 'cm': 0.01, 'mm': 0.001}}
-    >>> unit_converter(data, 'length', conversion_factors, 'm')
-       length
-    0     1.0
-    1     2.0
-    2     3.0
-    """
-    # Ensure that the DataFrame has the specified column
-    if col not in df.columns:
-        raise KeyError(f"The DataFrame does not contain a column named '{col}'.")
-
-    # Ensure that df.attrs contains col as key
-    if col not in df.attrs:
-        df.attrs[col] = 'Unknown'
-        raise KeyError(f"The unit of the column '{col}' was not specified in the DataFrame attributes. It has now been set to Unknown.")
-    
-    # Ensure the dictionary of conversion factors is not empty
-    if not conversion_factors:
-        raise ValueError("No conversion factors provided.")
-
-    # Get the current unit of the Series
-    current_unit = df.attrs[col]
-    quantity_type = None
-
-    for key in conversion_factors:
-        if str(current_unit) in conversion_factors[key].keys():
-            quantity_type = key
-            break
-        
-    # Ensure the current and target units are in the conversion dictionary
-    if quantity_type is None or target_unit not in conversion_factors[quantity_type]:
-        all_units = {key: list(units.keys()) for key, units in conversion_factors.items()}
-        raise ValueError(f"Unsupported unit. Supported units are: {all_units}")
-
-    # Convert to base unit of quantity type
-    col_in_base_unit = df[col] * conversion_factors[quantity_type][current_unit]
-
-    # Convert from base unit to target unit
-    converted_col = col_in_base_unit / conversion_factors[quantity_type][target_unit]
-
-    # Update the unit attribute
-    df[col] = converted_col # update the column in the DataFrame
-    df.attrs[col] = target_unit # update the unit attribute in the DataFrame

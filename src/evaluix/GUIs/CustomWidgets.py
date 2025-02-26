@@ -62,11 +62,11 @@ import re
 import contextlib
 from io import StringIO
 import yaml
-import numpy as np
+import pandas as pd
 
 # these are the imports for the console widget based on IPython
 import subprocess
-import IPython
+# import IPython
 #from IPython.lib.inputhook import inputhook_manager
 import threading
 
@@ -1388,14 +1388,14 @@ class ConsoleWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         
-        self.console = RichJupyterWidget() # Create a console widget
-        self.console.kernel_manager = QtInProcessKernelManager() # Create a kernel manager for the console
-        self.console.kernel_manager.start_kernel() # Start the kernel
-        self.console.kernel_manager.kernel.gui = "qt" # Set the GUI of the kernel to qt
-        self.console.kernel_client = self.console.kernel_manager.client() # Create a kernel client for the console
-        self.console.setParent(self) # Set the parent of the console to the EvaluixConsole widget
-        self.console.kernel_client.start_channels()  # Start communication channel with kernel
-        self.console.show() # Show the console widget
+        # self.console = RichJupyterWidget() # Create a console widget
+        # self.console.kernel_manager = QtInProcessKernelManager() # Create a kernel manager for the console
+        # self.console.kernel_manager.start_kernel() # Start the kernel
+        # self.console.kernel_manager.kernel.gui = "qt" # Set the GUI of the kernel to qt
+        # self.console.kernel_client = self.console.kernel_manager.client() # Create a kernel client for the console
+        # self.console.setParent(self) # Set the parent of the console to the EvaluixConsole widget
+        # self.console.kernel_client.start_channels()  # Start communication channel with kernel
+        # self.console.show() # Show the console widget
     
 class EvaluixConsole(QWidget):
     def __init__(self, parent=None):

@@ -30,7 +30,7 @@ def print_hdf5_contents(file_path, max_elements=10):
         
         # Check if the name contains "results"
         if "results" in name.lower():
-            print(f"    *** This name contains 'results' ***")
+            print("    *** This name contains 'results' ***")
             if isinstance(obj, h5py.Dataset):
                 print(f"    Full data: {data}")
             elif isinstance(obj, h5py.Group):
@@ -40,5 +40,6 @@ def print_hdf5_contents(file_path, max_elements=10):
         f.visititems(print_attrs)
 
 # Example usage
-file_path = r"C:\Users\exp4-ArVe-220\Desktop\Evaluix2\tests\TestSaving2.h5"
+# file_path = r"C:\Users\exp4-ArVe-220\Desktop\Evaluix2\tests\TestSaving2.h5"
+file_path = r"C:\Users\arnev\Desktop\Evaluix2\tests\tmp_data.h5"
 print_hdf5_contents(file_path)
