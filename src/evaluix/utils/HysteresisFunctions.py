@@ -998,6 +998,8 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
             else:
                 # Linearly interpolate between the two points
                 a = (ydata[i] - ydata[i-1]) / (xdata[i] - xdata[i-1])
+                if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
+                    a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
                 if a != 0:
                     b = ydata[i-1] - a * xdata[i-1]
                     intersect = -b / a
