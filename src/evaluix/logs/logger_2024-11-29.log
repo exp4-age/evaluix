@@ -1,0 +1,89 @@
+2024-11-29 11:33:12,594 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-29 11:33:28,521 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt with data format MOKE
+2024-11-29 11:33:28,522 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt seems to be a file. Reading the file.
+2024-11-29 11:33:28,533 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt with data format MOKE.
+2024-11-29 11:33:28,542 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt successfully read.
+2024-11-29 11:33:28,542 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt with data format MOKE.
+2024-11-29 11:33:28,542 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt.
+2024-11-29 11:33:28,552 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 11:33:28,552 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-29 11:33:28,552 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0321\Raw\LMOKE\2023_0321_1_RASTER_2023-09-20_11-05-50\Raster_0001_0004.txt
+2024-11-29 11:33:32,023 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:37:27,353 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-29 15:38:20,911 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data with data format VSM
+2024-11-29 15:38:20,921 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:38:20,921 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:20,974 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data successfully read.
+2024-11-29 15:38:20,974 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:20,974 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data.
+2024-11-29 15:38:20,989 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data.
+2024-11-29 15:38:20,989 - utils.FileLoader.FileLogger - DEBUG - log_message - Data in Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data is not even. Adding a row to make it even.
+2024-11-29 15:38:21,002 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 15:38:21,002 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-29 15:38:21,002 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-05_4kOe.VSM-Hys-Data
+2024-11-29 15:38:21,084 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM
+2024-11-29 15:38:21,084 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:38:21,084 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:21,131 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data successfully read.
+2024-11-29 15:38:21,131 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:21,131 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-11-29 15:38:21,147 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-11-29 15:38:21,147 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 15:38:21,147 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-11-29 15:38:21,147 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data
+2024-11-29 15:38:24,421 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM
+2024-11-29 15:38:24,431 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:38:24,431 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:24,468 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data successfully read.
+2024-11-29 15:38:24,468 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM.
+2024-11-29 15:38:24,468 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data.
+2024-11-29 15:38:24,478 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data.
+2024-11-29 15:38:24,478 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 15:38:24,478 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 2 to the data dictionary.
+2024-11-29 15:38:24,478 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data
+2024-11-29 15:38:39,221 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:45:44,519 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:47:11,321 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:48:23,376 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-29 15:48:29,319 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format MOKE
+2024-11-29 15:48:29,329 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:48:29,329 - utils.FileLoader.FileLogger - ERROR - log_message - The file format of Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data does not fit the chosen data format MOKE. Please choose a different file or data format.
+2024-11-29 15:48:33,834 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM
+2024-11-29 15:48:33,834 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:48:33,834 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM.
+2024-11-29 15:48:33,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data successfully read.
+2024-11-29 15:48:33,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data with data format VSM.
+2024-11-29 15:48:33,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data.
+2024-11-29 15:48:33,881 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data.
+2024-11-29 15:48:33,881 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 15:48:33,881 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-29 15:48:33,881 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000.VSM-Hys-Data
+2024-11-29 15:48:36,363 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:54:30,178 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-11-29 15:54:44,767 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format MOKE
+2024-11-29 15:54:44,777 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:54:44,777 - utils.FileLoader.FileLogger - ERROR - log_message - The file format of Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data does not fit the chosen data format MOKE. Please choose a different file or data format.
+2024-11-29 15:54:48,812 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM
+2024-11-29 15:54:48,812 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data seems to be a file. Reading the file.
+2024-11-29 15:54:48,812 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:54:48,859 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data successfully read.
+2024-11-29 15:54:48,859 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-11-29 15:54:48,859 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-11-29 15:54:48,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-11-29 15:54:48,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-11-29 15:54:48,875 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-11-29 15:54:48,875 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data
+2024-11-29 15:54:51,896 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-11-29 15:55:03,769 - utils.FileLoader.FileLogger - DEBUG - log_message - Deleting log_mod_results with key 1 from the data object.
+2024-11-29 15:55:06,037 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-12-02 09:08:52,222 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM
+2024-12-02 09:08:52,238 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data seems to be a file. Reading the file.
+2024-12-02 09:08:52,238 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-12-02 09:08:52,301 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data successfully read.
+2024-12-02 09:08:52,301 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data with data format VSM.
+2024-12-02 09:08:52,301 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-12-02 09:08:52,332 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data.
+2024-12-02 09:08:52,342 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 09:08:52,342 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-12-02 09:08:52,342 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-06_18kOe.VSM-Hys-Data
+2024-12-02 09:08:58,981 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.

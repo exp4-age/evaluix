@@ -1,0 +1,62 @@
+2024-12-02 11:29:02,363 - utils.FileLoader.FileLogger - INFO - log_message - Initializing the data dictionary.
+2024-12-02 11:29:43,010 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt with data format MOKE
+2024-12-02 11:29:43,010 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt seems to be a file. Reading the file.
+2024-12-02 11:29:43,031 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt with data format MOKE.
+2024-12-02 11:29:43,041 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt successfully read.
+2024-12-02 11:29:43,041 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt with data format MOKE.
+2024-12-02 11:29:43,041 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt.
+2024-12-02 11:29:43,056 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 11:29:43,056 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 0 to the data dictionary.
+2024-12-02 11:29:43,056 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0322\Raw\LMOKE\2023_0322_1_RASTER_2023-09-20_13-36-22\Raster_0003_0003.txt
+2024-12-02 11:59:44,976 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data with data format VSM
+2024-12-02 11:59:44,977 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data seems to be a file. Reading the file.
+2024-12-02 11:59:44,977 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data with data format VSM.
+2024-12-02 11:59:45,058 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data successfully read.
+2024-12-02 11:59:45,058 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data with data format VSM.
+2024-12-02 11:59:45,058 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data.
+2024-12-02 11:59:45,121 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data.
+2024-12-02 11:59:45,121 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 11:59:45,121 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 1 to the data dictionary.
+2024-12-02 11:59:45,121 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7807D_pristine_p\7807D_pristine_p-Hys-a000-10.VSM-Hys-Data
+2024-12-02 11:59:47,794 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-12-02 13:34:24,092 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data with data format VSM
+2024-12-02 13:34:24,092 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data seems to be a file. Reading the file.
+2024-12-02 13:34:24,092 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:24,133 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data successfully read.
+2024-12-02 13:34:24,133 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:24,133 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data.
+2024-12-02 13:34:24,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data.
+2024-12-02 13:34:24,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 13:34:24,139 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 2 to the data dictionary.
+2024-12-02 13:34:24,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-07.VSM-Hys-Data
+2024-12-02 13:34:34,396 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data with data format VSM
+2024-12-02 13:34:34,396 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data seems to be a file. Reading the file.
+2024-12-02 13:34:34,396 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:34,443 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data successfully read.
+2024-12-02 13:34:34,443 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:34,443 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data.
+2024-12-02 13:34:34,458 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data.
+2024-12-02 13:34:34,458 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 13:34:34,458 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 3 to the data dictionary.
+2024-12-02 13:34:34,458 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-03_reference_afterclean_1.VSM-Hys-Data
+2024-12-02 13:34:40,108 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data with data format VSM
+2024-12-02 13:34:40,108 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data seems to be a file. Reading the file.
+2024-12-02 13:34:40,108 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:40,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data successfully read.
+2024-12-02 13:34:40,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data with data format VSM.
+2024-12-02 13:34:40,139 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data.
+2024-12-02 13:34:40,155 - utils.FileLoader.FileLogger - DEBUG - log_message - Renaming columns for VSM data from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data.
+2024-12-02 13:34:40,155 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 13:34:40,155 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 4 to the data dictionary.
+2024-12-02 13:34:40,155 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Varun_Vanakalapu\Poznan\7798E_pristine_p\7798E_pristine_p-Hys-a000-02.VSM-Hys-Data
+2024-12-02 13:34:44,785 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.
+2024-12-02 14:33:15,953 - utils.FileLoader.FileLogger - INFO - log_message - Reading file or directory Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt with data format MOKE
+2024-12-02 14:33:15,953 - utils.FileLoader.FileLogger - DEBUG - log_message - Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt seems to be a file. Reading the file.
+2024-12-02 14:33:15,953 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt with data format MOKE.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Metadata for Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt successfully read.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Getting data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt with data format MOKE.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Reading MOKE data from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Initializing the data object.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - INFO - log_message - Adding dataset with id 5 to the data dictionary.
+2024-12-02 14:33:15,984 - utils.FileLoader.FileLogger - DEBUG - log_message - Data successfully read from Z:\02_people\Vereijken_Arne\00_PhD\08_Chemnitz\SamplesForChemnitz\2024\2023_0329\Raw\LMOKE\2023_0329_1_RASTER_2024-11-05_14-07-31\Raster_0002_0004.txt
+2024-12-02 14:33:22,874 - utils.FileLoader.FileLogger - DEBUG - log_message - Adding log_mod_results with key 1 to the data object.

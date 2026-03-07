@@ -10,9 +10,10 @@ It is written blockwise for maintenance:
         5.2 SRIM
         5.3 AFM
         5.4 Kerr?
-    6. Specific functions
-    
-All functions are given with complete descriptions either visible in this 
+    6. Macros
+    7. Specific functions
+
+All functions are given with complete descriptions either visible in this
 document or function-specific callable via help(function)
 '''
 ###############################################################################        
@@ -25,6 +26,7 @@ from scipy.signal import savgol_filter
 from scipy.integrate import quad
 from typing import Union
 from lmfit import Model, Parameters
+from tqdm import tqdm
 
 #%%
 ###############################################################################        
@@ -258,6 +260,13 @@ def tan_hys(
     elif isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         #if xdata is given as a list (hysteresis), split it correspondingly into two branches
         xdata = np.asarray(xdata)
+
+        # This check doesnt make sense as this is a fit function without knowledge of ydata.
+        # # Check if the length of xdata is odd, i.e.the center point contributes to both branches.
+        # # Duplicate the center point in this case so that both branches are equally long.
+        # if len(xdata) % 2 != 0:
+        #     center_index = len(xdata) // 2
+        #     xdata = np.insert(xdata, center_index, xdata[center_index])
 
         # Split the array into two halves using slicing
         mid_index = len(xdata) // 2
@@ -1000,6 +1009,8 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
                 a = (ydata[i] - ydata[i-1]) / (xdata[i] - xdata[i-1])
                 if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
                     a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
+                if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
+                    a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
                 if a != 0:
                     b = ydata[i-1] - a * xdata[i-1]
                     intersect = -b / a
@@ -1421,6 +1432,10 @@ def tan_hyseval(
                 Saturation magnetization.
             - dMS : float
                 Uncertainty of saturation magnetization.
+            - MS : float
+                Saturation magnetization.
+            - dMS : float
+                Uncertainty of saturation magnetization.
             - MR : float
                 Remanence at zero field strength.
             - dMR : float
@@ -1714,6 +1729,14 @@ def double_tan_hyseval(
                 Coercive field strength for the second branch.
             - dHC2 : float
                 Uncertainty of coercive field strength for the second branch.
+            - MS1 : float
+                Saturation magnetization for the first (left) branch.
+            - dMS1 : float
+                Uncertainty of saturation magnetization for the first (left) branch.
+            - MS2 : float
+                Saturation magnetization for the second (right) branch.
+            - dMS2 : float
+                Uncertainty of saturation magnetization for the second (right) branch.
             - MS1 : float
                 Saturation magnetization for the first (left) branch.
             - dMS1 : float
@@ -2368,3 +2391,6 @@ def safe_stderr(stderr):
     0.05
     """
     return 0 if stderr is None else stderr
+
+
+

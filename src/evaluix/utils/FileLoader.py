@@ -462,7 +462,7 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
         log_message('debug', f"{file_or_dir} seems to be a file. Reading the file.")
         # If it's not a directory, proceed as before
         if file_or_dir is None:
-            file_logger.warning("No file selected")
+            file_file_logger.warning("No file selected")
             return "No file selected"
 
         if not isinstance(data, Data):
@@ -496,7 +496,7 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
                         column_units[col] = unit
             elif dataformat == "Kerr_imgs":
                 col_names = raw_data.columns
-                units = ["arb.u", "arb.u", "px", "Unknown"]
+                units = ["arb.u.", "arb.u.", "px", "Unknown"]
                 for i, col in enumerate(col_names):
                     column_units[col] = units[i]
 
@@ -687,11 +687,15 @@ def get_MOKE_metadata(file, Data_id):
         "# Meas. type": ['type', process_single_line],
         "# angle (deg)": ['sample_angle', process_single_line],
         "# ID": ['uuid', process_single_line],
+        "# nX": ['nX', process_single_line],
+        "# nY": ['nY', process_single_line],
+        "# dx (mm)": ['X', process_single_line],
+        "# dy (mm)": ['Y', process_single_line],
         
         #VMOKE:
         "User": ['user', process_single_line],
         "Charge": ['sample', process_single_line],
-        "Sample": ['sample', process_single_line],
+        #"Sample": ['sample', process_single_line],
         "Sample State": ['state', process_single_line],
         "Comment": ['comment', process_multi_line],
         "Measurement Method": ['type', process_single_line],
@@ -710,7 +714,8 @@ def get_MOKE_metadata(file, Data_id):
     if metadata['type'] == 'Raster':
         metadata['type'] = 'Hyst'
         metadata['raster'] = True
-        metadata['raster_resolution'] = metadata.get('raster_resolution', False) #TODO: get the resolution from the file
+        metadata['X'] = metadata.get('X', False)
+        metadata['Y'] = metadata.get('Y', False)
     elif metadata['type'] == 'FORC' or metadata['type'] == 'Minor loop':
         metadata['type'] = metadata['type']
     else:
@@ -935,8 +940,8 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
                 f,
                 names=col_names,
                 skiprows=data_start,  # this counts logically from top to bottom
-                skipfooter=data_end,  # this stupid mode starts to count from the BOTTOM to the top
-                sep="   ",
+                skipfooter=data_end,  # this stupid mode starts to count from the BOTTOM to the top (SaAk 2022)
+                sep=r"\s+",
                 engine="python",
             )
             
@@ -982,7 +987,22 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
             line = line.split('#')[-1]
             
         col_names = [col_name.strip() for col_name in line.split("\t")] # split the line by tabs and assign the values to the column names
-        # print(data_start, data_end, line, col_names)
+        
+        col_names_vmoke_new = ['H meas. axis [kA/m]', 
+                               'H trans. [kA/m]', 
+                               'H long. [kA/m]',
+                               'H voltage trans. [V]',
+                               'H voltage long. [V]',
+                               'currently unused []',
+                               'I diff long. [arb.u.]',
+                               'I raw long. [arb.u.]',
+                               'I raw trans. [arb.u.]'
+                               ]
+        
+        # This is a hardcoded workaround for old (<13.11.2024) VMOKE files in which the columns are not named correctly
+        if len(col_names) == len(col_names_vmoke_new):
+            col_names = col_names_vmoke_new
+
         with open(file, 'r', encoding='utf-8', errors='replace') as f:
             df = pd.read_csv(
                 f,
