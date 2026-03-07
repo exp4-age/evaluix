@@ -10,9 +10,10 @@ It is written blockwise for maintenance:
         5.2 SRIM
         5.3 AFM
         5.4 Kerr?
-    6. Specific functions
-    
-All functions are given with complete descriptions either visible in this 
+    6. Macros
+    7. Specific functions
+
+All functions are given with complete descriptions either visible in this
 document or function-specific callable via help(function)
 '''
 ###############################################################################        
@@ -25,6 +26,7 @@ from scipy.signal import savgol_filter
 from scipy.integrate import quad
 from typing import Union
 from lmfit import Model, Parameters
+from tqdm import tqdm
 
 #%%
 ###############################################################################        
@@ -259,12 +261,12 @@ def tan_hys(
         #if xdata is given as a list (hysteresis), split it correspondingly into two branches
         xdata = np.asarray(xdata)
 
-        # Check if the length of xdata is odd, i.e.the center point contributes to both branches.
-        # Duplicate the center point in this case so that both branches are equally long.
-        if len(xdata) % 2 != 0:
-            center_index = len(xdata) // 2
-            xdata = np.insert(xdata, center_index, xdata[center_index])
-            ydata = np.insert(ydata, center_index, ydata[center_index])
+        # This check doesnt make sense as this is a fit function without knowledge of ydata.
+        # # Check if the length of xdata is odd, i.e.the center point contributes to both branches.
+        # # Duplicate the center point in this case so that both branches are equally long.
+        # if len(xdata) % 2 != 0:
+        #     center_index = len(xdata) // 2
+        #     xdata = np.insert(xdata, center_index, xdata[center_index])
 
         # Split the array into two halves using slicing
         mid_index = len(xdata) // 2
@@ -1005,6 +1007,8 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
             else:
                 # Linearly interpolate between the two points
                 a = (ydata[i] - ydata[i-1]) / (xdata[i] - xdata[i-1])
+                if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
+                    a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
                 if a != 0:
                     b = ydata[i-1] - a * xdata[i-1]
                     intersect = -b / a
@@ -1405,6 +1409,10 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
                 Coercive field strength.
             - dHC : float
                 Uncertainty of coercive field strength.
+            - MS : float
+                Saturation magnetization.
+            - dMS : float
+                Uncertainty of saturation magnetization.
             - MR : float
                 Remanence at zero field strength.
             - dMR : float
@@ -1548,6 +1556,7 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     # Extract wanted values from the fits optimized params
     HC, dHC = result.params['e'].value, safe_stderr(result.params['e'].stderr) + half_step_size
     HEB, dHEB = result.params['d'].value, safe_stderr(result.params['d'].stderr) + half_step_size
+    MS, dMS = result.params['b'].value * np.pi / 2, safe_stderr(result.params['b'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr)
     MR = tan_hys(float(0), *result.params.valuesdict().values())
     dMR = safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr)
     MHEB = tan_hys(float(HEB), *result.params.valuesdict().values())
@@ -1616,6 +1625,8 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'dHEB': dHEB,
         'HC': HC, 
         'dHC': dHC,
+        'MS': MS,
+        'dMS': dMS,
         'MR': MR,
         'dMR': dMR,
         'MHEB': MHEB,
@@ -1636,6 +1647,19 @@ def tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
 
         'x_unit': None,
         'y_unit': None,
+
+        # fit parameters
+        'a': result.params['a'].value,
+        'da': safe_stderr(result.params['a'].stderr),
+        'b': result.params['b'].value,
+        'db': safe_stderr(result.params['b'].stderr),
+        'c': result.params['c'].value,
+        'dc': safe_stderr(result.params['c'].stderr),
+        'd': result.params['d'].value,
+        'dd': safe_stderr(result.params['d'].stderr),
+        'e': result.params['e'].value,
+        'de': safe_stderr(result.params['e'].stderr),
+
         }
     
     return fitted_data, params, result
@@ -1699,6 +1723,14 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
                 Coercive field strength for the second branch.
             - dHC2 : float
                 Uncertainty of coercive field strength for the second branch.
+            - MS1 : float
+                Saturation magnetization for the first (left) branch.
+            - dMS1 : float
+                Uncertainty of saturation magnetization for the first (left) branch.
+            - MS2 : float
+                Saturation magnetization for the second (right) branch.
+            - dMS2 : float
+                Uncertainty of saturation magnetization for the second (right) branch.
             - MR : float
                 Remanence at zero field strength.
             - dMR : float
@@ -1860,6 +1892,9 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
     HC2, dHC2 = result.params['i'].value, safe_stderr(result.params['i'].stderr) + half_step_size
     HEB2, dHEB2 = result.params['h'].value, safe_stderr(result.params['h'].stderr) + half_step_size
 
+    MS1, dMS1 = result.params['b'].value * np.pi / 2, safe_stderr(result.params['b'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['f'].stderr)* np.pi / 2
+    MS2, dMS2 = result.params['f'].value* np.pi / 2, safe_stderr(result.params['f'].stderr)* np.pi / 2 + safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr)* np.pi / 2
+
     MR = double_tan_hys(float(0), *result.params.valuesdict().values())
     dMR = safe_stderr(result.params['a'].stderr) + safe_stderr(result.params['b'].stderr) + safe_stderr(result.params['f'].stderr)
     MHEB1 = double_tan_hys(float(HEB1), *result.params.valuesdict().values())
@@ -1973,6 +2008,10 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         'dHEB2': dHEB2,
         'HC2': HC2, 
         'dHC2': dHC2,
+        'MS1': MS1,
+        'dMS1': dMS1,
+        'MS2': MS2,
+        'dMS2': dMS2,
         'MR': MR,
         'dMR': dMR,
         'MHEB1': MHEB1,
@@ -2016,6 +2055,26 @@ def double_tan_hyseval(xdata, ydata, sat_cond: float = 0.95):
         
         'x_unit': None,
         'y_unit': None,
+
+        # fit parameters
+        'a': result.params['a'].value,
+        'da': safe_stderr(result.params['a'].stderr),
+        'b': result.params['b'].value,
+        'db': safe_stderr(result.params['b'].stderr),
+        'c': result.params['c'].value,
+        'dc': safe_stderr(result.params['c'].stderr),
+        'd': result.params['d'].value,
+        'dd': safe_stderr(result.params['d'].stderr),
+        'e': result.params['e'].value,
+        'de': safe_stderr(result.params['e'].stderr),
+        'f': result.params['f'].value,
+        'df': safe_stderr(result.params['f'].stderr),
+        'g': result.params['g'].value,
+        'dg': safe_stderr(result.params['g'].stderr),
+        'h': result.params['h'].value,
+        'dh': safe_stderr(result.params['h'].stderr),
+        'i': result.params['i'].value,
+        'di': safe_stderr(result.params['i'].stderr),
     }
     
     return fitted_data, params, result
@@ -2190,3 +2249,6 @@ def unit_converter(df: pd.DataFrame, col: str, conversion_factors: dict, target_
     # Update the unit attribute
     df[col] = converted_col # update the column in the DataFrame
     df.attrs[col] = target_unit # update the unit attribute in the DataFrame
+
+
+
