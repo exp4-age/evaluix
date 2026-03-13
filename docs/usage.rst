@@ -1,7 +1,7 @@
 Usage
 =====
 
-Launch evaluix from the command line::
+Launch evaluix gui from the command line::
 
     evaluix
 
