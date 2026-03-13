@@ -9,8 +9,14 @@ RUN apt-get update && apt-get install -y git
 RUN pip install poetry
 
 # copy dependency files first (better caching)
-COPY ./pyproject.toml ./README.rst ./
+COPY ./pyproject.toml ./README.rst ./LICENSE ./
 
-# install dependencies (--no-root to skip installing the package itself, only deps)
+# copy source code
+COPY ./src ./src
+
+# install dependencies and the package itself in editable mode
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --no-root
+    && poetry install --no-interaction --no-ansi
+
+# install jupyter kernel for VS Code
+RUN python3 -m ipykernel install --user --name python3 --display-name "Python 3 (ipykernel)"

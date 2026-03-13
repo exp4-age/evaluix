@@ -22,7 +22,6 @@ scipy = "*"
 pyyaml = "*"
 h5py = "*"
 scikit-learn = "*"
-ipython_genutils = "*"
 ipykernel = ">= 6.0.3"
 NSFopen = ">= 2.0.0"
 pyqt6 = ">= 6.4.2"
@@ -40,7 +39,7 @@ build-backend = "poetry.core.masonry.api"
 
 # Include additional files and directories
 include = [
-    "README.srt",
+    "README.rst",
     "LICENSE",
     "src/evaluix/GUIs/Icons/*.png",
     "src/evaluix/GUIs/Icons/*.jpg",
