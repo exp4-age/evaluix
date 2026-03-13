@@ -9,6 +9,7 @@ Data Evaluation Software of Arbeitsgruppe Ehresmann (Magnetism), University of K
 
    installation
    usage
+   tutorials
    api
 
 Indices and tables
