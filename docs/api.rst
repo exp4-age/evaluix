@@ -1,25 +1,23 @@
 API Reference
 =============
 
-.. automodule:: evaluix
-   :members:
-   :undoc-members:
-   :show-inheritance:
+This section is generated from the package docstrings and module members.
 
-Utils
------
+Package Overview
+----------------
 
-.. automodule:: evaluix.utils.HysteresisFunctions
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autosummary::
+   :toctree: generated
 
-.. automodule:: evaluix.utils.SupportFunctions
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   evaluix
+   evaluix.utils
 
-.. automodule:: evaluix.utils.FileLoader
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Utils Modules
+-------------
+
+.. autosummary::
+   :toctree: generated
+   
+   evaluix.utils.FileLoader
+   evaluix.utils.HysteresisFunctions
+   evaluix.utils.SupportFunctions

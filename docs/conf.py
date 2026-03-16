@@ -13,9 +13,26 @@ release = "0.9.3.2"
 # -- General configuration ---------------------------------------------------
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "nbsphinx",
+]
+
+autosummary_generate = True
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": True,
+    "show-inheritance": True,
+}
+autodoc_mock_imports = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "lmfit",
+    "matplotlib",
+    "NSFopen",
+    "h5py",
 ]
 
 templates_path = ["_templates"]
