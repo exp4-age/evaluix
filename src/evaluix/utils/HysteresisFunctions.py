@@ -1,20 +1,12 @@
 '''
-This Python module is intended to provide all mathematical functions for Evaluix2
+This Python module is intended to provide all mathematical functions for Evaluix \n
 It is written blockwise for maintenance:
-    1. Import all required external modules (numpy, pandas, scipy and lmfit)
+    1. Import all required external modules (numpy, pandas, scipy, typing and lmfit)
     2. Basic functions
-    3. Figure of Merit (FOM) functions
-    4. Data manipulation functions
-    5. Evaluation functions
-        5.1 Hysteresis
-        5.2 SRIM
-        5.3 AFM
-        5.4 Kerr?
-    6. Macros
-    7. Specific functions
+    3. Data manipulation functions
+    4. Evaluation functions
+    5. Further functions
 
-All functions are given with complete descriptions either visible in this
-document or function-specific callable via help(function)
 '''
 ###############################################################################        
 # 1. Import necessary modules
@@ -111,25 +103,25 @@ def arctan(
     e: float,
 ):
     """
-    Compute the arctan function with given parameters.
+    Compute the arctan function with given parameters: \n
     f(x) = a + b * 2/np.pi * np.arctan(c * (x - d + e))
 
-    This function calculates the arctan function with the specified parameters, which can be used for branches of a hysteresis loop.
+    This function calculates the arctan function with the specified parameters, which are to simulate branches of a hysteresis loop.
 
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
         Input value(s) (typically named x in functions).
     a : float
-        Constant offset.
+        Constant offset. Typically 0 for hysteresis.
     b : float
-        Coefficient/amplitude of arctan.
+        Coefficient/amplitude of arctan, i.e. saturation value.
     c : float
-        Coefficient of argument (xdata) inside arctan, mainly steepness.
+        Coefficient of argument (xdata) inside arctan, responsible for steepness.
     d : float
-        Constant offset in xdata.
+        Constant offset in xdata. For example, the horizontal offset of exchange bias hysteresis loop.
     e : float
-        Branch dependent (in sign) offset in xdata.
+        Branch dependent offset in xdata by inverting the sign for the other branch. \nFor example, the horizontal offset of coercivity in a hysteresis loop.
 
     Returns
     -------
@@ -371,62 +363,13 @@ def mult_tan_hys(
 
         return ydata
 
-
 #%%
 ###############################################################################        
-# 3. FOM (Figure of Merit) functions
-###############################################################################
-
-# def chisquared_lmfit(
-#     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
-#     model: Union[list, pd.DataFrame, pd.Series, np.ndarray],
-#     weights: Union[list, pd.DataFrame, pd.Series, np.ndarray] = None):
-#     """
-#     Calculate the chi-squared value of a fit function to a dataset.
-
-#     The chi-squared value is a measure of how well the observed outcomes are 
-#     replicated by the model. It is the sum of the squared differences between 
-#     the observed and predicted values, divided by the predicted values or weights.
-
-#     Parameters
-#     ----------
-#     ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-#         Observed output value(s) of the dataset (typically named y in functions).
-#     model : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-#         Model output.
-#     weights : list, numpy.ndarray, pandas.DataFrame, or pandas.Series, optional
-#         Weights for each data point. If not provided, the model values are used.
-
-#     Returns
-#     -------
-#     chi_squared : float
-#         Chi-squared value.
-
-#     Examples
-#     --------
-#     >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2])
-#     0.02
-#     >>> chisquared_lmfit([1, 2, 3], [1.1, 1.9, 3.2], [1, 1, 1])
-#     0.02
-#     """
-#     if weights is not None:
-#         # calculate the chi-squared value with weights
-#         chi_squared = np.sum((ydata - model)**2 / weights)
-#     else:
-#         # calculate the chi-squared value
-#         chi_squared = np.sum((ydata - model)**2 / model)
-    
-#     return chi_squared
-
-#%%
-###############################################################################        
-# 4. Data Manipulation
+# 3. Data Manipulation
 ###############################################################################
 
 def invert_axis(xdata: pd.DataFrame, ydata: pd.DataFrame, axis: str = 'x'):
     """
-    Category: Data Manipulation
-
     Invert the x or y axis (or both) of the dataset by simply multiplying the data with -1.
 
     Parameters
@@ -474,8 +417,6 @@ def invert_axis(xdata: pd.DataFrame, ydata: pd.DataFrame, axis: str = 'x'):
 
 def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_length: int = 5, sigma_or_polyorder: int = 2):
     """
-    Category: Data Manipulation
-
     Apply a smoothing filter to the ydata to reduce noise. The default filter is the Savitzky-Golay filter.
     The window length and polynomial order (or sigma for Gaussian) can be adjusted.
 
@@ -523,13 +464,16 @@ def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_lengt
         return pd.Series(smoothed, index=ydata.index)
     elif str(smoothing_fct) == 'gaussian':
         smoothed = ydata.rolling(window_length, win_type='gaussian', center=True).mean(std=sigma_or_polyorder)
-        return smoothed.fillna(method='nearest')
+        smoothed = smoothed.interpolate(method='nearest', limit_direction='both')
+        return smoothed.ffill().bfill() #forward and backward filling of NaN values at the beginning and end of the series as fallback if interpolation fails
     elif str(smoothing_fct) == 'median':
         smoothed = ydata.rolling(window_length, center=True).median()
-        return smoothed.fillna(method='nearest')
+        smoothed = smoothed.interpolate(method='nearest', limit_direction='both')
+        return smoothed.ffill().bfill() #forward and backward filling of NaN values at the beginning and end of the series as fallback if interpolation fails
     elif str(smoothing_fct) == 'None' or smoothing_fct is None:
         smoothed = ydata.rolling(window_length, center=True).mean()
-        return smoothed.fillna(method='nearest')
+        smoothed = smoothed.interpolate(method='nearest', limit_direction='both')
+        return smoothed.ffill().bfill() #forward and backward filling of NaN values at the beginning and end of the series as fallback if interpolation fails
     else:
         raise ValueError(f'Smoothing function not recognized. Please choose between savgol, gaussian, median, or None, not {smoothing_fct}')
     
@@ -538,8 +482,6 @@ def del_outliers(
     threshold: float = 2, 
     neighbours: int = 5):
     """
-    Category: Data Manipulation
-
     Remove outliers from the dataset based on a specified threshold and number of neighbours.
 
     An outlier is defined as a point that differs from the mean of all data points by more than 
@@ -615,8 +557,6 @@ def del_outliers(
 
 def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_region: float = 0.05):
     """
-    Category: Data Manipulation
-
     Remove the opening in a hysteresis loop by assuming the same magnetization state at the beginning and end of the loop.
 
     This function calculates the mean of the first and last `sat_region` of points and compares their difference to their 
@@ -684,8 +624,6 @@ def slope_correction(
     noise_threshold: float = 3,
     branch_difference: float = 0.3):
     """
-    Category: Data Manipulation
-
     Corrects the slope in a hysteresis loop by assuming saturation in the outermost regions of the xdata.
     Fits a linear function to these parts to extract their averaged slope, which is then subtracted from the whole loop,
     if the slope is significant (above the noise level).
@@ -767,8 +705,6 @@ def hys_norm(
     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
     sat_region: float = 0.1):
     """
-    Category: Data Manipulation
-
     Normalize a hysteresis loop by assuming saturation in the outermost regions of the xdata.
 
     This function takes a hysteresis loop with xdata (typically external magnetic field H) and ydata 
@@ -838,8 +774,6 @@ def hys_center(
     sat_region: float = 0.1,
     normalize: bool = False):
     """
-    Category: Data Manipulation
-
     Center and optionally normalize a hysteresis loop by assuming saturation in the outermost regions of the xdata.
 
     This function takes a hysteresis loop with xdata (typically external magnetic field H) and ydata 
@@ -950,13 +884,11 @@ def hys_center(
 
 #%%
 ###############################################################################        
-# 5. Data Evaluation
+# 4. Data Evaluation
 ###############################################################################
 
 def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
     """
-    Category: Data Evaluation
-
     Calculate the first intersection of a hysteresis loop with the x-axis.
 
     This function takes a hysteresis loop with xdata (external field H) and ydata (magnetization M), 
@@ -1046,8 +978,6 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
     
 def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
     """
-    Category: Data Evaluation
-
     Calculate the first intersection of a hysteresis loop with the y-axis.
 
     This function takes a hysteresis loop with xdata (external field H) and ydata 
@@ -1138,8 +1068,6 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
     
 def num_derivative(xdata: pd.Series, ydata: pd.Series):
     """
-    Category: Data Manipulation
-
     Take an input dataset (xdata, ydata) and numerically calculate the 
     derivative of it by linear interpolation of the gradient in ydata between
     two xdata points. Works best with a dense dataset with a low amount of noise.
@@ -1196,8 +1124,6 @@ def num_derivative(xdata: pd.Series, ydata: pd.Series):
 
 def num_integral(xdata: pd.Series, ydata: pd.Series):
     """
-    Category: Data Manipulation
-
     Take an input dataset (xdata, ydata) and numerically calculate the 
     integral of it by linear interpolation of the area between two ydata points 
     and the xdata. Works best with a dense dataset.
@@ -1255,8 +1181,6 @@ def num_integral(xdata: pd.Series, ydata: pd.Series):
 
 def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = False):
     """
-    Category: Data Evaluation
-
     Calculates the exchange bias field (HEB) and coercive field (HC) as well as their 
     uncertainties based on the x-axis intersection function `x_sect()`. The exchange bias 
     field and coercive field are calculated corresponding to their geometric relation to 
@@ -1392,8 +1316,6 @@ def tan_hyseval(
     param_fixed: dict = None,
     method: str = 'leastsq',):
     """
-    Category: Data Evaluation
-
     Fits a hysteresis loop with an arctan function to extract several parameters
     including the exchange bias field, coercive field strength, remanence, saturation
     magnetization, saturation field strength, the slopes at the intersection with the
@@ -1516,14 +1438,17 @@ def tan_hyseval(
         xdata = np.insert(xdata, center_index, xdata[center_index])
         ydata = np.insert(ydata, center_index, ydata[center_index])
     
-    if hasattr(xdata, 'unit'):
-        x_unit = xdata.unit
-    else:
-        x_unit = None
-    if hasattr(ydata, 'unit'):
-        y_unit = ydata.unit
-    else:
-        y_unit = None
+    # Check if xdata and ydata have the same length
+    if len(xdata) != len(ydata):
+        raise ValueError('xdata and ydata must have the same length')
+    
+    # Check if xdata and ydata are pd.Series and if they have units, extract the units for later use
+    if isinstance(xdata, pd.Series):
+        x_unit = xdata.attrs.get("unit") if hasattr(xdata, 'unit') else None
+        xdata = xdata.to_numpy()
+    if isinstance(ydata, pd.Series):
+        y_unit = ydata.attrs.get("unit") if hasattr(ydata, 'unit') else None
+        ydata = ydata.to_numpy()
     
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
     LIN = lin_hyseval(xdata, ydata, steepness_for_fit=True)
@@ -1672,8 +1597,6 @@ def double_tan_hyseval(
     param_fixed: dict = None,
     method: str = 'leastsq',):
     """
-    Category: Data Evaluation
-
     Fits a hysteresis loop with a double tanh function to extract several parameters
     including the exchange bias field, coercive field strength, remanence, saturation
     magnetization, saturation field strength, the slopes at the intersection with the
@@ -1960,8 +1883,6 @@ def mult_tan_hyseval(
     method: str = 'leastsq',):
 
     """
-    Category: Data Evaluation
-
     Fits a hysteresis loop with an arbitrarily choosen number of tanh function to extract several 
     parameters including the exchange bias field, coercive field strength, remanence, saturation
     magnetization, saturation field strength, the slopes at the intersection with the
@@ -2153,8 +2074,6 @@ def mult_tan_hyseval(
 
 def tan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
     """
-    Category: Data Evaluation
-    
     Analytical calculation of important parameters of a hysteresis loop fitted with a tanh function
     (see tan_hyseval and tan_hys for details).
     
@@ -2370,7 +2289,7 @@ def tan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
 
 #%%
 ###############################################################################
-# 6. Further functions, mainly for conversion and plotting
+# 5. Further functions, mainly for conversion and plotting
 ###############################################################################
 
 def create_uncertainty_polygon(xdata: pd.DataFrame, ydata: pd.DataFrame, xdata_err: pd.DataFrame, ydata_err: pd.DataFrame):
