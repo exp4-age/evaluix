@@ -5,7 +5,6 @@ It is written blockwise for maintenance:
     2. Basic functions
     3. Data manipulation functions
     4. Evaluation functions
-    5. Further functions
 
 '''
 ###############################################################################        
@@ -14,10 +13,13 @@ It is written blockwise for maintenance:
 import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
-from scipy.signal import savgol_filter
+from scipy.signal import normalize, savgol_filter
 from scipy.integrate import quad
 from typing import Union
 from lmfit import Model, Parameters
+
+# import support functions
+from .SupportFunctions import safe_stderr
 
 #%%
 ###############################################################################        
@@ -25,52 +27,95 @@ from lmfit import Model, Parameters
 ###############################################################################
 def linear(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], a: float, b: float):
     """
-    Calculate a linear function with a given slope `a` and offset `b`.
+    Linear model for simple trends.
 
-    This function is useful for fitting a linear function to data, such as removing linear slopes in the saturation regions of a hysteresis loop.
+    Model
+    -----
+    f(x) = a x + b
+
+    Interpretation
+    --------------
+    This function is just a numerical model. In the hysteresis analysis here,
+    it is mostly used to describe approximately linear contributions in saturation. 
+    For example dia- and paramagnetic contributions to magnetization curves, or a 
+    branch-wise hysteresis opening at saturation due to instrumental artifacts.
+
+    Notes
+    -----
+    - Should only be used over ranges where a linear approximation is justified.
 
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Input value(s) (typically named x in functions).
+        Input value(s) (typically named ``x`` in fit functions).
     a : float
-        Slope of the linear function.
+        Slope parameter.
     b : float
-        Constant offset of the linear function.
+        Constant offset parameter.
 
     Returns
     -------
     ydata : numpy.ndarray
-        Calculated value(s) of the linear function.
+        Modeled value(s) of the linear function.
 
     Raises
     ------
     ValueError
         If `xdata` is not of a supported type.
+
+    Examples
+    --------
+    >>> linear([0, 1, 2], 2.0, -1.0)
+    array([-1.,  1.,  3.])
+    >>> linear([-3, 0, 3], 0.5, 0.0)
+    array([-1.5,  0. ,  1.5])
     """
     # check xdata format
     if not isinstance(xdata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
-        raise ValueError(f'xdata must be a pandas dataframe, list, numpy array or int/float, not {type(xdata)}')
+        raise ValueError(f'xdata must be a pandas dataframe/series, list, numpy array or int/float, not {type(xdata)}')
 
     xdata = np.asarray(xdata)
     return a * xdata + b
 
 def polynomial(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], *args: Union[float, list]):
     """
-    Fit a polynomial to a dataset. The number of arguments determines the order of the polynomial. If orders should be skipped, use 0 as input.
+    Polynomial model for complexer trends.
+
+    Model
+    -----
+    f(x) = a_0 x^n + a_1 x^(n-1) + ... + a_n
+
+    The order is determined by the number of coefficients in ``args``.
+    For example, 3 coefficients correspond to a quadratic model.
+
+    Interpretation
+    --------------
+    This function is just a numerical model. In the hysteresis analysis here,
+    it is mostly used to describe approximately higher order contributions in 
+    saturation. For example dia- and paramagnetic contributions to magnetization 
+    curves, or a branch-wise hysteresis opening at saturation due to instrumental 
+    artifacts.
+
+    Notes
+    -----
+    - Coefficients are interpreted in descending powers of ``x``.
+    - To skip a specific power, set that coefficient to ``0``.
+    - High polynomial orders may overfit (noisy) data and produce unstable behavior.
 
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
         Input value(s) (typically named x in functions).
     *args : float or list
-        Coefficients of the polynomial. The highest order of the fit is determined by the number of given arguments.
-        For example, f(xdata) = args[0] * xdata ** (len(args) - 1) + args[1] * xdata ** (len(args) - 2) + ...
+        Polynomial coefficients in descending powers.
+        For ``m`` coefficients, the model order is ``m-1``.
+        Example:
+        ``args=(2, -3, 1)`` gives ``f(x)=2x^2-3x+1``.
 
     Returns
     -------
     ydata : numpy.ndarray
-        Calculated value(s) of the polynomial.
+        Modeled value(s) of the polynomial function.
 
     Raises
     ------
@@ -80,11 +125,13 @@ def polynomial(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarra
     Examples
     --------
     >>> polynomial([1, 2, 3], 1, 0, -1)
-    array([0., 1., 8.])
+    array([0., 3., 8.])
+    >>> polynomial([0, 1, 2], 2, -3, 1)  # 2x^2 - 3x + 1
+    array([1., 0., 3.])
     """
     # check xdata format
     if not isinstance(xdata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
-        raise ValueError(f'xdata must be a pandas dataframe, list, numpy array or int/float, not {type(xdata)}')
+        raise ValueError(f'xdata must be a pandas dataframe/series, list, numpy array or int/float, not {type(xdata)}')
 
     xdata = np.asarray(xdata)
     ydata = np.zeros_like(xdata, dtype=float)
@@ -103,91 +150,150 @@ def arctan(
     e: float,
 ):
     """
-    Compute the arctan function with given parameters: \n
-    f(x) = a + b * 2/np.pi * np.arctan(c * (x - d + e))
+    Single-branch arctan model for hysteresis-like magnetization curves M(H).
 
-    This function calculates the arctan function with the specified parameters, which are to simulate branches of a hysteresis loop.
+    Model
+    -----
+    M(H) = a + (2 b / pi) * arctan[c * (H - d + e)]
+
+    This phenomenological function is used to describe one branch of a
+    major hysteresis loop. For a full loop, the sign of `e` is inverted
+    between decreasing and increasing field branches.
+    
+    Physics Interpretation
+    ----------------------
+    - `H` (`xdata`) is the applied magnetic field.
+    - `M` is the measured magnetic response (e.g., normalized magnetization M/Ms, 
+    Kerr intensity, magnetic moment, or other signals).
+    - `a` is a vertical offset (background/bias signal).
+    - `b` sets the saturation amplitude/magnetization.
+    - `c` controls transition sharpness around switching (larger `c` -> steeper
+    reversal).
+    - `d` is a common horizontal shift (often an exchange-bias field shift).
+    - `e` is a branch-dependent field offset (coercive field shift). Use `+e` for
+    the increasing field branch and `-e` for the decreasing field branch.
+
+    Notes
+    -----
+    - This is an empirical fit function. It captures loop shapes robustly but may 
+    not cover all physical mechanisms.
+    - Ensure consistent units: `xdata`, `d`, and `e` must share field units;
+    `c` has inverse field units.
 
     Parameters
     ----------
-    xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Input value(s) (typically named x in functions).
+    xdata : float | int | list | numpy.ndarray | pandas.DataFrame | pandas.Series
+        Applied field values.
     a : float
-        Constant offset. Typically 0 for hysteresis.
+        Vertical offset of the signal.
     b : float
-        Coefficient/amplitude of arctan, i.e. saturation value.
+        Amplitude scale of the branch, i.e. saturation magnetization.
     c : float
-        Coefficient of argument (xdata) inside arctan, responsible for steepness.
+        Steepness parameter (inverse field scale).
     d : float
-        Constant offset in xdata. For example, the horizontal offset of exchange bias hysteresis loop.
+        Global horizontal shift of the branch, i.e. exchange bias or field offset.
     e : float
-        Branch dependent offset in xdata by inverting the sign for the other branch. \nFor example, the horizontal offset of coercivity in a hysteresis loop.
+        Branch-dependent horizontal offset (changes sign between branches).
 
     Returns
     -------
-    ydata : numpy.ndarray
-        Calculated value(s) of the arctan function.
+    numpy.ndarray
+        Modeled signal values for the provided `xdata` fields.
+
+    Raises
+    ------
+    ValueError
+        If `xdata` is not of a supported type.
 
     Examples
     --------
-    >>> arctan([1, 2, 3], 1.0, 2.0, 3.0, 4.0, 5.0)
-    array([1.0 + 2.0 * np.arctan(3.0 * (1 - 4 + 5)),
-           1.0 + 2.0 * np.arctan(3.0 * (2 - 4 + 5)),
-           1.0 + 2.0 * np.arctan(3.0 * (3 - 4 + 5))])
+    >>> arctan([-10, 0, 10], a=0.0, b=1.0, c=0.1, d=0.0, e=4.0)
+    array([-0.344...,  0.242...,  0.605...])
     """
+    # check xdata format
+    if not isinstance(xdata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'xdata must be a pandas dataframe/series, list, numpy array or int/float, not {type(xdata)}')
+
     xdata = np.asarray(xdata)
     return a + b * 2/np.pi * np.arctan(c * (xdata - d + e))
 
-def tan_hys(
+def arctan_hys(
     xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray],
     a: float,
-    b: float,
-    c: float,
-    d: float,
-    e: float,
+    b_1: float,
+    c_1: float,
+    d_1: float,
+    e_1: float,
 ):
     """
-    Compute the arctan function for the two branches of a single hysteresis loop.
+    Two-branch arctan hysteresis model for a single loop.
 
-    This function takes a list or a single value of xdata and performs two arctan functions corresponding to the 
-    two branches of a hysteresis loop. The function is defined as:
-    y = a + b * 2/np.pi * np.arctan(c * (x - d + e)); for increasing x and
-      = a + b * 2/np.pi * np.arctan(c * (x - d - e)); for decreasing x
-    with d being a common horizontal offset (HEB) and e being a branch dependent offset (HC).
+    Model
+    -----
+    The function combines two branch models with opposite signs of ``e``:
+
+    - Increasing-field branch:
+      ``M_up(H) = a + (2 b / pi) * arctan[c * (H - d + e)]``
+    - Decreasing-field branch:
+      ``M_down(H) = a + (2 b / pi) * arctan[c * (H - d - e)]``
+
+    Interpretation
+    --------------
+    This is a phenomenological major loop representation based on the
+    single-branch `arctan` model.
+
+    - ``a``: vertical offset (background/bias).
+    - ``b``: saturation amplitude/magnetization.
+    - ``c``: switching steepness (inverse field scale).
+    - ``d``: common horizontal shift (i.e. exchange bias field).
+    - ``e``: branch-dependent offset (i.e. coercive field).
+
+    Notes
+    -----
+    - For scalar ``xdata``, both branches are evaluated at the same field value.
+    - For array-like ``xdata``, the sequence is split into two halves:
+      first half uses ``+e``, second half uses ``-e``.
+    - If the number of points is odd, the center point is included in both branches 
+      (i.e., duplicated) to maintain symmetry.
+    - For a positive ``e``, the first half of the data corresponds to the increasing-field 
+      branch, and the second half to the decreasing-field branch. This convention is 
+      reversed by using a negative ``e``.
 
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Input value(s) (typically named x in functions).
+        Field value(s). Scalar input evaluates both branches at one point;
+        array-like input is split into two branch segments.
     a : float
-        Constant offset.
+        Vertical offset of the signal.
     b : float
-        Coefficient/amplitude of arctan.
+        Amplitude scale of the loop, i.e. saturation magnetization.
     c : float
-        Coefficient of argument (xdata) inside arctan, mainly steepness.
+        Steepness parameter (inverse field scale).
     d : float
-        Constant offset in xdata (e.g., HEB).
+        Global horizontal shift of the loop, i.e. exchange bias or field offset.
     e : float
-        Branch dependent (in sign) offset in xdata (e.g., HC).
+        Branch-dependent horizontal offset (changes sign between branches).
 
     Returns
     -------
-    tuple
-        If xdata is a single value, returns a tuple of (mean, ydata1, ydata2).
-        If xdata is a list or array, returns the concatenated ydata for both branches.
+    tuple or numpy.ndarray
+        If ``xdata`` is scalar, returns ``(mean_abs, ydata1, ydata2)`` where
+        ``mean_abs`` is the mean of the absolute branch values.
+        If ``xdata`` is array-like, returns concatenated branch values.
 
     Examples
     --------
-    >>> tan_hys(1.0, 1.0, 2.0, 3.0, 4.0, 5.0) # for single values
-    (mean_value, ydata1, ydata2)
-    >>> tan_hys([1, 2, 3, 4, 5, 6], 1.0, 2.0, 3.0, 4.0, 5.0) # for lists
-    array([ydata1_values, ydata2_values])
+    >>> tan_hys(1.0, 0.0, 1.0, 0.2, 2.0, 5.0)
+    (0.493..., 0.429..., -0.557...)
+    >>> tan_hys([-6, -3, 0, 0, 3, 6], 0.0, 1.0, 0.3, 0.0, 2.0)
+    array([-0.557..., -0.185..., 0.344..., -0.344..., 0.185..., 0.557...])
     """
     # if arctan of a single value is wanted. Return the mean of both branches
     # as well as the individual branches
     if isinstance(xdata, (int, float)): # for calculating single values
-        ydata1 = arctan(xdata, a, b, c, d, e)
-        ydata2 = arctan(xdata, a, b, c, d, -e)
+        ydata1 = arctan(xdata, a, b_1, c_1, d_1, e_1)
+        ydata2 = arctan(xdata, a, b_1, c_1, d_1, -e_1)
         return np.mean([np.abs(ydata1), np.abs(ydata2)]), ydata1, ydata2
     
     elif isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
@@ -206,11 +312,11 @@ def tan_hys(
         Xdata1 = xdata[:mid_index]
         Xdata2 = xdata[mid_index:]
 
-        ydata1 = arctan(Xdata1, a, b, c, d, e)
-        ydata2 = arctan(Xdata2, a, b, c, d, -e)
+        ydata1 = arctan(Xdata1, a, b_1, c_1, d_1, e_1)
+        ydata2 = arctan(Xdata2, a, b_1, c_1, d_1, -e_1)
         return np.append(ydata1, ydata2)
 
-def double_tan_hys(
+def double_arctan_hys(
     xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray],
     a: float,
     b_1: float,
@@ -222,35 +328,66 @@ def double_tan_hys(
     d_2: float,
     e_2: float,
 ):
-    """
-    Compute the double arctan function for the two branches of a double hysteresis loop.
+    """    
+    Two arctan hysteresis models for a hysteresis curve with two loops.
 
-    This function takes a list or a single value of xdata and performs four arctan functions corresponding 
-    to two branches of a double hysteresis loop. For each appearing hysteresis, the two branch parts are 
-    connected by the tan_hys() function. Therefore, this function is basically applied twice.
+    Model
+    -----
+    The function combines two arctan_hys models with their own set of parameters 
+    ``b, c, d & e``:
 
+    - Increasing-field branch:
+      ``M_up(H) = arctan(a, b_1, c_1, d_1, e_1) + arctan(0, b_2, c_2, d_2, e_2)``
+    - Decreasing-field branch:
+      ``M_down(H) = arctan(a, b_1, c_1, d_1, -e_1) + arctan(0, b_2, c_2, d_2, -e_2)``
+
+    Interpretation
+    --------------
+    This is a phenomenological major loop representation based on the single-branch 
+    `arctan` model. Four branches are calculated in pairs of two, sharing the parameters
+    `b, c, d & +-e`. I.e. two combined major loops.
+
+    - ``a``: vertical offset (background/bias).
+    - ``b``: saturation amplitude/magnetization.
+    - ``c``: switching steepness (inverse field scale).
+    - ``d``: common horizontal shift (i.e. exchange bias field).
+    - ``e``: branch-dependent offset (i.e. coercive field).
+
+    Notes
+    -----
+    - For scalar ``xdata``, both branches are evaluated at the same field value.
+    - For array-like ``xdata``, the sequence is split into two halves:
+      first half uses ``+e_1 & +e_2``, second half uses ``-e_1 & -e_2``.
+    - If the number of points is odd, the center point is included in both branches 
+      (i.e., duplicated) to maintain symmetry.
+    - For positive ``e`` values, the first half of the data corresponds to the increasing-field 
+      branch, and the second half to the decreasing-field branch. This convention is 
+      reversed by using negative ``e`` values. The author is unaware of physical cases in 
+      which mixed signs make sense, but the function can handle this as well.
+    
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Input value(s) (typically named x in functions).
+        Field value(s). Scalar input evaluates both branches at one point;
+        array-like input is split into two branch segments.
     a : float
-        Constant offset. As the function is applied twice, the offset is doubled.
+        Vertical offset of the signal. It is only applied ONCE.
     b_1 : float
-        Coefficient/amplitude of the first arctan (Hys1).
+        Amplitude scale of the first loop, i.e. saturation magnetization.
     c_1 : float
-        Coefficient of the argument (xdata) inside the first arctan, mainly steepness (Hys1).
+        Steepness parameter of the first loop (inverse field scale).
     d_1 : float
-        Constant offset in xdata for the first arctan (Hys1).
+        Global horizontal shift of the first loop, i.e. exchange bias or field offset.
     e_1 : float
-        Branch dependent (in sign) offset in xdata for the first arctan (Hys1).
+        Branch-dependent horizontal offset of the first loop (changes sign between branches).
     b_2 : float
-        Coefficient/amplitude of the second arctan (Hys2). Previously f.
+        Amplitude scale of the second loop, i.e. saturation magnetization.
     c_2 : float
-        Coefficient of the argument (xdata) inside the second arctan, mainly steepness (Hys2). Previously g.
+        Steepness parameter of the second loop (inverse field scale).
     d_2 : float
-        Constant offset in xdata for the second arctan (Hys2). Previously h.
+        Global horizontal shift of the second loop, i.e. exchange bias or field offset.
     e_2 : float
-        Branch dependent (in sign) offset in xdata for the second arctan (Hys2). Previously i.
+        Branch-dependent horizontal offset of the second loop (changes sign between branches).
 
     Returns
     -------
@@ -275,45 +412,85 @@ def double_tan_hys(
     
     elif isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         # forward to tan_hys() function and its logic
-        return tan_hys(xdata, a, b_1, c_1, d_1, e_1) + tan_hys(xdata, 0, b_2, c_2, d_2, e_2)
+        return arctan_hys(xdata, a, b_1, c_1, d_1, e_1) + arctan_hys(xdata, 0, b_2, c_2, d_2, e_2)
 
-def mult_tan_hys(
+def mult_arctan_hys(
     xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray],
     **kwargs: dict
     ):
-    """
-    Compute a multiple arctan function for one branch of a multiple hysteresis loop.
-    The number of hysteresis loops within the branch is given by the number of parameters in the args list
 
-    This function takes a list or a single value of xdata and calculates ydata based on an arbitrary number of arctan 
-    functions corresponding to one branch of a double hysteresis loop. The function is defined as:
-    f(x) = args[0] + args[1] * 2/np.pi * np.arctan(args[2] * (x - args[3] + args[4])) + args[5] * 2/np.pi * np.arctan(args[6] * (x - args[7] + args[8])) + ...
+    """
+    Multi-loop arctan hysteresis model with an arbitrary number of components (loops).
+
+    Model
+    -----
+    The function superposes ``n`` arctan hysteresis components:
+
+    - Increasing-field branch:
+      ``M_up(H) = a + sum_{i=1..n} (2 b_i / pi) * arctan[c_i * (H - d_i + e_i)]``
+    - Decreasing-field branch:
+      ``M_down(H) = a + sum_{i=1..n} (2 b_i / pi) * arctan[c_i * (H - d_i - e_i)]``
+
+    The number of loops ``n`` is taken from the amount of provided keyword parameters.
+    since each loop requires 4 parameters (b, c, d, e) plus one global offset a the 
+    number of loops is ``n = (len(kwargs) - 1) / 4`` 
+
+    Interpretation
+    --------------
+    This is a phenomenological extension of `arctan_hys` / `double_arctan_hys` for
+    complex loops that cannot be represented by only one or two switching components.
+
+    - ``a``: global vertical offset (shared by all components).
+    - ``b_i``: amplitude of component ``i``.
+    - ``c_i``: steepness of component ``i`` (inverse field scale).
+    - ``d_i``: common horizontal shift (exchange-bias shift or field offset) of component ``i``.
+    - ``e_i``: branch-dependent offset (coercive-field shift) of component ``i``.
+
+    Notes
+    -----
+    - Parameter names must follow: ``a, b_1, c_1, d_1, e_1, ..., b_n, c_n, d_n, e_n``.
+    - For scalar ``xdata``, both branches are evaluated at the same field value.
+    - For array-like ``xdata``, branch logic is delegated to `arctan_hys` and follows
+      the same split convention as in that function.
+    - Increasing model complexity (larger ``n``) can improve fit flexibility but also
+      increases risk of parameter correlation and overfitting.
+    - with ``n=1`` or ``n=2`` this functions is equal to `arctan_hys` or 
+      `double_arctan_hys`, respectively.
 
     Parameters
     ----------
     xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Input value(s) (typically named x in functions).
+        Field value(s). Scalar input evaluates both branches at one point;
+        array-like input is split into branch segments by `arctan_hys`.
     kwargs : dict
-        Dictionary of parameters for the arctan functions. The number of arctan functions is determined by the length of the dictionary.
-        For example, for n arctan functions, the dict should have 4*n + 1 parameters in the following style: 
-        [a, b1, c1, d1, e1, b2, c2, d2, e2, ..., bn, cn, dn, en].
+        Dictionary of model parameters.
+        Required format is ``4*n + 1`` entries with keys:
+        ``a, b_1, c_1, d_1, e_1, ..., b_n, c_n, d_n, e_n``.
 
     Returns
     -------
     tuple or numpy.ndarray
-        If xdata is a single value, returns a tuple of (mean, ydata1, ydata2).
-        If xdata is a list or array, returns the concatenated ydata for both branches.
+        If ``xdata`` is scalar, returns ``(mean_abs, ydata1, ydata2)`` where
+        ``mean_abs`` is the mean of the absolute branch values.
+        If ``xdata`` is array-like, returns concatenated branch values.
+
+    Raises
+    ------
+    ValueError
+        If ``kwargs`` does not follow the required naming/length convention or
+        contains values of unsupported types.
     
     Examples
     --------
-    >>> mult_tan_hys(1.0, [1.0, 2.0, 3.0, 4.0, 5.0]) # for single values with one arctan
-    (mean_value, ydata1, ydata2)
-    >>> mult_tan_hys(1.0, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]) # for single values with two arctans
-    (mean_value, ydata1, ydata2)
-    >>> mult_tan_hys([1, 2, 3, 4, 5, 6], [1.0, 2.0, 3.0, 4.0, 5.0]) # for lists with one arctan
-    array([ydata1_values, ydata2_values])
-    >>> mult_tan_hys([1, 2, 3, 4, 5, 6], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]) # for lists with two arctans
-    array([ydata1_values, ydata2_values])
+    >>> mult_arctan_hys(0.0, a=0.0, b_1=1.0, c_1=0.2, d_1=0.0, e_1=4.0)
+    (0.429.., 0.429..., -0.429...)
+    >>> mult_arctan_hys(
+    ...     [-6, -3, 0, 0, 3, 6],
+    ...     a=0.0,
+    ...     b_1=0.8, c_1=0.25, d_1=-1.0, e_1=2.5,
+    ...     b_2=0.5, c_2=0.40, d_2=1.2, e_2=1.0,
+    ... )
+    array([-0.662..., -0.225...,  0.340..., -0.412...,  0.281..., 0.744...])
     """
     # check len of list to determine number of arctan functions
     if len(kwargs) % 4 != 1 or len(kwargs) < 5:
@@ -342,24 +519,25 @@ def mult_tan_hys(
     if isinstance(xdata, (int, float)): # for calculating single values
         ydata1 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1'])
         ydata2 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], -kwargs['e_1'])
-        for n in range(1, n_arctan+1):
-            b = kwargs['b_' + str(n+1)]
-            c = kwargs['c_' + str(n+1)]
-            d = kwargs['d_' + str(n+1)]
-            e = kwargs['e_' + str(n+1)]
-            ydata1 += arctan(xdata, 0, b, c, d, e)
-            ydata2 += arctan(xdata, 0, b, c, d, -e)
+        if n_arctan > 1:
+            for n in range(1, n_arctan):
+                b = kwargs['b_' + str(n+1)]
+                c = kwargs['c_' + str(n+1)]
+                d = kwargs['d_' + str(n+1)]
+                e = kwargs['e_' + str(n+1)]
+                ydata1 += arctan(xdata, 0, b, c, d, e)
+                ydata2 += arctan(xdata, 0, b, c, d, -e)
         return np.mean([np.abs(ydata1), np.abs(ydata2)]), ydata1, ydata2
 
     elif isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
-        ydata = tan_hys(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1'])
+        ydata = arctan_hys(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1'])
         if n_arctan > 1:
-            for i in range(1, n_arctan):
-                b = kwargs['b_' + str(i+1)]
-                c = kwargs['c_' + str(i+1)]
-                d = kwargs['d_' + str(i+1)]
-                e = kwargs['e_' + str(i+1)]
-                ydata += tan_hys(xdata, 0, b, c, d, e)
+            for n in range(1, n_arctan):
+                b = kwargs['b_' + str(n+1)]
+                c = kwargs['c_' + str(n+1)]
+                d = kwargs['d_' + str(n+1)]
+                e = kwargs['e_' + str(n+1)]
+                ydata += arctan_hys(xdata, 0, b, c, d, e)
 
         return ydata
 
@@ -368,44 +546,59 @@ def mult_tan_hys(
 # 3. Data Manipulation
 ###############################################################################
 
-def invert_axis(xdata: pd.DataFrame, ydata: pd.DataFrame, axis: str = 'x'):
+def invert_axis(
+        xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], 
+        ydata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], 
+        axis: str = 'x'):
     """
-    Invert the x or y axis (or both) of the dataset by simply multiplying the data with -1.
+    Invert the sign of ``xdata`` and/or ``ydata`` for axis-convention correction.
+
+    This utility is primarily used when measurement sign conventions were set
+    inconsistently during experiments, for example in Kerr microscopy where
+    contrast polarity and field direction can be user-dependent.
+
+    Operation
+    ---------
+    - ``axis='x'``: returns ``(-xdata, ydata)``
+    - ``axis='y'``: returns ``(xdata, -ydata)``
+    - ``axis='both'``: returns ``(-xdata, -ydata)``
+
+    Choosing ``'both'`` is equivalent to a 180 degree rotation of the curve
+    around the origin in the ``(x, y)`` plane.
 
     Parameters
     ----------
-    xdata : pandas.DataFrame
-        Input value(s) of the dataset (typically named x in functions).
-    ydata : pandas.DataFrame
-        Output value(s) of the dataset (typically named y in functions).
+    xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Independent variable data (e.g., applied field).
+    ydata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Dependent variable data (e.g., magnetization, Kerr signal).
     axis : str, optional
-        Axis to be inverted. The default is 'x'. Can be 'x', 'y', or 'both'.
+        Axis selection for sign inversion. Must be one of ``'x'``, ``'y'``,
+        or ``'both'``. Default is ``'x'``.
 
     Returns
     -------
-    pandas.DataFrame
-        Normal or inverted xdata, depending on the chosen axis.
-    
-    pandas.DataFrame
-        Normal or inverted ydata, depending on the chosen axis.
+    tuple[Union[float, int, list, np.ndarray, pd.DataFrame, pd.Series], Union[float, int, list, np.ndarray, pd.DataFrame, pd.Series]]
+        Sign-corrected ``(xdata, ydata)`` according to ``axis``.
         
     Raises
     ------
     ValueError
-        If the axis is not recognized.
+        If ``axis`` is not one of ``'x'``, ``'y'``, or ``'both'``.
+        If ``xdata`` or ``ydata`` is not of a supported type.
 
     Examples
     --------
-    >>> invert_axis(pd.DataFrame([1, 2, 3]), pd.DataFrame([4, 5, 6]), 'x')
-    0   -1
-    1   -2
-    2   -3
-    dtype: int64
-    0    4
-    1    5
-    2    6
-    dtype: int64
+    >>> invert_axis(pd.DataFrame([1, 2, 3]), pd.DataFrame([4, 5, 6]), axis='x')
+    (   0\n0 -1\n1 -2\n2 -3,    0\n0  4\n1  5\n2  6)
+    >>> invert_axis([1, 2], [-3, -4], axis='both')
+    ([-1, -2], [3, 4])
     """
+    if not isinstance(xdata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'xdata must be a pandas dataframe/series, list, numpy array or int/float, not {type(xdata)}')
+    if not isinstance(ydata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'ydata must be a pandas dataframe/series, list, numpy array or int/float, not {type(ydata)}')
+
     if axis == 'x':
         return -xdata, ydata
     elif axis == 'y':
@@ -414,6 +607,93 @@ def invert_axis(xdata: pd.DataFrame, ydata: pd.DataFrame, axis: str = 'x'):
         return -xdata, -ydata
     else:
         raise ValueError(f'Axis not recognized. Please choose between x, y, or both, not {axis}')
+
+def del_outliers(
+    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
+    threshold: float = 2, 
+    neighbours: int = 5,
+    return_indices: bool = False):
+    """
+    Remove outliers from the dataset based on a specified threshold and number of neighbours.
+
+    An outlier is defined as a point that differs from the mean of all data points by more than 
+    `threshold` times the mean absolute difference (MAD). Additionally, it must differ from the 
+    mean of the closest `neighbours` by more than 0.5 * `threshold` * MAD or 
+    `threshold` * MAD(neighbours).
+
+    The point is then replaced by the linear interpolation of its neighbours.
+
+    Parameters
+    ----------
+    ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Output value(s) of the dataset (typically named y in functions).
+    threshold : float, optional
+        Threshold for the difference of a point to the mean of all points. The default is 2.
+    neighbours : int, optional
+        Number of neighbours to be taken into account for the second mean calculation as well as 
+        for the linear interpolation. The default is 5.
+    return_indices : bool, optional
+        If True, also return the indices of the removed outliers. The default is False.
+
+    Returns
+    -------
+    numpy.ndarray
+        ydata with outliers removed and replaced by the mean of their neighbours.
+    numpy.ndarray, optional
+        If `return_indices` is True, also returns the indices of the removed outliers.
+
+    Raises
+    ------
+    ValueError
+        If `ydata` is not of a supported type.
+
+    Examples
+    --------
+    >>> del_outliers([1, 2, 3, 100, 5, 6, 7])
+    array([1, 2, 3, 4, 5, 6, 7])
+
+    """
+    if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
+    
+    ydata = np.asarray(ydata).copy()
+    
+    # calculate mean and mean absolute difference (mad) of all points
+    mean = np.mean(ydata)
+    mad = np.mean(np.abs(ydata - mean))
+    
+    # calculate mean and standard deviation of the closest neighbours
+    mean_neighbours = np.zeros_like(ydata)
+    mad_neighbours = np.zeros_like(ydata)
+
+    for i in range(len(ydata)):
+        start = max(0, i - neighbours) #left neighbours, make sure to not go below 0
+        end = min(i + neighbours, len(ydata)) #right neighbours, make sure to not go above the last index
+        neighbours_slice = ydata[start:end] #slice of neighbours
+        mean_neighbours[i] = np.mean(neighbours_slice) #mean of neighbours
+        mad_neighbours[i] = np.mean(np.abs(neighbours_slice - mean_neighbours[i])) #mad of neighbours
+
+    # Identify outliers
+    outliers =  (np.abs(ydata - mean) > threshold * mad) & \
+                (np.abs(ydata - mean_neighbours) > 0.5 * threshold * mad_neighbours) | \
+                (np.abs(ydata - mean_neighbours) > threshold * mad_neighbours)
+    outlier_indices = np.where(outliers)[0]
+    # Outliers are points which differ from the mean of all points by more than threshold * mad
+    # and from the mean of the closest neighbours by more than 0.5 * threshold * mad_neighbours
+    # or from the mean of the closest neighbours by more than threshold * mad_neighbours
+    
+    # Replace outliers with the interpolated mean value of their neighbours
+    for outlier in outlier_indices:
+        if outlier:
+            start = max(0, outlier - neighbours) #left neighbours, make sure to not go below 0
+            end = min(outlier + neighbours + 1, len(ydata)) #right neighbours, make sure to not go above the last index
+            neighbours_slice = np.concatenate([ydata[start:outlier], ydata[outlier+1:end]]) #exclude outlier
+            ydata[outlier] = np.mean(neighbours_slice) #replace outlier with mean of neighbours
+
+    if return_indices:
+        return ydata, outlier_indices
+
+    return ydata
 
 def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_length: int = 5, sigma_or_polyorder: int = 2):
     """
@@ -477,83 +757,6 @@ def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_lengt
     else:
         raise ValueError(f'Smoothing function not recognized. Please choose between savgol, gaussian, median, or None, not {smoothing_fct}')
     
-def del_outliers(
-    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
-    threshold: float = 2, 
-    neighbours: int = 5):
-    """
-    Remove outliers from the dataset based on a specified threshold and number of neighbours.
-
-    An outlier is defined as a point that differs from the mean of all data points by more than 
-    `threshold` times the mean absolute difference (MAD). Additionally, it must differ from the 
-    mean of the closest `neighbours` by more than 0.5 * `threshold` * MAD or 
-    `threshold` * MAD(neighbours).
-
-    The point is then replaced by the linear interpolation of its neighbours.
-
-    Parameters
-    ----------
-    ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
-        Output value(s) of the dataset (typically named y in functions).
-    threshold : float, optional
-        Threshold for the difference of a point to the mean of all points. The default is 2.
-    neighbours : int, optional
-        Number of neighbours to be taken into account for the second mean calculation as well as 
-        for the linear interpolation. The default is 5.
-
-    Returns
-    -------
-    np.ndarray
-        Array with removed outliers if there were any. Does not change the data if no outliers were present.
-
-    Raises
-    ------
-    ValueError
-        If `ydata` is not of a supported type.
-
-    Examples
-    --------
-    >>> del_outliers([1, 2, 3, 100, 5, 6, 7])
-    array([1, 2, 3, 4, 5, 6, 7])
-    """
-    if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
-        raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
-    
-    ydata = np.asarray(ydata).copy()
-    
-    # calculate mean and mean absolute difference (mad) of all points
-    mean = np.mean(ydata)
-    mad = np.mean(np.abs(ydata - mean))
-    
-    # calculate mean and standard deviation of the closest neighbours
-    mean_neighbours = np.zeros_like(ydata)
-    mad_neighbours = np.zeros_like(ydata)
-
-    for i in range(len(ydata)):
-        start = max(0, i - neighbours) #left neighbours, make sure to not go below 0
-        end = min(i + neighbours, len(ydata)) #right neighbours, make sure to not go above the last index
-        neighbours_slice = ydata[start:end] #slice of neighbours
-        mean_neighbours[i] = np.mean(neighbours_slice) #mean of neighbours
-        mad_neighbours[i] = np.mean(np.abs(neighbours_slice - mean_neighbours[i])) #mad of neighbours
-
-    # Identify outliers
-    outliers =  (np.abs(ydata - mean) > threshold * mad) & \
-                (np.abs(ydata - mean_neighbours) > 0.5 * threshold * mad_neighbours) | \
-                (np.abs(ydata - mean_neighbours) > threshold * mad_neighbours)
-    outlier_indices = np.where(outliers)[0]
-    # Outliers are points which differ from the mean of all points by more than threshold * mad
-    # and from the mean of the closest neighbours by more than 0.5 * threshold * mad_neighbours
-    # or from the mean of the closest neighbours by more than threshold * mad_neighbours
-    
-    # Replace outliers with the interpolated mean value of their neighbours
-    for outlier in outlier_indices:
-        if outlier:
-            start = max(0, outlier - neighbours) #left neighbours, make sure to not go below 0
-            end = min(outlier + neighbours + 1, len(ydata)) #right neighbours, make sure to not go above the last index
-            neighbours_slice = np.concatenate([ydata[start:outlier], ydata[outlier+1:end]]) #exclude outlier
-            ydata[outlier] = np.mean(neighbours_slice) #replace outlier with mean of neighbours
-    
-    return ydata
 
 def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_region: float = 0.05):
     """
@@ -887,7 +1090,7 @@ def hys_center(
 # 4. Data Evaluation
 ###############################################################################
 
-def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
+def x_sect(xdata: pd.Series, ydata: pd.Series, offset: float = 0, steepness_for_fit: bool = False):
     """
     Calculate the first intersection of a hysteresis loop with the x-axis.
 
@@ -904,6 +1107,8 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
         List of externally applied field strengths H, typically of a single branch.
     ydata : pd.Series or np.ndarray
         List of magnetization values M, typically of a single branch.
+    offset : float, optional
+        Offset for the x-axis intersection. The default is 0.
     steepness_for_fit : bool, optional
         If True, the function also returns the steepness of the linear fit. The default is False.
 
@@ -926,7 +1131,7 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
     --------
     >>> x_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]))
     (2.0, 0.0)
-    >>> x_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]), steepness_for_fit=True)
+    >>> x_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]), offset=0.5, steepness_for_fit=True)
     (2.0, 0.0, 1.0)
     """
     
@@ -939,8 +1144,11 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
     if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
     
+    if np.abs(offset) > np.max(np.abs(ydata)):
+        raise ValueError('Offset is larger than the maximum absolute value of ydata, no intersection with the offset can be found')
+    
     xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata)
+    ydata = np.asarray(ydata).copy() - offset # shift ydata by offset to find intersection with the offset instead of the x-axis
     
     # Ensure that the ydata list starts with a negative value (negative saturation)
     if list(ydata)[0] > 0.0: 
@@ -964,8 +1172,6 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
                 a = (ydata[i] - ydata[i-1]) / (xdata[i] - xdata[i-1])
                 if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
                     a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
-                if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
-                    a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
                 if a != 0:
                     b = ydata[i-1] - a * xdata[i-1]
                     intersect = -b / a
@@ -976,7 +1182,7 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, steepness_for_fit: bool = False):
     else:
         return intersect, intersect_err
     
-def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
+def y_sect(xdata: pd.Series, ydata: pd.Series, offset: float = 0):
     """
     Calculate the first intersection of a hysteresis loop with the y-axis.
 
@@ -998,8 +1204,8 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
         List of externally applied field strengths H, typically of a single branch.
     ydata : pd.Series or np.ndarray
         List of magnetization values M, typically of a single branch.
-    HEB : float, optional
-        Exchange bias field strength. The default is 0.
+    offset : float, optional
+        Offset for the y-axis intersection (typically HEB). The default is 0.
 
     Returns
     -------
@@ -1018,7 +1224,7 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
     --------
     >>> y_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]))
     (0.0, 0.0)
-    >>> y_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]), HEB=1)
+    >>> y_sect(pd.Series([1, 2, 3]), pd.Series([-1, 0, 1]), offset=1)
     (0.0, 0.0)
     """
     
@@ -1031,13 +1237,14 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
     if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
     
-    xdata = np.asarray(xdata)
+    if np.abs(offset) > np.max(np.abs(xdata)):
+        raise ValueError('Offset is larger than the maximum absolute value of xdata, no intersection with the offset can be found')
+    
+    xdata = np.asarray(xdata).copy() - offset # shift xdata by offset to find intersection with the offset instead of the y-axis
     ydata = np.asarray(ydata)
     
     # Ensure that the xdata list starts with a negative value (from left to right)
-    # The sign change of HEB ensures the correct sign for each branch
     if list(xdata)[0] > 0.0:
-        HEB = -HEB
         ydata = np.flipud(ydata)
         xdata = np.flipud(xdata)
 
@@ -1045,27 +1252,25 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, HEB: float = 0):
     intersect = 0.0
     intersect_err = 0.0
 
-    # Check number of points with > HEB
-    if len(np.where(xdata >= HEB)[0]) > 0:
-        # Take the first point (i) with > HEB and linearly interpolate slope a 
-        # at intersection with one point before (i-1)
-        i = np.where(xdata >= HEB)[0][0]
-        a = (list(ydata)[i] - list(ydata)[i-1]) / (list(xdata)[i] - list(xdata)[i-1])
-        if not (a == 0):
-            # Assume linearly interpolated intersection, calculate offset b and
-            # transform it to intersect param (shift towards HEB value)
-            b = list(ydata)[i-1] - a * list(xdata)[i-1]
-            intersect = b + a * HEB
-            # Calculate maximum deviation of utilized points to the 
-            # intersection as uncertainty
-            intersect_err = max(
-                [np.abs(intersect - list(ydata)[i]), 
-                 np.abs(intersect - list(ydata)[i-1])]
-                )
-            
-    # Intersection and intersection uncertainty
+    #  Check for points where the product of two adjacent points in x is negative or equal to zero
+    for i in range(1, len(xdata)):
+        product = xdata[i-1] * xdata[i]
+        if product <= 0:
+            # If the product is zero, the intersection is directly found
+            if xdata[i] == 0:
+                return ydata[i], 0.0
+            else:
+                # Linearly interpolate between the two points
+                a = (ydata[i] - ydata[i-1]) / (xdata[i] - xdata[i-1])
+                if a == np.inf or a == -np.inf: # Rarely, xdata[i] and xdata[i-1] are identical leading to a division by zero. Then the slope is wrongly calculated as inf or -inf. Happend once in 2 years of usage.
+                    a = (ydata[i] - ydata[i-2]) / (xdata[i] - xdata[i-2])
+                if a != 0:
+                    b = ydata[i-1] - a * xdata[i-1]
+                    intersect = b
+                    intersect_err = max(np.abs(intersect - ydata[i]), np.abs(intersect - ydata[i-1]))
+                    
     return intersect, intersect_err
-    
+
 def num_derivative(xdata: pd.Series, ydata: pd.Series):
     """
     Take an input dataset (xdata, ydata) and numerically calculate the 
@@ -1179,7 +1384,12 @@ def num_integral(xdata: pd.Series, ydata: pd.Series):
     
     return int_xdata, int_ydata
 
-def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = False):
+def lin_hyseval(
+        xdata, 
+        ydata, 
+        sat_region: float = 0.95,
+        use_offset: bool = True,
+        steepness_for_fit: bool = False):
     """
     Calculates the exchange bias field (HEB) and coercive field (HC) as well as their 
     uncertainties based on the x-axis intersection function `x_sect()`. The exchange bias 
@@ -1246,8 +1456,8 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     {'HEB': 2.5, 'dHEB': 0.1, 'HC': 1.0, 'dHC': 0.1, 'MR': (0.5, 1.0, 0.0), 'dMR': 0.1, 'MHEB': 0.5, 'dMHEB': 0.1, 'a1': 1.0, 'a2': 1.0}
     """
     xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata) - offset
-    
+    ydata = np.asarray(ydata)
+
     # Check if the length of xdata is odd, i.e., the center point contributes to both branches.
     # Duplicate the center point in this case so that both branches are equally long.
     if len(xdata) % 2 != 0:
@@ -1255,6 +1465,28 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
         xdata = np.insert(xdata, center_index, xdata[center_index])
         ydata = np.insert(ydata, center_index, ydata[center_index])
     
+    if use_offset:
+        # take end regions of hysteresis (saturated regions)
+        upper_saturation_limit = (1 - sat_region) * np.max(xdata)
+        lower_saturation_limit = (1 - sat_region) * np.min(xdata)
+        upper_saturation_region = xdata > upper_saturation_limit
+        lower_saturation_region = xdata < lower_saturation_limit
+
+        if not np.any(upper_saturation_region) or not np.any(lower_saturation_region):
+            raise ValueError('No saturation region found')
+            magoffset = 0
+        
+        else:
+            # average saturated regions
+            magmax = np.mean(ydata[upper_saturation_region])
+            magmin = np.mean(ydata[lower_saturation_region])
+            # calculate shift/bias and normalization
+            magoffset = 0.5 * (magmax + magmin)
+            norm = 0.5 * (magmax - magmin)
+    
+    else:
+        magoffset = 0
+
     # Obtain intersections as coercive fields with the x_sect function
     # Split the array into two halves using slicing
     mid_index = len(xdata) // 2
@@ -1264,9 +1496,9 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     Ydata1 = ydata[:mid_index]
     Ydata2 = ydata[mid_index:]
     # branch-dependently
-    HC1, dHC1, a1 = x_sect(Xdata1, Ydata1, steepness_for_fit=True) # first branch
-    HC2, dHC2, a2 = x_sect(Xdata2, Ydata2, steepness_for_fit=True) # second branch
-    
+    HC1, dHC1, a1 = x_sect(Xdata1, Ydata1, offset=magoffset, steepness_for_fit=True) # first branch
+    HC2, dHC2, a2 = x_sect(Xdata2, Ydata2, offset=magoffset, steepness_for_fit=True) # second branch
+
     half_step_size = np.mean(np.abs(np.diff(xdata))) / 2
     
     # EB field as average of coercive fields/intersects
@@ -1284,10 +1516,10 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     dMR = (dMR1 + dMR2) / 2 # uncertainty via propagation of uncertainty
 
     # Magnetization at the exchange bias field
-    MHEB1, dMHEB1 = y_sect(Xdata1, Ydata1, HEB)
-    MHEB2, dMHEB2 = y_sect(Xdata2, Ydata2, HEB)
+    MHEB1, dMHEB1 = y_sect(Xdata1, Ydata1, offset=HEB)
+    MHEB2, dMHEB2 = y_sect(Xdata2, Ydata2, offset=HEB)
     # Average of both branches
-    MHEB = (np.abs(MHEB1) + np.abs(MHEB2)) / 2
+    MHEB = ((np.abs(MHEB1) + np.abs(MHEB2)) / 2, MHEB1, MHEB2)
     dMHEB = (dMHEB1 + dMHEB2) / 2 # uncertainty via propagation of uncertainty
 
     params = {
@@ -1307,10 +1539,12 @@ def lin_hyseval(xdata, ydata, offset: float = 0.0, steepness_for_fit: bool = Fal
     
     return params
 
-def tan_hyseval(
+def arctan_hyseval(
     xdata: Union[list, np.ndarray, pd.Series], 
     ydata: Union[list, np.ndarray, pd.Series],
     sat_cond: float = 0.95,
+    sat_region: float = 0.95,
+    use_offset: bool = True,
     param_estimates: dict = None,
     param_bounds: dict = None,
     param_fixed: dict = None,
@@ -1451,12 +1685,12 @@ def tan_hyseval(
         ydata = ydata.to_numpy()
     
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
-    LIN = lin_hyseval(xdata, ydata, steepness_for_fit=True)
+    LIN = lin_hyseval(xdata, ydata, sat_region=sat_region, use_offset=use_offset, steepness_for_fit=True)
     HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
     slope = (LIN['a1'] + LIN['a2']) # No average because the fit works better with a steeper initial slope
     
     # Create a model from the function
-    model = Model(tan_hys)
+    model = Model(arctan_hys)
 
     # Quick explanation of the steepness parameter
     """
@@ -1480,7 +1714,7 @@ def tan_hyseval(
     params = Parameters()
     params.add('a', value=(np.max(ydata) + np.min(ydata))/2) # offset
     params.add('b_1', value=(np.max(ydata) - np.min(ydata))/2) # amplitude
-    params.add('c_1', value=slope / params['b'].value, min=0) # steepness
+    params.add('c_1', value=slope / params['b_1'].value, min=0) # steepness
     params.add('d_1', value=HEB_tmp, min=np.min(xdata), max=np.max(xdata)) # exchange bias field
     params.add('e_1', value=HC_tmp, min=0, max=(np.max(xdata) - np.min(xdata)) / 2) # coercive field
 
@@ -1536,9 +1770,9 @@ def tan_hyseval(
 
     fitted_data = {
         'xdata': xdata_fitted, 
-        'ydata': xdata_fitted,
+        'ydata': ydata_fitted,
         'xdata_err': xdata_fitted_err,
-        'ydata_err': xdata_fitted_err,
+        'ydata_err': ydata_fitted_err,
     }
 
     # params = {
@@ -1584,14 +1818,16 @@ def tan_hyseval(
 
     #     }
     
-    params = tan_hyseval_params(result, xdata, ydata, sat_cond)
+    params = arctan_hyseval_params(result, xdata, ydata, sat_cond)
     
     return fitted_data, params, result
 
-def double_tan_hyseval(
+def double_arctan_hyseval(
     xdata: Union[list, np.ndarray, pd.Series], 
     ydata: Union[list, np.ndarray, pd.Series], 
     sat_cond: float = 0.95,
+    sat_region: float = 0.95,
+    use_offset: bool = True,
     param_estimates: dict = None,
     param_bounds: dict = None,
     param_fixed: dict = None,
@@ -1791,11 +2027,11 @@ def double_tan_hyseval(
     else:
         y_unit = None
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
-    LIN = lin_hyseval(xdata, ydata)
+    LIN = lin_hyseval(xdata, ydata, sat_region=sat_region, use_offset=use_offset)
     HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
     
     # Create a model from the function
-    model = Model(double_tan_hys)
+    model = Model(double_arctan_hys)
 
     # Define the parameters
     params = Parameters()
@@ -1858,25 +2094,27 @@ def double_tan_hyseval(
 
     fitted_data = {
         'xdata': xdata_fitted, 
-        'ydata': xdata_fitted,
+        'ydata': ydata_fitted,
         'xdata_err': xdata_fitted_err,
-        'ydata_err': xdata_fitted_err,
+        'ydata_err': ydata_fitted_err,
     }
     
     # tan_hyseval_params orders the fitted values by 1. increasing HEB and 2. by decreasing HC
     # So for the decreasing branch, the field numbers correspond to the switching behavior from 
     # left to the right. Unless for the unlikely but possible event a very large coercive field 
     # strength with a more higher EB field for the second loop
-    params = tan_hyseval_params(result, xdata, ydata, sat_cond=sat_cond)
+    params = arctan_hyseval_params(result, xdata, ydata, sat_cond=sat_cond)
     
     return fitted_data, params, result
 
-def mult_tan_hyseval(
+def mult_arctan_hyseval(
     xdata: Union[list, np.ndarray, pd.Series], 
     ydata: Union[list, np.ndarray, pd.Series], 
     sat_cond: float = 0.95,
-    n_tan: int = 3, # for n = 1 or 2 the previous functions make more sense
-    tan_types: list = None,
+    sat_region: float = 0.95,
+    use_offset: bool = True,
+    n_arctan: int = 3, # for n = 1 or 2 the previous functions make more sense
+    arctan_types: list = None,
     param_estimates: dict = None,
     param_bounds: dict = None,
     param_fixed: dict = None,
@@ -1895,8 +2133,8 @@ def mult_tan_hyseval(
     Therefore, the uncertainty of e.g. the saturation of one loop is not considered for the 
     other loop, which may lead to a significant underestimation of the uncertainties for the individual loops.
 
-    The number of tanh functions can either be choosen by the n_tan parameter + param kwargs or in a 
-    quick way by the tan_types as e.g. ['EB', 'EB', 'FM', 'SP'] to define the hysts with constraints.
+    The number of arctan functions can either be choosen by the n_arctan parameter + param kwargs or in a 
+    quick way by the arctan_types as e.g. ['EB', 'EB', 'FM', 'SP'] to define the hysts with constraints.
 
     Parameters
     ----------
@@ -1906,12 +2144,12 @@ def mult_tan_hyseval(
         List of magnetization values M.
     sat_cond : float, optional
         Saturation condition for the tanh function. Default is 0.95.
-    n_tan : int, optional
-        Number of tanh functions to be fitted. Default is 3.
-    tan_types : list, optional
-        List of strings defining the type of each tanh function. Supported types are 'EB', 'FM', and 'SP'.
-        If provided, the parameters of the tanh functions will be constrained according to their type.
-        If tan_types is provided, n_tan is ignored. 
+    n_arctan : int, optional
+        Number of arctan functions to be fitted. Default is 3.
+    arctan_types : list, optional
+        List of strings defining the type of each arctan function. Supported types are 'EB', 'FM', and 'SP'.
+        If provided, the parameters of the arctan functions will be constrained according to their type.
+        If arctan_types is provided, n_arctan is ignored. 
         The later estimates/bounds/fixes will overwrite the types if provided!
         Supported types are:
         - 'EB', 'exchange', 'exchange bias': no constraints for any param
@@ -1967,42 +2205,42 @@ def mult_tan_hyseval(
     else:
         y_unit = None
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
-    LIN = lin_hyseval(xdata, ydata)
+    LIN = lin_hyseval(xdata, ydata, sat_region=sat_region, use_offset=use_offset)
     HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
 
     # Define the parameters
     params = Parameters()
-    params.add('a', value=0.0) # offset, 0 for normalized hysteresis with pos/neg Sat.
-    if tan_types is None:
-        for n in range(1, n_tan + 1):
-            params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_tan)) # amplitude, equal portion of the hyst's mag
-            params.add(f'c_{n}', value=5.0) # steepness
+    params.add('a', value=np.mean(ydata)) # offset, assume mean of the data for better convergence
+    if arctan_types is None:
+        for n in range(1, n_arctan + 1):
+            params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_arctan)) # amplitude, equal portion of the hyst's mag
+            params.add(f'c_{n}', value=5.0, min=0) # steepness
             params.add(f'd_{n}', value=HEB_tmp + 0.02 * np.abs(np.min(xdata)) * n, min=np.min(xdata), max=np.max(xdata)) # lower exchange bias field
             params.add(f'e_{n}', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
 
-    elif isinstance(tan_types, list):
+    elif isinstance(arctan_types, list):
         # check if all entries are supported:
-        for tan_type, n in zip(tan_types, range(1, len(tan_types) + 1)):
-            if tan_type.lower() in ['eb', 'exchange', 'exchange bias']:
-                tan_type = 'eb'
-            elif tan_type.lower() in ['fm', 'ferro', 'ferromagnetic']:
-                tan_type = 'fm'
-            elif tan_type.lower() in ['sp', 'super', 'superpara', 'superparamagnetic']:
-                tan_type = 'sp'
+        for arctan_type, n in zip(arctan_types, range(1, len(arctan_types) + 1)):
+            if arctan_type.lower() in ['eb', 'exchange', 'exchange bias']:
+                arctan_type = 'eb'
+            elif arctan_type.lower() in ['fm', 'ferro', 'ferromagnetic']:
+                arctan_type = 'fm'
+            elif arctan_type.lower() in ['sp', 'super', 'superpara', 'superparamagnetic']:
+                arctan_type = 'sp'
             else:
-                raise ValueError(f"The tan_type {tan_type} is not supported. Please check the provided tan_types list: {tan_types}.")
+                raise ValueError(f"The arctan_type {arctan_type} is not supported. Please check the provided arctan_types list: {arctan_types}.")
 
-            params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_tan)) # amplitude, equal portion of the hyst's mag
+            params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_arctan)) # amplitude, equal portion of the hyst's mag
             params.add(f'c_{n}', value=5.0) # steepness
             params.add(f'd_{n}', value=HEB_tmp + 0.02 * np.abs(np.min(xdata)) * n, min=np.min(xdata), max=np.max(xdata)) # lower exchange bias field
             params.add(f'e_{n}', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
 
-            # if tan_types = 'fm' change HEB (d_n) to 0 and put vary=False
+            # if arctan_types = 'fm' change HEB (d_n) to 0 and put vary=False
             # Same for HEB (d_n) AND HC (e_n) if it is 'sp'
-            if tan_type == 'fm':
+            if arctan_type == 'fm':
                 params[f'd_{n}'].value = 0
                 params[f'd_{n}'].vary = False
-            if tan_type == 'sp':
+            if arctan_type == 'sp':
                 params[f'd_{n}'].value = 0
                 params[f'd_{n}'].vary = False
                 params[f'e_{n}'].value = 0
@@ -2020,7 +2258,7 @@ def mult_tan_hyseval(
             params[key].vary = not value 
 
      # Create a model from the function
-    model = Model(mult_tan_hys, independent_vars=['xdata'])
+    model = Model(mult_arctan_hys, independent_vars=['xdata'])
 
     # Fit the model to the data
     result = model.fit(ydata, params, calc_covar=True, method=method, xdata=xdata,)
@@ -2068,11 +2306,11 @@ def mult_tan_hyseval(
     # So for the decreasing branch, the field numbers correspond to the switching behavior from 
     # left to the right. Unless for the unlikely but possible event a very large coercive field 
     # strength with a more higher EB field for the second loop
-    params = tan_hyseval_params(result, xdata, ydata, sat_cond)
+    params = arctan_hyseval_params(result, xdata, ydata, sat_cond)
 
     return fitted_data, params, result
 
-def tan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
+def arctan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
     """
     Analytical calculation of important parameters of a hysteresis loop fitted with a tanh function
     (see tan_hyseval and tan_hys for details).
@@ -2151,9 +2389,9 @@ def tan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
         HC, dHC = e, e_err + half_step_size
         HEB, dHEB = d, d_err + half_step_size
         MS, dMS = b, b_err + a_err
-        MR = tan_hys(float(0), a, b, c, d, e)
+        MR = arctan_hys(float(0), a, b, c, d, e)
         dMR = a_err + b_err # TODO: check if this is correct
-        MHEB = tan_hys(float(HEB), a, b, c, d, e)
+        MHEB = arctan_hys(float(HEB), a, b, c, d, e)
         dMHEB = dMR # TODO: check if this is correct
 
         slope_atHC = b * c
@@ -2286,92 +2524,3 @@ def tan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
     params['chi_squared'] = result.chisqr
         
     return params
-
-#%%
-###############################################################################
-# 5. Further functions, mainly for conversion and plotting
-###############################################################################
-
-def create_uncertainty_polygon(xdata: pd.DataFrame, ydata: pd.DataFrame, xdata_err: pd.DataFrame, ydata_err: pd.DataFrame):
-    """
-    Create a polygon that covers all uncertainties in x and y directions.
-
-    This function assumes both uncertainties to be independent/uncorrelated,
-    which may underestimate the actual uncertainty. In the case of hysteresis loops,
-    the polygon is used to calculate the uncertainty band/polygon of just one branch,
-    as overlapping drawings in the saturation region may cause problems in the visualization.
-
-    Parameters
-    ----------
-    xdata : pd.DataFrame
-        DataFrame of externally applied field strengths H, typically of a single branch.
-    ydata : pd.DataFrame
-        DataFrame of magnetization values M, typically of a single branch.
-    xdata_err : pd.DataFrame
-        DataFrame of uncertainties in the externally applied field strengths H.
-    ydata_err : pd.DataFrame
-        DataFrame of uncertainties in the magnetization values M.
-
-    Returns
-    -------
-    polygon_x : np.ndarray
-        Array of x-coordinates of the polygon vertices.
-    polygon_y : np.ndarray
-        Array of y-coordinates of the polygon vertices.
-
-    Examples
-    --------
-    >>> import pandas as pd
-    >>> xdata = pd.DataFrame([1, 2, 3])
-    >>> ydata = pd.DataFrame([4, 5, 6])
-    >>> xdata_err = pd.DataFrame([0.1, 0.2, 0.1])
-    >>> ydata_err = pd.DataFrame([0.2, 0.1, 0.2])
-    >>> create_uncertainty_polygon(xdata, ydata, xdata_err, ydata_err)
-    (array([1.1, 2.2, 3.1, 2.9, 1.8, 0.9]), array([4.2, 5.1, 6.2, 5.8, 4.9, 3.8]))
-    """
-    # Ensure inputs are numpy arrays for easier manipulation
-    xdata = np.array(xdata)
-    ydata = np.array(ydata)
-    xdata_err = np.array(xdata_err)
-    ydata_err = np.array(ydata_err)
-
-    # Calculate the upper and lower bounds for x and y
-    x_upper = xdata + xdata_err
-    x_lower = xdata - xdata_err
-    y_upper = ydata + ydata_err
-    y_lower = ydata - ydata_err
-
-    # Create the polygon vertices
-    polygon_x = np.concatenate([x_upper, x_lower[::-1]])
-    polygon_y = np.concatenate([y_upper, y_lower[::-1]])
-
-    return polygon_x, polygon_y
-
-def safe_stderr(stderr):
-    """
-    Ensure that lmfit results without stderr do not crash the program.
-
-    This function checks if the provided stderr is None and returns 0 in that case.
-    Otherwise, it returns the provided stderr value.
-
-    Parameters
-    ----------
-    stderr : float or None
-        The standard error value to check. It can be a float or None.
-
-    Returns
-    -------
-    float
-        Returns 0 if stderr is None, otherwise returns the provided stderr value.
-
-    Examples
-    --------
-    >>> safe_stderr(None)
-    0
-    >>> safe_stderr(0.05)
-    0.05
-    """
-    return 0 if stderr is None else stderr
-
-
-

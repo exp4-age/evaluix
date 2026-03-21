@@ -144,6 +144,8 @@ def create_evaluix_config():
         tree = ast.parse(source)
 
         func_def = tree.body[0]
+        if not isinstance(func_def, ast.FunctionDef):
+            raise ValueError("Expected a function definition")
         args = func_def.args
 
         info = {}

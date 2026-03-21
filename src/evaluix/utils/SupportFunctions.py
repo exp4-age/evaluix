@@ -82,3 +82,86 @@ def convert_units(df, unit_dict):
         df[key] = df[key] / conversion_factors[quantity_type][value]
     
     return df
+
+def safe_stderr(stderr):
+    """
+    Ensure that lmfit results without stderr do not crash the program.
+
+    This function checks if the provided stderr is None and returns 0 in that case.
+    Otherwise, it returns the provided stderr value.
+
+    Parameters
+    ----------
+    stderr : float or None
+        The standard error value to check. It can be a float or None.
+
+    Returns
+    -------
+    float
+        Returns 0 if stderr is None, otherwise returns the provided stderr value.
+
+    Examples
+    --------
+    >>> safe_stderr(None)
+    0
+    >>> safe_stderr(0.05)
+    0.05
+    """
+    return 0 if stderr is None else stderr
+
+
+
+def create_uncertainty_polygon(xdata: pd.DataFrame, ydata: pd.DataFrame, xdata_err: pd.DataFrame, ydata_err: pd.DataFrame):
+    """
+    Create a polygon that covers all uncertainties in x and y directions.
+
+    This function assumes both uncertainties to be independent/uncorrelated,
+    which may underestimate the actual uncertainty. In the case of hysteresis loops,
+    the polygon is used to calculate the uncertainty band/polygon of just one branch,
+    as overlapping drawings in the saturation region may cause problems in the visualization.
+
+    Parameters
+    ----------
+    xdata : pd.DataFrame
+        DataFrame of externally applied field strengths H, typically of a single branch.
+    ydata : pd.DataFrame
+        DataFrame of magnetization values M, typically of a single branch.
+    xdata_err : pd.DataFrame
+        DataFrame of uncertainties in the externally applied field strengths H.
+    ydata_err : pd.DataFrame
+        DataFrame of uncertainties in the magnetization values M.
+
+    Returns
+    -------
+    polygon_x : np.ndarray
+        Array of x-coordinates of the polygon vertices.
+    polygon_y : np.ndarray
+        Array of y-coordinates of the polygon vertices.
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> xdata = pd.DataFrame([1, 2, 3])
+    >>> ydata = pd.DataFrame([4, 5, 6])
+    >>> xdata_err = pd.DataFrame([0.1, 0.2, 0.1])
+    >>> ydata_err = pd.DataFrame([0.2, 0.1, 0.2])
+    >>> create_uncertainty_polygon(xdata, ydata, xdata_err, ydata_err)
+    (array([1.1, 2.2, 3.1, 2.9, 1.8, 0.9]), array([4.2, 5.1, 6.2, 5.8, 4.9, 3.8]))
+    """
+    # Ensure inputs are numpy arrays for easier manipulation
+    xdata = np.array(xdata)
+    ydata = np.array(ydata)
+    xdata_err = np.array(xdata_err)
+    ydata_err = np.array(ydata_err)
+
+    # Calculate the upper and lower bounds for x and y
+    x_upper = xdata + xdata_err
+    x_lower = xdata - xdata_err
+    y_upper = ydata + ydata_err
+    y_lower = ydata - ydata_err
+
+    # Create the polygon vertices
+    polygon_x = np.concatenate([x_upper, x_lower[::-1]])
+    polygon_y = np.concatenate([y_upper, y_lower[::-1]])
+
+    return polygon_x, polygon_y
