@@ -608,20 +608,19 @@ def invert_axis(
     else:
         raise ValueError(f'Axis not recognized. Please choose between x, y, or both, not {axis}')
 
+
 def del_outliers(
-    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
-    threshold: float = 2, 
-    neighbours: int = 5,
-    return_indices: bool = False):
+    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
+    threshold: float = 5.0,
+    neighbours: int = 10,
+    return_details: bool = False,
+ ):
     """
     Remove outliers from the dataset based on a specified threshold and number of neighbours.
 
-    An outlier is defined as a point that differs from the mean of all data points by more than 
-    `threshold` times the mean absolute difference (MAD). Additionally, it must differ from the 
-    mean of the closest `neighbours` by more than 0.5 * `threshold` * MAD or 
-    `threshold` * MAD(neighbours).
-
-    The point is then replaced by the linear interpolation of its neighbours.
+    An outlier is defined as a point that differs from the mean of its locally surrounding data points 
+    by more than `threshold` times the mean absolute difference (MAD). If a point is identified as an 
+    outlier, it is replaced by the mean of its `neighbours`.
 
     Parameters
     ----------
@@ -631,16 +630,16 @@ def del_outliers(
         Threshold for the difference of a point to the mean of all points. The default is 2.
     neighbours : int, optional
         Number of neighbours to be taken into account for the second mean calculation as well as 
-        for the linear interpolation. The default is 5.
-    return_indices : bool, optional
-        If True, also return the indices of the removed outliers. The default is False.
+        for the linear interpolation. The default is 10.
+    return_details : bool, optional
+        If True, also return details about the outlier detection process. The default is False.
 
     Returns
     -------
     numpy.ndarray
         ydata with outliers removed and replaced by the mean of their neighbours.
     numpy.ndarray, optional
-        If `return_indices` is True, also returns the indices of the removed outliers.
+        If `return_details` is True, also returns details about the outlier detection process.
 
     Raises
     ------
@@ -653,45 +652,68 @@ def del_outliers(
     array([1, 2, 3, 4, 5, 6, 7])
 
     """
+    # Validate input type
     if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
-        raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
-    
-    ydata = np.asarray(ydata).copy()
-    
-    # calculate mean and mean absolute difference (mad) of all points
-    mean = np.mean(ydata)
-    mad = np.mean(np.abs(ydata - mean))
-    
-    # calculate mean and standard deviation of the closest neighbours
-    mean_neighbours = np.zeros_like(ydata)
-    mad_neighbours = np.zeros_like(ydata)
+        raise ValueError(f"ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}")
 
-    for i in range(len(ydata)):
-        start = max(0, i - neighbours) #left neighbours, make sure to not go below 0
-        end = min(i + neighbours, len(ydata)) #right neighbours, make sure to not go above the last index
-        neighbours_slice = ydata[start:end] #slice of neighbours
-        mean_neighbours[i] = np.mean(neighbours_slice) #mean of neighbours
-        mad_neighbours[i] = np.mean(np.abs(neighbours_slice - mean_neighbours[i])) #mad of neighbours
+    # Convert to numpy array if it's a pandas Series or DataFrame
+    ydata = np.asarray(ydata, dtype=float)
+    n = len(ydata)
 
-    # Identify outliers
-    outliers =  (np.abs(ydata - mean) > threshold * mad) & \
-                (np.abs(ydata - mean_neighbours) > 0.5 * threshold * mad_neighbours) | \
-                (np.abs(ydata - mean_neighbours) > threshold * mad_neighbours)
+    # Handle empty input
+    if n == 0:
+        if return_details:
+            details = {
+                "outliers": np.array([], dtype=bool),
+                "indices_outliers": np.array([], dtype=int),
+            }
+            return ydata, details
+        return ydata
+
+    # Local median and median absolute deviation (MAD) for outlier detection
+    # MAD = median of the absolute deviations from the median, i.e. a measure for how much the data deviates.
+    # The median and MAD are quite robust against single outliers
+    med_neigh = np.zeros_like(ydata)
+    sigma_neigh = np.zeros_like(ydata)
+
+    for i in range(n):
+        # handle edge cases by adjusting the window of neighbours
+        start = max(0, i - neighbours)
+        end = min(n, i + neighbours + 1)
+        neigh_slice = ydata[start:end]
+
+        # calculate median and MAD for the current window of neighbours
+        med_i = np.median(neigh_slice)
+        mad_i = np.median(np.abs(neigh_slice - med_i))
+
+        # save median and MAD for the current point, convert MAD to standard deviation equivalent using the constant 1.4826 for normal distribution
+        # See https://en.wikipedia.org/wiki/Median_absolute_deviation
+        med_neigh[i] = med_i
+        sigma_neigh[i] = 1.4826 * mad_i if mad_i > 0 else 1e-6  # Avoid division by zero
+
+    # Calculate local outlier score (deviation from local median, relative to local MAD)
+    local_score = np.abs(ydata - med_neigh) / sigma_neigh
+
+    # Check if local score exceeds the threshold to identify outliers
+    outliers = local_score > threshold
     outlier_indices = np.where(outliers)[0]
-    # Outliers are points which differ from the mean of all points by more than threshold * mad
-    # and from the mean of the closest neighbours by more than 0.5 * threshold * mad_neighbours
-    # or from the mean of the closest neighbours by more than threshold * mad_neighbours
-    
-    # Replace outliers with the interpolated mean value of their neighbours
+
+    # Replace outliers with local interpolation (mean of neighbours excluding the outlier)
     for outlier in outlier_indices:
         if outlier:
-            start = max(0, outlier - neighbours) #left neighbours, make sure to not go below 0
-            end = min(outlier + neighbours + 1, len(ydata)) #right neighbours, make sure to not go above the last index
-            neighbours_slice = np.concatenate([ydata[start:outlier], ydata[outlier+1:end]]) #exclude outlier
-            ydata[outlier] = np.mean(neighbours_slice) #replace outlier with mean of neighbours
+            start = max(0, outlier - neighbours)
+            end = min(outlier + neighbours + 1, n)
+            neigh_slice = np.concatenate([ydata[start:outlier], ydata[outlier + 1:end]])
+            if len(neigh_slice):
+                ydata[outlier] = np.mean(neigh_slice)
 
-    if return_indices:
-        return ydata, outlier_indices
+    if return_details:
+        details = {
+            "outliers": outliers,
+            "indices_outliers": outlier_indices,
+            "local_score": local_score,
+        }
+        return ydata, details
 
     return ydata
 
@@ -758,7 +780,11 @@ def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_lengt
         raise ValueError(f'Smoothing function not recognized. Please choose between savgol, gaussian, median, or None, not {smoothing_fct}')
     
 
-def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_region: float = 0.05):
+def rmv_opening(
+    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], 
+    sat_region: float = 0.05, 
+    return_details: bool = False
+):
     """
     Remove the opening in a hysteresis loop by assuming the same magnetization state at the beginning and end of the loop.
 
@@ -777,6 +803,9 @@ def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_reg
     sat_region : float, optional
         Amount of points at the beginning and end of the hysteresis to be taken into account for the mean calculation.
         The default is 0.05, which represents the first and last 5% of points.
+        This is equal to sat_regions=0.1 in the other functions for symmetric loops, where the saturation is calculated based on the applied field.
+    return_details : bool, optional
+        If True, returns additional details about the correction process. The default is False.
 
     Returns
     -------
@@ -805,10 +834,11 @@ def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_reg
     
     # take difference of mean of first and last sat_region of ydata points
     mean_diff = np.mean(ydata[:sat_points]) - np.mean(ydata[-sat_points:])
+    standard_deviation = np.std(ydata[:sat_points]) + np.std(ydata[-sat_points:])
     
     # check if difference is below the sum of both standard deviations (noise level) and therefore no
     # significant opening is present
-    if np.abs(mean_diff) < np.std(ydata[:sat_points]) + np.std(ydata[-sat_points:]):
+    if np.abs(mean_diff) < standard_deviation:
         return ydata
 
     # calculate slope of opening with respect to the length of the hysteresis
@@ -818,6 +848,13 @@ def rmv_opening(ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray], sat_reg
     # subtract slope from ydata. Reminder slope is in time/point number and not in xdata/field strength
     ydata -= opening_slope * np.arange(len(ydata))
     
+    if return_details:
+        return ydata, {
+            'opening_slope': opening_slope, 
+            'mean_diff': mean_diff,
+            'standard_deviation': standard_deviation,
+            'sat_points': sat_points,
+            }
     return ydata
 
 def slope_correction(
@@ -825,7 +862,9 @@ def slope_correction(
     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
     sat_region: float = 0.1,
     noise_threshold: float = 3,
-    branch_difference: float = 0.3):
+    branch_difference: float = 0.3,
+    return_details: bool = False
+    ):
     """
     Corrects the slope in a hysteresis loop by assuming saturation in the outermost regions of the xdata.
     Fits a linear function to these parts to extract their averaged slope, which is then subtracted from the whole loop,
@@ -845,6 +884,8 @@ def slope_correction(
     branch_difference : float, optional
         Maximum difference between the slopes of both branches. If the difference is larger, the function will not subtract the slope.
         The difference is based on the deviation from 1 as a ratio. Default is 0.3.
+    return_details : bool, optional
+        If True, returns additional details about the correction process. The default is False.
 
     Returns
     -------
@@ -894,19 +935,37 @@ def slope_correction(
     # Calculate noise level (as standard deviation of the residuals)
     residuals_upper = ydata[upper_saturation_region] - linear(xdata[upper_saturation_region], *popt1)
     residuals_lower = ydata[lower_saturation_region] - linear(xdata[lower_saturation_region], *popt2)
-    noise_level = np.mean([np.std(residuals_upper), np.std(residuals_lower)])
+    noise_level = noise_threshold * np.mean([np.std(residuals_upper), np.std(residuals_lower)])
 
     # Check if the slope (effect over the field range) is insignificant (below the noise level) and do nothing if it is
-    if np.abs(slope) * (np.max(xdata) - np.min(xdata)) < noise_threshold * noise_level or np.abs(1 - popt1[0]/popt2[0]) > branch_difference:
+    slope_effect = np.abs(slope) * (np.max(xdata) - np.min(xdata))
+    norm_slope_diff = np.abs(1 - popt1[0]/popt2[0]) if popt2[0] != 0 else np.inf
+    if slope_effect < noise_level or norm_slope_diff > branch_difference:
+        if return_details:
+            return ydata, {
+                'slope': slope, 
+                'noise_level': noise_level,
+                'slope_effect': slope_effect,
+                'norm_slope_diff': norm_slope_diff
+                }
         return ydata
 
+    ydata_corrected = ydata - slope * xdata
     # otherwise return subtracted/corrected magnetization
-    return ydata - slope * xdata
+    if return_details:
+            return ydata_corrected, {
+                'slope': slope, 
+                'noise_level': noise_level,
+                'slope_effect': slope_effect,
+                'norm_slope_diff': norm_slope_diff
+                }
 
 def hys_norm(
     xdata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
-    sat_region: float = 0.1):
+    sat_region: float = 0.1,
+    return_details: bool = False
+    ):
     """
     Normalize a hysteresis loop by assuming saturation in the outermost regions of the xdata.
 
@@ -925,6 +984,8 @@ def hys_norm(
     sat_region : float, optional
         Outermost fraction of the xdata which is assumed to be in saturation.
         Default is 0.1, i.e., 10% of the outermost xdata is assumed to be in saturation.
+    return_details : bool, optional
+        If True, returns additional details about the normalization process. The default is False.
 
     Returns
     -------
@@ -969,13 +1030,18 @@ def hys_norm(
         y_bias = 0.5 * (lmax + lmin)
         norm = 0.5 * (lmax - lmin)
         # return normalized magnetization
+        if return_details:
+            return (ydata - y_bias) / norm, {'y_bias': y_bias, 'norm': norm}
+
         return (ydata - y_bias) / norm
 
 def hys_center(
     xdata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
     ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
     sat_region: float = 0.1,
-    normalize: bool = False):
+    normalize: bool = False,
+    return_details: bool = False
+    ):
     """
     Center and optionally normalize a hysteresis loop by assuming saturation in the outermost regions of the xdata.
 
@@ -1003,6 +1069,8 @@ def hys_center(
         If True, the ydata is normalized to the range of roughly -1 to +1.
         If False, the ydata is only centered around 0.
         The default is False.
+    return_details : bool, optional
+        If True, returns additional details about the centering and normalization process. The default is False.
         
     Returns
     -------
@@ -1083,7 +1151,10 @@ def hys_center(
         xdata[:len(xdata)//2] -= x_shift
         xdata[len(xdata)//2:] += x_shift
 
-    return xdata, ydata
+    if return_details:
+        return xdata, ydata, {'x_shift': x_shift, 'y_bias': y_bias, 'norm': norm}
+    else:
+        return xdata, ydata
 
 #%%
 ###############################################################################        
