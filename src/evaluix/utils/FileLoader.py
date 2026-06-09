@@ -210,6 +210,12 @@ class Data:
                         dataset.add_data_pkg(int(key.split('_')[-1]), data_pkg['loglist'], data_pkg['mod_data'], data_pkg['results'])
                 
                 return dataset
+            
+    def get_ids(self):
+        log_message('info', f"Getting all dataset ids from the hdf5 file.")
+        with h5py.File(self.hdf5_file, 'r') as f:
+            ids = [int(key.split('_')[-1]) for key in f['datasets'].keys()]
+            return ids
         
     # Function wrapper to work with the global data object
     def function_wrapper(self,

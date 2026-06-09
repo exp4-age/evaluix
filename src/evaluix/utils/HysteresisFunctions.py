@@ -77,6 +77,37 @@ def linear(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], 
     xdata = np.asarray(xdata)
     return a * xdata + b
 
+
+def quadratic(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], a: float, b: float, c: float):
+    """
+    Quadratic model for smooth trends.
+
+    Model
+    -----
+    f(x) = a x^2 + b x + c
+
+    Parameters
+    ----------
+    xdata : float, int, list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Input value(s) (typically named x in fit functions).
+    a : float
+        Quadratic coefficient.
+    b : float
+        Linear coefficient.
+    c : float
+        Constant offset.
+
+    Returns
+    -------
+    numpy.ndarray
+        Modeled value(s) of the quadratic function.
+    """
+    if not isinstance(xdata, (int, float, list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'xdata must be a pandas dataframe/series, list, numpy array or int/float, not {type(xdata)}')
+
+    xdata = np.asarray(xdata)
+    return a * xdata**2 + b * xdata + c
+
 def polynomial(xdata: Union[float, int, list, pd.DataFrame, pd.Series, np.ndarray], *args: Union[float, list]):
     """
     Polynomial model for complexer trends.
@@ -517,27 +548,27 @@ def mult_arctan_hys(
                 raise ValueError(f"The parameter {key} is not provided for hysteresis loop {n}.")
 
     if isinstance(xdata, (int, float)): # for calculating single values
-        ydata1 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1'])
-        ydata2 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], -kwargs['e_1'])
+        ydata1 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1']) # type: ignore
+        ydata2 = arctan(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], -kwargs['e_1']) # type: ignore
         if n_arctan > 1:
             for n in range(1, n_arctan):
                 b = kwargs['b_' + str(n+1)]
                 c = kwargs['c_' + str(n+1)]
                 d = kwargs['d_' + str(n+1)]
                 e = kwargs['e_' + str(n+1)]
-                ydata1 += arctan(xdata, 0, b, c, d, e)
-                ydata2 += arctan(xdata, 0, b, c, d, -e)
+                ydata1 += arctan(xdata, 0, b, c, d, e) # type: ignore
+                ydata2 += arctan(xdata, 0, b, c, d, -e) # type: ignore
         return np.mean([np.abs(ydata1), np.abs(ydata2)]), ydata1, ydata2
 
     elif isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
-        ydata = arctan_hys(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1'])
+        ydata = arctan_hys(xdata, kwargs['a'], kwargs['b_1'], kwargs['c_1'], kwargs['d_1'], kwargs['e_1']) # type: ignore
         if n_arctan > 1:
             for n in range(1, n_arctan):
                 b = kwargs['b_' + str(n+1)]
                 c = kwargs['c_' + str(n+1)]
                 d = kwargs['d_' + str(n+1)]
                 e = kwargs['e_' + str(n+1)]
-                ydata += arctan_hys(xdata, 0, b, c, d, e)
+                ydata += arctan_hys(xdata, 0, b, c, d, e) # type: ignore
 
         return ydata
 
@@ -600,11 +631,11 @@ def invert_axis(
         raise ValueError(f'ydata must be a pandas dataframe/series, list, numpy array or int/float, not {type(ydata)}')
 
     if axis == 'x':
-        return -xdata, ydata
+        return -1 * xdata, ydata
     elif axis == 'y':
-        return xdata, -ydata
+        return xdata, -1 * ydata
     elif axis == 'both':
-        return -xdata, -ydata
+        return -1 * xdata, -1 * ydata
     else:
         raise ValueError(f'Axis not recognized. Please choose between x, y, or both, not {axis}')
 
@@ -712,6 +743,7 @@ def del_outliers(
             "outliers": outliers,
             "indices_outliers": outlier_indices,
             "local_score": local_score,
+            "correction_applied": len(outlier_indices) > 0,
         }
         return ydata, details
 
@@ -763,7 +795,7 @@ def smoothing1d(ydata: pd.DataFrame, smoothing_fct: str = 'savgol', window_lengt
     if str(smoothing_fct) == 'savgol':
         # Apply Savitzky-Golay filter
         smoothed = savgol_filter(ydata, window_length, polyorder=sigma_or_polyorder, mode='nearest')
-        return pd.Series(smoothed, index=ydata.index)
+        return pd.Series(smoothed, index=ydata.index) # type: ignore
     elif str(smoothing_fct) == 'gaussian':
         smoothed = ydata.rolling(window_length, win_type='gaussian', center=True).mean(std=sigma_or_polyorder)
         smoothed = smoothed.interpolate(method='nearest', limit_direction='both')
@@ -835,7 +867,7 @@ def rmv_opening(
     # take difference of mean of first and last sat_region of ydata points
     mean_diff = np.mean(ydata[:sat_points]) - np.mean(ydata[-sat_points:])
     standard_deviation = np.std(ydata[:sat_points]) + np.std(ydata[-sat_points:])
-    
+
     # check if difference is below the sum of both standard deviations (noise level) and therefore no
     # significant opening is present
     if np.abs(mean_diff) < standard_deviation:
@@ -844,6 +876,20 @@ def rmv_opening(
     # calculate slope of opening with respect to the length of the hysteresis
     # ignore the outermost 2*0.5*sat_region of points, since the diff represents the mean at the outermost 0.5*sat_region positions
     opening_slope = - mean_diff / (len(ydata) - sat_points)
+
+    # check if difference is below the sum of both standard deviations (noise level) and therefore no
+    # significant opening is present
+    if np.abs(mean_diff) < standard_deviation:
+        if return_details:
+            return ydata, {
+                'opening_slope': opening_slope,
+                'mean_diff': mean_diff,
+                'standard_deviation': standard_deviation,
+                'sat_points': sat_points,
+                'correction_applied': False,
+                }
+        return ydata
+
     
     # subtract slope from ydata. Reminder slope is in time/point number and not in xdata/field strength
     ydata -= opening_slope * np.arange(len(ydata))
@@ -854,6 +900,7 @@ def rmv_opening(
             'mean_diff': mean_diff,
             'standard_deviation': standard_deviation,
             'sat_points': sat_points,
+            'correction_applied': True,
             }
     return ydata
 
@@ -939,6 +986,9 @@ def slope_correction(
 
     # Check if the slope (effect over the field range) is insignificant (below the noise level) and do nothing if it is
     slope_effect = np.abs(slope) * (np.max(xdata) - np.min(xdata))
+    # norm_slope_diff is the normalized difference between the slopes of both branches. If both branches have the same slope, the ratio is 1 and the norm_slope_diff is 0. 
+    # The larger their relative difference, the larger the norm_slope_diff. If the slope of the second branch is 0, the norm_slope_diff is set to infinity to avoid division by zero.
+
     norm_slope_diff = np.abs(1 - popt1[0]/popt2[0]) if popt2[0] != 0 else np.inf
     if slope_effect < noise_level or norm_slope_diff > branch_difference:
         if return_details:
@@ -946,7 +996,8 @@ def slope_correction(
                 'slope': slope, 
                 'noise_level': noise_level,
                 'slope_effect': slope_effect,
-                'norm_slope_diff': norm_slope_diff
+                'norm_slope_diff': norm_slope_diff,
+                'correction_applied': False
                 }
         return ydata
 
@@ -957,8 +1008,112 @@ def slope_correction(
                 'slope': slope, 
                 'noise_level': noise_level,
                 'slope_effect': slope_effect,
-                'norm_slope_diff': norm_slope_diff
+                'norm_slope_diff': norm_slope_diff,
+                'correction_applied': True
                 }
+
+    return ydata_corrected
+
+def quadratic_slope_correction(
+    xdata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
+    ydata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
+    sat_region: float = 0.1,
+    noise_threshold: float = 3,
+    branch_difference: float = 0.3,
+    return_details: bool = False
+    ):
+    """
+    Corrects a smooth background in a hysteresis loop by iteratively minimizing the slope in the outer saturation regions.
+
+    A quadratic background with coefficients ``a``, ``b`` and ``c`` is optimized so that the linear slope in the
+    saturation windows becomes as small as possible. The optimization starts from a linear fit and runs for at most
+    100 iterations. It stops early as soon as the remaining slope effect falls below the estimated noise level.
+
+    Parameters
+    ----------
+    xdata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Input value(s) of the dataset (typically named x in functions).
+    ydata : list, numpy.ndarray, pandas.DataFrame, or pandas.Series
+        Output value(s) of the dataset (typically named y in functions).
+    sat_region : float, optional
+        Outermost fraction of the xdata assumed to be in saturation. Default is 0.1 (10%).
+    noise_threshold : float, optional
+        Threshold for the slope effect to be considered as noise. If the effect is below this threshold times the
+        noise level, it is considered as noise and not subtracted. Default is 3.
+    branch_difference : float, optional
+        Maximum normalized difference between the slopes of both saturation regions. If the difference is larger, the
+        function will not subtract the background. Default is 0.3.
+    return_details : bool, optional
+        If True, returns additional details about the correction process. The default is False.
+
+    Returns
+    -------
+    np.ndarray
+        Array of magnetic moment M or intensity without the optimized background.
+    """
+    if not isinstance(xdata, (list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'xdata must be a pandas dataframe, list or numpy array, not {type(xdata)}')
+    if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
+        raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
+
+    xdata = np.asarray(xdata)
+    ydata = np.asarray(ydata)
+
+    sat_field_range = sat_region * (np.max(xdata) - np.min(xdata))
+    upper_saturation_limit = np.max(xdata) - sat_field_range
+    lower_saturation_limit = np.min(xdata) + sat_field_range
+
+    upper_saturation_region = xdata > upper_saturation_limit
+    lower_saturation_region = xdata < lower_saturation_limit
+
+    if not np.any(upper_saturation_region) or not np.any(lower_saturation_region):
+        raise ValueError('No saturation region found')
+
+    if np.sum(upper_saturation_region) < 2 or np.sum(lower_saturation_region) < 2:
+        raise ValueError('Not enough saturation points found for a minimization-based correction')
+
+    # start from a linear fit to the saturation regions
+    popt1, _ = curve_fit(linear, xdata[upper_saturation_region], ydata[upper_saturation_region])
+    popt2, _ = curve_fit(linear, xdata[lower_saturation_region], ydata[lower_saturation_region])
+    start_slope = np.mean([popt1[0], popt2[0]])
+    start_offset = np.mean([popt1[1], popt2[1]])
+    start_params = np.array([0.0, start_slope, start_offset], dtype=float)
+
+    field_range = np.max(xdata) - np.min(xdata)
+
+    def _evaluate_background(coefficients):
+        background = quadratic(xdata, *coefficients)
+        corrected = ydata - background
+
+        upper_coeffs = np.polyfit(xdata[upper_saturation_region], corrected[upper_saturation_region], 1)
+        lower_coeffs = np.polyfit(xdata[lower_saturation_region], corrected[lower_saturation_region], 1)
+
+        residuals_upper = corrected[upper_saturation_region] - linear(xdata[upper_saturation_region], *upper_coeffs)
+        residuals_lower = corrected[lower_saturation_region] - linear(xdata[lower_saturation_region], *lower_coeffs)
+
+        slope_effect = np.mean([np.abs(upper_coeffs[0]), np.abs(lower_coeffs[0])]) * field_range
+        noise_level = noise_threshold * np.mean([np.std(residuals_upper), np.std(residuals_lower)])
+
+        if np.isclose(lower_coeffs[0], 0.0):
+            norm_slope_diff = np.inf if not np.isclose(upper_coeffs[0], 0.0) else 0.0
+        else:
+            norm_slope_diff = np.abs(1 - upper_coeffs[0] / lower_coeffs[0])
+
+        objective = slope_effect
+        if norm_slope_diff > branch_difference:
+            objective += (norm_slope_diff - branch_difference) * field_range
+
+        return {
+            'corrected': corrected,
+            'slope_effect': slope_effect,
+            'noise_level': noise_level,
+            'norm_slope_diff': norm_slope_diff,
+            'objective': objective,
+            'upper_coeffs': upper_coeffs,
+            'lower_coeffs': lower_coeffs,
+        }
+
+    state = {'best_metrics': None}
 
 def hys_norm(
     xdata: Union[list, pd.DataFrame, pd.Series, np.ndarray],
@@ -1143,6 +1298,7 @@ def hys_center(
     # Calculate the difference between the branches
     diff = np.mean(ydata[:len(ydata)//2]) - np.mean(ydata[len(ydata)//2:]) # if < 0, branch 1 is higher than branch 2
 
+    x_shift = 0.0
     # Check if the difference between the branches is larger than one step size
     if np.abs(diff) > xdata_step:
         # Calculate the shift in xdata
@@ -1161,7 +1317,7 @@ def hys_center(
 # 4. Data Evaluation
 ###############################################################################
 
-def x_sect(xdata: pd.Series, ydata: pd.Series, offset: float = 0, steepness_for_fit: bool = False):
+def x_sect(xdata, ydata, offset: float = 0, steepness_for_fit: bool = False):
     """
     Calculate the first intersection of a hysteresis loop with the x-axis.
 
@@ -1218,8 +1374,15 @@ def x_sect(xdata: pd.Series, ydata: pd.Series, offset: float = 0, steepness_for_
     if np.abs(offset) > np.max(np.abs(ydata)):
         raise ValueError('Offset is larger than the maximum absolute value of ydata, no intersection with the offset can be found')
     
-    xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata).copy() - offset # shift ydata by offset to find intersection with the offset instead of the x-axis
+    if isinstance(xdata, (pd.DataFrame, pd.Series)):
+        xdata = xdata.to_numpy()
+    elif isinstance(xdata, list):
+        xdata = np.array(xdata)
+
+    if isinstance(ydata, (pd.DataFrame, pd.Series)):
+        ydata = ydata.to_numpy().copy() - offset # shift ydata by offset to find intersection with the offset instead of the x-axis
+    elif isinstance(ydata, list):
+        ydata = np.array(ydata).copy() - offset # shift ydata by offset to find intersection with the offset instead of the x-axis
     
     # Ensure that the ydata list starts with a negative value (negative saturation)
     if list(ydata)[0] > 0.0: 
@@ -1311,13 +1474,13 @@ def y_sect(xdata: pd.Series, ydata: pd.Series, offset: float = 0):
     if np.abs(offset) > np.max(np.abs(xdata)):
         raise ValueError('Offset is larger than the maximum absolute value of xdata, no intersection with the offset can be found')
     
-    xdata = np.asarray(xdata).copy() - offset # shift xdata by offset to find intersection with the offset instead of the y-axis
-    ydata = np.asarray(ydata)
+    xdata = np.asarray(xdata).copy() - offset # type: ignore # shift xdata by offset to find intersection with the offset instead of the y-axis
+    ydata = np.asarray(ydata) # type: ignore
     
     # Ensure that the xdata list starts with a negative value (from left to right)
     if list(xdata)[0] > 0.0:
-        ydata = np.flipud(ydata)
-        xdata = np.flipud(xdata)
+        ydata = np.flipud(ydata) # type: ignore
+        xdata = np.flipud(xdata) # type: ignore
 
     # Initialize variables
     intersect = 0.0
@@ -1388,8 +1551,8 @@ def num_derivative(xdata: pd.Series, ydata: pd.Series):
     if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
     
-    xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata)
+    xdata = np.asarray(xdata) # type: ignore
+    ydata = np.asarray(ydata) # type: ignore
     
     # Calculate the derivative
     der_ydata = np.diff(ydata) / np.diff(xdata)
@@ -1445,8 +1608,8 @@ def num_integral(xdata: pd.Series, ydata: pd.Series):
     if not isinstance(ydata, (list, pd.DataFrame, pd.Series, np.ndarray)):
         raise ValueError(f'ydata must be a pandas dataframe, list or numpy array, not {type(ydata)}')
     
-    xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata)
+    xdata = np.asarray(xdata) # type: ignore
+    ydata = np.asarray(ydata) # type: ignore
     
     # Calculate the integral
     int_ydata = (ydata[:-1] + ydata[1:]) / 2 * np.abs(np.diff(xdata))
@@ -1526,8 +1689,8 @@ def lin_hyseval(
     >>> lin_hyseval([1, 2, 3, 4, 5], [2, 3, 4, 5, 6], steepness_for_fit=True)
     {'HEB': 2.5, 'dHEB': 0.1, 'HC': 1.0, 'dHC': 0.1, 'MR': (0.5, 1.0, 0.0), 'dMR': 0.1, 'MHEB': 0.5, 'dMHEB': 0.1, 'a1': 1.0, 'a2': 1.0}
     """
-    xdata = np.asarray(xdata)
-    ydata = np.asarray(ydata)
+    xdata = np.asarray(xdata) # type: ignore
+    ydata = np.asarray(ydata) # type: ignore
 
     # Check if the length of xdata is odd, i.e., the center point contributes to both branches.
     # Duplicate the center point in this case so that both branches are equally long.
@@ -1536,6 +1699,7 @@ def lin_hyseval(
         xdata = np.insert(xdata, center_index, xdata[center_index])
         ydata = np.insert(ydata, center_index, ydata[center_index])
     
+    magoffset = 0
     if use_offset:
         # take end regions of hysteresis (saturated regions)
         upper_saturation_limit = (1 - sat_region) * np.max(xdata)
@@ -1554,9 +1718,6 @@ def lin_hyseval(
             # calculate shift/bias and normalization
             magoffset = 0.5 * (magmax + magmin)
             norm = 0.5 * (magmax - magmin)
-    
-    else:
-        magoffset = 0
 
     # Obtain intersections as coercive fields with the x_sect function
     # Split the array into two halves using slicing
@@ -1567,8 +1728,8 @@ def lin_hyseval(
     Ydata1 = ydata[:mid_index]
     Ydata2 = ydata[mid_index:]
     # branch-dependently
-    HC1, dHC1, a1 = x_sect(Xdata1, Ydata1, offset=magoffset, steepness_for_fit=True) # first branch
-    HC2, dHC2, a2 = x_sect(Xdata2, Ydata2, offset=magoffset, steepness_for_fit=True) # second branch
+    HC1, dHC1, a1 = x_sect(Xdata1, Ydata1, offset=float(magoffset), steepness_for_fit=True) # type: ignore # first branch
+    HC2, dHC2, a2 = x_sect(Xdata2, Ydata2, offset=float(magoffset), steepness_for_fit=True) # type: ignore # second branch
 
     half_step_size = np.mean(np.abs(np.diff(xdata))) / 2
     
@@ -1580,18 +1741,18 @@ def lin_hyseval(
     dHC = (dHC1 + dHC2) / 2 + half_step_size # uncertainty via propagation of uncertainty
     
     # Remanence at zero field strength
-    MR1, dMR1 = y_sect(Xdata1, Ydata1, 0)
-    MR2, dMR2 = y_sect(Xdata2, Ydata2, 0)
+    MR1, dMR1 = y_sect(Xdata1, Ydata1, 0) # type: ignore
+    MR2, dMR2 = y_sect(Xdata2, Ydata2, 0) # type: ignore
     # Average of both branches
     MR = ((np.abs(MR1) + np.abs(MR2)) / 2, MR1, MR2)
-    dMR = (dMR1 + dMR2) / 2 # uncertainty via propagation of uncertainty
+    dMR = (dMR1 + dMR2) / 2 + np.abs((np.abs(MR1) - np.abs(MR2))) / 2
 
     # Magnetization at the exchange bias field
-    MHEB1, dMHEB1 = y_sect(Xdata1, Ydata1, offset=HEB)
-    MHEB2, dMHEB2 = y_sect(Xdata2, Ydata2, offset=HEB)
+    MHEB1, dMHEB1 = y_sect(Xdata1, Ydata1, offset=HEB) # type: ignore
+    MHEB2, dMHEB2 = y_sect(Xdata2, Ydata2, offset=HEB) # type: ignore
     # Average of both branches
     MHEB = ((np.abs(MHEB1) + np.abs(MHEB2)) / 2, MHEB1, MHEB2)
-    dMHEB = (dMHEB1 + dMHEB2) / 2 # uncertainty via propagation of uncertainty
+    dMHEB = (dMHEB1 + dMHEB2) / 2 + np.abs((np.abs(MHEB1) - np.abs(MHEB2))) / 2
 
     params = {
         'HEB': HEB,
@@ -1616,9 +1777,9 @@ def arctan_hyseval(
     sat_cond: float = 0.95,
     sat_region: float = 0.95,
     use_offset: bool = True,
-    param_estimates: dict = None,
-    param_bounds: dict = None,
-    param_fixed: dict = None,
+    param_estimates: dict = None, # type: ignore
+    param_bounds: dict = None, # type: ignore
+    param_fixed: dict = None, # type: ignore
     method: str = 'leastsq',):
     """
     Fits a hysteresis loop with an arctan function to extract several parameters
@@ -1718,10 +1879,6 @@ def arctan_hyseval(
                 Rectangularity of the hysteresis loop.
             - drectangularity : float
                 Uncertainty of the rectangularity of the hysteresis loop.
-            - x_unit : str or None
-                Unit of xdata.
-            - y_unit : str or None
-                Unit of ydata.
 
     Raises
     ------
@@ -1733,7 +1890,7 @@ def arctan_hyseval(
     --------
     >>> tan_hyseval([1, 2, 3, 4, 5], [2, 3, 4, 5, 6])
     ({'xdata': ..., 'ydata': ..., 'xdata_err': ..., 'ydata_err': ...},
-     {'r_squared': ..., 'HEB': ..., 'dHEB': ..., 'HC': ..., 'dHC': ..., 'MR': ..., 'dMR': ..., 'MHEB': ..., 'dMHEB': ..., 'integral': ..., 'dintegral': ..., 'saturation_fields': ..., 'dsaturation_fields': ..., 'slope_atHC': ..., 'dslope_atHC': ..., 'slope_atHEB': ..., 'dslope_atHEB': ..., 'alpha': ..., 'dalpha': ..., 'rectangularity': ..., 'drectangularity': ..., 'x_unit': ..., 'y_unit': ...})
+     {'r_squared': ..., 'HEB': ..., 'dHEB': ..., 'HC': ..., 'dHC': ..., 'MR': ..., 'dMR': ..., 'MHEB': ..., 'dMHEB': ..., 'integral': ..., 'dintegral': ..., 'saturation_fields': ..., 'dsaturation_fields': ..., 'slope_atHC': ..., 'dslope_atHC': ..., 'slope_atHEB': ..., 'dslope_atHEB': ..., 'alpha': ..., 'dalpha': ..., 'rectangularity': ..., 'drectangularity': ...})
     """
     
     # Check if the length of xdata is odd, i.e.the center point contributes to both branches.
@@ -1747,12 +1904,10 @@ def arctan_hyseval(
     if len(xdata) != len(ydata):
         raise ValueError('xdata and ydata must have the same length')
     
-    # Check if xdata and ydata are pd.Series and if they have units, extract the units for later use
+    # Check if xdata and ydata are pd.Series
     if isinstance(xdata, pd.Series):
-        x_unit = xdata.attrs.get("unit") if hasattr(xdata, 'unit') else None
         xdata = xdata.to_numpy()
     if isinstance(ydata, pd.Series):
-        y_unit = ydata.attrs.get("unit") if hasattr(ydata, 'unit') else None
         ydata = ydata.to_numpy()
     
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
@@ -1787,7 +1942,7 @@ def arctan_hyseval(
     params.add('b_1', value=(np.max(ydata) - np.min(ydata))/2) # amplitude
     params.add('c_1', value=slope / params['b_1'].value, min=0) # steepness
     params.add('d_1', value=HEB_tmp, min=np.min(xdata), max=np.max(xdata)) # exchange bias field
-    params.add('e_1', value=HC_tmp, min=0, max=(np.max(xdata) - np.min(xdata)) / 2) # coercive field
+    params.add('e_1', value=HC_tmp, min=-(np.max(xdata) - np.min(xdata)), max=(np.max(xdata) - np.min(xdata))) # coercive field
 
     # Vary the parameters depending on additional input (normally not necessary)
     if param_estimates:
@@ -1807,15 +1962,11 @@ def arctan_hyseval(
     ydata_fitted = result.best_fit
     #convert to pd.Series for consistency
     ydata_fitted = pd.Series(ydata_fitted)
-    if y_unit:
-        ydata_fitted.unit = y_unit
 
     # calculate the 3 sigma uncertainty of the fit
     ydata_fitted_err = result.eval_uncertainty(sigma=3)
     # convert to pd.Series for consistency
     ydata_fitted_err = pd.Series(ydata_fitted_err)
-    if y_unit:
-        ydata_fitted_err.unit = y_unit
 
     # create a copy of the averaged xdata (branch 1 and 2) with which the results are
     # displayed. Only important for plotting the area of the hysteresis loop. As long as
@@ -1826,8 +1977,6 @@ def arctan_hyseval(
     Xdata2 = xdata[mid_index:]
     xdata_fitted = np.mean([Xdata2[::-1], Xdata1], axis=0)
     xdata_fitted = pd.Series([*xdata_fitted, *xdata_fitted[::-1]])
-    if x_unit:
-        xdata_fitted.unit = x_unit
 
     #xdata uncertainty = half step size
     #TODO: For Kerr and VSM the step size may change, so this should be calculated from the data
@@ -1836,8 +1985,6 @@ def arctan_hyseval(
     half_step_size = np.mean(np.abs(np.diff(xdata_fitted))) / 2
     #convert to pd.Series for consistency
     xdata_fitted_err = pd.Series([half_step_size] * len(xdata_fitted))
-    if x_unit:
-        xdata_fitted_err.unit = x_unit
 
     fitted_data = {
         'xdata': xdata_fitted, 
@@ -1845,49 +1992,6 @@ def arctan_hyseval(
         'xdata_err': xdata_fitted_err,
         'ydata_err': ydata_fitted_err,
     }
-
-    # params = {
-    #     'r_squared': result.rsquared,
-    #     'HEB': HEB, 
-    #     'dHEB': dHEB,
-    #     'HC': HC, 
-    #     'dHC': dHC,
-    #     'MS': MS,
-    #     'dMS': dMS,
-    #     'MR': MR,
-    #     'dMR': dMR,
-    #     'MHEB': MHEB,
-    #     'dMHEB': dMHEB,
-    #     'integral': integral,
-    #     'dintegral': integral_err,
-    #     'saturation_fields': saturation_fields,
-    #     'dsaturation_fields': dsaturation_fields,
-
-    #     'slope_atHC': slope_atHC,
-    #     'dslope_atHC': dslope_atHC,
-    #     'slope_atHEB': slope_atHEB,
-    #     'dslope_atHEB': dslope_atHEB,
-    #     'alpha': alpha,
-    #     'dalpha': dalpha,
-    #     'rectangularity': rectangularity,
-    #     'drectangularity': drectangularity,
-
-    #     'x_unit': None,
-    #     'y_unit': None,
-
-    #     # fit parameters
-    #     'a': result.params['a'].value,
-    #     'da': safe_stderr(result.params['a'].stderr),
-    #     'b': result.params['b'].value,
-    #     'db': safe_stderr(result.params['b'].stderr),
-    #     'c': result.params['c'].value,
-    #     'dc': safe_stderr(result.params['c'].stderr),
-    #     'd': result.params['d'].value,
-    #     'dd': safe_stderr(result.params['d'].stderr),
-    #     'e': result.params['e'].value,
-    #     'de': safe_stderr(result.params['e'].stderr),
-
-    #     }
     
     params = arctan_hyseval_params(result, xdata, ydata, sat_cond)
     
@@ -1899,9 +2003,9 @@ def double_arctan_hyseval(
     sat_cond: float = 0.95,
     sat_region: float = 0.95,
     use_offset: bool = True,
-    param_estimates: dict = None,
-    param_bounds: dict = None,
-    param_fixed: dict = None,
+    param_estimates: dict = None, # type: ignore
+    param_bounds: dict = None, # type: ignore
+    param_fixed: dict = None, # type: ignore
     method: str = 'leastsq',):
     """
     Fits a hysteresis loop with a double tanh function to extract several parameters
@@ -2061,20 +2165,6 @@ def double_arctan_hyseval(
                 Rectangularity of the hysteresis loop for the second branch.
             - drectangularity2 : float
                 Uncertainty of the rectangularity of the hysteresis loop for the second branch.
-            # - ratio : dict #TODO: Implement ratio calculation
-            #     Dictionary containing:
-            #     - HEB1/HEB2 : float
-            #         Ratio of exchange bias fields.
-            #     - HC1/HC2 : float
-            #         Ratio of coercive fields.
-            #     - A1/A2 : float
-            #         Ratio of amplitudes.
-            #     - area1/area2 : float
-            #         Ratio of areas.
-            - x_unit : str or None
-                Unit of xdata.
-            - y_unit : str or None
-                Unit of ydata.
 
     Raises
     ------
@@ -2089,14 +2179,12 @@ def double_arctan_hyseval(
         xdata = np.insert(xdata, center_index, xdata[center_index])
         ydata = np.insert(ydata, center_index, ydata[center_index])
             
-    if hasattr(xdata, 'unit'):
-        x_unit = xdata.unit
-    else:
-        x_unit = None
-    if hasattr(ydata, 'unit'):
-        y_unit = ydata.unit
-    else:
-        y_unit = None
+    # Check if xdata and ydata are pd.Series
+    if isinstance(xdata, pd.Series):
+        xdata = xdata.to_numpy()
+    if isinstance(ydata, pd.Series):
+        ydata = ydata.to_numpy()
+    
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
     LIN = lin_hyseval(xdata, ydata, sat_region=sat_region, use_offset=use_offset)
     HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
@@ -2110,12 +2198,12 @@ def double_arctan_hyseval(
     params.add('b_1', value=(np.max(ydata) - np.min(ydata))/4) # amplitude, a quarter of the spread of the hysteresis, assuming that the two loops are of similar size
     params.add('c_1', value=5.0) # steepness
     params.add('d_1', value=HEB_tmp - 0.2 * np.abs(np.min(xdata)), min=np.min(xdata), max=np.max(xdata)) # lower exchange bias field
-    params.add('e_1', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
+    params.add('e_1', value=HC_tmp, min=-(np.max(xdata) - np.min(xdata)), max=np.max(xdata) - np.min(xdata)) # coercive field
     params.add('b_2', value=(np.max(ydata) - np.min(ydata))/4) # amplitude, a quarter of the spread of the hysteresis
     params.add('c_2', value=5.0) # steepness
     # d_2 has to be larger or equal to d
     params.add('d_2', value=HEB_tmp + 0.2 * np.abs(np.max(xdata)), min=np.min(xdata), max=np.max(xdata)) # upper exchange bias field
-    params.add('e_2', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
+    params.add('e_2', value=HC_tmp, min=-(np.max(xdata) - np.min(xdata)), max=np.max(xdata) - np.min(xdata)) # coercive field
 
     # Vary the parameters depending on additional input (normally not necessary)
     if param_estimates:
@@ -2135,15 +2223,11 @@ def double_arctan_hyseval(
     ydata_fitted = result.best_fit
     #convert to pd.Series for consistency
     ydata_fitted = pd.Series(ydata_fitted)
-    if y_unit:
-        ydata_fitted.unit = y_unit
 
     # calculate the 3 sigma uncertainty of the fit
     ydata_fitted_err = result.eval_uncertainty(sigma=3)
     # convert to pd.Series for consistency
     ydata_fitted_err = pd.Series(ydata_fitted_err)
-    if y_unit:
-        ydata_fitted_err.unit = y_unit
 
     # create a copy of the averaged xdata (branch 1 and 2) with which the results are
     # displayed
@@ -2153,15 +2237,11 @@ def double_arctan_hyseval(
     Xdata2 = xdata[mid_index:]
     xdata_fitted = np.mean([Xdata2[::-1], Xdata1], axis=0)
     xdata_fitted = pd.Series([*xdata_fitted, *xdata_fitted[::-1]])
-    if x_unit:
-        xdata_fitted.unit = x_unit
 
     #xdata uncertainty = half step size
     half_step_size = np.mean(np.abs(np.diff(xdata_fitted))) / 2
     #convert to pd.Series for consistency
     xdata_fitted_err = pd.Series([half_step_size] * len(xdata_fitted))
-    if x_unit:
-        xdata_fitted_err.unit = x_unit
 
     fitted_data = {
         'xdata': xdata_fitted, 
@@ -2185,10 +2265,10 @@ def mult_arctan_hyseval(
     sat_region: float = 0.95,
     use_offset: bool = True,
     n_arctan: int = 3, # for n = 1 or 2 the previous functions make more sense
-    arctan_types: list = None,
-    param_estimates: dict = None,
-    param_bounds: dict = None,
-    param_fixed: dict = None,
+    arctan_types: list = None, # type: ignore
+    param_estimates: dict = None, # type: ignore
+    param_bounds: dict = None, # type: ignore
+    param_fixed: dict = None, # type: ignore
     method: str = 'leastsq',):
 
     """
@@ -2267,14 +2347,12 @@ def mult_arctan_hyseval(
         xdata = np.insert(xdata, center_index, xdata[center_index])
         ydata = np.insert(ydata, center_index, ydata[center_index])
             
-    if hasattr(xdata, 'unit'):
-        x_unit = xdata.unit
-    else:
-        x_unit = None
-    if hasattr(ydata, 'unit'):
-        y_unit = ydata.unit
-    else:
-        y_unit = None
+    # Check if xdata and ydata are pd.Series
+    if isinstance(xdata, pd.Series):
+        xdata = xdata.to_numpy()
+    if isinstance(ydata, pd.Series):
+        ydata = ydata.to_numpy()
+
     # quick linear calculation to determine initial guesses for the exchange bias and the coercive field strength
     LIN = lin_hyseval(xdata, ydata, sat_region=sat_region, use_offset=use_offset)
     HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
@@ -2287,7 +2365,7 @@ def mult_arctan_hyseval(
             params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_arctan)) # amplitude, equal portion of the hyst's mag
             params.add(f'c_{n}', value=5.0, min=0) # steepness
             params.add(f'd_{n}', value=HEB_tmp + 0.02 * np.abs(np.min(xdata)) * n, min=np.min(xdata), max=np.max(xdata)) # lower exchange bias field
-            params.add(f'e_{n}', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
+            params.add(f'e_{n}', value=HC_tmp, min=-(np.max(xdata) - np.min(xdata)), max=np.max(xdata) - np.min(xdata)) # coercive field
 
     elif isinstance(arctan_types, list):
         # check if all entries are supported:
@@ -2304,7 +2382,7 @@ def mult_arctan_hyseval(
             params.add(f'b_{n}', value=(np.max(ydata) - np.min(ydata))/(2*n_arctan)) # amplitude, equal portion of the hyst's mag
             params.add(f'c_{n}', value=5.0) # steepness
             params.add(f'd_{n}', value=HEB_tmp + 0.02 * np.abs(np.min(xdata)) * n, min=np.min(xdata), max=np.max(xdata)) # lower exchange bias field
-            params.add(f'e_{n}', value=HC_tmp, min=0, max=np.max(xdata) - np.min(xdata)) # coercive field
+            params.add(f'e_{n}', value=HC_tmp, min=-(np.max(xdata) - np.min(xdata)), max=np.max(xdata) - np.min(xdata)) # coercive field
 
             # if arctan_types = 'fm' change HEB (d_n) to 0 and put vary=False
             # Same for HEB (d_n) AND HC (e_n) if it is 'sp'
@@ -2338,15 +2416,11 @@ def mult_arctan_hyseval(
     ydata_fitted = result.best_fit
     #convert to pd.Series for consistency
     ydata_fitted = pd.Series(ydata_fitted)
-    if y_unit:
-        ydata_fitted.unit = y_unit
 
     # calculate the 3 sigma uncertainty of the fit
     ydata_fitted_err = result.eval_uncertainty(sigma=3)
     # convert to pd.Series for consistency
     ydata_fitted_err = pd.Series(ydata_fitted_err)
-    if y_unit:
-        ydata_fitted_err.unit = y_unit
 
     # create a copy of the averaged xdata (branch 1 and 2) with which the results are
     # displayed
@@ -2356,15 +2430,11 @@ def mult_arctan_hyseval(
     Xdata2 = xdata[mid_index:]
     xdata_fitted = np.mean([Xdata2[::-1], Xdata1], axis=0)
     xdata_fitted = pd.Series([*xdata_fitted, *xdata_fitted[::-1]])
-    if x_unit:
-        xdata_fitted.unit = x_unit
 
     #xdata uncertainty = half step size
     half_step_size = np.mean(np.abs(np.diff(xdata_fitted))) / 2
     #convert to pd.Series for consistency
     xdata_fitted_err = pd.Series([half_step_size] * len(xdata_fitted))
-    if x_unit:
-        xdata_fitted_err.unit = x_unit
 
     fitted_data = {
         'xdata': xdata_fitted, 
@@ -2453,7 +2523,7 @@ def arctan_hyseval_params(result, xdata, ydata, sat_cond=0.95):
         d = result.params[f'd_{i}'].value # exchange bias field
         d_err = safe_stderr(result.params[f'd_{i}'].stderr)
         
-        e = result.params[f'e_{i}'].value # coercive field
+        e = np.abs(result.params[f'e_{i}'].value) # coercive field
         e_err = safe_stderr(result.params[f'e_{i}'].stderr)
         
         # Extract wanted values from the fits optimized params
