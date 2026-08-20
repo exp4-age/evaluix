@@ -150,7 +150,7 @@ class Data:
                 del f['datasets']['dataset_' + str(self.id)]
             # create a new group for the dataset
             grp = f['datasets'].create_group('dataset_' + str(self.id))
-            print(f"Adding dataset with id {self.id} to the HDF5 file.")
+            # print(f"Adding dataset with id {self.id} to the HDF5 file.")
             
             # create the raw_data and metadata groups, which are omnipresent in the dataset
             grp.create_group('raw_data')
@@ -203,7 +203,6 @@ class Data:
                 dataset = Dataset(metadata, raw_data)
                 
                 # Check if the dataset has additional attributes, namely data_pkg_nr
-                print(grp.keys())
                 for key in grp.keys():
                     if "data_pkg" in key:
                         data_pkg = self.hdf5_to_dict(grp[key])
@@ -642,6 +641,8 @@ def get_device_from_filename(filename):
         return 'V-MOKE'
     elif re.search(r'L[-_]MOKE|LMOKE', filename, re.IGNORECASE):
         return 'L-MOKE'
+    elif 'raster' in filename.lower():
+        return 'L-MOKE'
     elif filename.endswith('.nid') or filename.endswith('.gwy'):
         return 'AFM'
     elif filename.endswith('.VSM-Hys-Data'):
@@ -960,7 +961,6 @@ def get_data(file: str, dataformat: str, metadata: dict = {}):
                 "MomentMyRaw [memu]": "MyRaw (memu)",
                 "MomentMx [emu]": "Mx (emu)",
                 "MomentMy [emu]": "My (emu)",
-
             },
             inplace=True,
         )
