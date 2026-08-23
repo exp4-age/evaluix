@@ -65,9 +65,10 @@ if __name__ == '__main__':
         ResultsTable,
     )
     from GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from utils.FileLoader import read_file, Dataset, Data
+    from utils.file_loader import read_file, Dataset, Data
     data = Data()
-    from utils.HysteresisFunctions import *
+    from utils.hysteresis_functions import *
+    from utils.support_functions import *
 else:
     # The config file is also read in the CustomWidgets module so it has to be imported before that
     from .utils.CreateEvaluixConfig import create_evaluix_config
@@ -94,9 +95,10 @@ else:
         ResultsTable,
     )
     from .GUIs.Evaluix2_MainWindowLayout import Ui_MainWindow
-    from .utils.FileLoader import read_file, Dataset, Data
+    from .utils.file_loader import read_file, Dataset, Data
     data = Data()
-    from .utils.EvaluationFunctions import *
+    from .utils.hysteresis_functions import *
+    from .utils.support_functions import *
 
 #paths
 root = pathlib.Path(__file__).resolve().parents[0]
@@ -722,14 +724,14 @@ class MainWindow(QMainWindow):
         self.btn_hys_arctan_fit.buttonClicked.connect(
             lambda: self.safe_execute(
                 lambda: (
-                    self.data_evaluation(tan_hyseval, add_xdata=True),
+                    self.data_evaluation(arctan_hyseval, add_xdata=True),
                     self.check_fit_selection(self.hys_table_data, fit=True),
                     self.hys_btn_update_all.click())
                 )
             )
         self.btn_hys_arctan_fit.infoClicked.connect(
             lambda: self.safe_execute(
-                lambda: self.info_settings(tan_hyseval)
+                lambda: self.info_settings(arctan_hyseval)
                 )
             )
 
@@ -738,14 +740,14 @@ class MainWindow(QMainWindow):
         self.btn_hys_darctan_fit.buttonClicked.connect(
             lambda: self.safe_execute(
                 lambda: (
-                    self.data_evaluation(double_tan_hyseval, add_xdata=True),
+                    self.data_evaluation(double_arctan_hyseval, add_xdata=True),
                     self.check_fit_selection(self.hys_table_data, fit=True),
                     self.hys_btn_update_all.click())
                 )
             )
         self.btn_hys_darctan_fit.infoClicked.connect(
             lambda: self.safe_execute(
-                lambda: self.info_settings(double_tan_hyseval)
+                lambda: self.info_settings(double_arctan_hyseval)
                 )
             )
         
@@ -1401,7 +1403,7 @@ class MainWindow(QMainWindow):
         
     def update_unit(self, new_unit, data, header, table_data, data_xdata):
         # Get the currently selected columns
-        unit_converter(df = data, col = header, conversion_factors=EvaluixConfig['conversion_factors'], target_unit = new_unit)
+        _convert_units(df = data, col = header, conversion_factors=EvaluixConfig['conversion_factors'], target_unit = new_unit)
         
         # Refresh the table data
         self.update_table_data(table_data)

@@ -33,6 +33,7 @@ autodoc_mock_imports = [
     "matplotlib",
     "NSFopen",
     "h5py",
+    "openpyxl",
 ]
 
 templates_path = ["_templates"]

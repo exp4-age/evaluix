@@ -26,6 +26,9 @@ ipykernel = ">= 6.0.3"
 NSFopen = ">= 2.0.0"
 pyqt6 = ">= 6.4.2"
 lmfit = "*"
+openpyxl = "*"
+tqdm = "*"
+scikit-image = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
