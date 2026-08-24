@@ -1,8 +1,8 @@
 evaluix
 =======
 
-.. image:: https://img.shields.io/badge/version-1.0.0-blue
-   :target: https://img.shields.io/badge/version-1.0.0-blue
+.. image:: https://img.shields.io/badge/version-0.9.4.2-blue
+   :target: https://img.shields.io/badge/version-0.9.4.2-blue
 .. image:: https://img.shields.io/badge/License-MIT-blue
    :target: https://github.com/exp4-age/evaluix/blob/main/LICENSE
 
@@ -19,7 +19,7 @@ If you want to help develop and contribute to the package, first clone
 the repository to your PC and install in editable mode (detailed 
 tutorial is about to come)::
 
-    git clone https://github.com/exp4-age/evaluix.git
+    git clone https://github.com/exp4-age/evaluix.git or git clone https://github.com/exp4-age/evaluix.git@branch_name (if you want to clone a specific branch)
     cd evaluix
     pip install -e .
 
@@ -37,6 +37,7 @@ and install evaluix as follows ::
 
     pip install evaluix (answer with y if asked)
 
+Edit: The gui is currently unavailable. 
 Now you can start the software by typing `evaluix` in the anaconda prompt ::
 
     conda activate myevaluix (if not already activated)
@@ -46,7 +47,7 @@ Now you can start the software by typing `evaluix` in the anaconda prompt ::
 Documentation
 -------------
 
-About to come.
+https://evaluix.readthedocs.io/en/core-functionality/index.html
 
 Contributing
 ------------

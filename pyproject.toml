@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "evaluix"
-version = "0.9.1.21"
+version = "0.9.4.2"
 description = "Data Evaluation Software of the (Magnetism) research group of Prof. Ehresmann at University of Kassel"
 license = "MIT"
 authors = ["Arne Jan Vereijken <arne.vereijken@physik.uni-kassel.de>"]
