@@ -1,8 +1,8 @@
 evaluix
 =======
 
-.. image:: https://img.shields.io/badge/version-0.9.4.2-blue
-   :target: https://img.shields.io/badge/version-0.9.4.2-blue
+.. image:: https://img.shields.io/badge/version-0.9.4.3-blue
+   :target: https://img.shields.io/badge/version-0.9.4.3-blue
 .. image:: https://img.shields.io/badge/License-MIT-blue
    :target: https://github.com/exp4-age/evaluix/blob/main/LICENSE
 
