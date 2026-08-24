@@ -2465,7 +2465,7 @@ def double_arctan_hyseval(
 
         # locate each sub-loop's HEB/HC/amplitude/steepness directly from the branch separation,
     # instead of a single shared linear-fit guess offset by a fixed fraction for both sub-loops
-    d_est, e_est, b_est, c_est = _estimate_multi_switching_params(x_data, y_data, n=2, sat_region=sat_region, use_offset=use_offset)
+    d_est, e_est, b_est, c_est = _estimate_multi_hys_params(x_data, y_data, n=2, sat_region=sat_region, use_offset=use_offset)
 
     # Create a model from the function
     model = Model(double_arctan_hys)
@@ -2619,7 +2619,7 @@ def mult_arctan_hyseval(
         If `xdata` or `ydata` is not of a supported type.
     """
     if arctan_types is None:
-            arctan_types = []
+        arctan_types = []
     _check_array_like(xdata, 'xdata')
     _check_array_like(ydata, 'ydata')
     
@@ -2640,18 +2640,19 @@ def mult_arctan_hyseval(
     # HEB_tmp, HC_tmp = LIN['HEB'], LIN['HC']
     # locate each sub-loop's HEB/HC/amplitude/steepness directly from the branch separation,
     # instead of a single shared linear-fit guess offset by a small fixed fraction per sub-loop
-    n_estimates = n_arctan if not arctan_types else len(arctan_types)
-    d_est, e_est, b_est, c_est = _estimate_multi_switching_params(x_data, y_data, n=n_estimates, sat_region=sat_region, use_offset=use_offset)
+    if len(arctan_types) > 0:
+        n_estimates = len(arctan_types)
+    else:
+        n_estimates = n_arctan
+    # n_estimates = n_arctan if not arctan_types else len(arctan_types)
+    d_est, e_est, b_est, c_est = _estimate_multi_hys_params(x_data, y_data, n=n_estimates, sat_region=sat_region, use_offset=use_offset)
 
     # Define the parameters
     params = Parameters()
     params.add('a', value=np.mean(y_data)) # offset, assume mean of the data for better convergence
-    if arctan_types:
+
+    if not arctan_types:
         for n in range(1, n_arctan + 1):
-            # params.add(f'b_{n}', value=(np.max(y_data) - np.min(y_data))/(2*n_arctan)) # amplitude, equal portion of the hyst's mag
-            # params.add(f'c_{n}', value=5.0, min=0) # steepness
-            # params.add(f'd_{n}', value=HEB_tmp + 0.02 * np.abs(np.min(x_data)) * n, min=np.min(x_data), max=np.max(x_data)) # lower exchange bias field
-            # params.add(f'e_{n}', value=HC_tmp, min=-(np.max(x_data) - np.min(x_data)), max=np.max(x_data) - np.min(x_data)) # coercive field
             params.add(f'b_{n}', value=b_est[n - 1]) # amplitude, estimated from this sub-loop's peak height
             params.add(f'c_{n}', value=c_est[n - 1], min=0) # steepness
             params.add(f'd_{n}', value=d_est[n - 1], min=np.min(x_data), max=np.max(x_data)) # exchange bias field
@@ -3130,15 +3131,18 @@ def export_results(params_table: pd.DataFrame, path: str, fitted_curves: dict | 
 
     print(f'Results saved to {path}')
 
-def branch_recognition(xdata: pd.DataFrame, ydata: pd.DataFrame):
+def branch_recognition(xdata: pd.DataFrame | np.ndarray, ydata: pd.DataFrame | np.ndarray):
     """
     This function recognizes which data points belong to the ascending and which to the descending branch of a hysteresis loop.
     Then it will sort the data points accordingly and return the two branches individually.
     The descending branch has a strictly decreasing x-value, while the ascending branch has a strictly increasing x-value.
     """
+
+    x_data = np.asarray(xdata).copy()
+    y_data = np.asarray(ydata).copy()
     
     # Look at the difference in the x-values
-    diff_x = np.diff(xdata)
+    diff_x = np.diff(x_data)
     branch_turning_points = [0]
     
     # Check for 0 values or sign changes
@@ -3148,18 +3152,18 @@ def branch_recognition(xdata: pd.DataFrame, ydata: pd.DataFrame):
             branch_turning_points.append(i)
     
     # Calculate the sum of the diff_x values between the turning points
-    sum_diff_x = [np.sum(diff_x[branch_turning_points[i]:branch_turning_points[i+1]]) for i in range(len(branch_turning_points))]
+    sum_diff_x = [np.sum(diff_x[branch_turning_points[i]:branch_turning_points[i+1]]) for i in range(len(branch_turning_points) - 1)]
     
     # For now, assume there are only two branches. TODO: Implement for more than two branches
     # negative sum_diff_x means descending branch, positive sum_diff_x means ascending branch
     if sum_diff_x[0] < 0:
         # descending branch first
-        xdata_new = [xdata.iloc[branch_turning_points[0]:branch_turning_points[1]+1], xdata.iloc[branch_turning_points[1]:]]
-        ydata_new = [ydata.iloc[branch_turning_points[0]:branch_turning_points[1]+1], ydata.iloc[branch_turning_points[1]:]]
+        xdata_new = [x_data[branch_turning_points[0]:branch_turning_points[1]+1], x_data[branch_turning_points[1]:]]
+        ydata_new = [y_data[branch_turning_points[0]:branch_turning_points[1]+1], y_data[branch_turning_points[1]:]]
     elif sum_diff_x[0] > 0:
         # ascending branch first
-        xdata_new = [xdata.iloc[branch_turning_points[1]:], xdata.iloc[branch_turning_points[0]:branch_turning_points[1]+1]]
-        ydata_new = [ydata.iloc[branch_turning_points[1]:], ydata.iloc[branch_turning_points[0]:branch_turning_points[1]+1]]
+        xdata_new = [x_data[branch_turning_points[1]:], x_data[branch_turning_points[0]:branch_turning_points[1]+1]]
+        ydata_new = [y_data[branch_turning_points[1]:], y_data[branch_turning_points[0]:branch_turning_points[1]+1]]
         
     else:
         raise ValueError("The data does not seem to contain a valid hysteresis loop. Please check the input data.")
@@ -3204,10 +3208,10 @@ def create_uncertainty_polygon(xdata: pd.DataFrame, ydata: pd.DataFrame, xdata_e
     (array([1.1, 2.2, 3.1, 2.9, 1.8, 0.9]), array([4.2, 5.1, 6.2, 5.8, 4.9, 3.8]))
     """
     # Ensure inputs are numpy arrays for easier manipulation
-    xdata = np.array(xdata)
-    ydata = np.array(ydata)
-    xdata_err = np.array(xdata_err)
-    ydata_err = np.array(ydata_err)
+    xdata = np.asarray(xdata)
+    ydata = np.asarray(ydata)
+    xdata_err = np.asarray(xdata_err)
+    ydata_err = np.asarray(ydata_err)
 
     # Calculate the upper and lower bounds for x and y
     x_upper = xdata + xdata_err
@@ -3228,6 +3232,8 @@ def plot_loop(
     ydata_err=None,
     xunit=None,
     yunit=None,
+    xlabel=None,
+    ylabel=None,
     ax=None,
     plotstyle='line', #scatter, line or both
     label=None,
@@ -3448,22 +3454,30 @@ def plot_loop(
         raise ValueError("Invalid plotstyle. Use 'line', 'scatter' or 'both' or change color to a cmap.")
 
     # style the plot
-        ax.grid(True, **grid_style)
-        # check if the data crosses the abscissa or ordinate and only plot the corresponding axis if it does
+    ax.grid(True, **grid_style)
+    # check if the data crosses the abscissa or ordinate and only plot the corresponding axis if it does
     if np.any(x < 0) and np.any(x > 0):
         ax.axvline(0, color='k', linestyle='--', zorder=1, alpha=0.9)
     if np.any(y < 0) and np.any(y > 0):
         ax.axhline(0, color='k', linestyle='--', zorder=1, alpha=0.9)
     ax.tick_params(direction='in', top=True, right=True)
-    ax.set_xlabel(f'H [{xunit}]' if xunit is not None else 'H [arb. u.]')
-    ax.set_ylabel(f'M [{yunit}]' if yunit is not None else 'M [arb. u.]')
+    if xlabel is not None:
+        ax.set_xlabel(xlabel)
+    else:
+        ax.set_xlabel(f'H [{xunit}]' if xunit is not None else 'H [arb. u.]')
+    if ylabel is not None:
+        ax.set_ylabel(ylabel)
+    else:
+        ax.set_ylabel(f'M [{yunit}]' if yunit is not None else 'M [arb. u.]')
     if title is not None:
         ax.set_title(title)
 
-        if show_legend:
-            handles, labels = ax.get_legend_handles_labels()
-            if any(lbl and not str(lbl).startswith('_') for lbl in labels):
-                ax.legend(**legend_kwargs)
+    if show_legend:
+        handles, labels = ax.get_legend_handles_labels()
+        if any(lbl and not str(lbl).startswith('_') for lbl in labels):
+            ax.legend(**legend_kwargs)
+        else:
+            warnings.warn("No labeled artists found for legend. Set 'label' in plot_loop() or disable legend with show_legend=False.")
 
     return ax
 

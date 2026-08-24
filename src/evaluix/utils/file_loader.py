@@ -444,7 +444,7 @@ class Dataset:
 ###########################################
 
 # read in data from a file
-def read_file(data: Data, file_or_dir: str, dataformat: str):
+def read_file(file_or_dir: str, dataformat: str, data: Data | None = None):
     log_message('info', f"Reading file or directory {file_or_dir} with data format {dataformat}")
     # Check if file_or_dir is a directory
     if os.path.isdir(file_or_dir):
@@ -459,12 +459,16 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
             file_logger.warning("No file selected")
             return "No file selected"
 
-        if not isinstance(data, Data):
+        if data is None:
+            log_message('info', "User chose to not use a data object and only get the data as returned dataset object.")
+
+        elif not isinstance(data, Data):
             log_message('warning', "No correct data object found. Creating a new one.")
             data = Data()
 
         if format_checker(file_or_dir, dataformat):
-            metadata = get_metadata(file_or_dir, dataformat, data.id)
+            id = data.id if data is not None else 0
+            metadata = get_metadata(file_or_dir, dataformat, id)
             metadata = metadata_checker(metadata)
             raw_data = get_data(file_or_dir, dataformat, metadata)
             
@@ -503,16 +507,17 @@ def read_file(data: Data, file_or_dir: str, dataformat: str):
                 # raw_data[col].unit = unit
 
             raw_data.attrs.update(column_units)
-            
-            data.add_dataset(Dataset(metadata, raw_data))
-            log_message('debug', f"Data successfully read from {file_or_dir}")
+
+            if isinstance(data, Data):
+                data.add_dataset(Dataset(metadata, raw_data))
+                log_message('debug', f"Data successfully read from {file_or_dir}")
         
         elif not format_checker(file_or_dir, dataformat):
             log_message('error', f"The file format of {file_or_dir} does not fit the chosen data format {dataformat}. Please choose a different file or data format.")
             return f"The file format of {file_or_dir} does not fit the chosen data format {dataformat}. Please choose a different file or data format."
 
     # return the dataset object for further direct use
-    return data.get_dataset(data.id - 1)  # return the last added dataset
+    return Dataset(metadata, raw_data) 
 
 def get_line(file, line_number):
     try:
